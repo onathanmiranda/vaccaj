@@ -31,7 +31,16 @@ function reduceSongInfo({ id, title, beginning, recordingIds }) {
     beginning,
     recordings: recordingIds
       .map((id) => getItemById(id, recordings))
-      .map(reduceRecordingInfo),
+      .map(reduceRecordingInfo)
+      .sort((a, b) => {
+        const a_index = voiceTypeOrderById.findIndex(
+          (i) => a.voiceType.id === i
+        );
+        const b_index = voiceTypeOrderById.findIndex(
+          (i) => b.voiceType.id === i
+        );
+        return a_index - b_index;
+      }),
   };
 
   song.speedOptions = song.recordings.reduce((acc, curr) => {

@@ -7,8 +7,8 @@ export default function LessonsList({ lessons }) {
     <section className={styles.wrapper}>
       {lessons.map(({ title, id, songs }) => {
         return (
-          <div key={id}>
-            <h2>{title}</h2>
+          <div className={styles.lesson} key={id}>
+            <h2 className={styles.title}>{title}</h2>
             {songs.map((song) => (
               <SongCard key={song.id} song={song} className={styles.songCard} />
             ))}

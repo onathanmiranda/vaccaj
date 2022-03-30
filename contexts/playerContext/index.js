@@ -75,7 +75,7 @@ export const usePlayerContext = () => {
 
   const load = useCallback((player) => {
     player.load();
-  });
+  }, []);
 
   return { playerContextState, setRecording, play, pause, load };
 };

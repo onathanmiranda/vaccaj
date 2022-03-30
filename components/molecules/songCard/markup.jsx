@@ -11,8 +11,8 @@ export default function Markup({
   return (
     <div className={`${styles.card} ${className}`}>
       <div>
-        <h3 className={styles.partialLyric}>{partialLyric}...</h3>
         <h4 className={styles.title}>{title}</h4>
+        <h3 className={styles.partialLyric}>{partialLyric}...</h3>
       </div>
       <div className={styles.buttons}>
         {recordings.map((recording) => {
@@ -23,7 +23,7 @@ export default function Markup({
               onClick={() => onCLickPlay(recording)}
             >
               {recording.voiceType.title}
-              <MaterialIcon className={styles.icon} icon="play_arrow" />
+              <MaterialIcon className={styles.icon} icon="play_circle_filled" />
             </button>
           );
         })}

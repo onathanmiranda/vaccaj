@@ -14,7 +14,7 @@ export default function Player({ className }) {
     const player = playerRef.current;
     load(player);
     play(player);
-  }, [file]);
+  }, [file, load, play]);
 
   return (
     <>

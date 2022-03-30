@@ -1,8 +1,20 @@
 .wrapper {
-  text-align: center;
+  max-width: 52rem;
+  margin: auto;
+  padding: 2.1rem;
+}
+.lesson {
+  + .lesson {
+    margin-top: 2.1rem;
+  }
 }
 .songCard {
   + .songCard {
-    margin-top: 2.1rem;
+    margin-top: 0.8rem;
   }
+}
+
+.title {
+  color: #777;
+  font-size: 1.6rem;
 }
