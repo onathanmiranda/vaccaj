@@ -1,0 +1,8 @@
+.wrapper {
+  text-align: center;
+}
+.songCard {
+  + .songCard {
+    margin-top: 2.1rem;
+  }
+}

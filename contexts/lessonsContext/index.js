@@ -1,0 +1,86 @@
+import React, { useState, useContext, createContext } from "react";
+
+import {
+  voiceTypes,
+  voiceTypeOrderById,
+  speeds,
+  recordings,
+  songs,
+  skills,
+  lessons,
+} from "./data";
+
+function getItemById(itemId, collection) {
+  return collection.find(({ id }) => id === itemId);
+}
+
+function reduceRecordingInfo({ id, filePath, voiceType, speedId, type }) {
+  return {
+    id,
+    filePath,
+    type,
+    voiceType: getItemById(voiceType, voiceTypes),
+    speed: getItemById(speedId, speeds),
+  };
+}
+
+function reduceSongInfo({ id, title, beginning, recordingIds }) {
+  let song = {
+    id,
+    title,
+    beginning,
+    recordings: recordingIds
+      .map((id) => getItemById(id, recordings))
+      .map(reduceRecordingInfo),
+  };
+
+  song.speedOptions = song.recordings.reduce((acc, curr) => {
+    let nextAcc = [...acc];
+    const { speed } = curr;
+    if (!acc.length) {
+      nextAcc.push(speed);
+      return nextAcc;
+    }
+    if (nextAcc.find(({ id }) => id === speed.id)) {
+      return nextAcc;
+    }
+    nextAcc.push(speed);
+    return nextAcc;
+  }, []);
+
+  return song;
+}
+
+function reduceLessonInfo({ id, title, skillId, songIds }) {
+  return {
+    id,
+    title,
+    skill: getItemById(skillId, skills),
+    songs: songIds.map((id) => getItemById(id, songs)).map(reduceSongInfo),
+  };
+}
+
+const reducedData = lessons.map(reduceLessonInfo);
+
+const LessonsContext = createContext();
+
+export default function LessonsContextProvider({ children }) {
+  const state = useState({
+    speeds,
+    voiceTypeOrderById,
+    voiceTypes,
+    recordings,
+    songs,
+    skills,
+    lessons,
+    reducedData,
+  });
+  return (
+    <LessonsContext.Provider value={state}>{children}</LessonsContext.Provider>
+  );
+}
+
+export const useLessonsContext = () => {
+  const [LessonsContextState] = useContext(LessonsContext);
+  return LessonsContextState;
+};
