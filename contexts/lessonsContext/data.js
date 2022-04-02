@@ -593,132 +593,176 @@ const songs = [
     title: "A Escala (Intervalos de Segunda)",
     beginning: "Manca solecitta",
     recordingIds: [1, 2, 3, 4, 5],
+    lyrics:
+      "Manca sollecita \n più dell´usato, \n ancor che s`agiti \n con lieve fiato, \n face che palpita \n presso al morir.",
   },
   {
     id: 2,
     title: "Intervalos de Terça",
     beginning: "Semplicetta tortorella",
     recordingIds: [6, 7, 8, 9],
+    lyrics:
+      "Semplicetta tortorella, \n che non vede il suo periglio, \n per fuggir dal crudo artiglio \n vola in grembo al cacciator.",
   },
   {
     id: 3,
     title: "Intervalos de Quarta",
     beginning: "Lascia il lido",
     recordingIds: [10, 11],
+    lyrics:
+      "Lascia il lido, e il mare infido \n a solcar torna il nocchiero, \n e pur sa che menzognero \n altre volte l'ingannò.",
   },
   {
     id: 4,
     title: "Intervalos de Quinta",
     beginning: "Avvezzo a vivere",
     recordingIds: [12, 13, 14],
+    lyrics:
+      "Avvezzo a vivere \n senza conforto, \n in mezzo al porto \n pavento il mar.",
   },
   {
     id: 5,
     title: "Intervalos de Sexta",
     beginning: "Bella prova é d'alma forte",
     recordingIds: [15, 16],
+    lyrics:
+      "Bella prova è d'alma forte \n l'esser placida e serena \n nel soffrir l'ingiusta pena \n d'una colpa, che non ha.",
   },
   {
     id: 6,
     title: "Intervalos de Sétima",
     beginning: "Fra l'ombre un lampo solo",
     recordingIds: [17, 18],
+    lyrics:
+      "Fra l'ombre un lampo solo \n basta al nocchier sagace \n che già ritrova il polo, \n che riconosce il mar.",
   },
   {
     id: 7,
     title: "Intervalos de Oitava",
     beginning: "Quell' onda che ruina",
     recordingIds: [19, 20],
+    lyrics:
+      "Quell' onda che ruina, \n balza, si frange e mormora, \n ma limpida si fa.",
   },
   {
     id: 8,
     title: "Semitons",
     beginning: "Delira dubbiosa",
     recordingIds: [21, 22, 23, 24],
+    lyrics:
+      "Delira dubbiosa, \n incerta, vaneggia \n ogni almache ondeggia. \n fra i moti del cor.",
   },
   {
     id: 9,
     title: "Síncope",
     beginning: "Nel contrasto amor accende",
     recordingIds: [25, 26],
+    lyrics:
+      "Nel contrasto amor s'accende: \n con chi cede, o chi s'arrende \n mai sì barbaro non è.",
   },
   {
     id: 10,
     title: "Introdução à Coloratura* (Introduzione alle volate)",
     beginning: "Come il candore",
     recordingIds: [27, 28, 29, 30, 31, 32, 33, 34, 35, 36],
+    lyrics:
+      "Come il candore \n d'intatta neve \n è d'un bel core \n la fedeltà. \n Un' orma sola \n che in sé riceve, \n tutta ne invola \n la sua beltà.",
   },
   {
     id: 11,
     title: "Apogiaturas",
     beginning: "Senza l'amabile",
     recordingIds: [37, 38, 39, 40, 41],
+    lyrics:
+      "Senza l'amabile \n Dio di Citera \n i dì non tornano \n di primavera, \n non spira un zeffiro, \n non spunta un fior.\n L´erbe sul margine \n del fonte amico, \n le piante vedove \n sul colle aprico \n per lui rivestono \n l´antico onor.",
   },
   {
     id: 12,
     title: "Accacciaturas",
     beginning: "Benchè di senso privo",
     recordingIds: [42, 43, 44, 45, 46],
+    lyrics:
+      "Benchè di senso privo, \n fin l`arboscello è grato \n a quell'amico rivo, \n da cui riceve umor. \n per lui di fronde ornato \n bella mercè gli rende, \n dal sol quando difende \n il suo benefattor.",
   },
   {
     id: 13,
     title: "Introdução aos Mordentes",
     beginning: "La gioia verace",
     recordingIds: [47, 48, 49, 50],
+    lyrics:
+      "la gioja verace \n per farsi palese, \n d´un labbro loquace \n bisogno non ha.",
   },
   {
     id: 14,
     title: "Mordentes Variados",
     beginning: "L'augelletto in lacci stretto",
     recordingIds: [51, 52, 53, 54],
+    lyrics:
+      "L´augelletto in lacci stretto \n perchè mai cantar s´ascolta? \n Perchè spera un´ altra volta \n di tornare in libertà.",
   },
   {
     id: 15,
     title: "Introdução aos Grupetos",
     beginning: "Quando accende un nobil petto",
     recordingIds: [55, 56],
+    lyrics:
+      "Quando accende un nobil petto \n è innocente, è puro affetto, \n debolezza amor non è.",
   },
   {
     id: 16,
     title: "Grupetos",
     beginning: "Più non si trovano",
     recordingIds: [57, 58],
+    lyrics:
+      "Più non si trovano \n tra mille amanti \n sol due bell' anime \n che sian costanti, \n e tutti parlano \n di fedeltà.",
   },
   {
     id: 17,
     title: "Introdução aos Trinados* (Introduzione al trillo)",
     beginning: "Se povero il ruscello",
     recordingIds: [59, 60, 61, 62],
+    lyrics:
+      "Se povero il ruscello \n mormora lento e basso; \n un ramoscello, un sasso \n quasi arrestar lo fa.",
   },
   {
     id: 18,
     title: "Coloraturas* (Le volate)",
     beginning: "Siam navi all' onde algenti",
     recordingIds: [63, 64, 65],
+    lyrics:
+      "Siam navi all' onde algenti \n lasciate in abbandono: \n impetuosi venti \n i nostri affetti sono: \n ogni diletto è scoglio: \n tutta la vita è un mar.",
   },
   {
     id: 19,
     title: "Portamento I",
     beginning: "Vorrei spiegar l'affanno",
     recordingIds: [66, 67, 68],
+    lyrics:
+      "Vorrei spiegar l´affanno, \n nasconderlo vorrei; \n e mentre i dubbi miei \n così crescendo vanno, \n tutto spiegar non oso, \n tutto non so tacer. \n Sollecito, dubbioso, \n penso, rammento e vedo; \n e agli occhi miei non credo, \n non credo al mio pensier.",
   },
   {
     id: 20,
     title: "Portamento II",
     beginning: "O placido il mare",
     recordingIds: [69, 70, 71],
+    lyrics:
+      "O placido il mare \n lusinghi la sponda, \n o porti con l´onda \n terrore e spavento, \n è colpa del vento, \n sua colpa non è.",
   },
   {
     id: 21,
     title: "Recitativo",
     beginning: "La patria è un tutto",
     recordingIds: [72, 73, 74],
+    lyrics:
+      "La patria è un tutto \n di cui siam parti \n al cittadino è fallo \n considerar sè stesso \n separato da lei. \n L´utile, o il danno, \n ch'ei conoscer dee solo \n è ciò che giova \n o nuoce alla sua patria, \n a cui di tutto è debitor. \n Quando i sudori, \n e il sangue sparge per lei, \n nulla del proprio ei dona: \n rende sol ciò che n'ebbe. \n Essa il produsse, \n l'educò, lo nudrì. \n Con le sue leggi \n dagl'insulti domestici il difende, \n dagli esterni con l'armi. \n Ella gli presta nome, \n grado, ed onor; \n ne premia il merto; \n ne vendica le offese, \n e madre amante \n a fabbricar s'affanna \n la sua felicità, \n per quanto lice \n al destin de' mortali \n esser felice.",
   },
   {
     id: 22,
     title: "Recapitulação",
     beginning: "Alla stagion de' fiori",
     recordingIds: [75, 76, 77, 78],
+    lyrics:
+      "Alla stagion de' fiori \n e de' novelli amori \n è grato il molle fiato \n d'un zeffiro legger. \n O gema fra le fronde \n o lento increspi l'onde: \n zeffiro in ogni lato \n compagno è del piacer.",
   },
 ];
 

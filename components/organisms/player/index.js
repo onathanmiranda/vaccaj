@@ -4,10 +4,14 @@ import { usePlayerContext } from "../../../contexts/playerContext";
 import Markup from "./markup";
 
 export default function Player({ className }) {
-  const { playerContextState, play, pause, load } = usePlayerContext();
+  const { playerContextState, play, load, clearPlayer } = usePlayerContext();
   const { file } = playerContextState;
 
   const playerRef = useRef();
+
+  const onCancel = () => {
+    clearPlayer();
+  };
 
   useEffect(() => {
     if (!file) return;
@@ -24,6 +28,7 @@ export default function Player({ className }) {
           ref={playerRef}
           src={file.filePath}
           type={file.type}
+          onCancel={onCancel}
         />
       )}
     </>

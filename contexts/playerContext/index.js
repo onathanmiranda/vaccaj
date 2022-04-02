@@ -1,20 +1,17 @@
-import {
-  useState,
-  useContext,
-  createContext,
-  useCallback,
-  createRef,
-} from "react";
+import { useState, useContext, createContext, useCallback } from "react";
 
 const PlayerContext = createContext();
 
+const initialState = {
+  player: {
+    playing: false,
+  },
+  file: false,
+  song: false,
+};
+
 export default function PlayerContextProvider({ children }) {
-  const state = useState({
-    player: {
-      playing: false,
-    },
-    file: false,
-  });
+  const state = useState(initialState);
 
   return (
     <PlayerContext.Provider value={state}>{children}</PlayerContext.Provider>
@@ -24,24 +21,31 @@ export default function PlayerContextProvider({ children }) {
 export const usePlayerContext = () => {
   const [playerContextState, setPlayerContextState] = useContext(PlayerContext);
 
-  const setRecording = useCallback(
-    ({ type, filePath }) => {
-      if (!type || !filePath) {
-        console.error("setReconding is missing params");
+  const setSong = useCallback(
+    ({ recording, song }) => {
+      if (!recording || !song) {
+        console.error("setRecording is missing params");
         return;
       }
       setPlayerContextState((oldState) => {
         return {
           ...oldState,
           file: {
-            type,
-            filePath,
+            type: recording.type,
+            filePath: recording.filePath,
+          },
+          song: {
+            lyrics: song.lyrics,
           },
         };
       });
     },
     [setPlayerContextState]
   );
+
+  const clearPlayer = useCallback(() => {
+    setPlayerContextState(initialState);
+  }, [setPlayerContextState]);
 
   const play = useCallback(
     (player) => {
@@ -77,5 +81,5 @@ export const usePlayerContext = () => {
     player.load();
   }, []);
 
-  return { playerContextState, setRecording, play, pause, load };
+  return { playerContextState, setSong, play, pause, load, clearPlayer };
 };

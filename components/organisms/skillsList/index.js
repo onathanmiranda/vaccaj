@@ -1,7 +1,7 @@
 import { useLessonsContext } from "../../../contexts/lessonsContext";
 import Markup from "./markup";
 
-export default function LessonsList() {
+export default function SkillsList() {
   const { reducedData } = useLessonsContext();
-  return <Markup lessons={reducedData} />;
+  return <Markup skills={reducedData} />;
 }

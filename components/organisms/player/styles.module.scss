@@ -3,5 +3,19 @@
   background: #666;
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 1.3rem 2.1rem;
+  position: relative;
+  z-index: 1;
+  height: 8rem;
+}
+
+.cancelButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #f2f2f2;
+}
+.icon {
+  font-size: 5.5rem;
 }

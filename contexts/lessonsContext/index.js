@@ -24,11 +24,12 @@ function reduceRecordingInfo({ id, filePath, voiceType, speedId, type }) {
   };
 }
 
-function reduceSongInfo({ id, title, beginning, recordingIds }) {
+function reduceSongInfo({ id, title, beginning, recordingIds, lyrics }) {
   let song = {
     id,
     title,
     beginning,
+    lyrics,
     recordings: recordingIds
       .map((id) => getItemById(id, recordings))
       .map(reduceRecordingInfo)
@@ -64,12 +65,22 @@ function reduceLessonInfo({ id, title, skillId, songIds }) {
   return {
     id,
     title,
-    skill: getItemById(skillId, skills),
+    skillId,
     songs: songIds.map((id) => getItemById(id, songs)).map(reduceSongInfo),
   };
 }
 
-const reducedData = lessons.map(reduceLessonInfo);
+const reducedData = skills.map(({ title, id }) => {
+  return {
+    title,
+    id,
+    lessons: lessons
+      .filter(({ skillId }) => {
+        return skillId === id;
+      })
+      .map(reduceLessonInfo),
+  };
+});
 
 const LessonsContext = createContext();
 

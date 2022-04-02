@@ -3,15 +3,12 @@ import Markup from "./markup";
 import { usePlayerContext } from "../../../contexts/playerContext";
 
 export default function SongCard({ song, className }) {
-  const { beginning, title, recordings, speedOptions } = song;
+  const { beginning, title, recordings } = song;
 
-  const { setRecording } = usePlayerContext();
+  const { setSong } = usePlayerContext();
 
   function onCLickPlay(recording) {
-    setRecording({
-      filePath: recording.filePath,
-      type: recording.type,
-    });
+    setSong({ recording, song });
   }
 
   return (
