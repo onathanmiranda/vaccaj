@@ -1,15 +1,16 @@
 .main {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  max-height: 100vh;
-  height: 100vh;
+  display: block;
+
+  &.guidesShown {
+    height: 100vh;
+    overflow: hidden;
+  }
 }
 .lessons {
-  flex: 1 1 auto;
-  display: flex;
-  overflow: hidden;
+  display: block;
 }
 .player {
-  flex: 1 1 auto;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }

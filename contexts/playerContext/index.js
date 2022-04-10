@@ -27,15 +27,20 @@ export const usePlayerContext = () => {
         console.error("setRecording is missing params");
         return;
       }
+      const { type, filePath, sheets } = recording;
+      const { lyrics, title } = song;
+
       setPlayerContextState((oldState) => {
         return {
           ...oldState,
           file: {
-            type: recording.type,
-            filePath: recording.filePath,
+            type,
+            filePath,
           },
           song: {
-            lyrics: song.lyrics,
+            lyrics,
+            title,
+            sheets,
           },
         };
       });

@@ -3,7 +3,11 @@ import Script from "next/script";
 import "./style/global.scss";
 import "@material/react-material-icon/index.scss";
 
-import { LessonsContextProvider, PlayerContextProvider } from "../contexts";
+import {
+  LessonsContextProvider,
+  PlayerContextProvider,
+  GuidesContextProvider,
+} from "../contexts";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -47,7 +51,9 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <LessonsContextProvider>
         <PlayerContextProvider>
-          <Component {...pageProps} />
+          <GuidesContextProvider>
+            <Component {...pageProps} />
+          </GuidesContextProvider>
         </PlayerContextProvider>
       </LessonsContextProvider>
     </>

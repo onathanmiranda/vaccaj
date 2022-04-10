@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from "react";
+import React, { useState, useContext, createContext, useCallback } from "react";
 
 import {
   voiceTypes,
@@ -8,23 +8,36 @@ import {
   songs,
   skills,
   lessons,
+  sheets,
 } from "./data";
 
 function getItemById(itemId, collection) {
   return collection.find(({ id }) => id === itemId);
 }
 
-function reduceRecordingInfo({ id, filePath, voiceType, speedId, type }) {
+function reduceRecordingInfo(recording, sheetsList) {
+  const { id, filePath, voiceType, speedId, type } = recording;
+  const sheets = sheetsList.find((item) => item.voiceTypes.includes(voiceType));
+
   return {
     id,
     filePath,
     type,
     voiceType: getItemById(voiceType, voiceTypes),
     speed: getItemById(speedId, speeds),
+    sheets,
   };
 }
 
-function reduceSongInfo({ id, title, beginning, recordingIds, lyrics }) {
+function reduceSongInfo({
+  id,
+  title,
+  beginning,
+  recordingIds,
+  lyrics,
+  sheetsList,
+}) {
+  let _sheetsList = sheetsList.map((id) => getItemById(id, sheets));
   let song = {
     id,
     title,
@@ -32,7 +45,7 @@ function reduceSongInfo({ id, title, beginning, recordingIds, lyrics }) {
     lyrics,
     recordings: recordingIds
       .map((id) => getItemById(id, recordings))
-      .map(reduceRecordingInfo)
+      .map((recording) => reduceRecordingInfo(recording, _sheetsList))
       .sort((a, b) => {
         const a_index = voiceTypeOrderById.findIndex(
           (i) => a.voiceType.id === i
@@ -101,6 +114,6 @@ export default function LessonsContextProvider({ children }) {
 }
 
 export const useLessonsContext = () => {
-  const [LessonsContextState] = useContext(LessonsContext);
-  return LessonsContextState;
+  const [lessonsContextState] = useContext(LessonsContext);
+  return lessonsContextState;
 };
