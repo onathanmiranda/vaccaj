@@ -4,7 +4,10 @@
   height: 100%;
   margin: auto;
   padding: 2.1rem 2.1rem 10.1rem;
-  overflow-y: scroll;
+
+  &.pointerEventsDisabled {
+    pointer-events: none;
+  }
 }
 .lesson {
   + .lesson {
