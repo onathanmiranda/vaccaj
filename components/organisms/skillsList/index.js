@@ -1,15 +1,10 @@
-import { useLessonsContext } from "../../../contexts/lessonsContext";
-import { useGuidesContext } from "../../../contexts/guidesContext";
+import { usePlayerContext } from "../../../contexts/playerContext";
+
 import Markup from "./markup";
 
-export default function SkillsList() {
-  const { reducedData } = useLessonsContext();
-  const { guidesContextState } = useGuidesContext();
+export default function SkillsList({ skills }) {
+  const { playerContextState } = usePlayerContext();
+  const { showGuides } = playerContextState;
 
-  return (
-    <Markup
-      skills={reducedData}
-      disablePointerEvents={guidesContextState.shown}
-    />
-  );
+  return <Markup skills={skills} disablePointerEvents={showGuides} />;
 }

@@ -585,6 +585,27 @@ const recordings = [
     voiceType: 6,
     speedId: 1,
   },
+  {
+    id: 79,
+    type: "audio/mpeg",
+    filePath: "recordings/warm_up_01.mp3",
+    voiceType: null,
+    speedId: 1,
+  },
+  {
+    id: 80,
+    type: "audio/mpeg",
+    filePath: "recordings/warm_up_02.mp3",
+    voiceType: null,
+    speedId: 1,
+  },
+  {
+    id: 81,
+    type: "audio/mpeg",
+    filePath: "recordings/warm_up_03.mp3",
+    voiceType: null,
+    speedId: 1,
+  },
 ];
 
 const sheets = [
@@ -1094,12 +1115,39 @@ const songs = [
     lyrics:
       "Alla stagion de' fiori \n e de' novelli amori \n è grato il molle fiato \n d'un zeffiro legger. \n O gema fra le fronde \n o lento increspi l'onde: \n zeffiro in ogni lato \n compagno è del piacer.",
   },
+  {
+    id: 23,
+    title: "Hi Hi Hi",
+    beginning: "Hi Hi Hi",
+    recordingIds: [79],
+    sheetsList: [],
+    lyrics: null,
+  },
+  {
+    id: 24,
+    title: "Sopranos, Mezzos e Contraltos III; Tenores, Barítonos e Baixos OOO",
+    beginning: "OOO / III",
+    recordingIds: [80],
+    sheetsList: [],
+    lyrics: null,
+  },
+  {
+    id: 25,
+    title:
+      "Sopranos, Mezzos e Contraltos AAOO; Tenores, Barítonos e Baixos IIOO",
+    beginning: "AAOO / IIOO",
+    recordingIds: [81],
+    sheetsList: [],
+    lyrics: null,
+  },
 ];
 
 const skills = [
   { id: 1, title: "Intervalos" },
   { id: 2, title: "Ornamentos" },
   { id: 3, title: "Recitativos e Arias" },
+  { id: 4, title: "Diafragma / Respiração" },
+  { id: 5, title: "Vocalizes Voz de Cabeça" },
 ];
 
 const lessons = [
@@ -1193,6 +1241,31 @@ const lessons = [
     skillId: 3,
     songIds: [22],
   },
+  {
+    id: 16,
+    title: "Para doer o diafragma",
+    skillId: 4,
+    songIds: [23],
+  },
+  {
+    id: 17,
+    title: "Cuidado com a cabeça",
+    skillId: 5,
+    songIds: [24, 25],
+  },
+];
+
+const modules = [
+  {
+    id: 1,
+    title: "Aquecimentos",
+    lessonsIds: [16, 17],
+  },
+  {
+    id: 2,
+    title: "Vaccaj",
+    lessonsIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+  },
 ];
 
 export {
@@ -1204,4 +1277,5 @@ export {
   skills,
   lessons,
   sheets,
+  modules,
 };

@@ -12,7 +12,9 @@ export default function Markup({
     <div className={`${styles.card} ${className}`}>
       <div>
         <h4 className={styles.title}>{title}</h4>
-        <h3 className={styles.partialLyric}>{partialLyric}...</h3>
+        {partialLyric && (
+          <h3 className={styles.partialLyric}>{partialLyric}...</h3>
+        )}
       </div>
       <div className={styles.buttons}>
         {recordings.map((recording) => {
@@ -22,7 +24,7 @@ export default function Markup({
               key={recording.id}
               onClick={() => onCLickPlay(recording)}
             >
-              {recording.voiceType.title}
+              {recording.voiceType?.title || "Tocar"}
               <MaterialIcon className={styles.icon} icon="play_circle_filled" />
             </button>
           );

@@ -1,21 +1,23 @@
-import SkillsList from "../components/organisms/skillsList";
-import Player from "../components/organisms/player";
-import Guides from "../components/organisms/guides";
+import { useRouter } from "next/router";
+import { useEffect, useCallback } from "react";
 
-import styles from "./style/index.module.scss";
+import Menu from "../components/organisms/menu";
 
 export default function Home() {
+  const router = useRouter();
+
+  const redirectToPage = useCallback((pathName = "/") => {
+    if (typeof pathName !== "string") return;
+    router.push(pathName);
+  }, []);
+
+  useEffect(() => {
+    redirectToPage("/aquecimentos");
+  }, [redirectToPage]);
+
   return (
     <>
-      <main className={styles.main}>
-        <section className={styles.lessons}>
-          <SkillsList />
-          <Guides />
-        </section>
-        <section className={styles.player}>
-          <Player />
-        </section>
-      </main>
+      <Menu />
     </>
   );
 }

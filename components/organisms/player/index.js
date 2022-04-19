@@ -1,20 +1,17 @@
 import { useEffect, useRef, useCallback } from "react";
 import { usePlayerContext } from "../../../contexts/playerContext";
-import { useGuidesContext } from "../../../contexts/guidesContext";
 
 import Markup from "./markup";
 
 export default function Player({ className }) {
   const { playerContextState, play, load, clearPlayer } = usePlayerContext();
-  const { setGuidesVisibility } = useGuidesContext();
   const { file } = playerContextState;
 
   const playerRef = useRef();
 
   const onCancel = useCallback(() => {
     clearPlayer();
-    setGuidesVisibility(false);
-  }, [clearPlayer, setGuidesVisibility]);
+  }, [clearPlayer]);
 
   useEffect(() => {
     if (!file) return;

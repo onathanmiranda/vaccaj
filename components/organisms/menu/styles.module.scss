@@ -1,0 +1,43 @@
+.nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5.5rem;
+  background-color: black;
+}
+
+.list {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.3rem;
+}
+
+.link {
+  border-radius: 9999rem;
+  text-decoration: none;
+  background: #333;
+  color: white;
+  font-size: 1.3rem;
+  display: block;
+  padding: 0.8rem 1.3rem;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:visited {
+    color: white;
+  }
+
+  &:hover {
+    background: #222;
+  }
+
+  &.active {
+    box-shadow: none;
+    background: #ffd700;
+    color: #333;
+    pointer-events: none;
+  }
+}

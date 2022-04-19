@@ -9,6 +9,7 @@ import {
   skills,
   lessons,
   sheets,
+  modules,
 } from "./data";
 
 function getItemById(itemId, collection) {
@@ -83,7 +84,8 @@ function reduceLessonInfo({ id, title, skillId, songIds }) {
   };
 }
 
-const reducedData = skills.map(({ title, id }) => {
+function joinSkillsAndLessons(skill, lessons) {
+  const { title, id } = skill;
   return {
     title,
     id,
@@ -93,7 +95,35 @@ const reducedData = skills.map(({ title, id }) => {
       })
       .map(reduceLessonInfo),
   };
-});
+}
+
+function getSkillsFromLessons(lessons, skills) {
+  const skillsIds = lessons.reduce((acc, curr) => {
+    if (acc.includes(curr.skillId)) return acc;
+    acc.push(curr.skillId);
+    return acc;
+  }, []);
+  return skillsIds.map((id) => getItemById(id, skills));
+}
+
+function reduceModuleInfo({ id, title, lessonsIds }) {
+  const moduleLessons = lessonsIds.map((id) => getItemById(id, lessons));
+  const modulesSkills = getSkillsFromLessons(moduleLessons, skills);
+
+  return {
+    id,
+    title,
+    skills: modulesSkills.map((skill) =>
+      joinSkillsAndLessons(skill, moduleLessons)
+    ),
+  };
+}
+
+function reduceData(entrypoint, entryPointReducer) {
+  return entrypoint.map(entryPointReducer);
+}
+
+const reducedData = reduceData(modules, reduceModuleInfo);
 
 const LessonsContext = createContext();
 
@@ -106,6 +136,7 @@ export default function LessonsContextProvider({ children }) {
     songs,
     skills,
     lessons,
+    modules,
     reducedData,
   });
   return (

@@ -8,6 +8,7 @@ const initialState = {
   },
   file: false,
   song: false,
+  showGuides: false,
 };
 
 export default function PlayerContextProvider({ children }) {
@@ -42,6 +43,20 @@ export const usePlayerContext = () => {
             title,
             sheets,
           },
+          showGuides: Boolean(lyrics || sheets),
+        };
+      });
+    },
+    [setPlayerContextState]
+  );
+
+  const setGuidesVisibility = useCallback(
+    (newGuideState) => {
+      if (typeof newGuideState !== "boolean") return;
+      setPlayerContextState((oldState) => {
+        return {
+          ...oldState,
+          showGuides: newGuideState,
         };
       });
     },
@@ -86,5 +101,13 @@ export const usePlayerContext = () => {
     player.load();
   }, []);
 
-  return { playerContextState, setSong, play, pause, load, clearPlayer };
+  return {
+    playerContextState,
+    setSong,
+    play,
+    pause,
+    load,
+    clearPlayer,
+    setGuidesVisibility,
+  };
 };

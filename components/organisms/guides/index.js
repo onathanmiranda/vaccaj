@@ -1,17 +1,14 @@
-import { useEffect, useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { usePlayerContext } from "../../../contexts/playerContext";
-import { useGuidesContext } from "../../../contexts/guidesContext";
 
 import styles from "./styles.module.scss";
 
 export default function Guides() {
   const [displayOnlyLyrics, setDisplayOnlyLyrics] = useState(false);
 
-  const { playerContextState } = usePlayerContext();
-  const { guidesContextState, setGuidesVisibility } = useGuidesContext();
+  const { playerContextState, setGuidesVisibility } = usePlayerContext();
 
-  const { shown } = guidesContextState;
-  const { song } = playerContextState;
+  const { song, showGuides } = playerContextState;
   const { lyrics, sheets, title } = song;
 
   const onClose = useCallback(() => {
@@ -33,7 +30,7 @@ export default function Guides() {
 
   return (
     <>
-      {shown && (
+      {showGuides && (
         <aside className={styles.wrapper}>
           <header className={styles.header}>
             <button onClick={onToggleLyric} className={styles.button}>

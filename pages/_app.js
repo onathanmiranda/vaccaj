@@ -1,13 +1,22 @@
 import Head from "next/head";
 import Script from "next/script";
+
+import Player from "../components/organisms/player";
+import Menu from "../components/organisms/menu";
+
+import { LessonsContextProvider, PlayerContextProvider } from "../contexts";
+
 import "./style/global.scss";
+import styles from "./style/index.module.scss";
 import "@material/react-material-icon/index.scss";
 
-import {
-  LessonsContextProvider,
-  PlayerContextProvider,
-  GuidesContextProvider,
-} from "../contexts";
+function ContextsWrapper({ children }) {
+  return (
+    <LessonsContextProvider>
+      <PlayerContextProvider>{children}</PlayerContextProvider>
+    </LessonsContextProvider>
+  );
+}
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -38,24 +47,14 @@ function MyApp({ Component, pageProps }) {
           content="Acesse as músicas do método Vaccaj de maneira simplificada."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet"
-        ></link>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
-          rel="stylesheet"
-        />
       </Head>
-      <LessonsContextProvider>
-        <PlayerContextProvider>
-          <GuidesContextProvider>
-            <Component {...pageProps} />
-          </GuidesContextProvider>
-        </PlayerContextProvider>
-      </LessonsContextProvider>
+      <ContextsWrapper>
+        <Menu />
+        <Component {...pageProps} />
+        <section className={styles.player}>
+          <Player />
+        </section>
+      </ContextsWrapper>
     </>
   );
 }
