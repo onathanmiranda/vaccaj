@@ -1,5 +1,7 @@
 import { useState, useCallback } from "react";
+import MaterialIcon from "@material/react-material-icon";
 import { usePlayerContext } from "../../../contexts/playerContext";
+import Toggle from "../../atoms/toggle";
 
 import styles from "./styles.module.scss";
 
@@ -19,13 +21,6 @@ export default function Guides() {
     setDisplayOnlyLyrics((oldState) => !oldState);
   }, [setDisplayOnlyLyrics]);
 
-  const closeButtonText = displayOnlyLyrics
-    ? "fechar a letra"
-    : "fechar a partitura";
-  const toggleButtonText = displayOnlyLyrics
-    ? "mostrar partitura"
-    : "mostrar apenas letra";
-
   const sheetsPages = sheets?.filePaths ? sheets.filePaths : [];
 
   return (
@@ -33,11 +28,16 @@ export default function Guides() {
       {showGuides && (
         <aside className={styles.wrapper}>
           <header className={styles.header}>
-            <button onClick={onToggleLyric} className={styles.button}>
-              {toggleButtonText}
-            </button>
+            <Toggle
+              toggledLabel="letra"
+              unToggledLabel="partitura"
+              onToggle={onToggleLyric}
+              toggled={displayOnlyLyrics}
+            />
+
             <button onClick={onClose} className={styles.button}>
-              {closeButtonText}
+              Fechar partitura
+              <MaterialIcon className={styles.icon} icon="cancel" />
             </button>
           </header>
 
