@@ -1,24 +1,25 @@
+import Options from "../options";
+
 import styles from "./styles.module.scss";
 
-export default function Markup({
-  toggled,
-  onClick,
-  toggledLabel,
-  unToggledLabel,
-}) {
-  const toggledClassName = toggled ? styles.toggled : "";
-
+export default function Markup({ options, onChange, selectedOption, name }) {
   return (
-    <div className={`${styles.wrapper} ${toggledClassName}`}>
-      <span className={`${styles.label} ${styles.unToggledLabel}`}>
-        {unToggledLabel}
-      </span>
-      <button className={`${styles.button}`} onClick={onClick}>
-        <div className={styles.ball} />
-      </button>
-      <span className={`${styles.label} ${styles.toggledLabel}`}>
-        {toggledLabel}
-      </span>
+    <div className={`${styles.wrapper}`}>
+      {options.map(({ id, label }) => {
+        return (
+          <Options
+            key={id}
+            name={name}
+            value={id}
+            onChange={() => {
+              onChange(id);
+            }}
+            label={label}
+            checked={id === selectedOption}
+            className={styles.option}
+          />
+        );
+      })}
     </div>
   );
 }

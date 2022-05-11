@@ -16,7 +16,7 @@ export default function LessonsList({ skills, disablePointerEvents }) {
             {lessons.map(({ title, songs, id }) => {
               return (
                 <div className={styles.lesson} key={id}>
-                  <h3 className={styles.lessonTitle}>{title}</h3>
+                  {title && <h3 className={styles.lessonTitle}>{title}</h3>}
                   {songs.map((song) => (
                     <SongCard
                       key={song.id}

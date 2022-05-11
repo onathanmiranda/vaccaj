@@ -2,21 +2,24 @@ import { useCallback } from "react";
 import Markup from "./markup.jsx";
 
 export default function Toggle({
-  toggledLabel = false,
-  unToggledLabel = false,
-  toggled = false,
+  options = [],
+  selectedOption,
   onToggle = () => {},
+  name = "default_options_name",
 }) {
-  const onClick = useCallback(() => {
-    onToggle(!toggled);
-  }, [toggled]);
+  const onChange = useCallback(
+    (id) => {
+      onToggle(id);
+    },
+    [onToggle]
+  );
 
   return (
     <Markup
-      toggledLabel={toggledLabel}
-      unToggledLabel={unToggledLabel}
-      onClick={onClick}
-      toggled={toggled}
+      options={options}
+      onChange={onChange}
+      selectedOption={selectedOption}
+      name={name}
     />
   );
 }

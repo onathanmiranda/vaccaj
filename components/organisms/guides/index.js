@@ -6,7 +6,14 @@ import Toggle from "../../atoms/toggle";
 import styles from "./styles.module.scss";
 
 export default function Guides() {
-  const [displayOnlyLyrics, setDisplayOnlyLyrics] = useState(false);
+  const guidesOptions = [
+    { id: 1, label: "partitura" },
+    { id: 2, label: "letra" },
+  ];
+
+  const initialGuideOptionId = guidesOptions[0].id;
+
+  const [guideOption, setGuideOption] = useState(initialGuideOptionId);
 
   const { playerContextState, setGuidesVisibility } = usePlayerContext();
 
@@ -17,9 +24,12 @@ export default function Guides() {
     setGuidesVisibility(false);
   }, [setGuidesVisibility]);
 
-  const onToggleLyric = useCallback(() => {
-    setDisplayOnlyLyrics((oldState) => !oldState);
-  }, [setDisplayOnlyLyrics]);
+  const toggleGuideOptionHandler = useCallback(
+    (id) => {
+      setGuideOption(id);
+    },
+    [setGuideOption]
+  );
 
   const sheetsPages = sheets?.filePaths ? sheets.filePaths : [];
 
@@ -29,19 +39,17 @@ export default function Guides() {
         <aside className={styles.wrapper}>
           <header className={styles.header}>
             <Toggle
-              toggledLabel="letra"
-              unToggledLabel="partitura"
-              onToggle={onToggleLyric}
-              toggled={displayOnlyLyrics}
+              options={guidesOptions}
+              onToggle={toggleGuideOptionHandler}
+              selectedOption={guideOption}
+              name="guideOptions"
             />
-
             <button onClick={onClose} className={styles.button}>
-              Fechar partitura
               <MaterialIcon className={styles.icon} icon="cancel" />
             </button>
           </header>
 
-          {displayOnlyLyrics && (
+          {guideOption === 2 && (
             <div className={styles.lyricsWrapper}>
               {lyrics.split("\n").map((line) => (
                 <div key={line}>{line}</div>
@@ -49,7 +57,7 @@ export default function Guides() {
             </div>
           )}
 
-          {!displayOnlyLyrics && (
+          {guideOption === 1 && (
             <div className={styles.sheetsWrapper}>
               {sheetsPages.map((path) => (
                 <img

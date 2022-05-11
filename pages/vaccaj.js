@@ -3,7 +3,7 @@ import { useLessonsContext } from "../contexts/lessonsContext";
 import SkillsList from "../components/organisms/skillsList";
 import Guides from "../components/organisms/guides";
 
-import styles from "./style/index.module.scss";
+import styles from "./index.module.scss";
 
 const pagesConfig = {
   moduleId: 2,

@@ -1,35 +1,45 @@
+@import "../../../theme/";
+
 .wrapper {
   width: 100%;
   max-width: 52rem;
   height: 100%;
   margin: auto;
-  padding: 2.1rem 2.1rem 10.1rem;
+  padding: 2.1rem 1.3rem 23.3rem;
 
   &.pointerEventsDisabled {
     pointer-events: none;
   }
 }
+
 .lesson {
   + .lesson {
     margin-top: 2.1rem;
   }
 }
+
 .songCard {
   + .songCard {
-    margin-top: 0.8rem;
+    margin-top: 0.5rem;
   }
 }
+
 .skill {
   + .skill {
-    margin-top: 3.4rem;
+    margin-top: 5.5rem;
   }
 }
+
 .skillTitle {
-  font-weight: 100;
-  margin: 0;
-}
-.lessonTitle {
-  margin: 2.1rem 0 1.3rem;
-  color: #777;
+  color: color($primary, 100);
+  font-weight: 400;
   font-size: 1.6rem;
+  margin: 0 0 2.1rem 0;
+}
+
+.lessonTitle {
+  margin: 0.5rem 0;
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-transform: none;
 }

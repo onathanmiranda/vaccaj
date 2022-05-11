@@ -1,20 +1,27 @@
+import { useEffect } from "react";
 import Head from "next/head";
 import Script from "next/script";
 
 import Player from "../components/organisms/player";
 import Menu from "../components/organisms/menu";
 
-import { LessonsContextProvider, PlayerContextProvider } from "../contexts";
+import {
+  LessonsContextProvider,
+  PlayerContextProvider,
+  LocalStorageContext,
+} from "../contexts";
 
-import "./style/global.scss";
-import styles from "./style/index.module.scss";
+import "../theme/global.scss";
+import styles from "./index.module.scss";
 import "@material/react-material-icon/index.scss";
 
 function ContextsWrapper({ children }) {
   return (
-    <LessonsContextProvider>
-      <PlayerContextProvider>{children}</PlayerContextProvider>
-    </LessonsContextProvider>
+    <LocalStorageContext>
+      <LessonsContextProvider>
+        <PlayerContextProvider>{children}</PlayerContextProvider>
+      </LessonsContextProvider>
+    </LocalStorageContext>
   );
 }
 
@@ -40,13 +47,13 @@ function MyApp({ Component, pageProps }) {
         </>
       )}
       <Head>
-        <title>Vaccaj - Método Prático</title>
         <meta charset="UTF-8" />
+        <title>Vaccaj - Método Prático</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="description"
           content="Acesse as músicas do método Vaccaj de maneira simplificada."
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <ContextsWrapper>
         <Menu />

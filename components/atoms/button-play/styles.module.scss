@@ -1,0 +1,23 @@
+@import "../../../theme";
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 0;
+  color: color($neutral, 400);
+  cursor: pointer;
+  width: 3.4rem;
+  height: 3.4rem;
+
+  .icon {
+    color: color($primary, 400);
+    font-size: 4rem;
+    transition: color 0.3s;
+
+    &:hover {
+      color: color($primary, 600);
+    }
+  }
+}

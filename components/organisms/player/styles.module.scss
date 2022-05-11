@@ -1,10 +1,46 @@
-.wrapper {
+@import "../../../theme";
+
+.audio {
+  position: absolute;
+  left: -99999px;
+  opacity: 0;
+}
+
+.voicesOptionsWrapper {
+  background: color($primary, 900);
   width: 100%;
-  background: #666;
+  border-top: 0.1rem solid color($primary, 700);
+  overflow-x: scroll;
+
+  .voicesOptions {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.3rem;
+    padding: 0.8rem;
+
+    &::after,
+    &::before {
+      content: "000";
+      opacity: 0;
+      pointer-events: none;
+      margin: auto;
+    }
+
+    .option {
+      flex: 0 0 auto;
+    }
+  }
+}
+
+.player {
+  width: 100%;
+  background: color($primary, 800);
+  border-top: 0.1rem solid color($primary, 700);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1.3rem 2.1rem;
+  padding: 0.5rem 1.3rem;
   position: relative;
   z-index: 1;
   height: 8rem;
@@ -16,6 +52,6 @@
   cursor: pointer;
   color: #f2f2f2;
 }
-.icon {
-  font-size: 5.5rem;
+.playButtonIcon {
+  font-size: 5.5rem !important;
 }

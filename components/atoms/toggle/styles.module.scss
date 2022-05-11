@@ -1,57 +1,21 @@
-$height: 2.1rem;
-$width: 3.4rem;
-$displacement: $width - $height;
+@import "../../../theme";
 
 .wrapper {
   display: flex;
   align-items: center;
-  font-size: 1.4rem;
-  background: #333;
-  padding: 0 1.3rem;
-  border-radius: 999px;
-}
-.button {
-  width: $width;
-  height: $height;
-  border-radius: 999px;
-  border: none;
-  background: #1f1f1f;
-  position: relative;
-  margin: 0 1.3rem;
-  cursor: pointer;
-}
+  padding: 0.8rem 0;
+  height: 100%;
 
-.ball {
-  height: $height;
-  width: $height;
-  border: 0.2rem solid #1f1f1f;
-  border-radius: 50%;
-  background-color: #f2f2f2;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translateX(0);
-  transition: transform 0.3s;
-}
-
-.label {
-  transition: color 0.3s;
-}
-.unToggledLabel {
-  color: #f2f2f2;
-}
-.toggledLabel {
-  color: #666;
-}
-
-.toggled {
-  .ball {
-    transform: translateX($displacement);
+  .option {
+    height: 100%;
   }
-  .unToggledLabel {
-    color: #666;
+
+  .option:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
   }
-  .toggledLabel {
-    color: #f2f2f2;
+  .option:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }

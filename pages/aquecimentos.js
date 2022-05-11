@@ -2,8 +2,7 @@ import { useLessonsContext } from "../contexts/lessonsContext";
 
 import SkillsList from "../components/organisms/skillsList";
 
-import styles from "./style/index.module.scss";
-import Toggle from "../components/atoms/toggle";
+import styles from "./index.module.scss";
 
 const pagesConfig = {
   moduleId: 1,

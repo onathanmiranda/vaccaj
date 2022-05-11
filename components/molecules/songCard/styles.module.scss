@@ -1,21 +1,33 @@
+@use "sass:color";
+@import "../../../theme";
+
 .card {
   font-size: 1.6rem;
-  min-width: 32rem;
   width: 100%;
   max-width: 52rem;
   margin: auto;
   padding: 0.8rem 1.3rem;
-  background-color: #0c0c0c;
+  background-color: color.change(color($neutral, 900), $alpha: 0.4);
   text-align: left;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 0.6rem;
+  border-radius: 0.4rem;
+  border: 0;
+  transition: background-color 0.3s;
+  cursor: pointer;
 
   * {
     margin: 0;
   }
+  &:hover {
+    background-color: color.change(color($neutral, 900), $alpha: 0.5);
+  }
+  &.selected {
+    background-color: color($primary, 800);
+  }
 }
+
 .buttons {
   display: flex;
   flex-direction: column;
@@ -25,49 +37,18 @@
     flex: 0 0 20ch;
   }
 }
-.button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-align: left;
-  border-radius: 3.4rem;
-  padding: 0.5rem 1.3rem;
-  font-weight: 300;
-  font-size: 1.2rem;
-  letter-spacing: inherit;
-  border: 0;
-  background: #22292e;
-  color: #f2f2f2;
-  cursor: pointer;
-  text-transform: lowercase;
-
-  @media screen and (min-width: 1024px) {
-    font-size: 1.4rem;
-  }
-
-  .icon {
-    font-size: 1.6rem;
-    margin-left: 0.5rem;
-  }
-  &:hover {
-    background: rgba(58, 58, 58, 0.5);
-  }
-}
 
 .title {
-  font-size: 1rem;
-  font-weight: 100;
-  color: #ffd700;
-  @media screen and (min-width: 1024px) {
-    font-size: 1.4rem;
-  }
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: color($neutral, 200);
 }
 
 .partialLyric {
-  font-size: 1.4rem;
-  font-weight: 400;
+  font-size: 1.2rem;
+  margin-top: 0.3rem;
   font-style: italic;
-  @media screen and (min-width: 1024px) {
-    font-size: 1.8rem;
-  }
+  font-weight: 100;
+  color: color($primary, 300);
+  text-transform: none;
 }

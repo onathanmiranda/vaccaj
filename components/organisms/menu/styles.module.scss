@@ -1,43 +1,62 @@
+@import "../../../theme";
+
+$linkColor: color($neutral, 300);
+$activeLinkColor: color($primary, 400);
+
 .nav {
   position: fixed;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 5.5rem;
-  background-color: black;
+  height: 3.4rem;
+  border-bottom: 0.1rem solid color($neutral, 900);
+  background: color($neutral, 800);
 }
 
 .list {
   padding: 0;
+  margin: 0;
+  height: 100%;
   list-style-type: none;
   display: flex;
   justify-content: center;
-  gap: 1.3rem;
+  gap: 2.1rem;
 }
 
 .link {
-  border-radius: 9999rem;
   text-decoration: none;
-  background: #333;
-  color: white;
-  font-size: 1.3rem;
-  display: block;
-  padding: 0.8rem 1.3rem;
-  transition: background-color 0.3s, color 0.3s;
+  color: $linkColor;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
 
-  &:visited {
-    color: white;
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0.1rem;
+    background-color: $activeLinkColor;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s;
   }
 
-  &:hover {
-    background: #222;
+  &:visited {
+    color: $linkColor;
   }
 
   &.active {
     box-shadow: none;
-    background: #ffd700;
-    color: #333;
     pointer-events: none;
+    color: $activeLinkColor;
+  }
+  &.active::after {
+    transform: scaleX(1);
   }
 }

@@ -1,3 +1,5 @@
+@import "./index";
+
 * {
   box-sizing: border-box;
 }
@@ -5,8 +7,8 @@
 html {
   font-size: 62.5%;
   font-family: "Helvetica Neue", "Helvetica", "Source Sans Pro", sans-serif;
-  background-color: #242424;
-  color: #f2f2f2;
+  background-color: color($neutral, 800);
+  color: color($neutral, 200);
   letter-spacing: 0.08rem;
   scroll-behavior: smooth;
   text-transform: lowercase;
