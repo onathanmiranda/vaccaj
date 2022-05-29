@@ -15,7 +15,7 @@ export default function SongCard({ song, className }) {
 
   const isCurrentlySelected = useMemo(() => {
     return currentSongId === id;
-  }, [currentSongId]);
+  }, [currentSongId, id]);
 
   const isPlaying = useMemo(() => {
     return isCurrentlySelected && playerContextState.player.playing;
@@ -27,7 +27,7 @@ export default function SongCard({ song, className }) {
         return setSong({ recording, song });
       return clearPlayer();
     },
-    [isCurrentlySelected, isPlaying]
+    [isCurrentlySelected, isPlaying, setSong, clearPlayer, song]
   );
 
   return (

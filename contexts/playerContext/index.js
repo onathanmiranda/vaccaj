@@ -2,6 +2,12 @@ import { useState, useContext, createContext, useCallback } from "react";
 
 import { useLocalStorageContext } from "../localStorageContext";
 
+import { getCookie } from "../../helpers/cookies";
+
+import config from "../../config";
+
+const { cookieConsentKey, cookiesAllowedValue } = config;
+
 const PlayerContext = createContext();
 
 const initialState = {
@@ -53,7 +59,7 @@ export const usePlayerContext = () => {
   const setSong = useCallback(
     ({ recording, song, usePreviousSelectedVoiceType = true }) => {
       if (!recording || !song) {
-        console.error("setRecording is missing params");
+        console.error("setSong is missing params");
         return;
       }
 
@@ -96,7 +102,17 @@ export const usePlayerContext = () => {
         console.error("changeSongRecording is missing params");
         return;
       }
+
       const { song } = playerContextState;
+
+      const cookieConsent = getCookie(cookieConsentKey);
+
+      if (cookieConsent !== cookiesAllowedValue) {
+        return setSong({
+          recording,
+          song,
+        });
+      }
 
       const localStorageData = localStorage.getItem(preferredRecordingsKey);
       const preferredRecordingsMap = localStorageData || new Map();
@@ -105,7 +121,7 @@ export const usePlayerContext = () => {
 
       localStorage.setItem(preferredRecordingsKey, preferredRecordingsMap);
 
-      setSong({
+      return setSong({
         song,
         recording,
         usePreviousSelectedVoiceType: false,
