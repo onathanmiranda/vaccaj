@@ -1,0 +1,10 @@
+@import "../../../theme";
+
+.link {
+  color: color($info, 500);
+  transition: color 0.3s;
+
+  &:visited {
+    color: color($info, 700);
+  }
+}

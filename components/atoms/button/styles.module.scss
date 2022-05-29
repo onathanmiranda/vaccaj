@@ -1,0 +1,33 @@
+@import "../../../theme";
+
+.button {
+  height: 4.2rem;
+  padding: 1.3rem;
+  margin: 0;
+  border: 0;
+  border-radius: 0.4rem;
+  background-color: color($primary, 500);
+  color: color($neutral, 100);
+  text-transform: lowercase;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: color($primary, 700);
+  }
+
+  &.outlined {
+    color: color($primary, 100);
+    background-color: transparent;
+    border: 0.1rem solid color($primary, 500);
+
+    &:hover {
+      background-color: color($primary, 800);
+    }
+  }
+}

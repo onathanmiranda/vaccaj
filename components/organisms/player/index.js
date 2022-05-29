@@ -19,7 +19,7 @@ export default function Player({ className }) {
   const endedHandler = useCallback(() => {
     load(playerRef.current);
     pause(playerRef.current);
-  }, [load]);
+  }, [load, pause]);
 
   const recordingsOptions = useMemo(() => {
     if (!song) return [];
@@ -34,7 +34,7 @@ export default function Player({ className }) {
         name: "voicetype",
         checked: recordingObj.id === recording.id,
       }));
-  }, [song, recording]);
+  }, [song, recording, changeSongRecording]);
 
   useEffect(() => {
     if (!recording) return;

@@ -1,7 +1,10 @@
 import { useState, useCallback } from "react";
+import Image from "next/image";
 import MaterialIcon from "@material/react-material-icon";
-import { usePlayerContext } from "../../../contexts/playerContext";
+
 import Toggle from "../../atoms/toggle";
+
+import { usePlayerContext } from "../../../contexts/playerContext";
 
 import styles from "./styles.module.scss";
 
@@ -60,7 +63,7 @@ export default function Guides() {
           {guideOption === 1 && (
             <div className={styles.sheetsWrapper}>
               {sheetsPages.map((path) => (
-                <img
+                <Image
                   className={styles.sheetsPage}
                   src={path}
                   alt={title}
