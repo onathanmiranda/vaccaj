@@ -8,8 +8,10 @@ const eventsStrings = eventNamesArr.map(
 
 let events = {};
 
-eventsStrings.forEach((event, index) => {
-  events[eventNamesArr[index]] = new Event(event);
-});
+if (typeof window !== "undefined") {
+  eventsStrings.forEach((event, index) => {
+    events[eventNamesArr[index]] = new window.Event(event);
+  });
+}
 
 export default events;
