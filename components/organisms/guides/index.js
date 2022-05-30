@@ -1,5 +1,4 @@
 import { useState, useCallback } from "react";
-import Image from "next/image";
 import MaterialIcon from "@material/react-material-icon";
 
 import Toggle from "../../atoms/toggle";
@@ -63,7 +62,7 @@ export default function Guides() {
           {guideOption === 1 && (
             <div className={styles.sheetsWrapper}>
               {sheetsPages.map((path) => (
-                <Image
+                <img
                   className={styles.sheetsPage}
                   src={path}
                   alt={title}
