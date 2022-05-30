@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 import { getCookie, setCookie } from "../../../helpers/cookies";
 
@@ -22,15 +22,18 @@ export default function CookiesBanner() {
       cookieConsent !== cookiesAllowedValue;
 
     setShowBanner(showBanner);
-  }, []);
+  }, [setShowBanner]);
 
-  const handleAction = (consent) => {
-    const value = consent ? cookiesAllowedValue : cookiesNotAllowedValue;
-    const exp = consent ? 365 : 30;
-    setCookie(cookieConsentKey, value, exp);
-    setShowBanner(false);
-    document.dispatchEvent(events.allowCookies);
-  };
+  const handleAction = useCallback(
+    (consent) => {
+      const value = consent ? cookiesAllowedValue : cookiesNotAllowedValue;
+      const exp = consent ? 365 : 30;
+      setCookie(cookieConsentKey, value, exp);
+      setShowBanner(false);
+      window.document.dispatchEvent(events.allowCookies);
+    },
+    [setShowBanner]
+  );
 
   return <>{showBanner && <Markup onClick={handleAction} />}</>;
 }
