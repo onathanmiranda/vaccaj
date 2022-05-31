@@ -1,0 +1,56 @@
+{
+  "short_name": "Vaccaj",
+  "name": "Vaccaj - Método Prático de Canto",
+  "icons": [
+    {
+      "src": "/images/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "150x150"
+    },
+    {
+      "src": "/images/icon-16.png",
+      "type": "image/png",
+      "sizes": "16x16"
+    },
+    {
+      "src": "/images/icon-32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "/images/icon-180.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "/images/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/aquecimentos",
+  "id": "vaccaj-metodo-pratico-de-canto",
+  "background_color": "#19171c",
+  "theme_color": "#19171c",
+  "display": "fullscreen",
+  "scope": "/",
+  "shortcuts": [],
+  "description": "Estude vocalizes e vaccajs de forma simplificada.",
+  "screenshots": [
+    {
+      "src": "/images/screenshot_1.png",
+      "type": "image/png",
+      "sizes": "2880x1354"
+    },
+    {
+      "src": "/images/screenshot_2.png",
+      "type": "image/png",
+      "sizes": "2880x1362"
+    }
+  ]
+}
