@@ -6,8 +6,6 @@ import { getCookie } from "../../helpers/cookies";
 
 import config from "../../config";
 
-const { cookieConsentKey, cookiesAllowedValue } = config;
-
 const PlayerContext = createContext();
 
 const initialState = {
@@ -105,9 +103,9 @@ export const usePlayerContext = () => {
 
       const { song } = playerContextState;
 
-      const cookieConsent = getCookie(cookieConsentKey);
+      const cookieConsent = getCookie(config.cookieConsentKey);
 
-      if (cookieConsent !== cookiesAllowedValue) {
+      if (cookieConsent !== config.cookiesAllowedValue) {
         return setSong({
           recording,
           song,

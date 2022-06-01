@@ -8,27 +8,26 @@ import events from "../../../events";
 
 import Markup from "./markup";
 
-const { cookieConsentKey, cookiesAllowedValue, cookiesNotAllowedValue } =
-  config;
-
 export default function CookiesBanner() {
   const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
-    const cookieConsent = getCookie(cookieConsentKey);
+    const cookieConsent = getCookie(config.cookieConsentKey);
 
     const showBanner =
-      cookieConsent !== cookiesNotAllowedValue &&
-      cookieConsent !== cookiesAllowedValue;
+      cookieConsent !== config.cookiesNotAllowedValue &&
+      cookieConsent !== config.cookiesAllowedValue;
 
     setShowBanner(showBanner);
   }, [setShowBanner]);
 
   const handleAction = useCallback(
     (consent) => {
-      const value = consent ? cookiesAllowedValue : cookiesNotAllowedValue;
+      const value = consent
+        ? config.cookiesAllowedValue
+        : config.cookiesNotAllowedValue;
       const exp = consent ? 365 : 30;
-      setCookie(cookieConsentKey, value, exp);
+      setCookie(config.cookieConsentKey, value, exp);
       setShowBanner(false);
       window.document.dispatchEvent(events.allowCookies);
     },

@@ -5,6 +5,8 @@ import Player from "../components/organisms/player";
 import Menu from "../components/organisms/menu";
 import CookiesBanner from "../components/organisms/cookies-banner";
 
+import config from "../config";
+
 import {
   LessonsContextProvider,
   PlayerContextProvider,
@@ -83,7 +85,7 @@ function MyApp({ Component, pageProps }) {
       )}
       <Head>
         <meta charset="UTF-8" />
-        <title>Vaccaj - Método Prático de Canto</title>
+        <title>{config.siteTitle}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://vaccaj.vercel.app/" />
         <meta name="theme-color" content="#19171c" />
