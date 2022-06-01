@@ -1,9 +1,10 @@
-import { useEffect, useRef, useCallback, useMemo } from "react";
+import { useEffect, useRef, useCallback, useMemo, useState } from "react";
 import { usePlayerContext } from "../../../contexts/playerContext";
 
 import Markup from "./markup";
 
 export default function Player({ className }) {
+  const [repeatOne, setRepeatOne] = useState(false);
   const { playerContextState, play, load, pause, changeSongRecording } =
     usePlayerContext();
 
@@ -16,10 +17,24 @@ export default function Player({ className }) {
     if (!player.playing) return play(playerRef.current);
   }, [pause, play, player.playing]);
 
-  const endedHandler = useCallback(() => {
+  const onSkipPreviousClick = useCallback(() => {
     load(playerRef.current);
-    pause(playerRef.current);
-  }, [load, pause]);
+    play(playerRef.current);
+  }, [pause, play]);
+
+  const onRepeatOneClick = useCallback(() => {
+    setRepeatOne((prev) => !prev);
+  }, [setRepeatOne]);
+
+  const onTrackEnd = useCallback(() => {
+    if (repeatOne) {
+      load(playerRef.current);
+      play(playerRef.current);
+    } else {
+      load(playerRef.current);
+      pause(playerRef.current);
+    }
+  }, [load, pause, play, repeatOne]);
 
   const recordingsOptions = useMemo(() => {
     if (!song) return [];
@@ -51,10 +66,13 @@ export default function Player({ className }) {
           src={recording.filePath}
           type={recording.type}
           playing={player.playing}
-          onMainButtonClick={onClick}
           recordingsOptions={recordingsOptions}
           recordingId={recording.id}
-          onEnded={endedHandler}
+          repeatOne={repeatOne}
+          onMainButtonClick={onClick}
+          onSkipPreviousClick={onSkipPreviousClick}
+          onRepeatOneClick={onRepeatOneClick}
+          onEnded={onTrackEnd}
         />
       )}
     </>

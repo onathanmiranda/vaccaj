@@ -1,23 +1,33 @@
 @import "../../../theme";
 
+$iconColor: color($primary, 200);
+
 .button {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: transparent;
+  color: $iconColor;
   border: 0;
-  color: color($neutral, 400);
   cursor: pointer;
   width: 3.4rem;
   height: 3.4rem;
 
+  transition: transform 0.3s;
+
+  transform: scale(1);
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
   .icon {
-    color: color($primary, 400);
+    color: $iconColor;
     font-size: 4rem;
     transition: color 0.3s;
 
     &:hover {
-      color: color($primary, 600);
+      color: color($primary, 100);
     }
   }
 }

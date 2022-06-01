@@ -3,11 +3,10 @@ import { useCallback } from "react";
 import Markup from "./markup.jsx";
 
 export default function ButtonPlay({
-  onClick,
-  playing = false,
-  hasPause = false,
-  buttonClassName = "",
+  onClick = false,
+  className = "",
   iconClassName = "",
+  iconName = "play",
 }) {
   const onClickHandler = useCallback(
     (e) => {
@@ -18,11 +17,10 @@ export default function ButtonPlay({
 
   return (
     <Markup
-      buttonClassName={buttonClassName}
+      className={className}
       iconClassName={iconClassName}
-      playing={playing}
+      iconName={iconName}
       onClick={onClickHandler}
-      hasPause={hasPause}
     />
   );
 }

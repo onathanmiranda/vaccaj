@@ -40,18 +40,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 2.1rem;
   padding: 0.5rem 1.3rem;
   position: relative;
   z-index: 1;
   height: 8rem;
 }
-
-.cancelButton {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  color: #f2f2f2;
-}
 .playButtonIcon {
   font-size: 5.5rem !important;
+}
+.hiddenButton {
+  opacity: 0;
+  visibility: hidden;
+}
+.toggleButton {
+  .active {
+    color: color($secondary, 500);
+
+    &:hover {
+      color: color($secondary, 300);
+    }
+  }
 }

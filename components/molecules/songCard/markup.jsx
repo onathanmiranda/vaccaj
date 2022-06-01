@@ -1,4 +1,4 @@
-import ButtonPlay from "../../atoms/button-play";
+import ButtonIcon from "../../atoms/button-icon";
 import styles from "./styles.module.scss";
 
 export default function Markup({
@@ -23,7 +23,9 @@ export default function Markup({
           <p className={styles.partialLyric}>{partialLyric}...</p>
         )}
       </div>
-      <ButtonPlay playing={isPlaying} />
+      <ButtonIcon
+        iconName={isPlaying ? "pause_circle" : "play_circle_filled"}
+      />
     </div>
   );
 }

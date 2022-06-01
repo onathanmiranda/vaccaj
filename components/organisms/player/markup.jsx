@@ -2,7 +2,7 @@
 import { forwardRef } from "react";
 
 import Options from "../../atoms/options";
-import ButtonPlay from "../../atoms/button-play";
+import ButtonIcon from "../../atoms/button-icon";
 
 import styles from "./styles.module.scss";
 
@@ -15,6 +15,9 @@ export default forwardRef((props, ref) => {
     playing,
     recordingsOptions,
     onEnded,
+    onSkipPreviousClick,
+    onRepeatOneClick,
+    repeatOne = false,
   } = props;
 
   return (
@@ -36,11 +39,28 @@ export default forwardRef((props, ref) => {
           </div>
         )}
         <div className={styles.player}>
-          <ButtonPlay
-            playing={playing}
-            hasPause={true}
-            iconClassName={styles.playButtonIcon}
+          <ButtonIcon
+            iconClassName={styles.hiddenButton}
+            iconName={"repeat_one"}
+          />
+          <ButtonIcon
+            onClick={onSkipPreviousClick}
+            iconName={"skip_previous"}
+          />
+          <ButtonIcon
             onClick={onMainButtonClick}
+            iconClassName={styles.playButtonIcon}
+            iconName={playing ? "pause_circle" : "play_circle_filled"}
+          />
+          <ButtonIcon
+            className={styles.hiddenButton}
+            iconName={"skip_previous"}
+          />
+          <ButtonIcon
+            className={styles.toggleButton}
+            iconClassName={repeatOne ? styles.active : ""}
+            iconName={"repeat_one"}
+            onClick={onRepeatOneClick}
           />
         </div>
       </div>
