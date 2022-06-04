@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext, useCallback } from "react";
+import React, { useState, useContext, createContext, useMemo } from "react";
 
 import {
   voiceTypes,
@@ -17,7 +17,9 @@ function getItemById(itemId, collection) {
 }
 
 function reduceRecordingInfo(recording, sheetsList) {
-  const { id, filePath, voiceType, speedId, type } = recording;
+  const { id, filePath, voiceType, speedId, type, accompaniment, vocals } =
+    recording;
+
   const sheets = sheetsList.find((item) => item.voiceTypes.includes(voiceType));
 
   return {
@@ -27,6 +29,8 @@ function reduceRecordingInfo(recording, sheetsList) {
     voiceType: getItemById(voiceType, voiceTypes),
     speed: getItemById(speedId, speeds),
     sheets,
+    accompaniment,
+    vocals,
   };
 }
 
@@ -71,6 +75,35 @@ function reduceSongInfo({
     nextAcc.push(speed);
     return nextAcc;
   }, []);
+
+  song.voiceTypesOptions = song.recordings
+    .map((recording) => recording.voiceType)
+    .map((voiceType) => {
+      if (!voiceType) return null;
+
+      const recordings = song.recordings
+        .filter((recording) => recording.voiceType.id === voiceType.id)
+        .map((recording) => ({
+          ...recording,
+          instrumentsOptionsTitle:
+            recording.accompaniment && recording.vocals
+              ? "Voz"
+              : "Instrumentos",
+        }));
+
+      return {
+        voiceType,
+        recordings,
+      };
+    })
+    .reduce((acc, curr) => {
+      if (!curr) return acc;
+      if (acc.find(({ voiceType }) => voiceType.id === curr.voiceType.id)) {
+        return acc;
+      }
+      acc.push(curr);
+      return acc;
+    }, []);
 
   return song;
 }
@@ -123,11 +156,13 @@ function reduceData(entrypoint, entryPointReducer) {
   return entrypoint.map(entryPointReducer);
 }
 
-const reducedData = reduceData(modules, reduceModuleInfo);
-
 const LessonsContext = createContext();
 
 export default function LessonsContextProvider({ children }) {
+  const reducedData = useMemo(() => {
+    return reduceData(modules, reduceModuleInfo);
+  }, []);
+
   const state = useState({
     speeds,
     voiceTypeOrderById,
@@ -139,6 +174,7 @@ export default function LessonsContextProvider({ children }) {
     modules,
     reducedData,
   });
+
   return (
     <LessonsContext.Provider value={state}>{children}</LessonsContext.Provider>
   );

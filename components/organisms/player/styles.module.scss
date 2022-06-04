@@ -6,17 +6,16 @@
   opacity: 0;
 }
 
-.voicesOptionsWrapper {
+.voiceTypesOptionsWrapper {
   background: color($primary, 900);
   width: 100%;
   border-top: 0.1rem solid color($primary, 700);
   overflow-x: scroll;
 
-  .voicesOptions {
+  .voiceTypesOptions {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 1.3rem;
     padding: 0.8rem;
 
     &::after,
@@ -45,6 +44,10 @@
   position: relative;
   z-index: 1;
   height: 8rem;
+
+  button {
+    flex: 0 0 auto;
+  }
 }
 .playButtonIcon {
   font-size: 5.5rem !important;

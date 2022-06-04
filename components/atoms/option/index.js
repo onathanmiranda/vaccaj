@@ -1,6 +1,6 @@
 import Markup from "./markup";
 
-export default function Options({
+export default function Option({
   name,
   value,
   onChange,

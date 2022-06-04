@@ -1,0 +1,28 @@
+@import "../../../theme";
+
+.wrapper {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 2.1rem;
+  background: color($primary, 700);
+  font-size: 1.2rem;
+  height: 4rem;
+
+  .buttonsWrapper {
+    display: flex;
+    gap: 1.3rem;
+  }
+
+  .logo {
+    display: block;
+    height: 100%;
+  }
+  .cta {
+    height: 3rem;
+  }
+  .closeIcon {
+    font-size: 2.1rem;
+  }
+}

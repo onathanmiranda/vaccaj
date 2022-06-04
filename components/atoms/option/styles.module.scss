@@ -7,15 +7,16 @@
 }
 
 .label {
-  display: flex;
+  display: inline-flex;
   font-size: 1.3rem;
   align-items: center;
   justify-content: center;
   border: 0.1rem solid color($primary, 400);
+  border-right-width: 0;
   background-color: transparent;
   color: color($primary, 400);
   padding: 0.5rem 0.8rem;
-  border-radius: 999px;
+  height: 100%;
   text-align: center;
   cursor: pointer;
   transition: color 0.3s, background-color 0.3s;
@@ -25,5 +26,15 @@
     color: color($neutral, 100);
     cursor: initial;
     pointer-events: none;
+  }
+
+  &:first-child {
+    border-top-left-radius: 999px;
+    border-bottom-left-radius: 999px;
+  }
+  &:last-child {
+    border-top-right-radius: 999px;
+    border-bottom-right-radius: 999px;
+    border-right-width: 0.1rem;
   }
 }

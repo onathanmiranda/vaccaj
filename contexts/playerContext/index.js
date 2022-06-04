@@ -70,7 +70,7 @@ export const usePlayerContext = () => {
 
       const { type, filePath, sheets, id: recordingId } = newRecording;
 
-      const { lyrics, title, id: songId, recordings } = song;
+      const { lyrics, title, id: songId, recordings, voiceTypesOptions } = song;
 
       setPlayerContextState((oldState) => {
         return {
@@ -86,6 +86,7 @@ export const usePlayerContext = () => {
             title,
             sheets,
             recordings,
+            voiceTypesOptions,
           },
           showGuides: Boolean(lyrics || sheets),
         };

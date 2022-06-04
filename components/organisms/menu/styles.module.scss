@@ -12,6 +12,7 @@ $activeLinkColor: color($primary, 400);
   height: 3.4rem;
   border-bottom: 0.1rem solid color($neutral, 900);
   background: color($neutral, 800);
+  transition: top 0.3s;
 }
 
 .list {

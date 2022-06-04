@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import { forwardRef } from "react";
 
-import Options from "../../atoms/options";
+import Option from "../../atoms/option";
 import ButtonIcon from "../../atoms/button-icon";
 
 import styles from "./styles.module.scss";
@@ -13,22 +13,44 @@ export default forwardRef((props, ref) => {
     className,
     onMainButtonClick,
     playing,
-    recordingsOptions,
+    voiceTypesOptions,
+    instrumentsOptions,
     onEnded,
     onSkipPreviousClick,
     onRepeatOneClick,
     repeatOne = false,
   } = props;
 
+  const showVoiceTypeOptions =
+    voiceTypesOptions && voiceTypesOptions.length > 1;
+
+  const showInstrumentsOptions =
+    instrumentsOptions && instrumentsOptions.length > 1;
+
   return (
     <>
       <div className={`${styles.wrapper} ${className}`}>
-        {Boolean(recordingsOptions.length) && (
-          <div className={styles.voicesOptionsWrapper}>
-            <div className={styles.voicesOptions}>
-              {recordingsOptions.map((option) => {
+        {showInstrumentsOptions && (
+          <div className={styles.voiceTypesOptionsWrapper}>
+            <div className={styles.voiceTypesOptions}>
+              {instrumentsOptions.map((option) => {
                 return (
-                  <Options
+                  <Option
+                    className={styles.option}
+                    key={option.value}
+                    {...option}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        )}
+        {showVoiceTypeOptions && (
+          <div className={styles.voiceTypesOptionsWrapper}>
+            <div className={styles.voiceTypesOptions}>
+              {voiceTypesOptions.map((option) => {
+                return (
+                  <Option
                     className={styles.option}
                     key={option.value}
                     {...option}

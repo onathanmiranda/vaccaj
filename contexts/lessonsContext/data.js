@@ -1,5 +1,9 @@
 const voiceTypes = [
   {
+    id: 0,
+    title: "Todxs",
+  },
+  {
     id: 1,
     title: "Baixo",
   },
@@ -25,7 +29,7 @@ const voiceTypes = [
   },
 ];
 
-const voiceTypeOrderById = [6, 5, 4, 3, 2, 1];
+const voiceTypeOrderById = [6, 5, 4, 3, 2, 1, 0];
 
 const speeds = [
   {
@@ -45,6 +49,8 @@ const recordings = [
     filePath: "/recordings/1a_altto.mp3",
     voiceType: 4,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 2,
@@ -52,6 +58,8 @@ const recordings = [
     filePath: "/recordings/1a_baritoni1.mp3",
     voiceType: 2,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 3,
@@ -59,6 +67,8 @@ const recordings = [
     filePath: "/recordings/1a_baritoni2.mp3",
     voiceType: 1,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 4,
@@ -66,6 +76,8 @@ const recordings = [
     filePath: "/recordings/1a_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 5,
@@ -73,6 +85,8 @@ const recordings = [
     filePath: "/recordings/1a_sopraano.mp3",
     voiceType: 6,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 6,
@@ -80,6 +94,8 @@ const recordings = [
     filePath: "/recordings/1b_altto.mp3",
     voiceType: 4,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 7,
@@ -87,6 +103,8 @@ const recordings = [
     filePath: "/recordings/1b_baritoni.mp3",
     voiceType: 2,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 8,
@@ -94,6 +112,8 @@ const recordings = [
     filePath: "/recordings/1b_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 9,
@@ -101,6 +121,8 @@ const recordings = [
     filePath: "/recordings/1b_sopraano.mp3",
     voiceType: 6,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 10,
@@ -108,6 +130,8 @@ const recordings = [
     filePath: "/recordings/2a_baritoni.mp3",
     voiceType: 2,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 11,
@@ -115,6 +139,8 @@ const recordings = [
     filePath: "/recordings/2a_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 12,
@@ -122,6 +148,8 @@ const recordings = [
     filePath: "/recordings/2b_baritoni.mp3",
     voiceType: 2,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 13,
@@ -129,6 +157,8 @@ const recordings = [
     filePath: "/recordings/2b_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 14,
@@ -136,6 +166,8 @@ const recordings = [
     filePath: "/recordings/2b_sopraano.mp3",
     voiceType: 6,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 15,
@@ -143,6 +175,8 @@ const recordings = [
     filePath: "/recordings/3_baritoni.mp3",
     voiceType: 2,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 16,
@@ -150,6 +184,8 @@ const recordings = [
     filePath: "/recordings/3_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 17,
@@ -157,6 +193,8 @@ const recordings = [
     filePath: "/recordings/4a_baritoni.mp3",
     voiceType: 2,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 18,
@@ -164,6 +202,8 @@ const recordings = [
     filePath: "/recordings/4a_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 19,
@@ -171,6 +211,8 @@ const recordings = [
     filePath: "/recordings/4b_baritoni.mp3",
     voiceType: 2,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 20,
@@ -178,6 +220,8 @@ const recordings = [
     filePath: "/recordings/4b_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 21,
@@ -185,6 +229,8 @@ const recordings = [
     filePath: "/recordings/5_altto.mp3",
     voiceType: 4,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 22,
@@ -192,6 +238,8 @@ const recordings = [
     filePath: "/recordings/5_baritoni.mp3",
     voiceType: 2,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 23,
@@ -199,6 +247,8 @@ const recordings = [
     filePath: "/recordings/5_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 24,
@@ -206,6 +256,8 @@ const recordings = [
     filePath: "/recordings/5_sopraano.mp3",
     voiceType: 6,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 25,
@@ -213,6 +265,8 @@ const recordings = [
     filePath: "/recordings/6_baritoni.mp3",
     voiceType: 2,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 26,
@@ -220,6 +274,8 @@ const recordings = [
     filePath: "/recordings/6_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 27,
@@ -227,6 +283,8 @@ const recordings = [
     filePath: "/recordings/7hidas_altto.mp3",
     voiceType: 4,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 28,
@@ -234,6 +292,8 @@ const recordings = [
     filePath: "/recordings/7hidas_baritoni1.mp3",
     voiceType: 2,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 29,
@@ -241,6 +301,8 @@ const recordings = [
     filePath: "/recordings/7hidas_baritoni2.mp3",
     voiceType: 1,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 30,
@@ -248,6 +310,8 @@ const recordings = [
     filePath: "/recordings/7hidas_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 31,
@@ -255,41 +319,53 @@ const recordings = [
     filePath: "/recordings/7hidas_sopraano.mp3",
     voiceType: 6,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 32,
     type: "audio/mpeg",
     filePath: "/recordings/7nopea_altto.mp3",
     voiceType: 4,
-    speedId: 2,
+    speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 33,
     type: "audio/mpeg",
     filePath: "/recordings/7nopea_baritoni1.mp3",
     voiceType: 2,
-    speedId: 2,
+    speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 34,
     type: "audio/mpeg",
     filePath: "/recordings/7nopea_baritoni2.mp3",
     voiceType: 1,
-    speedId: 2,
+    speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 35,
     type: "audio/mpeg",
     filePath: "/recordings/7nopea_mezzo.mp3",
     voiceType: 5,
-    speedId: 2,
+    speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 36,
     type: "audio/mpeg",
     filePath: "/recordings/7nopea_sopraano.mp3",
     voiceType: 6,
-    speedId: 2,
+    speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 37,
@@ -297,6 +373,8 @@ const recordings = [
     filePath: "/recordings/8a_altto.mp3",
     voiceType: 4,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 38,
@@ -304,6 +382,8 @@ const recordings = [
     filePath: "/recordings/8a_baritoni.mp3",
     voiceType: 2,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 39,
@@ -311,6 +391,8 @@ const recordings = [
     filePath: "/recordings/8a_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 40,
@@ -318,6 +400,8 @@ const recordings = [
     filePath: "/recordings/8a_sopraano.mp3",
     voiceType: 6,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 41,
@@ -325,6 +409,8 @@ const recordings = [
     filePath: "/recordings/8a_tenori.mp3",
     voiceType: 3,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 42,
@@ -332,6 +418,8 @@ const recordings = [
     filePath: "/recordings/8b_altto.mp3",
     voiceType: 4,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 43,
@@ -339,6 +427,8 @@ const recordings = [
     filePath: "/recordings/8b_baritoni.mp3",
     voiceType: 2,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 44,
@@ -346,6 +436,8 @@ const recordings = [
     filePath: "/recordings/8b_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 45,
@@ -353,6 +445,8 @@ const recordings = [
     filePath: "/recordings/8b_sopraano.mp3",
     voiceType: 6,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 46,
@@ -360,6 +454,8 @@ const recordings = [
     filePath: "/recordings/8b_tenori.mp3",
     voiceType: 3,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 47,
@@ -367,6 +463,8 @@ const recordings = [
     filePath: "/recordings/9a_altto.mp3",
     voiceType: 4,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 48,
@@ -374,6 +472,8 @@ const recordings = [
     filePath: "/recordings/9a_baritoni.mp3",
     voiceType: 2,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 49,
@@ -381,6 +481,8 @@ const recordings = [
     filePath: "/recordings/9a_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 50,
@@ -388,6 +490,8 @@ const recordings = [
     filePath: "/recordings/9a_sopraano.mp3",
     voiceType: 6,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 51,
@@ -395,6 +499,8 @@ const recordings = [
     filePath: "/recordings/9b_altto.mp3",
     voiceType: 4,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 52,
@@ -402,6 +508,8 @@ const recordings = [
     filePath: "/recordings/9b_baritoni.mp3",
     voiceType: 2,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 53,
@@ -409,6 +517,8 @@ const recordings = [
     filePath: "/recordings/9b_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 54,
@@ -416,6 +526,8 @@ const recordings = [
     filePath: "/recordings/9b_sopraano.mp3",
     voiceType: 6,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 55,
@@ -423,6 +535,8 @@ const recordings = [
     filePath: "/recordings/10a_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 56,
@@ -430,6 +544,8 @@ const recordings = [
     filePath: "/recordings/10a_tenori.mp3",
     voiceType: 3,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 57,
@@ -437,6 +553,8 @@ const recordings = [
     filePath: "/recordings/10b_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 58,
@@ -444,6 +562,8 @@ const recordings = [
     filePath: "/recordings/10b_tenori.mp3",
     voiceType: 3,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 59,
@@ -451,6 +571,8 @@ const recordings = [
     filePath: "/recordings/11_altto.mp3",
     voiceType: 4,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 60,
@@ -458,6 +580,8 @@ const recordings = [
     filePath: "/recordings/11_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 61,
@@ -465,6 +589,8 @@ const recordings = [
     filePath: "/recordings/11_sopraano.mp3",
     voiceType: 6,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 62,
@@ -472,6 +598,8 @@ const recordings = [
     filePath: "/recordings/11_tenori.mp3",
     voiceType: 3,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 63,
@@ -479,6 +607,8 @@ const recordings = [
     filePath: "/recordings/12_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 64,
@@ -486,6 +616,8 @@ const recordings = [
     filePath: "/recordings/12_sopraano.mp3",
     voiceType: 6,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 65,
@@ -493,6 +625,8 @@ const recordings = [
     filePath: "/recordings/12_tenori.mp3",
     voiceType: 3,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 66,
@@ -500,6 +634,8 @@ const recordings = [
     filePath: "/recordings/13a_altto.mp3",
     voiceType: 4,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 67,
@@ -507,6 +643,8 @@ const recordings = [
     filePath: "/recordings/13a_baritoni.mp3",
     voiceType: 2,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 68,
@@ -514,6 +652,8 @@ const recordings = [
     filePath: "/recordings/13a_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 69,
@@ -521,6 +661,8 @@ const recordings = [
     filePath: "/recordings/13b_altto.mp3",
     voiceType: 4,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 70,
@@ -528,6 +670,8 @@ const recordings = [
     filePath: "/recordings/13b_baritoni.mp3",
     voiceType: 2,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 71,
@@ -535,6 +679,8 @@ const recordings = [
     filePath: "/recordings/13b_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 72,
@@ -542,6 +688,8 @@ const recordings = [
     filePath: "/recordings/14_baritoni.mp3",
     voiceType: 2,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 73,
@@ -549,6 +697,8 @@ const recordings = [
     filePath: "/recordings/14_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 74,
@@ -556,6 +706,8 @@ const recordings = [
     filePath: "/recordings/14_sopraano.mp3",
     voiceType: 6,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 75,
@@ -563,6 +715,8 @@ const recordings = [
     filePath: "/recordings/15_altto.mp3",
     voiceType: 4,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 76,
@@ -570,6 +724,8 @@ const recordings = [
     filePath: "/recordings/15_baritoni.mp3",
     voiceType: 2,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 77,
@@ -577,6 +733,8 @@ const recordings = [
     filePath: "/recordings/15_mezzo.mp3",
     voiceType: 5,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 78,
@@ -584,27 +742,80 @@ const recordings = [
     filePath: "/recordings/15_sopraano.mp3",
     voiceType: 6,
     speedId: 1,
+    accompaniment: true,
+    vocals: true,
   },
   {
     id: 79,
     type: "audio/mpeg",
     filePath: "recordings/warm_up_01.mp3",
-    voiceType: null,
+    voiceType: 0,
     speedId: 1,
+    accompaniment: true,
+    vocals: false,
   },
   {
     id: 80,
     type: "audio/mpeg",
     filePath: "recordings/warm_up_02.mp3",
-    voiceType: null,
+    voiceType: 0,
     speedId: 1,
+    accompaniment: true,
+    vocals: false,
   },
   {
     id: 81,
     type: "audio/mpeg",
     filePath: "recordings/warm_up_03.mp3",
-    voiceType: null,
+    voiceType: 0,
     speedId: 1,
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: 82,
+    type: "audio/mpeg",
+    filePath: "/recordings/1a_altto_accompaniment.mp3",
+    voiceType: 4,
+    speedId: 1,
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: 83,
+    type: "audio/mpeg",
+    filePath: "/recordings/1a_baritoni1_accompaniment.mp3",
+    voiceType: 2,
+    speedId: 1,
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: 84,
+    type: "audio/mpeg",
+    filePath: "/recordings/1a_baritoni2_accompaniment.mp3",
+    voiceType: 1,
+    speedId: 1,
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: 85,
+    type: "audio/mpeg",
+    filePath: "/recordings/1a_mezzo_accompaniment.mp3",
+    voiceType: 5,
+    speedId: 1,
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: 86,
+    type: "audio/mpeg",
+    filePath: "/recordings/1a_sopraano_accompaniment.mp3",
+    voiceType: 6,
+    speedId: 1,
+    accompaniment: true,
+    vocals: false,
   },
 ];
 
@@ -921,7 +1132,7 @@ const songs = [
     id: 1,
     title: "A Escala (Intervalos de Segunda)",
     beginning: "Manca solecitta",
-    recordingIds: [1, 2, 3, 4, 5],
+    recordingIds: [1, 2, 3, 4, 5, 82, 83, 84, 85, 86],
     sheetsList: [1, 2, 3],
     lyrics:
       "Manca sollecita \n più dell´usato, \n ancor che s`agiti \n con lieve fiato, \n face che palpita \n presso al morir.",
@@ -1262,7 +1473,7 @@ const modules = [
   },
   {
     id: 2,
-    title: "lição",
+    title: "Vaccaj",
     lessonsIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
   },
 ];

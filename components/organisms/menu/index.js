@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 import Markup from "./markup";
 
-export default function Menu() {
+export default function Menu({ style }) {
   const { pathname } = useRouter();
 
   const links = useMemo(
@@ -24,5 +24,5 @@ export default function Menu() {
     [pathname]
   );
 
-  return <Markup links={links} />;
+  return <Markup style={style} links={links} />;
 }

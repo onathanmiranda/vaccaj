@@ -22,11 +22,15 @@ export default function Player({ className }) {
     play(playerRef.current);
   }, [pause, play]);
 
-  const onRepeatOneClick = useCallback(() => {
-    setRepeatOne((prev) => !prev);
-  }, [setRepeatOne]);
+  const onRepeatOneClick = useCallback(
+    (e) => {
+      e.target.blur();
+      setRepeatOne((prev) => !prev);
+    },
+    [setRepeatOne]
+  );
 
-  const onTrackEnd = useCallback(() => {
+  const onTrackEnded = useCallback(() => {
     if (repeatOne) {
       load(playerRef.current);
       play(playerRef.current);
@@ -36,19 +40,43 @@ export default function Player({ className }) {
     }
   }, [load, pause, play, repeatOne]);
 
-  const recordingsOptions = useMemo(() => {
+  const { voiceTypesOptions, instrumentsOptions } = useMemo(() => {
     if (!song) return [];
-    return song.recordings
-      .filter(({ voiceType }) => Boolean(voiceType))
-      .map((recordingObj) => ({
-        label: recordingObj.voiceType.title,
-        value: recordingObj.id,
+    if (!song.voiceTypesOptions) return [];
+
+    return {
+      voiceTypesOptions: song.voiceTypesOptions.map((option) => ({
+        label: option.voiceType.title,
+        value: option.recordings[0].id,
         onChange: () => {
-          changeSongRecording({ recording: recordingObj });
+          changeSongRecording({ recording: option.recordings[0] });
         },
         name: "voicetype",
-        checked: recordingObj.id === recording.id,
-      }));
+        checked: Boolean(
+          option.recordings.find(({ id }) => id === recording.id)
+        ),
+      })),
+      instrumentsOptions: song.voiceTypesOptions.reduce((acc, curr) => {
+        const isVoiceSelected = curr.recordings.find(
+          ({ id }) => id === recording.id
+        );
+        if (!isVoiceSelected) return acc;
+
+        const options = curr.recordings.map((_recording) => {
+          return {
+            label: _recording.instrumentsOptionsTitle,
+            value: _recording.id,
+            onChange: () => {
+              changeSongRecording({ recording: _recording });
+            },
+            name: "instruments",
+            checked: recording.id === _recording.id,
+          };
+        });
+
+        return [...acc, ...options];
+      }, []),
+    };
   }, [song, recording, changeSongRecording]);
 
   useEffect(() => {
@@ -66,13 +94,14 @@ export default function Player({ className }) {
           src={recording.filePath}
           type={recording.type}
           playing={player.playing}
-          recordingsOptions={recordingsOptions}
+          voiceTypesOptions={voiceTypesOptions}
+          instrumentsOptions={instrumentsOptions}
           recordingId={recording.id}
           repeatOne={repeatOne}
           onMainButtonClick={onClick}
           onSkipPreviousClick={onSkipPreviousClick}
           onRepeatOneClick={onRepeatOneClick}
-          onEnded={onTrackEnd}
+          onEnded={onTrackEnded}
         />
       )}
     </>

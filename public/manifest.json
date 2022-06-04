@@ -1,6 +1,21 @@
 {
   "short_name": "Vaccaj",
   "name": "Vaccaj - Método Prático de Canto",
+  "description": "Estude vocalizes e vaccajs de forma simplificada.",
+  "start_url": "/aquecimentos",
+  "id": "vaccaj-metodo-pratico-de-canto",
+  "background_color": "#19171c",
+  "theme_color": "#19171c",
+  "display": "fullscreen",
+  "scope": "/",
+  "prefer_related_applications": true,
+  "related_applications": [
+    {
+      "platform": "web",
+      "id": "vaccaj-metodo-pratico-de-canto"
+    }
+  ],
+  "shortcuts": [],
   "icons": [
     {
       "src": "/images/icon.svg",
@@ -33,14 +48,6 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/aquecimentos",
-  "id": "vaccaj-metodo-pratico-de-canto",
-  "background_color": "#19171c",
-  "theme_color": "#19171c",
-  "display": "fullscreen",
-  "scope": "/",
-  "shortcuts": [],
-  "description": "Estude vocalizes e vaccajs de forma simplificada.",
   "screenshots": [
     {
       "src": "/images/screenshot_1.png",

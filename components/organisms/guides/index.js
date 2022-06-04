@@ -1,23 +1,40 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import MaterialIcon from "@material/react-material-icon";
 
-import Toggle from "../../atoms/toggle";
+import Option from "../../atoms/option";
 
 import { usePlayerContext } from "../../../contexts/playerContext";
 
 import styles from "./styles.module.scss";
 
 export default function Guides() {
-  const guidesOptions = [
-    { id: 1, label: "partitura" },
-    { id: 2, label: "letra" },
-  ];
-
-  const initialGuideOptionId = guidesOptions[0].id;
-
-  const [guideOption, setGuideOption] = useState(initialGuideOptionId);
+  const [guideOption, setGuideOption] = useState(1);
 
   const { playerContextState, setGuidesVisibility } = usePlayerContext();
+
+  const guidesOptions = useMemo(
+    () => [
+      {
+        value: 1,
+        label: "partitura",
+        onChange: () => {
+          setGuideOption(1);
+        },
+        name: "guideOptions",
+        checked: guideOption === 1,
+      },
+      {
+        value: 2,
+        label: "letra",
+        onChange: () => {
+          setGuideOption(2);
+        },
+        name: "guideOptions",
+        checked: guideOption === 2,
+      },
+    ],
+    [setGuideOption, guideOption]
+  );
 
   const { song, showGuides } = playerContextState;
   const { lyrics, sheets, title } = song;
@@ -26,13 +43,6 @@ export default function Guides() {
     setGuidesVisibility(false);
   }, [setGuidesVisibility]);
 
-  const toggleGuideOptionHandler = useCallback(
-    (id) => {
-      setGuideOption(id);
-    },
-    [setGuideOption]
-  );
-
   const sheetsPages = sheets?.filePaths ? sheets.filePaths : [];
 
   return (
@@ -40,12 +50,11 @@ export default function Guides() {
       {showGuides && (
         <aside className={styles.wrapper}>
           <header className={styles.header}>
-            <Toggle
-              options={guidesOptions}
-              onToggle={toggleGuideOptionHandler}
-              selectedOption={guideOption}
-              name="guideOptions"
-            />
+            <div className={styles.optionsWrapper}>
+              {guidesOptions.map((option) => {
+                return <Option key={option.value} {...option} />;
+              })}
+            </div>
             <button onClick={onClose} className={styles.button}>
               <MaterialIcon className={styles.icon} icon="cancel" />
             </button>
