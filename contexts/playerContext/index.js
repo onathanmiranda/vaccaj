@@ -44,7 +44,7 @@ export const usePlayerContext = () => {
       if (!recordingId) return recording;
 
       const correctRecording = song.recordings.find(
-        ({ id }) => id === recordingId
+        ({ id }) => id === `${recordingId}`
       );
 
       if (!correctRecording) return recording;
@@ -88,7 +88,7 @@ export const usePlayerContext = () => {
             recordings,
             voiceTypesOptions,
           },
-          showGuides: Boolean(lyrics || sheets),
+          showGuides: Boolean(lyrics || sheets.length),
         };
       });
     },

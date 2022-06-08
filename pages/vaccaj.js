@@ -10,7 +10,7 @@ import styles from "./index.module.scss";
 import config from "../config";
 
 const pagesConfig = {
-  moduleId: 2,
+  moduleId: "2",
 };
 
 export default function Vaccaj() {

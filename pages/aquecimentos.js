@@ -9,10 +9,10 @@ import styles from "./index.module.scss";
 import config from "../config";
 
 const pagesConfig = {
-  moduleId: 1,
+  moduleId: "1",
 };
 
-export default function Vaccaj() {
+export default function Aquecimentos() {
   const { reducedData } = useLessonsContext();
 
   const module = reducedData.find(({ id }) => id === pagesConfig.moduleId);
