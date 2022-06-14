@@ -975,7 +975,10 @@ const sheets = [
   },
   {
     id: 33,
-    filePaths: ["/images/vaccaj_9a_1_soprano_tenor.jpg"],
+    filePaths: [
+      "/images/vaccaj_9a_1_soprano_tenor.jpg",
+      "/images/vaccaj_9a_2_soprano_tenor.jpg",
+    ],
     voiceTypes: [3, 5, 6],
   },
   {
@@ -983,7 +986,6 @@ const sheets = [
     filePaths: [
       "/images/vaccaj_9b_1_soprano_tenor.jpg",
       "/images/vaccaj_9b_2_soprano_tenor.jpg",
-      "/images/vaccaj_9b_3_soprano_tenor.jpg",
     ],
     voiceTypes: [3, 5, 6],
   },
