@@ -2,13 +2,9 @@ import SongCard from "../../molecules/songCard";
 
 import styles from "./styles.module.scss";
 
-export default function LessonsList({ skills, disablePointerEvents }) {
-  const pointerEventsClassName = disablePointerEvents
-    ? styles.pointerEventsDisabled
-    : "";
-
+export default function LessonsList({ skills }) {
   return (
-    <section className={`${styles.wrapper} ${pointerEventsClassName}`}>
+    <section className={`${styles.wrapper}`}>
       {skills.map(({ title, id, lessons }) => {
         return (
           <div key={id} className={styles.skill}>

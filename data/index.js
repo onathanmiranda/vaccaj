@@ -10,6 +10,12 @@ import {
   modules,
 } from "./data";
 
+export function getReducedSongBySlug(songSlug) {
+  const song = songs.find(({ slug }) => slug === songSlug);
+  if (song) return reduceSongInfo(song);
+  return song;
+}
+
 export function getItemById(itemId, collection) {
   return collection.find(({ id }) => id === itemId);
 }
@@ -18,8 +24,9 @@ export function reduceRecordingInfo(recording, sheetsList) {
   const { id, filePath, voiceType, speedId, type, accompaniment, vocals } =
     recording;
 
-  const sheets =
-    sheetsList.find((item) => item.voiceTypes.includes(voiceType)) || [];
+  const sheets = sheetsList
+    ? sheetsList.find((item) => item.voiceTypes.includes(voiceType)) || null
+    : null;
 
   return {
     id,
@@ -36,17 +43,26 @@ export function reduceRecordingInfo(recording, sheetsList) {
 export function reduceSongInfo({
   id,
   title,
+  slug,
   beginning,
   recordingIds,
   lyrics,
   sheetsList,
+  instructions,
 }) {
-  let _sheetsList = sheetsList.map((id) => getItemById(id, sheets));
+  let _sheetsList = sheetsList
+    ? sheetsList.map((id) => {
+        return getItemById(id, sheets);
+      })
+    : null;
+
   let song = {
     id,
     title,
+    slug,
     beginning,
     lyrics,
+    instructions,
     recordings: recordingIds
       .map((id) => getItemById(id, recordings))
       .map((recording) => reduceRecordingInfo(recording, _sheetsList))
@@ -139,13 +155,15 @@ export function getSkillsFromLessons(lessons, skills) {
   return skillsIds.map((id) => getItemById(id, skills));
 }
 
-export function reduceModuleInfo({ id, title, lessonsIds }) {
+export function reduceModuleInfo({ id, title, lessonsIds, slug, about }) {
   const moduleLessons = lessonsIds.map((id) => getItemById(id, lessons));
   const modulesSkills = getSkillsFromLessons(moduleLessons, skills);
 
   return {
     id,
     title,
+    slug,
+    about,
     skills: modulesSkills.map((skill) =>
       joinSkillsAndLessons(skill, moduleLessons)
     ),

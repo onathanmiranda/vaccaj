@@ -1,0 +1,25 @@
+.main {
+  padding: 3.4rem 2.1rem 0;
+  display: block;
+}
+
+.header {
+  text-align: center;
+
+  p {
+    font-size: 1.4rem;
+    text-align: left;
+    max-width: 80ch;
+    margin: auto;
+    text-transform: none;
+
+    + p {
+      margin-top: 1.3rem;
+    }
+  }
+}
+
+.lessons {
+  display: block;
+  margin-top: 5.5rem;
+}

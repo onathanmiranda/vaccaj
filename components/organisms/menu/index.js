@@ -3,26 +3,30 @@ import { useRouter } from "next/router";
 
 import Markup from "./markup";
 
-export default function Menu({ style }) {
-  const { pathname } = useRouter();
+const linksArray = [
+  {
+    href: "/modulos/aquecimentos",
+    title: "Aquecimentos",
+    text: "aquecimentos",
+  },
+  {
+    href: "/modulos/vaccaj",
+    title: "Vaccaj",
+    text: "vaccaj",
+  },
+];
 
-  const links = useMemo(
-    () => [
-      {
-        href: "/aquecimentos",
-        title: "Aquecimentos",
-        text: "aquecimentos",
-        isActive: pathname === "/aquecimentos",
-      },
-      {
-        href: "/vaccaj",
-        title: "Vaccaj",
-        text: "vaccaj",
-        isActive: pathname === "/vaccaj",
-      },
-    ],
-    [pathname]
+export default function Menu({ style }) {
+  const { asPath } = useRouter();
+
+  let _links = useMemo(
+    () =>
+      linksArray.map((link) => ({
+        ...link,
+        isActive: asPath === link.href,
+      })),
+    [asPath]
   );
 
-  return <Markup style={style} links={links} />;
+  return <Markup style={style} links={_links ? _links : linksArray} />;
 }

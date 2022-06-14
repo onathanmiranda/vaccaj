@@ -29,7 +29,13 @@ const unserializeMap = (map) => {
 };
 
 export default function LocalStorageContextProvider({ children }) {
-  const state = useState();
+  let localStorageContextInitialState;
+
+  if (typeof window !== "undefined") {
+    localStorageContextInitialState = window.localStorage.getItem(namespace);
+  }
+
+  const state = useState(localStorageContextInitialState);
 
   return (
     <LocalStorageContext.Provider value={state}>
@@ -41,14 +47,6 @@ export default function LocalStorageContextProvider({ children }) {
 export const useLocalStorageContext = () => {
   const [localStorageContextState, setLocalStorageContextState] =
     useContext(LocalStorageContext);
-
-  useEffect(() => {
-    if (!setLocalStorageContextState) return;
-    if (!window.localStorage) return;
-    const localStorageData = window.localStorage.getItem(namespace);
-    if (!localStorageData) return;
-    setLocalStorageContextState(localStorageData);
-  }, [setLocalStorageContextState]);
 
   useEffect(() => {
     if (!window.localStorage) return;

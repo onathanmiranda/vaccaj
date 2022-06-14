@@ -1,3 +1,5 @@
+import { useRouter } from "next/router";
+
 import { useMemo, useCallback } from "react";
 
 import Markup from "./markup";
@@ -7,7 +9,10 @@ import { usePlayerContext } from "../../../contexts/playerContext";
 export default function SongCard({ song, className }) {
   const { beginning, title, recordings, id } = song;
 
-  const { setSong, clearPlayer, playerContextState } = usePlayerContext();
+  const router = useRouter();
+
+  const { setSong, clearPlayer, playerContextState, play, load } =
+    usePlayerContext();
 
   const currentSongId = playerContextState.song
     ? playerContextState.song.id
@@ -23,11 +28,18 @@ export default function SongCard({ song, className }) {
 
   const onClick = useCallback(
     (recording) => {
-      if (!isCurrentlySelected || !isPlaying)
-        return setSong({ recording, song });
-      return clearPlayer();
+      const pathname = song.slug ? song.slug : song.id;
+
+      if (!isCurrentlySelected || !isPlaying) {
+        setSong({ recording, song });
+        play();
+        router.push(`/musicas/${pathname}`, null, { shallow: true });
+        return;
+      }
+
+      clearPlayer();
     },
-    [isCurrentlySelected, isPlaying, setSong, clearPlayer, song]
+    [song, isCurrentlySelected, isPlaying, clearPlayer, setSong, play, router]
   );
 
   return (

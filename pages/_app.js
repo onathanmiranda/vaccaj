@@ -45,7 +45,9 @@ function MyApp({ Component, pageProps }) {
         // Guarda evento para que possa ser disparado depois.
         deferredPrompt.current = e;
 
-        const showBanner = Boolean(!getCookie(config.installBannerDismissKey));
+        const showBanner = Boolean(
+          !getCookie(config.cookies.installBannerDismissKey)
+        );
 
         // Atualiza UI notifica usuário que pode instalar PWA
         if (showBanner) setShowInstallPrompt(true);
@@ -77,11 +79,11 @@ function MyApp({ Component, pageProps }) {
 
   const handleInstallClose = useCallback(() => {
     if (!setShowInstallPrompt) return;
-    const cookieConsent = getCookie(config.cookieConsentKey);
-    const saveChoice = cookieConsent === config.cookiesAllowedValue;
+    const cookieConsent = getCookie(config.cookies.cookieConsentKey);
+    const saveChoice = cookieConsent === config.cookies.cookiesAllowedValue;
     if (saveChoice) {
       const exp = 3;
-      setCookie(config.installBannerDismissKey, true, exp);
+      setCookie(config.cookies.installBannerDismissKey, true, exp);
     }
     setShowInstallPrompt(false);
   }, [setShowInstallPrompt]);

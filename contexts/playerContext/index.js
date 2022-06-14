@@ -1,4 +1,11 @@
-import { useState, useContext, createContext, useCallback } from "react";
+import {
+  useState,
+  useContext,
+  createContext,
+  useCallback,
+  useRef,
+  useEffect,
+} from "react";
 
 import { useLocalStorageContext } from "../localStorageContext";
 
@@ -6,35 +13,43 @@ import { getCookie } from "../../helpers/cookies";
 
 import config from "../../config";
 
-const PlayerContext = createContext();
-
 const initialState = {
   player: {
     playing: false,
+    repeatOne: false,
   },
   recording: false,
   song: false,
   showGuides: false,
 };
 
+const PlayerContext = createContext(initialState);
+
 const preferredRecordingsKey = "preferredRecording";
 
 export default function PlayerContextProvider({ children }) {
   const state = useState(initialState);
 
+  const playerRef = useRef(typeof window !== "undefined" ? new Audio() : null);
+
   return (
-    <PlayerContext.Provider value={state}>{children}</PlayerContext.Provider>
+    <PlayerContext.Provider value={{ state, playerRef }}>
+      {children}
+    </PlayerContext.Provider>
   );
 }
 
 export const usePlayerContext = () => {
-  const [playerContextState, setPlayerContextState] = useContext(PlayerContext);
+  const { state, playerRef } = useContext(PlayerContext);
+  const [playerContextState, setPlayerContextState] = state;
 
   const localStorage = useLocalStorageContext();
 
   const getRecordingBasedOnPreviouslySelectedVoice = useCallback(
     ({ song, recording }) => {
-      const preferredRecordings = localStorage.getItem(preferredRecordingsKey);
+      const preferredRecordings = localStorage.getItem(
+        config.cookies.preferredRecordingsKey
+      );
 
       if (!preferredRecordings) return recording;
       if (song.recordings.length <= 1) return recording;
@@ -51,7 +66,7 @@ export const usePlayerContext = () => {
 
       return correctRecording;
     },
-    [localStorage.getItem]
+    [localStorage]
   );
 
   const setSong = useCallback(
@@ -70,7 +85,15 @@ export const usePlayerContext = () => {
 
       const { type, filePath, sheets, id: recordingId } = newRecording;
 
-      const { lyrics, title, id: songId, recordings, voiceTypesOptions } = song;
+      const {
+        lyrics,
+        title,
+        id: songId,
+        recordings,
+        voiceTypesOptions,
+        instructions,
+        beginning,
+      } = song;
 
       setPlayerContextState((oldState) => {
         return {
@@ -87,12 +110,20 @@ export const usePlayerContext = () => {
             sheets,
             recordings,
             voiceTypesOptions,
+            instructions,
+            beginning,
           },
-          showGuides: Boolean(lyrics || sheets.length),
         };
       });
+
+      playerRef.current.src = filePath;
+      playerRef.current.type = type;
     },
-    [setPlayerContextState, getRecordingBasedOnPreviouslySelectedVoice]
+    [
+      getRecordingBasedOnPreviouslySelectedVoice,
+      playerRef,
+      setPlayerContextState,
+    ]
   );
 
   const changeSongRecording = useCallback(
@@ -104,9 +135,9 @@ export const usePlayerContext = () => {
 
       const { song } = playerContextState;
 
-      const cookieConsent = getCookie(config.cookieConsentKey);
+      const cookieConsent = getCookie(config.cookies.cookieConsentKey);
 
-      if (cookieConsent !== config.cookiesAllowedValue) {
+      if (cookieConsent !== config.cookies.cookiesAllowedValue) {
         return setSong({
           recording,
           song,
@@ -114,11 +145,15 @@ export const usePlayerContext = () => {
       }
 
       const localStorageData = localStorage.getItem(preferredRecordingsKey);
+
       const preferredRecordingsMap = localStorageData || new Map();
 
       preferredRecordingsMap.set(song.id, recording.id);
 
-      localStorage.setItem(preferredRecordingsKey, preferredRecordingsMap);
+      localStorage.setItem(
+        config.cookies.preferredRecordingsKey,
+        preferredRecordingsMap
+      );
 
       return setSong({
         song,
@@ -126,25 +161,7 @@ export const usePlayerContext = () => {
         usePreviousSelectedVoiceType: false,
       });
     },
-    [
-      setSong,
-      playerContextState.song,
-      localStorage.setItem,
-      localStorage.getItem,
-    ]
-  );
-
-  const setGuidesVisibility = useCallback(
-    (newGuideState) => {
-      if (typeof newGuideState !== "boolean") return;
-      setPlayerContextState((oldState) => {
-        return {
-          ...oldState,
-          showGuides: newGuideState,
-        };
-      });
-    },
-    [setPlayerContextState]
+    [playerContextState, localStorage, setSong]
   );
 
   const clearPlayer = useCallback(() => {
@@ -152,47 +169,84 @@ export const usePlayerContext = () => {
   }, [setPlayerContextState]);
 
   const play = useCallback(
-    (player) => {
-      player.play();
-      setPlayerContextState((oldState) => {
-        return {
-          ...oldState,
-          player: {
-            playing: true,
-          },
-        };
+    (player = playerRef.current) => {
+      return player.play().then(() => {
+        setPlayerContextState((oldState) => {
+          return {
+            ...oldState,
+            player: {
+              ...oldState.player,
+              playing: true,
+            },
+          };
+        });
       });
     },
-    [setPlayerContextState]
+    [playerRef, setPlayerContextState]
   );
 
   const pause = useCallback(
-    (player) => {
+    (player = playerRef.current) => {
       player.pause();
       setPlayerContextState((oldState) => {
         return {
           ...oldState,
           player: {
+            ...oldState.player,
             playing: false,
           },
         };
       });
     },
+    [playerRef, setPlayerContextState]
+  );
+
+  const load = useCallback(
+    (player = playerRef.current) => {
+      return player.load();
+    },
+    [playerRef]
+  );
+
+  const setRepeatOne = useCallback(
+    (repeatOne) => {
+      setPlayerContextState((oldState) => ({
+        ...oldState,
+        player: {
+          ...oldState.player,
+          repeatOne,
+        },
+      }));
+    },
     [setPlayerContextState]
   );
 
-  const load = useCallback((player) => {
-    player.load();
-  }, []);
+  useEffect(() => {
+    const player = playerRef.current;
+
+    player.onended = () => {
+      if (playerContextState.player.repeatOne) {
+        load();
+        play();
+      } else {
+        load();
+        pause();
+      }
+    };
+
+    return () => {
+      player.onEnd = null;
+    };
+  }, [playerRef, playerContextState.player.repeatOne, load, pause, play]);
 
   return {
     playerContextState,
     setSong,
+    setRepeatOne,
     play,
     pause,
     load,
     clearPlayer,
-    setGuidesVisibility,
     changeSongRecording,
   };
 };

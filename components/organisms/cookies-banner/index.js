@@ -12,11 +12,11 @@ export default function CookiesBanner() {
   const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
-    const cookieConsent = getCookie(config.cookieConsentKey);
+    const cookieConsent = getCookie(config.cookies.cookieConsentKey);
 
     const showBanner =
-      cookieConsent !== config.cookiesNotAllowedValue &&
-      cookieConsent !== config.cookiesAllowedValue;
+      cookieConsent !== config.cookies.cookiesNotAllowedValue &&
+      cookieConsent !== config.cookies.cookiesAllowedValue;
 
     setShowBanner(showBanner);
   }, [setShowBanner]);
@@ -24,10 +24,10 @@ export default function CookiesBanner() {
   const handleAction = useCallback(
     (consent) => {
       const value = consent
-        ? config.cookiesAllowedValue
-        : config.cookiesNotAllowedValue;
+        ? config.cookies.cookiesAllowedValue
+        : config.cookies.cookiesNotAllowedValue;
       const exp = consent ? 365 : 30;
-      setCookie(config.cookieConsentKey, value, exp);
+      setCookie(config.cookies.cookieConsentKey, value, exp);
       setShowBanner(false);
       window.document.dispatchEvent(events.allowCookies);
     },

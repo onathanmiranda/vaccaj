@@ -748,7 +748,7 @@ const recordings = [
   {
     id: "79",
     type: "audio/mpeg",
-    filePath: "recordings/warm_up_01.mp3",
+    filePath: "/recordings/warm_up_01.mp3",
     voiceType: "0",
     speedId: "1",
     accompaniment: true,
@@ -757,7 +757,7 @@ const recordings = [
   {
     id: "80",
     type: "audio/mpeg",
-    filePath: "recordings/warm_up_02.mp3",
+    filePath: "/recordings/warm_up_02.mp3",
     voiceType: "0",
     speedId: "1",
     accompaniment: true,
@@ -766,7 +766,7 @@ const recordings = [
   {
     id: "81",
     type: "audio/mpeg",
-    filePath: "recordings/warm_up_03.mp3",
+    filePath: "/recordings/warm_up_03.mp3",
     voiceType: "0",
     speedId: "1",
     accompaniment: true,
@@ -974,7 +974,7 @@ const sheets = [
     voiceTypes: ["1", "2", "4"],
   },
   {
-    id: 33,
+    id: "33",
     filePaths: [
       "/images/vaccaj_9a_1_soprano_tenor.jpg",
       "/images/vaccaj_9a_2_soprano_tenor.jpg",
@@ -1132,224 +1132,277 @@ const sheets = [
 const songs = [
   {
     id: "1",
-    title: "A Escala (Intervalos de Segunda)",
+    title: "Escala Diatônica",
+    slug: "manca-solecitta",
     beginning: "Manca solecitta",
     recordingIds: ["1", "2", "3", "4", "5", "82", "83", "84", "85", "86"],
     sheetsList: ["1", "2", "3"],
+    instructions: null,
     lyrics:
       "Manca sollecita \n più dell´usato, \n ancor che s`agiti \n con lieve fiato, \n face che palpita \n presso al morir.",
   },
   {
     id: "2",
     title: "Intervalos de Terça",
+    slug: "semplicetta-tortorella",
     beginning: "Semplicetta tortorella",
     recordingIds: ["6", "7", "8", "9"],
     sheetsList: ["4", "5", "6"],
+    instructions: null,
     lyrics:
       "Semplicetta tortorella, \n che non vede il suo periglio, \n per fuggir dal crudo artiglio \n vola in grembo al cacciator.",
   },
   {
     id: "3",
     title: "Intervalos de Quarta",
+    slug: "lascia-il-lido",
     beginning: "Lascia il lido",
     recordingIds: ["10", "11"],
     sheetsList: ["7", "8", "9"],
+    instructions: null,
     lyrics:
       "Lascia il lido, e il mare infido \n a solcar torna il nocchiero, \n e pur sa che menzognero \n altre volte l'ingannò.",
   },
   {
     id: "4",
     title: "Intervalos de Quinta",
+    slug: "avvezzo-a-vivere",
     beginning: "Avvezzo a vivere",
     recordingIds: ["12", "13", "14"],
     sheetsList: ["10", "11", "12"],
+    instructions: null,
     lyrics:
       "Avvezzo a vivere \n senza conforto, \n in mezzo al porto \n pavento il mar.",
   },
   {
     id: "5",
     title: "Intervalos de Sexta",
+    slug: "bella-prova",
     beginning: "Bella prova é d'alma forte",
     recordingIds: ["15", "16"],
     sheetsList: ["13", "14", "15"],
+    instructions: null,
     lyrics:
       "Bella prova è d'alma forte \n l'esser placida e serena \n nel soffrir l'ingiusta pena \n d'una colpa, che non ha.",
   },
   {
     id: "6",
     title: "Intervalos de Sétima",
+    slug: "fra-lombre-um-lampo",
     beginning: "Fra l'ombre un lampo solo",
     recordingIds: ["17", "18"],
     sheetsList: ["16", "17", "18"],
+    instructions: null,
     lyrics:
       "Fra l'ombre un lampo solo \n basta al nocchier sagace \n che già ritrova il polo, \n che riconosce il mar.",
   },
   {
     id: "7",
     title: "Intervalos de Oitava",
+    slug: "quell-onda-che-ruina",
     beginning: "Quell' onda che ruina",
     recordingIds: ["19", "20"],
     sheetsList: ["19", "20", "21"],
+    instructions: null,
     lyrics:
       "Quell' onda che ruina, \n balza, si frange e mormora, \n ma limpida si fa.",
   },
   {
     id: "8",
     title: "Semitons",
+    slug: "delira-dubbiosa",
     beginning: "Delira dubbiosa",
     recordingIds: ["21", "22", "23", "24"],
     sheetsList: ["22", "23"],
+    instructions: null,
     lyrics:
       "Delira dubbiosa, \n incerta, vaneggia \n ogni almache ondeggia. \n fra i moti del cor.",
   },
   {
     id: "9",
     title: "Síncope",
+    slug: "nel-contrastor-amor",
     beginning: "Nel contrasto amor accende",
     recordingIds: ["25", "26"],
     sheetsList: ["24", "25"],
+    instructions: null,
     lyrics:
       "Nel contrasto amor s'accende: \n con chi cede, o chi s'arrende \n mai sì barbaro non è.",
   },
   {
     id: "10",
     title: "Introdução à Coloratura* (Introduzione alle volate)",
+    slug: "come-il-candore",
     beginning: "Come il candore",
     recordingIds: ["27", "28", "29", "30", "31", "32", "33", "34", "35", "36"],
     sheetsList: ["26", "27"],
+    instructions: null,
     lyrics:
       "Come il candore \n d'intatta neve \n è d'un bel core \n la fedeltà. \n Un' orma sola \n che in sé riceve, \n tutta ne invola \n la sua beltà.",
   },
   {
     id: "11",
     title: "Apogiaturas",
+    slug: "senza-lamabile",
     beginning: "Senza l'amabile",
     recordingIds: ["37", "38", "39", "40", "41"],
     sheetsList: ["28", "29"],
+    instructions: null,
     lyrics:
       "Senza l'amabile \n Dio di Citera \n i dì non tornano \n di primavera, \n non spira un zeffiro, \n non spunta un fior.\n L´erbe sul margine \n del fonte amico, \n le piante vedove \n sul colle aprico \n per lui rivestono \n l´antico onor.",
   },
   {
     id: "12",
     title: "Accacciaturas",
+    slug: "benche-di-senso-privo",
     beginning: "Benchè di senso privo",
     recordingIds: ["42", "43", "44", "45", "46"],
     sheetsList: ["30", "31"],
+    instructions: null,
     lyrics:
       "Benchè di senso privo, \n fin l`arboscello è grato \n a quell'amico rivo, \n da cui riceve umor. \n per lui di fronde ornato \n bella mercè gli rende, \n dal sol quando difende \n il suo benefattor.",
   },
   {
     id: "13",
     title: "Introdução aos Mordentes",
+    slug: "la-gioia-verace",
     beginning: "La gioia verace",
     recordingIds: ["47", "48", "49", "50"],
     sheetsList: ["32", "33"],
+    instructions: null,
     lyrics:
       "la gioja verace \n per farsi palese, \n d´un labbro loquace \n bisogno non ha.",
   },
   {
     id: "14",
     title: "Mordentes Variados",
+    slug: "laugelletto-in-lacci-stretto",
     beginning: "L'augelletto in lacci stretto",
     recordingIds: ["51", "52", "53", "54"],
     sheetsList: ["34", "35"],
+    instructions: null,
     lyrics:
       "L´augelletto in lacci stretto \n perchè mai cantar s´ascolta? \n Perchè spera un´ altra volta \n di tornare in libertà.",
   },
   {
     id: "15",
     title: "Introdução aos Grupetos",
+    slug: "quando-accende-un-nobil-petto",
     beginning: "Quando accende un nobil petto",
     recordingIds: ["55", "56"],
     sheetsList: ["36", "37"],
+    instructions: null,
     lyrics:
       "Quando accende un nobil petto \n è innocente, è puro affetto, \n debolezza amor non è.",
   },
   {
     id: "16",
     title: "Grupetos",
+    slug: "piu-non-si-trovano",
     beginning: "Più non si trovano",
     recordingIds: ["57", "58"],
     sheetsList: ["38", "39"],
+    instructions: null,
     lyrics:
       "Più non si trovano \n tra mille amanti \n sol due bell' anime \n che sian costanti, \n e tutti parlano \n di fedeltà.",
   },
   {
     id: "17",
     title: "Introdução aos Trinados* (Introduzione al trillo)",
+    slug: "se-povero-il-ruscello",
     beginning: "Se povero il ruscello",
     recordingIds: ["59", "60", "61", "62"],
     sheetsList: ["40", "41"],
+    instructions: null,
     lyrics:
       "Se povero il ruscello \n mormora lento e basso; \n un ramoscello, un sasso \n quasi arrestar lo fa.",
   },
   {
     id: "18",
     title: "Coloraturas* (Le volate)",
+    slug: "siam-navi-all-onde-algenti",
     beginning: "Siam navi all' onde algenti",
     recordingIds: ["63", "64", "65"],
     sheetsList: ["42", "43"],
+    instructions: null,
     lyrics:
       "Siam navi all' onde algenti \n lasciate in abbandono: \n impetuosi venti \n i nostri affetti sono: \n ogni diletto è scoglio: \n tutta la vita è un mar.",
   },
   {
     id: "19",
     title: "Portamento I",
+    slug: "vorrei-spiegar-laffanno",
     beginning: "Vorrei spiegar l'affanno",
     recordingIds: ["66", "67", "68"],
     sheetsList: ["44", "45"],
+    instructions: null,
     lyrics:
       "Vorrei spiegar l´affanno, \n nasconderlo vorrei; \n e mentre i dubbi miei \n così crescendo vanno, \n tutto spiegar non oso, \n tutto non so tacer. \n Sollecito, dubbioso, \n penso, rammento e vedo; \n e agli occhi miei non credo, \n non credo al mio pensier.",
   },
   {
     id: "20",
     title: "Portamento II",
+    slug: "o placido il mare",
     beginning: "O placido il mare",
     recordingIds: ["69", "70", "71"],
     sheetsList: ["46", "47"],
+    instructions: null,
     lyrics:
       "O placido il mare \n lusinghi la sponda, \n o porti con l´onda \n terrore e spavento, \n è colpa del vento, \n sua colpa non è.",
   },
   {
     id: "21",
     title: "Recitativo",
+    slug: "la-patria-e-un-tutto",
     beginning: "La patria è un tutto",
     recordingIds: ["72", "73", "74"],
     sheetsList: ["48", "49"],
+    instructions: null,
     lyrics:
       "La patria è un tutto \n di cui siam parti \n al cittadino è fallo \n considerar sè stesso \n separato da lei. \n L´utile, o il danno, \n ch'ei conoscer dee solo \n è ciò che giova \n o nuoce alla sua patria, \n a cui di tutto è debitor. \n Quando i sudori, \n e il sangue sparge per lei, \n nulla del proprio ei dona: \n rende sol ciò che n'ebbe. \n Essa il produsse, \n l'educò, lo nudrì. \n Con le sue leggi \n dagl'insulti domestici il difende, \n dagli esterni con l'armi. \n Ella gli presta nome, \n grado, ed onor; \n ne premia il merto; \n ne vendica le offese, \n e madre amante \n a fabbricar s'affanna \n la sua felicità, \n per quanto lice \n al destin de' mortali \n esser felice.",
   },
   {
     id: "22",
     title: "Recapitulação",
+    slug: "alla-stagion-de-fiori",
     beginning: "Alla stagion de' fiori",
     recordingIds: ["75", "76", "77", "78"],
     sheetsList: ["50", "51"],
+    instructions: null,
     lyrics:
       "Alla stagion de' fiori \n e de' novelli amori \n è grato il molle fiato \n d'un zeffiro legger. \n O gema fra le fronde \n o lento increspi l'onde: \n zeffiro in ogni lato \n compagno è del piacer.",
   },
   {
     id: "23",
     title: "Staccato",
+    slug: null,
     beginning: "Hi Hi Hi",
     recordingIds: ["79"],
-    sheetsList: [],
+    sheetsList: null,
+    instructions:
+      'Fazer o exercício em "staccato": seu diafragma deverá se mover para dentro a cada "Hi", no ritmo e velocidade da música.',
     lyrics: null,
   },
   {
     id: "24",
     title: "Legato",
+    slug: null,
     beginning: "OOO / III",
     recordingIds: ["80"],
-    sheetsList: [],
+    sheetsList: null,
+    instructions:
+      'Cantar a melodia em legato.\n\nSopranos, mezzo-sopranos e contraltos deverão cantar a letra "i".\nTenores, barítonos e baixos deverão cantar a letra "o".',
     lyrics: null,
   },
   {
     id: "25",
-    title: "Legato + Staccato",
+    title: "Legato & Legato + Staccato",
+    slug: null,
     beginning: "AAAOOO / IIIOOO",
     recordingIds: ["81"],
-    sheetsList: [],
+    sheetsList: null,
+    instructions:
+      'Faça o exercício primeiro em legato com duas vogais, e depois repita todo o exercício fazendo a primeira vogal em legato e a segunda vogal em staccato.\n\nSopranos, mezzo-sopranos e contraltos deverão fazer o execício com as letras "i" e "o".\nTenores, barítonos e baixos deverão fazer com as letras "a" e "o".',
     lyrics: null,
   },
 ];
@@ -1471,11 +1524,17 @@ const modules = [
   {
     id: "1",
     title: "Aquecimentos",
+    slug: "aquecimentos",
+    about:
+      "Esses são vocalizes de aquecimento, você deve realiza-los preferencialmente antes de começar a estudar os Vaccajs.",
     lessonsIds: ["16", "17"],
   },
   {
     id: "2",
     title: "Vaccaj",
+    slug: "vaccaj",
+    about:
+      "Publicado pela primeira vez em Londres, em 1834, o Método Prático de Canto de Câmara Italiano, dividido em 15 lições, de Nicolo Vaccaj, é o método de canto mais popular do mundo. Até hoje já foram publicadas mais de 40 edições.\n\nVaccaj quis criar uma abordagem organizada para o ensino do canto, e dividiu o seu método em 15 lições com 22 músicas.",
     lessonsIds: [
       "1",
       "2",

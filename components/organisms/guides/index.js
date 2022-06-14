@@ -1,22 +1,22 @@
-import { useState, useCallback, useMemo } from "react";
-import MaterialIcon from "@material/react-material-icon";
+import { useState, useMemo, useEffect } from "react";
 
 import Option from "../../atoms/option";
 
-import { usePlayerContext } from "../../../contexts/playerContext";
+import config from "../../../config";
 
 import styles from "./styles.module.scss";
 
-export default function Guides() {
+export default function Guides({ song }) {
   const [guideOption, setGuideOption] = useState(1);
 
-  const { playerContextState, setGuidesVisibility } = usePlayerContext();
+  const guidesOptions = useMemo(() => {
+    if (!song) return [];
 
-  const guidesOptions = useMemo(
-    () => [
+    return [
       {
         value: 1,
         label: "partitura",
+        optionRef: "sheets",
         onChange: () => {
           setGuideOption(1);
         },
@@ -26,63 +26,84 @@ export default function Guides() {
       {
         value: 2,
         label: "letra",
+        optionRef: "lyrics",
         onChange: () => {
           setGuideOption(2);
         },
         name: "guideOptions",
         checked: guideOption === 2,
       },
-    ],
-    [setGuideOption, guideOption]
-  );
+      {
+        value: 3,
+        label: "instruções",
+        optionRef: "instructions",
+        onChange: () => {
+          setGuideOption(3);
+        },
+        name: "guideOptions",
+        checked: guideOption === 3,
+      },
+    ].filter(({ optionRef }) => {
+      return Boolean(song[optionRef]);
+    });
+  }, [guideOption, song, setGuideOption]);
 
-  const { song, showGuides } = playerContextState;
-  const { lyrics, sheets, title } = song;
+  useEffect(() => {
+    if (guidesOptions.length === 0) return;
+    if (!guidesOptions.find(({ value }) => value === guideOption)) {
+      setGuideOption(guidesOptions[0].value);
+    }
+  }, [guidesOptions, guideOption]);
 
-  const onClose = useCallback(() => {
-    setGuidesVisibility(false);
-  }, [setGuidesVisibility]);
+  const { lyrics, beginning, instructions, sheets } = song;
 
   const sheetsPages = sheets?.filePaths ? sheets.filePaths : [];
 
+  const showGuidesMenu = guidesOptions.length > 1;
+
   return (
     <>
-      {showGuides && (
-        <aside className={styles.wrapper}>
+      <aside className={styles.wrapper}>
+        {showGuidesMenu && (
           <header className={styles.header}>
             <div className={styles.optionsWrapper}>
               {guidesOptions.map((option) => {
                 return <Option key={option.value} {...option} />;
               })}
             </div>
-            <button onClick={onClose} className={styles.button}>
-              <MaterialIcon className={styles.icon} icon="cancel" />
-            </button>
           </header>
+        )}
 
-          {guideOption === 2 && (
-            <div className={styles.lyricsWrapper}>
-              {lyrics.split("\n").map((line) => (
-                <div key={line}>{line}</div>
-              ))}
-            </div>
-          )}
+        {guideOption === 3 && (
+          <div className={styles.lyricsWrapper}>
+            {instructions.split("\n").map((line) => (
+              <div key={line}>{line}</div>
+            ))}
+          </div>
+        )}
 
-          {guideOption === 1 && (
-            <div className={styles.sheetsWrapper}>
-              {sheetsPages.map((path) => (
-                <img
-                  className={styles.sheetsPage}
-                  src={path}
-                  alt={title}
-                  title={title}
-                  key={path}
-                />
-              ))}
-            </div>
-          )}
-        </aside>
-      )}
+        {guideOption === 2 && (
+          <div className={styles.lyricsWrapper}>
+            {lyrics.split("\n").map((line) => (
+              <div key={line}>{line}</div>
+            ))}
+          </div>
+        )}
+
+        {guideOption === 1 && (
+          <div className={styles.sheetsWrapper}>
+            {sheetsPages.map((path) => (
+              <img
+                className={styles.sheetsPage}
+                src={path}
+                alt={`Partitura ${beginning} | ${config.siteTitle}`}
+                title={`Partitura ${beginning} | ${config.siteTitle}`}
+                key={path}
+              />
+            ))}
+          </div>
+        )}
+      </aside>
     </>
   );
 }

@@ -21,7 +21,7 @@
     margin: 0;
   }
   &:hover {
-    background-color: color.change(color($neutral, 900), $alpha: 0.5);
+    background-color: color.change(color($neutral, 900), $alpha: 0.6);
   }
   &.selected {
     background-color: color($primary, 800);
