@@ -1,34 +1,26 @@
-import Head from "next/head";
+import { useRouter } from "next/router";
+import { useEffect, useCallback } from "react";
 
-import { useLessonsContext } from "../contexts/lessonsContext";
+import Menu from "../components/organisms/menu";
 
-import SkillsList from "../components/organisms/skillsList";
+export default function Home() {
+  const router = useRouter();
 
-import styles from "./index.module.scss";
+  const redirectToPage = useCallback(
+    (pathName = "/") => {
+      if (typeof pathName !== "string") return;
+      router.push(pathName);
+    },
+    [router]
+  );
 
-import config from "../config";
-
-const pagesConfig = {
-  moduleId: 1,
-};
-
-export default function Vaccaj() {
-  const { reducedData } = useLessonsContext();
-
-  const module = reducedData.find(({ id }) => id === pagesConfig.moduleId);
-
-  const { skills } = module;
+  useEffect(() => {
+    redirectToPage("/modulos/aquecimentos");
+  }, [redirectToPage]);
 
   return (
     <>
-      <Head>
-        <title>Aquecimentos | {config.siteTitle}</title>
-      </Head>
-      <main className={styles.main}>
-        <section className={styles.lessons}>
-          <SkillsList skills={skills} />
-        </section>
-      </main>
+      <Menu />
     </>
   );
 }

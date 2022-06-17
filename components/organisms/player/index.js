@@ -1,44 +1,46 @@
-import { useEffect, useRef, useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo } from "react";
 import { usePlayerContext } from "../../../contexts/playerContext";
 
 import Markup from "./markup";
 
 export default function Player({ className }) {
-  const [repeatOne, setRepeatOne] = useState(false);
-  const { playerContextState, play, load, pause, changeSongRecording } =
-    usePlayerContext();
+  const {
+    playerContextState,
+    play,
+    load,
+    pause,
+    changeSongRecording,
+    setRepeatOne,
+  } = usePlayerContext();
 
   const { recording, player, song } = playerContextState;
 
-  const playerRef = useRef();
-
   const onClick = useCallback(() => {
-    if (player.playing) return pause(playerRef.current);
-    if (!player.playing) return play(playerRef.current);
+    if (player.playing) return pause();
+    if (!player.playing) return play();
   }, [pause, play, player.playing]);
 
   const onSkipPreviousClick = useCallback(() => {
-    load(playerRef.current);
-    play(playerRef.current);
-  }, [pause, play]);
+    load();
+    play();
+  }, [play, load]);
 
   const onRepeatOneClick = useCallback(
     (e) => {
       e.target.blur();
-      setRepeatOne((prev) => !prev);
+      setRepeatOne(!player.repeatOne);
     },
-    [setRepeatOne]
+    [setRepeatOne, player.repeatOne]
   );
 
-  const onTrackEnded = useCallback(() => {
-    if (repeatOne) {
-      load(playerRef.current);
-      play(playerRef.current);
-    } else {
-      load(playerRef.current);
-      pause(playerRef.current);
-    }
-  }, [load, pause, play, repeatOne]);
+  const handleChangingRecording = useCallback(
+    (recording) => {
+      changeSongRecording({ recording });
+      load();
+      play();
+    },
+    [changeSongRecording, load, play]
+  );
 
   const { voiceTypesOptions, instrumentsOptions } = useMemo(() => {
     if (!song) return [];
@@ -49,7 +51,7 @@ export default function Player({ className }) {
         label: option.voiceType.title,
         value: option.recordings[0].id,
         onChange: () => {
-          changeSongRecording({ recording: option.recordings[0] });
+          handleChangingRecording(option.recordings[0]);
         },
         name: "voicetype",
         checked: Boolean(
@@ -67,7 +69,7 @@ export default function Player({ className }) {
             label: _recording.instrumentsOptionsTitle,
             value: _recording.id,
             onChange: () => {
-              changeSongRecording({ recording: _recording });
+              handleChangingRecording(_recording);
             },
             name: "instruments",
             checked: recording.id === _recording.id,
@@ -77,31 +79,23 @@ export default function Player({ className }) {
         return [...acc, ...options];
       }, []),
     };
-  }, [song, recording, changeSongRecording]);
-
-  useEffect(() => {
-    if (!recording) return;
-    load(playerRef.current);
-    play(playerRef.current);
-  }, [recording, load, play]);
+  }, [song, recording, handleChangingRecording]);
 
   return (
     <>
       {recording && (
         <Markup
           className={className}
-          ref={playerRef}
           src={recording.filePath}
           type={recording.type}
           playing={player.playing}
           voiceTypesOptions={voiceTypesOptions}
           instrumentsOptions={instrumentsOptions}
           recordingId={recording.id}
-          repeatOne={repeatOne}
+          repeatOne={player.repeatOne}
           onMainButtonClick={onClick}
           onSkipPreviousClick={onSkipPreviousClick}
           onRepeatOneClick={onRepeatOneClick}
-          onEnded={onTrackEnded}
         />
       )}
     </>

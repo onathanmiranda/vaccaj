@@ -1,36 +1,26 @@
-import Head from "next/head";
+import { useRouter } from "next/router";
+import { useEffect, useCallback } from "react";
 
-import { useLessonsContext } from "../contexts/lessonsContext";
+import Menu from "../components/organisms/menu";
 
-import SkillsList from "../components/organisms/skillsList";
-import Guides from "../components/organisms/guides";
+export default function Home() {
+  const router = useRouter();
 
-import styles from "./index.module.scss";
+  const redirectToPage = useCallback(
+    (pathName = "/") => {
+      if (typeof pathName !== "string") return;
+      router.push(pathName);
+    },
+    [router]
+  );
 
-import config from "../config";
-
-const pagesConfig = {
-  moduleId: 2,
-};
-
-export default function Vaccaj() {
-  const { reducedData } = useLessonsContext();
-
-  const module = reducedData.find(({ id }) => id === pagesConfig.moduleId);
-
-  const { skills } = module;
+  useEffect(() => {
+    redirectToPage("/modulos/vaccaj");
+  }, [redirectToPage]);
 
   return (
     <>
-      <Head>
-        <title>Método Vaccaj | {config.siteTitle}</title>
-      </Head>
-      <main className={styles.main}>
-        <section className={styles.lessons}>
-          <SkillsList skills={skills} />
-          <Guides />
-        </section>
-      </main>
+      <Menu />
     </>
   );
 }

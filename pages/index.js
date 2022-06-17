@@ -15,7 +15,7 @@ export default function Home() {
   );
 
   useEffect(() => {
-    redirectToPage("/aquecimentos");
+    redirectToPage("/modulos/aquecimentos");
   }, [redirectToPage]);
 
   return (
