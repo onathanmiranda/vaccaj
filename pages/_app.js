@@ -37,6 +37,16 @@ function MyApp({ Component, pageProps }) {
   const deferredPrompt = useRef();
 
   useEffect(() => {
+    //TODO: Check if app is installed before displaying banner.
+    /* async function showInstallBanner() {
+      const relatedApps = await navigator.getInstalledRelatedApps();
+
+      relatedApps.forEach((app) => {
+        console.log(app.id, app.platform, app.url);
+      });
+    }
+    showInstallBanner(); */
+
     if (!setShowInstallPrompt) return;
     if (typeof window !== "undefined") {
       window.addEventListener("beforeinstallprompt", (e) => {
@@ -149,10 +159,8 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://vaccaj.vercel.app/" />
         <meta name="theme-color" content="#19171c" />
-        <meta
-          name="apple-mobile-web-app-status-bar-style"
-          content="black-translucent"
-        />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta
           name="description"
           content="Estude vocalizes e vaccajs de forma simplificada."

@@ -23,7 +23,7 @@ export default function SingleModule({ module }) {
             module.about.split("\n").map((about) => <p key={about}>{about}</p>)}
         </header>
         <section className={styles.lessons}>
-          <SkillsList skills={skills} />
+          <SkillsList skills={skills} module={module} />
         </section>
       </main>
     </>

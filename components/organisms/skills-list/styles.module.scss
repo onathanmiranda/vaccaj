@@ -5,37 +5,59 @@
   max-width: 52rem;
   height: 100%;
   margin: auto;
-  padding: 2.1rem 1.3rem 23.3rem;
-}
 
-.lesson {
-  + .lesson {
-    margin-top: 2.1rem;
+  .lesson {
+    + .lesson {
+      margin-top: 2.1rem;
+    }
   }
-}
 
-.songCard {
-  + .songCard {
-    margin-top: 0.5rem;
+  .songCard {
+    + .songCard {
+      margin-top: 0.5rem;
+    }
   }
-}
 
-.skill {
-  + .skill {
-    margin-top: 5.5rem;
+  .skill {
+    + .skill {
+      margin-top: 5.5rem;
+    }
   }
-}
 
-.skillTitle {
-  color: color($primary, 100);
-  font-weight: 400;
-  font-size: 1.6rem;
-  margin: 0 0 2.1rem 0;
-}
+  .skillTitle {
+    color: color($primary, 100);
+    font-weight: 400;
+    font-size: 1.6rem;
+    margin: 0 0 2.1rem 0;
+  }
 
-.lessonTitle {
-  margin: 0.5rem 0;
-  font-weight: 400;
-  font-size: 1.2rem;
-  text-transform: none;
+  .lessonTitle {
+    margin: 0.5rem 0;
+    font-weight: 400;
+    font-size: 1.2rem;
+    text-transform: none;
+  }
+
+  &.horizontal {
+    overflow-x: scroll;
+    max-width: none;
+    .horizontalWrapper {
+      display: flex;
+      padding: 0.5rem 0;
+
+      .songCard {
+        flex: 0 0 auto;
+        margin: 0;
+        width: auto;
+        gap: 1.3rem;
+        + .songCard {
+          margin-left: 0.8rem;
+        }
+      }
+    }
+    .skillTitle,
+    .lessonTitle {
+      display: none;
+    }
+  }
 }

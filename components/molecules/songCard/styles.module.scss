@@ -16,6 +16,8 @@
   border: 0;
   transition: background-color 0.3s;
   cursor: pointer;
+  line-height: 1;
+  text-decoration: none;
 
   * {
     margin: 0;
@@ -26,6 +28,9 @@
   &.selected {
     background-color: color($primary, 800);
   }
+  &:visited {
+    text-decoration: none;
+  }
 }
 
 .buttons {
@@ -33,6 +38,7 @@
   flex-direction: column;
   gap: 0.5rem;
   flex: 0 0 17ch;
+
   @media screen and (min-width: 1024px) {
     flex: 0 0 20ch;
   }

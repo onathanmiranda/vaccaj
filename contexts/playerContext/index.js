@@ -17,6 +17,7 @@ const initialState = {
   player: {
     playing: false,
     repeatOne: false,
+    playbackRate: 1.0,
   },
   recording: false,
   song: false,
@@ -164,10 +165,6 @@ export const usePlayerContext = () => {
     [playerContextState, localStorage, setSong]
   );
 
-  const clearPlayer = useCallback(() => {
-    setPlayerContextState(initialState);
-  }, [setPlayerContextState]);
-
   const play = useCallback(
     (player = playerRef.current) => {
       return player.play().then(() => {
@@ -208,6 +205,11 @@ export const usePlayerContext = () => {
     [playerRef]
   );
 
+  const clearPlayer = useCallback(() => {
+    pause();
+    setPlayerContextState(initialState);
+  }, [setPlayerContextState, pause]);
+
   const setRepeatOne = useCallback(
     (repeatOne) => {
       setPlayerContextState((oldState) => ({
@@ -215,6 +217,19 @@ export const usePlayerContext = () => {
         player: {
           ...oldState.player,
           repeatOne,
+        },
+      }));
+    },
+    [setPlayerContextState]
+  );
+
+  const changePlaybackRate = useCallback(
+    (playbackRate) => {
+      setPlayerContextState((oldState) => ({
+        ...oldState,
+        player: {
+          ...oldState.player,
+          playbackRate,
         },
       }));
     },
@@ -233,11 +248,14 @@ export const usePlayerContext = () => {
         pause();
       }
     };
+    playerContextState.player.playbackRate;
+
+    player.playbackRate = playerContextState.player.playbackRate;
 
     return () => {
       player.onEnd = null;
     };
-  }, [playerRef, playerContextState.player.repeatOne, load, pause, play]);
+  }, [playerRef, playerContextState, load, pause, play]);
 
   return {
     playerContextState,
@@ -248,5 +266,6 @@ export const usePlayerContext = () => {
     load,
     clearPlayer,
     changeSongRecording,
+    changePlaybackRate,
   };
 };

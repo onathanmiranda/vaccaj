@@ -1,0 +1,37 @@
+@use "sass:color";
+@import "../../../theme/";
+
+.main {
+  @media (min-width: 950px) {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+    gap: 3.4rem;
+    min-height: 100vh;
+  }
+  .lessons {
+    padding: 5.5rem 1.3rem 0;
+    @media (min-width: 950px) {
+      background-color: color.change(color($secondary, 900), $alpha: 0.3);
+      padding: 5.5rem 1.3rem 23.3rem;
+    }
+  }
+
+  .guides {
+    padding: 0 1.3rem 23.3rem;
+    margin-top: 3.4rem;
+    @media (min-width: 950px) {
+      margin-top: 0;
+      padding: 5.5rem 1.3rem 23.3rem;
+      padding-right: 2.1rem;
+    }
+  }
+
+  .songTitle {
+    margin: 0;
+    text-transform: none;
+  }
+  .moduleTitle {
+    color: color($secondary, 500);
+  }
+}

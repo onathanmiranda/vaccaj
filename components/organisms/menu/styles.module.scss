@@ -54,7 +54,6 @@ $activeLinkColor: color($primary, 400);
 
   &.active {
     box-shadow: none;
-    pointer-events: none;
     color: $activeLinkColor;
   }
   &.active::after {

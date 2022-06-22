@@ -6,13 +6,17 @@ import Markup from "./markup";
 
 import { usePlayerContext } from "../../../contexts/playerContext";
 
-export default function SongCard({ song, className }) {
+export default function SongCard({
+  song,
+  className,
+  songHref,
+  minimal = false,
+}) {
   const { beginning, title, recordings, id } = song;
 
   const router = useRouter();
 
-  const { setSong, clearPlayer, playerContextState, play, load } =
-    usePlayerContext();
+  const { setSong, playerContextState, play, pause } = usePlayerContext();
 
   const currentSongId = playerContextState.song
     ? playerContextState.song.id
@@ -28,29 +32,28 @@ export default function SongCard({ song, className }) {
 
   const onClick = useCallback(
     (recording) => {
-      const pathname = song.slug ? song.slug : song.id;
-
       if (!isCurrentlySelected || !isPlaying) {
         setSong({ recording, song });
         play();
-        router.push(`/musicas/${pathname}`, null, { shallow: true });
         return;
       }
 
-      clearPlayer();
+      pause();
     },
-    [song, isCurrentlySelected, isPlaying, clearPlayer, setSong, play, router]
+    [isCurrentlySelected, isPlaying, pause, setSong, song, play]
   );
 
   return (
     <Markup
       onClick={onClick}
+      songHref={songHref}
       partialLyric={beginning}
       title={title}
       className={className}
       recordings={recordings}
       isSelected={isCurrentlySelected}
       isPlaying={isPlaying}
+      minimal={minimal}
     />
   );
 }
