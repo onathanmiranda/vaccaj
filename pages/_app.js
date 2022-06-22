@@ -159,8 +159,11 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://vaccaj.vercel.app/" />
         <meta name="theme-color" content="#19171c" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-touch-fullscreen" content="yes" />
+        <meta name="apple-mobile-web-app-title" content={config.siteTitle} />
         <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta
           name="description"
           content="Estude vocalizes e vaccajs de forma simplificada."

@@ -14,6 +14,11 @@ const linksArray = [
     title: "Vaccaj",
     text: "vaccaj",
   },
+  {
+    href: "/modulos/belting",
+    title: "Belting",
+    text: "belting",
+  },
 ];
 
 export default function Menu({ style }) {

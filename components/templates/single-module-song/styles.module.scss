@@ -12,7 +12,7 @@
   .lessons {
     padding: 5.5rem 1.3rem 0;
     @media (min-width: 950px) {
-      background-color: color.change(color($secondary, 900), $alpha: 0.3);
+      background-color: color.change(color($primary, 900), $alpha: 0.3);
       padding: 5.5rem 1.3rem 23.3rem;
     }
   }

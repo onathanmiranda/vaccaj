@@ -817,6 +817,60 @@ const recordings = [
     accompaniment: true,
     vocals: false,
   },
+  {
+    id: "87",
+    type: "audio/mpeg",
+    filePath: "/recordings/belting_01.mp3",
+    voiceType: "0",
+    speedId: "1",
+    accompaniment: true,
+    vocals: true,
+  },
+  {
+    id: "88",
+    type: "audio/mpeg",
+    filePath: "/recordings/belting_02.mp3",
+    voiceType: "0",
+    speedId: "1",
+    accompaniment: true,
+    vocals: true,
+  },
+  {
+    id: "89",
+    type: "audio/mpeg",
+    filePath: "/recordings/belting_03.mp3",
+    voiceType: "0",
+    speedId: "1",
+    accompaniment: true,
+    vocals: true,
+  },
+  {
+    id: "90",
+    type: "audio/mpeg",
+    filePath: "/recordings/belting_04.mp3",
+    voiceType: "0",
+    speedId: "1",
+    accompaniment: true,
+    vocals: true,
+  },
+  {
+    id: "91",
+    type: "audio/mpeg",
+    filePath: "/recordings/belting_05.mp3",
+    voiceType: "0",
+    speedId: "1",
+    accompaniment: true,
+    vocals: true,
+  },
+  {
+    id: "92",
+    type: "audio/mpeg",
+    filePath: "/recordings/belting_06.mp3",
+    voiceType: "0",
+    speedId: "1",
+    accompaniment: true,
+    vocals: true,
+  },
 ];
 
 const sheets = [
@@ -1405,6 +1459,72 @@ const songs = [
       'Faça o exercício primeiro em legato com duas vogais, e depois repita todo o exercício fazendo a primeira vogal em legato e a segunda vogal em staccato.\n\nSopranos, mezzo-sopranos e contraltos deverão fazer o execício com as letras "i" e "o".\nTenores, barítonos e baixos deverão fazer com as letras "a" e "o".',
     lyrics: null,
   },
+  {
+    id: "26",
+    title: "Hey - Intervalo Curto",
+    slug: "hey-intervalo-curto",
+    beginning: "",
+    recordingIds: ["87"],
+    sheetsList: null,
+    instructions:
+      'Esse exercício tem a intenção de trabalhar o conceito de exercitar a passagem para os registros do belting, em vez dos registros operísticos. O objetivo é fazer as notas beltadas de maneira consistente durante a subida e a descida. Deixe sua voz levemente anasalada, em uma colocação de som mais "chiaro". Isso irá permitir que você adquira a ressonância e projeção do belting, que é um som menos cheio do que o de canto clássico.',
+    lyrics: null,
+  },
+  {
+    id: "27",
+    title: "Hey - Intervalo Longo",
+    slug: "hey-intervalo-longo",
+    beginning: "",
+    recordingIds: ["88"],
+    sheetsList: null,
+    instructions:
+      'Igual ao exercício anterior, porém com um intervalo de uma oitava inteira. A passagem para o registro do belting deverá ser feita sem esforço. Caso haja dificuldade, experimente variar a colocação antes de tentar trocar o tom ou oitava. Esse exercício tem a intenção de trabalhar o conceito de exercitar a passagem para os registros do belting, em vez dos registros operísticos. O objetivo é fazer as notas beltadas de maneira consistente durante a subida e a descida. Deixe sua voz levemente anasalada, em uma colocação de som mais "chiaro". Isso irá permitir que você adquira a ressonância e projeção do belting, que é um som menos cheio do que o de canto clássico.',
+    lyrics: null,
+  },
+  {
+    id: "28",
+    title: "Yeah",
+    slug: "yeah",
+    beginning: "",
+    recordingIds: ["89"],
+    sheetsList: null,
+    instructions:
+      'Esse exercício, assim como os dois primeiros, foi projetado para trabalhar a passagem para o registro do belting com intervalos grandes. Entretanto, sem o "glissando" entre as notas para ajudar a acomodar a mudança de registro, esse exercício pode ser mais complicado. Você deve gerantir que as notas graves da subida sejam feitas de forma relaxada e o mais frontal (anasalado) possível. Dessa forma, sua voz será guiada à colocação do belting mais aguda e apropriada, a partir de onde será mais fácil fazer a descida.',
+    lyrics: null,
+  },
+  {
+    id: "29",
+    title: "Yeah - Arpeggio",
+    slug: "yeah-arpeggio",
+    beginning: "",
+    recordingIds: ["90"],
+    sheetsList: null,
+    instructions:
+      'Outro exercício de belting com intervalos. Esse deve ser executado da forma mais "conversacional" possível. Basicamente, se você conseguir "falar" as notas durante o exercício, você conseguirá belta-las. O som de "yeah" irá ajudar a colocar cada nota no registro correto, já que começa com um pequeno "e" e expande para um "ah" bem claro e metálico, que é uma excelente vogal para a mecânica do belting.',
+    lyrics: null,
+  },
+  {
+    id: "30",
+    title: "Né - Notas Repetidas",
+    slug: "ne-notas-repetidas",
+    beginning: "",
+    recordingIds: ["91"],
+    sheetsList: null,
+    instructions:
+      'Se você está tendo alguma dificuldade com nasalidade ou colocação frontal, que realmente cria a sonoridade do belting, esse exercício é para você. O som claro e metálico do "é" aberto coloca a voz bem à frente no palato e auxilia na correta fonação ao começar com um "n" fechado a cada nota. Mais uma vez, esse exercício deve ser feito de forma "conversacional", para o alcance da colocação adequada.',
+    lyrics: null,
+  },
+  {
+    id: "31",
+    title: "Aleluia",
+    slug: "aleluia",
+    beginning: "",
+    recordingIds: ["92"],
+    sheetsList: null,
+    instructions:
+      'Tente atingir a mesma colocação dos exercícios anteriores com a palavra "Aleluia".',
+    lyrics: null,
+  },
 ];
 
 const skills = [
@@ -1413,6 +1533,7 @@ const skills = [
   { id: "3", title: "Recitativos e Arias" },
   { id: "4", title: "Diafragma / Respiração" },
   { id: "5", title: "Vocalizes Voz de Cabeça" },
+  { id: "6", title: "Belting" },
 ];
 
 const lessons = [
@@ -1518,6 +1639,12 @@ const lessons = [
     skillId: "5",
     songIds: ["24", "25"],
   },
+  {
+    id: "18",
+    title: "",
+    skillId: "6",
+    songIds: ["26", "27", "28", "29", "30", "31"],
+  },
 ];
 
 const modules = [
@@ -1552,6 +1679,14 @@ const modules = [
       "14",
       "15",
     ],
+  },
+  {
+    id: "2",
+    title: "Belting",
+    slug: "belting",
+    about:
+      '"Belting é uma técnica de canto usada em diversos gêneros musicais, como rock, pop, gospel, e jazz, mas especialmente conhecida pela sua adoção no teatro musical americano. Muitas vezes nos referimos ao "belting" como uma forma de estender o registro de voz de peito para uma região mais aguda, para além da região da passagem, onde normalmente se faria a mudança para a voz de cabeça.\n\n Entretanto, há um certo consenso de que um belting saudável não deve ser entendido como pura "voz de peito", e sim uma extensão dela através de uma combinação de uma ressonância mais alta com a voz mista ou "mix", expressão em inglês. No mix, a voz não soa totalmente como uma voz cabeça e nem como uma voz de peito - e sim como uma combinação das duas, porém parecendo-se mais com a voz de peito.\n\nA estética do belting corresponde a um cantar que soa como a fala, promovendo uma sensação de espontaneidade, o que corresponde - acusticamente, sonoramente - a um prolongamento da voz de peito." - Wikipedia',
+    lessonsIds: ["18"],
   },
 ];
 
