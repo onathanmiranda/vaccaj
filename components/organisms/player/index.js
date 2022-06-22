@@ -11,6 +11,7 @@ export default function Player({ className }) {
     pause,
     changeSongRecording,
     setRepeatOne,
+    changePlaybackRate,
   } = usePlayerContext();
 
   const { recording, player, song } = playerContextState;
@@ -40,6 +41,13 @@ export default function Player({ className }) {
       play();
     },
     [changeSongRecording, load, play]
+  );
+
+  const onChangePlaybackRate = useCallback(
+    (e) => {
+      changePlaybackRate(e.target.value);
+    },
+    [changePlaybackRate]
   );
 
   const { voiceTypesOptions, instrumentsOptions } = useMemo(() => {
@@ -81,6 +89,27 @@ export default function Player({ className }) {
     };
   }, [song, recording, handleChangingRecording]);
 
+  const speedOptions = useMemo(() => {
+    const speeds = [0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0];
+    const labels = [
+      `${speeds[0]}x`,
+      `${speeds[1]}x`,
+      `${speeds[2]}x`,
+      "Normal",
+      `${speeds[4]}x`,
+      `${speeds[5]}x`,
+      `${speeds[6]}x`,
+      `${speeds[7]}x`,
+    ];
+    return speeds.map((speed, i) => ({ value: speed, label: labels[i] }));
+  }, []);
+
+  const playbackRateLabel = useMemo(() => {
+    return speedOptions.find(
+      (option) => `${option.value}` === `${player.playbackRate}`
+    )?.label;
+  }, [player.playbackRate, speedOptions]);
+
   return (
     <>
       {recording && (
@@ -93,9 +122,13 @@ export default function Player({ className }) {
           instrumentsOptions={instrumentsOptions}
           recordingId={recording.id}
           repeatOne={player.repeatOne}
+          speedOptions={speedOptions}
+          playbackRate={player.playbackRate}
+          playbackRateLabel={playbackRateLabel}
           onMainButtonClick={onClick}
           onSkipPreviousClick={onSkipPreviousClick}
           onRepeatOneClick={onRepeatOneClick}
+          onChangePlaybackRate={onChangePlaybackRate}
         />
       )}
     </>

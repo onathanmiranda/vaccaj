@@ -12,13 +12,13 @@ import styles from "./styles.module.scss";
 export default function SingleModule({ song }) {
   const { title, beginning } = song;
 
-  const { setSong, playerContextState, play } = usePlayerContext();
+  const { setSong, playerContextState } = usePlayerContext();
 
   useEffect(() => {
     if (!playerContextState.song) {
       setSong({ recording: song.recordings[0], song });
     }
-  }, [setSong, playerContextState, song, play]);
+  }, [setSong, playerContextState, song]);
 
   return (
     <>

@@ -2,17 +2,17 @@
   "short_name": "Vaccaj",
   "name": "Vaccaj - Método Prático de Canto",
   "description": "Estude vocalizes e vaccajs de forma simplificada.",
-  "start_url": "/aquecimentos",
   "id": "vaccaj-metodo-pratico-de-canto",
   "background_color": "#19171c",
   "theme_color": "#19171c",
   "display": "fullscreen",
   "scope": "/",
+  "start_url": "/aquecimentos",
   "prefer_related_applications": true,
   "related_applications": [
     {
-      "platform": "web",
-      "id": "vaccaj-metodo-pratico-de-canto"
+      "platform": "webapp",
+      "url": "https://vaccaj.vercel.app/manifest.json"
     }
   ],
   "shortcuts": [],

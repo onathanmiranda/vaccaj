@@ -53,7 +53,7 @@ export default function Guides({ song }) {
     if (!guidesOptions.find(({ value }) => value === guideOption)) {
       setGuideOption(guidesOptions[0].value);
     }
-  }, [guidesOptions, guideOption]);
+  }, [guidesOptions, guideOption, setGuideOption, song]);
 
   const { lyrics, beginning, instructions, sheets } = song;
 
@@ -63,47 +63,49 @@ export default function Guides({ song }) {
 
   return (
     <>
-      <aside className={styles.wrapper}>
+      <div className={styles.wrapper}>
         {showGuidesMenu && (
           <header className={styles.header}>
             <div className={styles.optionsWrapper}>
-              {guidesOptions.map((option) => {
-                return <Option key={option.value} {...option} />;
-              })}
+              {guidesOptions &&
+                guidesOptions.map((option) => {
+                  return <Option key={option.value} {...option} />;
+                })}
             </div>
           </header>
         )}
 
         {guideOption === 3 && (
           <div className={styles.lyricsWrapper}>
-            {instructions.split("\n").map((line) => (
-              <div key={line}>{line}</div>
-            ))}
+            {instructions &&
+              instructions
+                .split("\n")
+                .map((line) => <div key={line}>{line}</div>)}
           </div>
         )}
 
         {guideOption === 2 && (
           <div className={styles.lyricsWrapper}>
-            {lyrics.split("\n").map((line) => (
-              <div key={line}>{line}</div>
-            ))}
+            {lyrics &&
+              lyrics.split("\n").map((line) => <div key={line}>{line}</div>)}
           </div>
         )}
 
         {guideOption === 1 && (
           <div className={styles.sheetsWrapper}>
-            {sheetsPages.map((path) => (
-              <img
-                className={styles.sheetsPage}
-                src={path}
-                alt={`Partitura ${beginning} | ${config.siteTitle}`}
-                title={`Partitura ${beginning} | ${config.siteTitle}`}
-                key={path}
-              />
-            ))}
+            {sheetsPages &&
+              sheetsPages.map((path) => (
+                <img
+                  className={styles.sheetsPage}
+                  src={path}
+                  alt={`Partitura ${beginning} | ${config.siteTitle}`}
+                  title={`Partitura ${beginning} | ${config.siteTitle}`}
+                  key={path}
+                />
+              ))}
           </div>
         )}
-      </aside>
+      </div>
     </>
   );
 }

@@ -1,17 +1,25 @@
+import { useRef, useMemo } from "react";
+import MaterialIcon from "@material/react-material-icon";
+
 import Option from "../../atoms/option";
 import ButtonIcon from "../../atoms/button-icon";
+import Select from "../../atoms/select";
 
 import styles from "./styles.module.scss";
 
 export default function Markup({
-  className,
+  className = "",
   onMainButtonClick,
   playing,
   voiceTypesOptions,
   instrumentsOptions,
   onSkipPreviousClick,
   onRepeatOneClick,
+  playbackRate,
+  onChangePlaybackRate,
   repeatOne = false,
+  speedOptions = [],
+  playbackRateLabel,
 }) {
   const showVoiceTypeOptions =
     voiceTypesOptions && voiceTypesOptions.length > 1;
@@ -19,8 +27,10 @@ export default function Markup({
   const showInstrumentsOptions =
     instrumentsOptions && instrumentsOptions.length > 1;
 
+  const playbackSpeedSelectRef = useRef();
+
   return (
-    <div className={`${styles.wrapper} ${className}`}>
+    <div className={`${className}`}>
       {showInstrumentsOptions && (
         <div className={styles.voiceTypesOptionsWrapper}>
           <div className={styles.voiceTypesOptions}>
@@ -53,6 +63,10 @@ export default function Markup({
       )}
       <div className={styles.player}>
         <ButtonIcon
+          className={styles.hiddenButton}
+          iconName={"skip_previous"}
+        />
+        <ButtonIcon
           iconClassName={styles.hiddenButton}
           iconName={"repeat_one"}
         />
@@ -72,6 +86,20 @@ export default function Markup({
           iconName={"repeat_one"}
           onClick={onRepeatOneClick}
         />
+        <label htmlFor="speed" className={styles.playbackRateLabel}>
+          <MaterialIcon className={styles.playbackRateIcon} icon={"speed"} />
+          <div className={styles.playbackRateLabelText}>
+            {playbackRateLabel}
+          </div>
+          <Select
+            name="speed"
+            options={speedOptions}
+            value={playbackRate}
+            onChange={onChangePlaybackRate}
+            className={styles.playbackRateSelect}
+            ref={playbackSpeedSelectRef}
+          />
+        </label>
       </div>
     </div>
   );

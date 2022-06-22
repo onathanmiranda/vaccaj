@@ -17,14 +17,16 @@ const linksArray = [
 ];
 
 export default function Menu({ style }) {
-  const { asPath } = useRouter();
-
+  const router = useRouter();
+  const { asPath } = router;
   let _links = useMemo(
     () =>
-      linksArray.map((link) => ({
-        ...link,
-        isActive: asPath === link.href,
-      })),
+      linksArray.map((link) => {
+        return {
+          ...link,
+          isActive: asPath.includes(link.href),
+        };
+      }),
     [asPath]
   );
 
