@@ -1427,7 +1427,8 @@ const songs = [
     beginning: "Semplicetta tortorella",
     recordingIds: ["6", "7", "8", "9"],
     sheetsList: ["4", "5", "6"],
-    instructions: null,
+    instructions:
+      "Nessa primeira lição, o cantor deverá fazer com que sua voz se prolongue nas vogais, acentuando as notas, para em seguida rapidamente articular a próxima consoante e passar para a sílaba seguinte. Isso fará com que o cantor tenha facilidade de adquirir o que os italianos chamam de “canto legato”.",
     lyrics:
       "Semplicetta tortorella, \n che non vede il suo periglio, \n per fuggir dal crudo artiglio \n vola in grembo al cacciator.",
   },
