@@ -1191,7 +1191,8 @@ const songs = [
     beginning: "Manca solecitta",
     recordingIds: ["1", "2", "3", "4", "5", "82", "83", "84", "85", "86"],
     sheetsList: ["1", "2", "3"],
-    instructions: null,
+    instructions:
+      "Nessa primeira lição, o cantor deverá fazer com que sua voz se prolongue nas vogais, acentuando as notas, para em seguida rapidamente articular a próxima consoante e passar para a sílaba seguinte. Isso fará com que o cantor tenha facilidade de adquirir o que os italianos chamam de “canto legato”.",
     lyrics:
       "Manca sollecita \n più dell´usato, \n ancor che s`agiti \n con lieve fiato, \n face che palpita \n presso al morir.",
   },
@@ -1202,7 +1203,8 @@ const songs = [
     beginning: "Semplicetta tortorella",
     recordingIds: ["6", "7", "8", "9"],
     sheetsList: ["4", "5", "6"],
-    instructions: null,
+    instructions:
+      "Nessa primeira lição, o cantor deverá fazer com que sua voz se prolongue nas vogais, acentuando as notas, para em seguida rapidamente articular a próxima consoante e passar para a sílaba seguinte. Isso fará com que o cantor tenha facilidade de adquirir o que os italianos chamam de “canto legato”.",
     lyrics:
       "Semplicetta tortorella, \n che non vede il suo periglio, \n per fuggir dal crudo artiglio \n vola in grembo al cacciator.",
   },
@@ -1685,7 +1687,7 @@ const modules = [
     title: "Belting",
     slug: "belting",
     about:
-      '"Belting é uma técnica de canto usada em diversos gêneros musicais, como rock, pop, gospel, e jazz, mas especialmente conhecida pela sua adoção no teatro musical americano. Muitas vezes nos referimos ao "belting" como uma forma de estender o registro de voz de peito para uma região mais aguda, para além da região da passagem, onde normalmente se faria a mudança para a voz de cabeça.\n\n Entretanto, há um certo consenso de que um belting saudável não deve ser entendido como pura "voz de peito", e sim uma extensão dela através de uma combinação de uma ressonância mais alta com a voz mista ou "mix", expressão em inglês. No mix, a voz não soa totalmente como uma voz cabeça e nem como uma voz de peito - e sim como uma combinação das duas, porém parecendo-se mais com a voz de peito.\n\nA estética do belting corresponde a um cantar que soa como a fala, promovendo uma sensação de espontaneidade, o que corresponde - acusticamente, sonoramente - a um prolongamento da voz de peito." - Wikipedia',
+      '"Belting é uma técnica de canto usada em diversos gêneros musicais, como rock, pop, gospel, e jazz, mas especialmente conhecida pela sua adoção no teatro musical americano. Muitas vezes nos referimos ao "belting" como uma forma de estender o registro de voz de peito para uma região mais aguda, para além da região da passagem, onde normalmente se faria a mudança para a voz de cabeça.\n\n" - Wikipedia',
     lessonsIds: ["18"],
   },
 ];

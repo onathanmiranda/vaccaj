@@ -92,7 +92,7 @@ function MyApp({ Component, pageProps }) {
     const cookieConsent = getCookie(config.cookies.cookieConsentKey);
     const saveChoice = cookieConsent === config.cookies.cookiesAllowedValue;
     if (saveChoice) {
-      const exp = 3;
+      const exp = 30;
       setCookie(config.cookies.installBannerDismissKey, true, exp);
     }
     setShowInstallPrompt(false);

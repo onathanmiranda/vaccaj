@@ -26,7 +26,7 @@ export default function CookiesBanner() {
       const value = consent
         ? config.cookies.cookiesAllowedValue
         : config.cookies.cookiesNotAllowedValue;
-      const exp = consent ? 365 : 30;
+      const exp = consent ? 360 : 30;
       setCookie(config.cookies.cookieConsentKey, value, exp);
       setShowBanner(false);
       window.document.dispatchEvent(events.allowCookies);

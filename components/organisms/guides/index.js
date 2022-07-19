@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 
 import Option from "../../atoms/option";
+import Sheet from "../../molecules/sheet";
 
 import config from "../../../config";
 
@@ -74,7 +75,7 @@ export default function Guides({ song }) {
             </div>
           </header>
         )}
-
+        <Sheet />
         {guideOption === 3 && (
           <div className={styles.lyricsWrapper}>
             {instructions &&

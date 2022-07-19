@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@material/react-material-icon": "^0.15.0",
+    "abcjs": "^6.0.2",
     "next": "12.1.2",
     "react": "18.0.0",
     "react-dom": "18.0.0",
