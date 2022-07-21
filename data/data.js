@@ -1033,7 +1033,7 @@ const sheets = [
       "/images/vaccaj_9a_1_soprano_tenor.jpg",
       "/images/vaccaj_9a_2_soprano_tenor.jpg",
     ],
-    voiceTypes: [3, 5, 6],
+    voiceTypes: ["3", "5", "6"],
   },
   {
     id: "34",
