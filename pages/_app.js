@@ -26,7 +26,9 @@ function ContextsWrapper({ children }) {
   return (
     <LocalStorageContext>
       <LessonsContextProvider>
-        <PlayerContextProvider>{children}</PlayerContextProvider>
+          <PlayerContextProvider>
+            {children}
+          </PlayerContextProvider>
       </LessonsContextProvider>
     </LocalStorageContext>
   );
@@ -35,6 +37,28 @@ function ContextsWrapper({ children }) {
 function MyApp({ Component, pageProps }) {
   const [showInstallPrompt, setShowInstallPrompt] = useState(false);
   const deferredPrompt = useRef();
+
+  const handleInstall = useCallback(async () => {
+    // Mostra prompt de instalação
+    deferredPrompt.current.prompt();
+    // Espera usuário responder ao prompt
+    const { outcome } = await deferredPrompt.current.userChoice;
+    // Opcionalmente, enviar evento analytics com resultado da escolha do usuário
+    console.log(`User response to the install prompt: ${outcome}`);
+    // Usamos o prompt e não podemos usar de novo; jogue fora
+    deferredPrompt.current = null;
+  }, []);
+
+  const handleInstallClose = useCallback(() => {
+    if (!setShowInstallPrompt) return;
+    const cookieConsent = getCookie(config.cookies.cookieConsentKey);
+    const saveChoice = cookieConsent === config.cookies.cookiesAllowedValue;
+    if (saveChoice) {
+      const exp = config.installBanner.displayDaysInterval;
+      setCookie(config.cookies.installBannerDismissKey, true, exp);
+    }
+    setShowInstallPrompt(false);
+  }, [setShowInstallPrompt]);
 
   useEffect(() => {
     //TODO: Check if app is installed before displaying banner.
@@ -76,34 +100,12 @@ function MyApp({ Component, pageProps }) {
     }
   }, [setShowInstallPrompt]);
 
-  const handleInstall = useCallback(async () => {
-    // Mostra prompt de instalação
-    deferredPrompt.current.prompt();
-    // Espera usuário responder ao prompt
-    const { outcome } = await deferredPrompt.current.userChoice;
-    // Opcionalmente, enviar evento analytics com resultado da escolha do usuário
-    console.log(`User response to the install prompt: ${outcome}`);
-    // Usamos o prompt e não podemos usar de novo; jogue fora
-    deferredPrompt.current = null;
-  }, []);
-
-  const handleInstallClose = useCallback(() => {
-    if (!setShowInstallPrompt) return;
-    const cookieConsent = getCookie(config.cookies.cookieConsentKey);
-    const saveChoice = cookieConsent === config.cookies.cookiesAllowedValue;
-    if (saveChoice) {
-      const exp = config.installBanner.displayDaysInterval;
-      setCookie(config.cookies.installBannerDismissKey, true, exp);
-    }
-    setShowInstallPrompt(false);
-  }, [setShowInstallPrompt]);
-
   return (
     <>
       <Script id="serviceworker">{`
-            if ("serviceWorker" in navigator) {
-              navigator.serviceWorker.register("/service-worker.js");
-            }
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.register("/service-worker.js");
+        }
       `}</Script>
       {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS && (
         <>

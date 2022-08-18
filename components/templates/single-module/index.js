@@ -20,7 +20,7 @@ export default function SingleModule({ module }) {
         <header className={styles.header}>
           <h1>{module.title}</h1>
           {module.about &&
-            module.about.split("\n").map((about) => <p key={about}>{about}</p>)}
+            module.about.split("\n").filter((about) => about !== "").map((about) => <p key={about}>{about}</p>)}
         </header>
         <section className={styles.lessons}>
           <SkillsList skills={skills} module={module} />

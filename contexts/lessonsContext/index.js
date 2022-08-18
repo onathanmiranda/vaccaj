@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext, useMemo } from "react";
+import React, { useState, createContext } from "react";
 
 import {
   voiceTypes,
@@ -13,7 +13,7 @@ import {
 
 import reducedData from "../../data";
 
-const LessonsContext = createContext();
+export const LessonsContext = createContext();
 
 export default function LessonsContextProvider({ children }) {
   const state = useState({
@@ -32,8 +32,3 @@ export default function LessonsContextProvider({ children }) {
     <LessonsContext.Provider value={state}>{children}</LessonsContext.Provider>
   );
 }
-
-export const useLessonsContext = () => {
-  const [lessonsContextState] = useContext(LessonsContext);
-  return lessonsContextState;
-};

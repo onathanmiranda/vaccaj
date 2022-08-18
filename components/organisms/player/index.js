@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { usePlayerContext } from "../../../contexts/playerContext";
 
 import Markup from "./markup";
@@ -17,9 +17,20 @@ export default function Player({ className }) {
   const { recording, player, song } = playerContextState;
 
   const onClick = useCallback(() => {
+    if(typeof document !== "undefined"){
+      document.activeElement.blur();
+    }
     if (player.playing) return pause();
     if (!player.playing) return play();
   }, [pause, play, player.playing]);
+
+  const togglePlayOnKeyPress = useCallback((e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const isSpacebar = e.key == " " || e.code == "Space";
+    if(!isSpacebar) return;
+    onClick();
+  }, [onClick]);
 
   const onSkipPreviousClick = useCallback(() => {
     load();
@@ -109,6 +120,17 @@ export default function Player({ className }) {
       (option) => `${option.value}` === `${player.playbackRate}`
     )?.label;
   }, [player.playbackRate, speedOptions]);
+
+  useEffect(() => {
+    if(typeof window !== "undefined"){
+      window.addEventListener('keypress', togglePlayOnKeyPress)
+    }
+    return () => {
+      if(typeof window !== "undefined"){
+        window.removeEventListener('keypress', togglePlayOnKeyPress);
+      }
+    }
+  }, [togglePlayOnKeyPress]);
 
   return (
     <>
