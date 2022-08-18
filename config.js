@@ -6,5 +6,8 @@ export default {
     cookiesNotAllowedValue: "not-allowed",
     preferredRecordingsKey: "preferredRecording",
   },
+  installBanner: {
+    displayDaysInterval: 30,
+  },
   siteTitle: "Vaccaj",
 };

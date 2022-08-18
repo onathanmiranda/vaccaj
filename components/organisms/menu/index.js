@@ -19,6 +19,11 @@ const linksArray = [
     title: "Belting",
     text: "belting",
   },
+  {
+    href: "/modulos/panofka",
+    title: "Panofka",
+    text: "panofka",
+  },
 ];
 
 export default function Menu({ style }) {
