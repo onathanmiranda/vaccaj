@@ -3,7 +3,7 @@
     "relation": ["delegate_permission/common.query_webapk"],
     "target": {
       "namespace": "web",
-      "site": "https://vaccaj.vercel.app/manifest.json"
+      "site": "https://vaccaj.app/manifest.json"
     }
   }
 ]

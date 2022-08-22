@@ -12,7 +12,7 @@
   "related_applications": [
     {
       "platform": "webapp",
-      "url": "https://vaccaj.vercel.app/manifest.json"
+      "url": "https://vaccaj.app/manifest.json"
     }
   ],
   "shortcuts": [],
