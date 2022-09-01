@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { useEffect, useState, useMemo } from "react";
 
 import SkillsList from "../../organisms/skills-list";
@@ -7,7 +6,6 @@ import Guides from "../../organisms/guides";
 import styles from "./styles.module.scss";
 
 export default function Markup({
-  title,
   h1,
   module,
   skills,
@@ -39,7 +37,6 @@ export default function Markup({
 
   return (
     <>
-      <Head>{title && <title>{title}</title>}</Head>
       <main className={styles.main}>
         <aside className={styles.lessons}>
           <SkillsList

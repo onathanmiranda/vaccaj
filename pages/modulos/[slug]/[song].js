@@ -8,8 +8,8 @@ import modules, {
 
 import { songs } from "../../../data/data";
 
-export default function Song({ module, song }) {
-  return <SingleModuleSong song={song} module={module} />;
+export default function Song({ module, song, moduleSlug, songSlugOrId, description }) {
+  return <SingleModuleSong song={song} module={module} pathname={`/modules/${moduleSlug}/${songSlugOrId}`} description={description} />;
 }
 
 // This function gets called at build time
@@ -23,10 +23,15 @@ export async function getStaticProps({ params }) {
     if (_song) song = reduceSongInfo(_song);
   }
 
+  const description = song.instructions || `Estude ${song.title}${song.beginning ? ` (${song.beginning}) ` : ' '}de forma simplificada.`
+
   return {
     props: {
       module,
       song,
+      moduleSlug: params.slug,
+      songSlugOrId: params.song,
+      description
     },
   };
 }

@@ -2,8 +2,8 @@ import SingleModule from "../../components/templates/single-module";
 
 import modules from "../../data";
 
-export default function Song({ module }) {
-  return <SingleModule module={module} />;
+export default function Module({ module, slug }) {
+  return <SingleModule module={module} pathname={`/modules/${slug}}`} />;
 }
 
 // This function gets called at build time
@@ -13,6 +13,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       module,
+      slug: params.slug
     },
   };
 }

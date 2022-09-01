@@ -9,7 +9,7 @@ import config from "../../../config";
 
 import styles from "./styles.module.scss";
 
-export default function SingleModule({ song }) {
+export default function SingleModule({ song, description, pathname }) {
   const { title, beginning } = song;
 
   const { setSong, playerContextState } = usePlayerContext();
@@ -23,9 +23,14 @@ export default function SingleModule({ song }) {
   return (
     <>
       <Head>
+        <link rel="canonical" href={`https://vaccaj.app/${pathname}`} />
         <title>
           {beginning} - {title} | {config.siteTitle}
         </title>
+        <meta
+        name="description"
+          content={description}
+        />
       </Head>
       <main className={styles.main}>
         <Guides song={playerContextState.song} />

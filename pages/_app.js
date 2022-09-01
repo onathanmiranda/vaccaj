@@ -156,20 +156,13 @@ function MyApp({ Component, pageProps }) {
         </>
       )}
       <Head>
-        <meta charset="UTF-8" />
-        <title>{config.siteTitle}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="canonical" href="https://vaccaj.app/" />
         <meta name="theme-color" content="#19171c" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-touch-fullscreen" content="yes" />
         <meta name="apple-mobile-web-app-title" content={config.siteTitle} />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta
-          name="description"
-          content="Estude vocalizes e vaccajs de forma simplificada."
-        />
         <link rel="shortcut icon" sizes="180x180" href="/images/icon-180.png" />
         <link
           rel="apple-touch-icon"
@@ -187,59 +180,49 @@ function MyApp({ Component, pageProps }) {
         {/* <!-- iPad retina portrait startup image --> */}
         <link
           href="/assets/startup/apple-touch-startup-image-1536.png"
-          media="(device-width: 768px) and (device-height: 1024px)
-                     and (-webkit-device-pixel-ratio: 2)
-                     and (orientation: portrait)"
+          media="(device-width: 768px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
           rel="apple-touch-startup-image"
         />
 
         {/* <!-- iPad non-retina portrait startup image --> */}
         <link
           href="/assets/startup/apple-touch-startup-image-768.png"
-          media="(device-width: 768px) and (device-height: 1024px)
-                        and (-webkit-device-pixel-ratio: 1)
-                        and (orientation: portrait)"
+          media="(device-width: 768px) and (-webkit-device-pixel-ratio: 1) and (orientation: portrait)"
           rel="apple-touch-startup-image"
         />
 
         {/* <!-- iPhone 6 Plus portrait startup image --> */}
         <link
           href="/assets/startup/apple-touch-startup-image-1242.png"
-          media="(device-width: 414px) and (device-height: 736px)
-                        and (-webkit-device-pixel-ratio: 3)
-                        and (orientation: portrait)"
+          media="(device-width: 414px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
           rel="apple-touch-startup-image"
         />
 
         {/* <!-- iPhone 6 startup image --> */}
         <link
           href="/assets/startup/apple-touch-startup-image-750.png"
-          media="(device-width: 375px) and (device-height: 667px)
-                        and (-webkit-device-pixel-ratio: 2)"
+          media="(device-width: 375px) and (-webkit-device-pixel-ratio: 2)"
           rel="apple-touch-startup-image"
         />
 
         {/* <!-- iPhone 5 startup image --> */}
         <link
           href="/assets/startup/apple-touch-startup-image-640.png"
-          media="(device-width: 320px) and (device-height: 568px)
-                        and (-webkit-device-pixel-ratio: 2)"
+          media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)"
           rel="apple-touch-startup-image"
         />
 
         {/* <!-- iPhone < 5 retina startup image --> */}
         <link
           href="/assets/startup/apple-touch-startup-image-640.png"
-          media="(device-width: 320px) and (device-height: 480px)
-                        and (-webkit-device-pixel-ratio: 2)"
+          media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)"
           rel="apple-touch-startup-image"
         />
 
         {/* <!-- iPhone < 5 non-retina startup image --> */}
         <link
           href="/assets/startup/apple-touch-startup-image-320.png"
-          media="(device-width: 320px) and (device-height: 480px)
-                        and (-webkit-device-pixel-ratio: 1)"
+          media="(device-width: 320px) and (-webkit-device-pixel-ratio: 1)"
           rel="apple-touch-startup-image"
         />
       </Head>

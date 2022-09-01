@@ -6,15 +6,20 @@ import config from "../../../config";
 
 import styles from "./styles.module.scss";
 
-export default function SingleModule({ module }) {
-  const { skills } = module;
+export default function SingleModule({ module, pathname }) {
+  const { skills, about } = module;
 
   return (
     <>
       <Head>
+        <link rel="canonical" href={`https://vaccaj.app/${pathname}`} />
         <title>
           {module.title} | {config.siteTitle}
         </title>
+        <meta
+          name="description"
+          content={about.substring(0, 259)}
+        />
       </Head>
       <main className={styles.main}>
         <header className={styles.header}>
