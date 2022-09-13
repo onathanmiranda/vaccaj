@@ -1539,7 +1539,7 @@ const songs = [
     beginning: "La gioia verace",
     recordingIds: ["47", "48", "49", "50"],
     sheetsList: ["32", "33"],
-    instructions: "Of all the musical graces or embellishments the Gruppetto (or Turn) is, at once, the most varied and the most difficult, from the apparent ease and lightness with which it must be executed. It consists of 2 or 3 notes, and can impart great charm to the singing without influencing the due sentiment of the phrasing of individual passages, or the general intention of the composer. It is, therefore, the only license that the singer may occasionally take on his own responsibility. The slightest appearance of effort or premeditation is fatal. We may add that modern composers write the notes they wish to have sung, and it is impossible to condemn too strongly the singers use of any Abbellimenti or vocal ornaments that new not indicated in the music by the composer himself. We are thankful to say this abuse has long since gone out of fashion.",
+    instructions: "De todos os ornamentos musicais, os Gruppettos (Turns) são, de imediato, os mais variado e mais difíceis, pela aparente facilidade e leveza com que devem ser executados. Essa técnica consiste de 2 ou 3 notas, and consegue transmitir um charme ao canto sem influenciar o sentimento do fraseado ou das passagens individuais, nem a intenção geral do compositor. Ela é, portanto, a única licença que o cantor pode, ocasionalmente, tomar por conta própria. \n Entretanto, o menor indício de esforço ou intenção estragará seu efeito.",
     lyrics:
       "la gioja verace \n per farsi palese, \n d´un labbro loquace \n bisogno non ha.",
   },
@@ -1561,7 +1561,7 @@ const songs = [
     beginning: "Quando accende un nobil petto",
     recordingIds: ["55", "56"],
     sheetsList: ["36", "37"],
-    instructions: null,
+    instructions: "Para o estudo dos Gruppettos (Turns), o estudante deverá seguir as mesmas instruções dadas para a Lição VII.",
     lyrics:
       "Quando accende un nobil petto \n è innocente, è puro affetto, \n debolezza amor non è.",
   },
