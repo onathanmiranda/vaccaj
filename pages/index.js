@@ -1,8 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useCallback } from "react";
 
-import Menu from "../components/organisms/menu";
-
 export default function Home() {
   const router = useRouter();
 
@@ -19,8 +17,6 @@ export default function Home() {
   }, [redirectToPage]);
 
   return (
-    <>
-      <Menu />
-    </>
+    <></>
   );
 }

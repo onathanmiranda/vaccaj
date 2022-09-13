@@ -35,6 +35,11 @@ button {
 ::-webkit-scrollbar {
   width: 0.5rem;
   height: 0.5rem;
+
+  &:hover {
+    width: 1rem;
+    height: 1rem;
+  }
 }
 
 /* Track */
@@ -46,9 +51,9 @@ button {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: color($primary, 600);
-}
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: color($primary, 700);
+  /* Handle on hover */
+  &:hover {
+    background: color($primary, 700);
+  }
 }

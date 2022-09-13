@@ -1506,7 +1506,7 @@ const songs = [
     beginning: "Come il candore",
     recordingIds: ["27", "28", "29", "30", "31", "32", "33", "34", "35", "36"],
     sheetsList: ["26", "27"],
-    instructions: null,
+    instructions: "Inicialmente, o estudante deverá estudar esse exercício no tempo mais lento. \nEm seguida, ele deverá praticar com um allegro preciso, progressivamente, conforme conseguir. \nAs escalas deverão sera cantadas com muita suavidade, uniformidade e fluidez; porém com cada nota clara e distinta. Evite sons trêmulos e imprecisos.",
     lyrics:
       "Come il candore \n d'intatta neve \n è d'un bel core \n la fedeltà. \n Un' orma sola \n che in sé riceve, \n tutta ne invola \n la sua beltà.",
   },
@@ -1517,7 +1517,7 @@ const songs = [
     beginning: "Senza l'amabile",
     recordingIds: ["37", "38", "39", "40", "41"],
     sheetsList: ["28", "29"],
-    instructions: null,
+    instructions: "A appoggiatura é o mais expressivo de todos os adornos musicais. O efeito é obtido ao “pegar emprestado” o valor indicado da nota seguinte. Em algumas ocasiões, o cantor deverá aumentar brevemente o tempo da nota (porém nunca deverá diminuí-la).",
     lyrics:
       "Senza l'amabile \n Dio di Citera \n i dì non tornano \n di primavera, \n non spira un zeffiro, \n non spunta un fior.\n L´erbe sul margine \n del fonte amico, \n le piante vedove \n sul colle aprico \n per lui rivestono \n l´antico onor.",
   },
@@ -1528,7 +1528,7 @@ const songs = [
     beginning: "Benchè di senso privo",
     recordingIds: ["42", "43", "44", "45", "46"],
     sheetsList: ["30", "31"],
-    instructions: null,
+    instructions: "A Acciaccatura se diferencia da Appoggiatura ao não “pegar emprestado” nada do valor da nota seguinte, embora ela intensifique levemente seu valor. Ela deve ser cantada com extrema leveza e facilidade, suavidade, roubando o menor tempo possível das notas que a precedem.",
     lyrics:
       "Benchè di senso privo, \n fin l`arboscello è grato \n a quell'amico rivo, \n da cui riceve umor. \n per lui di fronde ornato \n bella mercè gli rende, \n dal sol quando difende \n il suo benefattor.",
   },
@@ -1539,7 +1539,7 @@ const songs = [
     beginning: "La gioia verace",
     recordingIds: ["47", "48", "49", "50"],
     sheetsList: ["32", "33"],
-    instructions: null,
+    instructions: "Of all the musical graces or embellishments the Gruppetto (or Turn) is, at once, the most varied and the most difficult, from the apparent ease and lightness with which it must be executed. It consists of 2 or 3 notes, and can impart great charm to the singing without influencing the due sentiment of the phrasing of individual passages, or the general intention of the composer. It is, therefore, the only license that the singer may occasionally take on his own responsibility. The slightest appearance of effort or premeditation is fatal. We may add that modern composers write the notes they wish to have sung, and it is impossible to condemn too strongly the singers use of any Abbellimenti or vocal ornaments that new not indicated in the music by the composer himself. We are thankful to say this abuse has long since gone out of fashion.",
     lyrics:
       "la gioja verace \n per farsi palese, \n d´un labbro loquace \n bisogno non ha.",
   },

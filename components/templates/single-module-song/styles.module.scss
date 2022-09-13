@@ -1,37 +1,55 @@
 @use "sass:color";
 @import "../../../theme/";
 
-.main {
-  @media (min-width: 950px) {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr;
-    gap: 3.4rem;
-    min-height: 100vh;
-  }
-  .lessons {
-    padding: 5.5rem 1.3rem 0;
-    @media (min-width: 950px) {
-      background-color: color.change(color($primary, 900), $alpha: 0.3);
-      padding: 5.5rem 1.3rem 23.3rem;
-    }
+.grid {
+  display: grid;
+  overflow: hidden;
+  grid-template-rows: minmax(min-content, max-content) auto minmax(min-content, max-content);
+  transition: height .3s;
+  width: 100%;
+}
+
+ .main {
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: minmax(min-content, max-content) auto;
+
+  @media (min-width: 900px){
+    grid-template-columns: 32rem auto;
+    grid-template-rows: none;
+    height: 100%;
   }
 
   .guides {
-    padding: 0 1.3rem 23.3rem;
-    margin-top: 3.4rem;
-    @media (min-width: 950px) {
-      margin-top: 0;
-      padding: 5.5rem 1.3rem 23.3rem;
-      padding-right: 2.1rem;
+    padding: 3.4rem 2.1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    @media (min-width: 900px){
+      height: 100%;
+      width: 100%;
+    }
+
+    .songTitle {
+      margin: 0;
+      text-transform: none;
+    }
+    .moduleTitle {
+      color: color($secondary, 500);
+    }
+    .instructions {
+      text-transform: none;
+      max-width: 72ch;
     }
   }
 
-  .songTitle {
-    margin: 0;
-    text-transform: none;
-  }
-  .moduleTitle {
-    color: color($secondary, 500);
+  .lessons {
+    padding: 1.3rem 2.1rem;
+    width: 100%;
+    overflow: hidden;
+    @media (min-width: 900px){
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
   }
 }

@@ -32,17 +32,7 @@ export default function Guides({ song }) {
         },
         name: "guideOptions",
         checked: guideOption === 2,
-      },
-      {
-        value: 3,
-        label: "instruções",
-        optionRef: "instructions",
-        onChange: () => {
-          setGuideOption(3);
-        },
-        name: "guideOptions",
-        checked: guideOption === 3,
-      },
+      }
     ].filter(({ optionRef }) => {
       return Boolean(song[optionRef]);
     });
@@ -55,7 +45,7 @@ export default function Guides({ song }) {
     }
   }, [guidesOptions, guideOption, setGuideOption, song]);
 
-  const { lyrics, beginning, instructions, sheets } = song;
+  const { lyrics, beginning, sheets } = song;
 
   const sheetsPages = sheets?.filePaths ? sheets.filePaths : [];
 
@@ -73,15 +63,6 @@ export default function Guides({ song }) {
                 })}
             </div>
           </header>
-        )}
-
-        {guideOption === 3 && (
-          <div className={styles.lyricsWrapper}>
-            {instructions &&
-              instructions
-                .split("\n")
-                .map((line) => <div key={line}>{line}</div>)}
-          </div>
         )}
 
         {guideOption === 2 && (

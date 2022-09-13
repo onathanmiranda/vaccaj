@@ -1,14 +1,7 @@
-import { useEffect, useRef, useState, useCallback } from "react";
-
 import Head from "next/head";
 import Script from "next/script";
 
-import Player from "../components/organisms/player";
-import Menu from "../components/organisms/menu";
 import CookiesBanner from "../components/organisms/cookies-banner";
-import InstallPrompt from "../components/organisms/install-prompt";
-
-import { getCookie, setCookie } from "../helpers/cookies";
 
 import config from "../config";
 
@@ -16,10 +9,10 @@ import {
   LessonsContextProvider,
   PlayerContextProvider,
   LocalStorageContext,
+  InstallPromptContextProvider
 } from "../contexts";
 
 import "../theme/global.scss";
-import styles from "./index.module.scss";
 import "@material/react-material-icon/index.scss";
 
 function ContextsWrapper({ children }) {
@@ -27,7 +20,9 @@ function ContextsWrapper({ children }) {
     <LocalStorageContext>
       <LessonsContextProvider>
           <PlayerContextProvider>
-            {children}
+            <InstallPromptContextProvider>
+              {children}
+            </InstallPromptContextProvider>
           </PlayerContextProvider>
       </LessonsContextProvider>
     </LocalStorageContext>
@@ -35,71 +30,6 @@ function ContextsWrapper({ children }) {
 }
 
 function MyApp({ Component, pageProps }) {
-  const [showInstallPrompt, setShowInstallPrompt] = useState(false);
-  const deferredPrompt = useRef();
-
-  const handleInstall = useCallback(async () => {
-    // Mostra prompt de instalação
-    deferredPrompt.current.prompt();
-    // Espera usuário responder ao prompt
-    const { outcome } = await deferredPrompt.current.userChoice;
-    // Opcionalmente, enviar evento analytics com resultado da escolha do usuário
-    console.log(`User response to the install prompt: ${outcome}`);
-    // Usamos o prompt e não podemos usar de novo; jogue fora
-    deferredPrompt.current = null;
-  }, []);
-
-  const handleInstallClose = useCallback(() => {
-    if (!setShowInstallPrompt) return;
-    const cookieConsent = getCookie(config.cookies.cookieConsentKey);
-    const saveChoice = cookieConsent === config.cookies.cookiesAllowedValue;
-    if (saveChoice) {
-      const exp = config.installBanner.displayDaysInterval;
-      setCookie(config.cookies.installBannerDismissKey, true, exp);
-    }
-    setShowInstallPrompt(false);
-  }, [setShowInstallPrompt]);
-
-  useEffect(() => {
-    //TODO: Check if app is installed before displaying banner.
-    /* async function showInstallBanner() {
-      const relatedApps = await navigator.getInstalledRelatedApps();
-
-      relatedApps.forEach((app) => {
-        console.log(app.id, app.platform, app.url);
-      });
-    }
-    showInstallBanner(); */
-
-    if (!setShowInstallPrompt) return;
-    if (typeof window !== "undefined") {
-      window.addEventListener("beforeinstallprompt", (e) => {
-        // Impede que o mini-infobar apareça em mobile
-        e.preventDefault();
-        // Guarda evento para que possa ser disparado depois.
-        deferredPrompt.current = e;
-
-        const showBanner = Boolean(
-          !getCookie(config.cookies.installBannerDismissKey)
-        );
-
-        // Atualiza UI notifica usuário que pode instalar PWA
-        if (showBanner) setShowInstallPrompt(true);
-        // Opcionalmente, enviar eventos de analytics que promo de instalação PWA foi mostrado.
-        console.log(`'beforeinstallprompt' event was fired.`);
-      });
-
-      window.addEventListener("appinstalled", () => {
-        // Esconder a promoção de instalação fornecida pela app
-        setShowInstallPrompt(false);
-        // Limpar o deferredPrompt para que seja coletado
-        deferredPrompt.current = null;
-        // Opcionalmente, enviar evento de analytics para indicar instalação com sucesso
-        console.log("PWA was installed");
-      });
-    }
-  }, [setShowInstallPrompt]);
-
   return (
     <>
       <Script id="serviceworker">{`
@@ -227,19 +157,7 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <ContextsWrapper>
-        <header style={{ position: "relative", zIndex: 1 }}>
-          {showInstallPrompt && (
-            <InstallPrompt
-              onInstall={handleInstall}
-              onClose={handleInstallClose}
-            />
-          )}
-          <Menu style={{ top: showInstallPrompt ? 40 : 0 }} />
-        </header>
         <Component {...pageProps} />
-        <section className={styles.player}>
-          <Player />
-        </section>
         <CookiesBanner />
       </ContextsWrapper>
     </>

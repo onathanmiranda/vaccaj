@@ -3,8 +3,8 @@
 .wrapper {
   width: 100%;
   max-width: 52rem;
-  height: 100%;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
 
   .lesson {
     + .lesson {
@@ -41,6 +41,7 @@
   &.horizontal {
     overflow-x: scroll;
     max-width: none;
+    
     .horizontalWrapper {
       display: flex;
       padding: 0.5rem 0;
@@ -51,7 +52,7 @@
         width: auto;
         gap: 1.3rem;
         + .songCard {
-          margin-left: 0.8rem;
+          margin-left: 2.1rem;
         }
       }
     }
