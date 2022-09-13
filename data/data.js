@@ -1501,7 +1501,7 @@ const songs = [
   },
   {
     id: "10",
-    title: "Introdução à Coloratura* (Introduzione alle volate)",
+    title: "Introdução à Coloratura* (volate)",
     slug: "come-il-candore",
     beginning: "Come il candore",
     recordingIds: ["27", "28", "29", "30", "31", "32", "33", "34", "35", "36"],
@@ -1512,7 +1512,7 @@ const songs = [
   },
   {
     id: "11",
-    title: "Apogiaturas",
+    title: "Appoggiaturas",
     slug: "senza-lamabile",
     beginning: "Senza l'amabile",
     recordingIds: ["37", "38", "39", "40", "41"],
@@ -1523,7 +1523,7 @@ const songs = [
   },
   {
     id: "12",
-    title: "Accacciaturas",
+    title: "Acciaccaturas",
     slug: "benche-di-senso-privo",
     beginning: "Benchè di senso privo",
     recordingIds: ["42", "43", "44", "45", "46"],
