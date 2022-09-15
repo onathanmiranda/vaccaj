@@ -1,7 +1,9 @@
-import { useCallback, useEffect, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { usePlayerContext } from "../../../contexts/playerContext";
 
 import Markup from "./markup";
+
+const isFront = typeof window !== "undefined";
 
 export default function Player({ className }) {
   const {
@@ -15,6 +17,8 @@ export default function Player({ className }) {
   } = usePlayerContext();
 
   const { recording, player, song } = playerContextState;
+
+  const [forceShow, setForceShow] = useState(true);
 
   const onClick = useCallback(() => {
     if(typeof document !== "undefined"){
@@ -122,15 +126,20 @@ export default function Player({ className }) {
   }, [player.playbackRate, speedOptions]);
 
   useEffect(() => {
-    if(typeof window !== "undefined"){
+    if(isFront){
       window.addEventListener('keypress', togglePlayOnKeyPress)
     }
     return () => {
-      if(typeof window !== "undefined"){
+      if(isFront){
         window.removeEventListener('keypress', togglePlayOnKeyPress);
       }
     }
   }, [togglePlayOnKeyPress]);
+
+  useEffect(() => {
+    if(!isFront) return;
+    setTimeout(() => setForceShow(false), 3000);
+  }, [setForceShow]);
 
   return (
     <>
@@ -151,6 +160,7 @@ export default function Player({ className }) {
           onSkipPreviousClick={onSkipPreviousClick}
           onRepeatOneClick={onRepeatOneClick}
           onChangePlaybackRate={onChangePlaybackRate}
+          forceShow={forceShow}
         />
       )}
     </>

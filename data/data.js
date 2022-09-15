@@ -748,7 +748,7 @@ const recordings = [
   {
     id: "79",
     type: "audio/mpeg",
-    filePath: "/recordings/warm_up_01.mp3",
+    filePath: "/recordings/aquecimento_01.mp3",
     voiceType: "0",
     speedId: "1",
     accompaniment: true,
@@ -757,7 +757,7 @@ const recordings = [
   {
     id: "80",
     type: "audio/mpeg",
-    filePath: "/recordings/warm_up_02.mp3",
+    filePath: "/recordings/aquecimento_02.mp3",
     voiceType: "0",
     speedId: "1",
     accompaniment: true,
@@ -766,7 +766,7 @@ const recordings = [
   {
     id: "81",
     type: "audio/mpeg",
-    filePath: "/recordings/warm_up_03.mp3",
+    filePath: "/recordings/aquecimento_03.mp3",
     voiceType: "0",
     speedId: "1",
     accompaniment: true,
@@ -1082,6 +1082,15 @@ const recordings = [
     id: "116",
     type: "audio/mpeg",
     filePath: "/recordings/panofka_op_85_20.mp3",
+    voiceType: "0",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "117",
+    type: "audio/mpeg",
+    filePath: "/recordings/aquecimento_diafragma_controle_do_ar.mp3",
     voiceType: "0",
     speedId: "1",
     accompaniment: true,
@@ -1981,6 +1990,16 @@ const songs = [
     instructions: false,
     lyrics: null,
   },
+  {
+    id: "56",
+    title: "Aplicação e Controle do Ar",
+    slug: "exercicio-diafragma-controle-do-ar",
+    beginning: "",
+    recordingIds: ["117"],
+    sheetsList: null,
+    instructions: "Antes de iniciar o exercício, esvazie todo o ar, empurrando a barriga para dentro. \n Em seguida, respire enchendo a barriga de ar (se você for iniciante, pode puxar o ar pela boca). \n Em seguida faça 4 staccatos soltando o ar com o som de \"sss\". Respire brevemente de novo para recuperar o ar e em seguida solte o ar em legatto durante 4 tempos com o som de \"sss\". \n Conforme o exercício avança você irá perceber que o tempo dos legattos irá aumentar de 4 em 4 tempos. Controle o fluxo da saída de ar durante os tempos legattos (evite empurrar o ar). \nO objetivo desse exercício conseguir esvaziar o ar no tempo certo, seja em 4 tempos (soltando muito ar), seja em 32 tempos (soltando pouco ar). \n Não se preocupe se no início não conseguir chegar aos 32 tempos, a prática diária o levará a isso.",
+    lyrics: null,
+  },
 ];
 
 const skills = [
@@ -2087,7 +2106,7 @@ const lessons = [
   },
   {
     id: "16",
-    title: "",
+    title: "Staccatos",
     skillId: "4",
     songIds: ["23"],
   },
@@ -2115,6 +2134,12 @@ const lessons = [
     skillId: "8",
     songIds: ["54", "55"],
   },
+  {
+    id: "21",
+    title: "Aplicação e Controle do Ar",
+    skillId: "4",
+    songIds: ["56"],
+  },
 ];
 
 const modules = [
@@ -2124,7 +2149,7 @@ const modules = [
     slug: "aquecimentos",
     about:
       "Esses são vocalizes de aquecimento, você deve realiza-los preferencialmente antes de começar a estudar os Vaccajs.",
-    lessonsIds: ["16", "17"],
+    lessonsIds: ["21", "16", "17"],
   },
   {
     id: "2",

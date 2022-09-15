@@ -14,8 +14,8 @@
       transition-timing-function: ease-in-out;
     }
   }
-
-  &:hover {
+  
+  &:hover, &.show {
     .playerOptions {
       @media (min-width: 900px) {
         transform: translateY(-100%);

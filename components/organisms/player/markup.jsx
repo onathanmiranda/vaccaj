@@ -20,6 +20,7 @@ export default function Markup({
   repeatOne = false,
   speedOptions = [],
   playbackRateLabel,
+  forceShow
 }) {
   const showVoiceTypeOptions =
     voiceTypesOptions && voiceTypesOptions.length > 1;
@@ -29,8 +30,10 @@ export default function Markup({
 
   const playbackSpeedSelectRef = useRef();
 
+  const forceShowClassName = forceShow ? styles.show : '';
+
   return (
-    <div className={`${styles.outerWrapper} ${className}`}>
+    <div className={`${styles.outerWrapper} ${forceShowClassName} ${className}`}>
       {(showInstrumentsOptions || showVoiceTypeOptions) && 
         <div className={styles.playerOptions}>
           {showInstrumentsOptions && (
