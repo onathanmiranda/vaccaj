@@ -1994,7 +1994,7 @@ const songs = [
     id: "56",
     title: "Aplicação e Controle do Ar",
     slug: "exercicio-diafragma-controle-do-ar",
-    beginning: "",
+    beginning: "Sssss",
     recordingIds: ["117"],
     sheetsList: null,
     instructions: "Antes de iniciar o exercício, esvazie todo o ar, empurrando a barriga para dentro. \n Em seguida, respire enchendo a barriga de ar (se você for iniciante, pode puxar o ar pela boca). \n Em seguida faça 4 staccatos soltando o ar com o som de \"sss\". Respire brevemente de novo para recuperar o ar e em seguida solte o ar em legatto durante 4 tempos com o som de \"sss\". \n Conforme o exercício avança você irá perceber que o tempo dos legattos irá aumentar de 4 em 4 tempos. Controle o fluxo da saída de ar durante os tempos legattos (evite empurrar o ar). \nO objetivo desse exercício conseguir esvaziar o ar no tempo certo, seja em 4 tempos (soltando muito ar), seja em 32 tempos (soltando pouco ar). \n Não se preocupe se no início não conseguir chegar aos 32 tempos, a prática diária o levará a isso.",
