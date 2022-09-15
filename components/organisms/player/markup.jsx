@@ -30,37 +30,41 @@ export default function Markup({
   const playbackSpeedSelectRef = useRef();
 
   return (
-    <div className={`${className}`}>
-      {showInstrumentsOptions && (
-        <div className={styles.voiceTypesOptionsWrapper}>
-          <div className={styles.voiceTypesOptions}>
-            {instrumentsOptions.map((option) => {
-              return (
-                <Option
-                  className={styles.option}
-                  key={option.value}
-                  {...option}
-                />
-              );
-            })}
-          </div>
+    <div className={`${styles.outerWrapper} ${className}`}>
+      {(showInstrumentsOptions || showVoiceTypeOptions) && 
+        <div className={styles.playerOptions}>
+          {showInstrumentsOptions && (
+            <div className={styles.voiceTypesOptionsWrapper}>
+              <div className={styles.voiceTypesOptions}>
+                {instrumentsOptions.map((option) => {
+                  return (
+                    <Option
+                      className={styles.option}
+                      key={option.value}
+                      {...option}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+          )}
+          {showVoiceTypeOptions && (
+            <div className={styles.voiceTypesOptionsWrapper}>
+              <div className={styles.voiceTypesOptions}>
+                {voiceTypesOptions.map((option) => {
+                  return (
+                    <Option
+                      className={styles.option}
+                      key={option.value}
+                      {...option}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
-      )}
-      {showVoiceTypeOptions && (
-        <div className={styles.voiceTypesOptionsWrapper}>
-          <div className={styles.voiceTypesOptions}>
-            {voiceTypesOptions.map((option) => {
-              return (
-                <Option
-                  className={styles.option}
-                  key={option.value}
-                  {...option}
-                />
-              );
-            })}
-          </div>
-        </div>
-      )}
+      }
       <div className={styles.player}>
         <ButtonIcon
           className={styles.hiddenButton}

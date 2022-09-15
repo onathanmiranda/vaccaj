@@ -1605,7 +1605,7 @@ const songs = [
     beginning: "Vorrei spiegar l'affanno",
     recordingIds: ["66", "67", "68"],
     sheetsList: ["44", "45"],
-    instructions: null,
+    instructions: "Para adquirir um Portamento efetivo, o estudante deve tomar cuidado para não ligar uma nota à outra com aquele tremor que se ouve em vozes mal treinadas. Pelo contrário, ele deverá misturar os diferentes registros e ligar as notas de forma que elas pareçam fluir em um tom uniforme. \n Quando a verdadeira arte de frasear for dominada conforme indicado pela Lição I, o Portamento irá oferecer pouca dificuldade - porém aqui, mais do que nunca, a demonstração por um professor ou cantor proficiente é de primeira importância. \n Devemos adicionar também que o Portamento pode ser articulado por “antecipação” ou por “atraso”. No primeiro, o cantor ataca o valor da próxima nota com a vogal da sílaba anterior, como foi demonstrado nas instruções da Lição I. Em frases que pedem um sentimento mais expressivo, essa forma é altamente efetiva. Por essa razão, não deve ser usada em excesso, pois seu abuso pode soar afetado e a música irá se tornar cada vez mais lânguida e monótona. No segundo método, que é menos comum, o cantor ataca quase imperceptivelmente a sílaba seguinte com o valor da sílaba que a precede.",
     lyrics:
       "Vorrei spiegar l´affanno, \n nasconderlo vorrei; \n e mentre i dubbi miei \n così crescendo vanno, \n tutto spiegar non oso, \n tutto non so tacer. \n Sollecito, dubbioso, \n penso, rammento e vedo; \n e agli occhi miei non credo, \n non credo al mio pensier.",
   },
@@ -1627,7 +1627,7 @@ const songs = [
     beginning: "La patria è un tutto",
     recordingIds: ["72", "73", "74"],
     sheetsList: ["48", "49"],
-    instructions: null,
+    instructions: "Não é preciso dizer, porém não há nenhum lugar onde a enunciação de cada palavra e sílaba é tão importante quando em um Recitativo - de outra forma, ele não atingirá seu objetivo. Quando nos deparamos com duas notas similares ao fim das frases, ou várias notas repetidas ao longo de uma frase, a nota sobre a qual a ênfase da palavra recai deverá ser convertida em uma appoggiatura da nota seguinte. Para exemplificar, nós marcamos com um “A” onde essas notas ocorrem no exercício.",
     lyrics:
       "La patria è un tutto \n di cui siam parti \n al cittadino è fallo \n considerar sè stesso \n separato da lei. \n L´utile, o il danno, \n ch'ei conoscer dee solo \n è ciò che giova \n o nuoce alla sua patria, \n a cui di tutto è debitor. \n Quando i sudori, \n e il sangue sparge per lei, \n nulla del proprio ei dona: \n rende sol ciò che n'ebbe. \n Essa il produsse, \n l'educò, lo nudrì. \n Con le sue leggi \n dagl'insulti domestici il difende, \n dagli esterni con l'armi. \n Ella gli presta nome, \n grado, ed onor; \n ne premia il merto; \n ne vendica le offese, \n e madre amante \n a fabbricar s'affanna \n la sua felicità, \n per quanto lice \n al destin de' mortali \n esser felice.",
   },
@@ -1638,7 +1638,7 @@ const songs = [
     beginning: "Alla stagion de' fiori",
     recordingIds: ["75", "76", "77", "78"],
     sheetsList: ["50", "51"],
-    instructions: null,
+    instructions: "A recapitulação de todas as regras dadas nos exercícios anteriores",
     lyrics:
       "Alla stagion de' fiori \n e de' novelli amori \n è grato il molle fiato \n d'un zeffiro legger. \n O gema fra le fronde \n o lento increspi l'onde: \n zeffiro in ogni lato \n compagno è del piacer.",
   },

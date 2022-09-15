@@ -1,19 +1,43 @@
 @use "sass:color";
 @import "../../../theme";
+.outerWrapper {
+  position: relative;
+
+  .playerOptions {
+    @media (min-width: 900px) {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: transform .3s, opacity .3s;
+      transition-timing-function: ease-in-out;
+    }
+  }
+
+  &:hover {
+    .playerOptions {
+      @media (min-width: 900px) {
+        transform: translateY(-100%);
+        opacity: 1;
+      }
+    }
+  }
+}
 
 .voiceTypesOptionsWrapper {
   background: color.change(color($primary, 900), $alpha: 0.94);
   width: 100%;
   overflow-x: scroll;
 
+  @media (min-width: 1024px) {
+    overflow: hidden;
+  }
+
   + .voiceTypesOptionsWrapper {
     .voiceTypesOptions {
       padding-top: 0;
     }
-  }
-
-  @media (min-width: 1024px) {
-    overflow: hidden;
   }
 
   .voiceTypesOptions {
