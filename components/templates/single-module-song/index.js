@@ -44,6 +44,9 @@ export default function SingleModuleSong({ module, song, pathname, description }
     }
   }, [setVh, setVw]);
 
+  const h1Suffix = song.beginning ? ` - ${song.beginning}` : '';
+  const h1 = song.title + h1Suffix;
+
   return (
     <>
       <Head>
@@ -72,7 +75,7 @@ export default function SingleModuleSong({ module, song, pathname, description }
           <section className={styles.guides}>
             <header className={styles.header}>
               <span className={styles.moduleTitle}>{module.title}</span>
-              <h1 className={styles.songTitle}>{`${song.title} - ${song.beginning}`}</h1>
+              <h1 className={styles.songTitle}>{h1}</h1>
               {song.instructions &&
                 song.instructions
                   .split("\n")

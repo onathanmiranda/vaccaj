@@ -14,7 +14,9 @@ export default function Markup({
   songHref,
   minimal,
 }) {
+  
   const playingClassName = isSelected ? styles.selected : "";
+  const minimalClassName = minimal ? styles.minimal : "";
 
   return (
     <Link href={songHref}>
@@ -23,9 +25,9 @@ export default function Markup({
         className={`${styles.card} ${playingClassName} ${className}`}
       >
         <div>
-          <h3 className={styles.title}>{title}</h3>
+          <h3 className={`${styles.title} ${minimalClassName}`}>{title}</h3>
           {partialLyric && (
-            <p className={styles.partialLyric}>{partialLyric}...</p>
+            <p className={`${styles.partialLyric} ${minimalClassName}`}>{partialLyric}...</p>
           )}
         </div>
         {!minimal && (

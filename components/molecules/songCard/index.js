@@ -1,5 +1,3 @@
-import { useRouter } from "next/router";
-
 import { useMemo, useCallback } from "react";
 
 import Markup from "./markup";
@@ -13,8 +11,6 @@ export default function SongCard({
   minimal = false,
 }) {
   const { beginning, title, recordings, id } = song;
-
-  const router = useRouter();
 
   const { setSong, playerContextState, play, pause } = usePlayerContext();
 

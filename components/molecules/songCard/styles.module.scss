@@ -48,6 +48,10 @@
   font-size: 1.4rem;
   font-weight: 400;
   color: color($neutral, 200);
+
+  &.minimal {
+    font-size: 1.2rem;
+  }
 }
 
 .partialLyric {
@@ -57,4 +61,8 @@
   font-weight: 100;
   color: color($primary, 300);
   text-transform: none;
+
+  &.minimal {
+    font-size: 1rem;
+  }
 }
