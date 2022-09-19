@@ -9,7 +9,6 @@ export default function Module({ module, slug }) {
 // This function gets called at build time
 export async function getStaticProps({ params }) {
   let module = modules.find(({ slug }) => slug === params.slug);
-
   return {
     props: {
       module,

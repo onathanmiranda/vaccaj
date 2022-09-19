@@ -36,7 +36,7 @@ export default function SingleModule({ module, pathname }) {
         </title>
         <meta
           name="description"
-          content={about.substring(0, 259)}
+          content={about.intro.substring(0, 259)}
         />
       </Head>
       <div style={{ height: vh }} className={styles.grid}>
@@ -47,8 +47,21 @@ export default function SingleModule({ module, pathname }) {
         <main className={styles.main}>
           <header className={styles.hero}>
             <h1>{module.title}</h1>
-            {module.about &&
-              module.about.split("\n").filter((about) => about !== "").map((about) => <p key={about}>{about}</p>)}
+            {module.about?.intro &&
+              module.about.intro.split("\n").filter((about) => about !== "").map((about) => <p key={about}>{about}</p>)}
+            {module.about?.sections && 
+              module.about.sections.map((section) => (
+                <details key={section.title} className={styles.details}>
+                  <summary>{section.title}</summary>
+                  {section.content.map((content) => {
+                    if(content.type === "paragraph") return <p key={content.text}>{content.text}</p>;
+                    if(content.type === "title") return <h3 key={content.text}>{content.text}</h3>;
+                    if(content.type === "image") return <img key={content.text} src={content.sourceUrl} alt="" />;
+                    return null;
+                  })}
+                </details>
+              ))
+            }
           </header>
           <section className={styles.lessons}>
             <SkillsList skills={skills} module={module} />
