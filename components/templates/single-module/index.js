@@ -56,7 +56,7 @@ export default function SingleModule({ module, pathname }) {
                   {section.content.map((content) => {
                     if(content.type === "paragraph") return <p key={content.text}>{content.text}</p>;
                     if(content.type === "title") return <h3 key={content.text}>{content.text}</h3>;
-                    if(content.type === "image") return <img key={content.text} src={content.sourceUrl} alt="" />;
+                    if(content.type === "image") return <img key={content.sourceUrl} src={content.sourceUrl} alt="" />;
                     return null;
                   })}
                 </details>
