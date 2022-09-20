@@ -66,6 +66,8 @@ export default function Guides({ song }) {
           </header>
         )}
 
+        <Sheet />
+
         {guideOption === 2 && (
           <div className={styles.lyricsWrapper}>
             {lyrics &&

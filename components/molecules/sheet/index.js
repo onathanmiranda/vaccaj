@@ -59,7 +59,7 @@ export default function Sheet() {
         })
         .then(function (results) {
           synth.prime().then((response) => {
-            //synth.start();
+            synth.start();
           });
         })
         .catch(function (reason) {
