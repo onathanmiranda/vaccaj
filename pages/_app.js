@@ -37,6 +37,9 @@ function MyApp({ Component, pageProps }) {
           navigator.serviceWorker.register("/service-worker.js");
         }
       `}</Script>
+      {process.env.NEXT_PUBLIC_GOOGLE_ADSENSE && (
+        <Script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`} crossorigin="anonymous"></Script>
+      )}
       {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS && (
         <>
           <Script
