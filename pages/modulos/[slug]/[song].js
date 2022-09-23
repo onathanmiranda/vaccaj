@@ -1,3 +1,7 @@
+import Head from "next/head";
+
+import { useMemo } from "react";
+
 import SingleModuleSong from "../../../components/templates/single-module-song";
 
 import modules, {
@@ -8,8 +12,29 @@ import modules, {
 
 import { songs } from "../../../data/data";
 
+import config from '../../../config';
+
 export default function Song({ module, song, moduleSlug, songSlugOrId, description }) {
-  return <SingleModuleSong song={song} module={module} pathname={`/modules/${moduleSlug}/${songSlugOrId}`} description={description} />;
+  
+  const titleSuffix = useMemo(() => {
+    return module.title.toLowerCase() !== config.siteTitle.toLowerCase() ? `${module.title} | ${config.siteTitle}` : module.title
+  }, [module.title]);
+
+  return (
+    <>
+      <Head>
+        <title>
+          {song.title} | {`${song.beginning ? `${song.beginning} |` : ''}`} {titleSuffix}
+        </title>
+        <link rel="canonical" href={`https://vaccaj.app/modules/${moduleSlug}/${songSlugOrId}`} />
+        <meta
+          name="description"
+          content={description}
+        />
+      </Head>
+      <SingleModuleSong song={song} module={module} pathname={``} description={description} />;
+    </>
+  );
 }
 
 // This function gets called at build time

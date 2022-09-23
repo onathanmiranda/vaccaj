@@ -1,9 +1,28 @@
+import Head from "next/head";
+
 import SingleModule from "../../components/templates/single-module";
+
+import config from "../../config";
 
 import modules from "../../data";
 
 export default function Module({ module, slug }) {
-  return <SingleModule module={module} pathname={`/modules/${slug}}`} />;
+  return (
+    <>
+      <Head>
+        <link key="canonical" rel="canonical" href={`https://vaccaj.app/modulos/${slug}`} />
+        <title key="title">
+          {module.title} | {config.siteTitle}
+        </title>
+        <meta
+          key="meta-description"
+          name="description"
+          content={module.about.intro.substring(0, 259)}
+        />
+      </Head>
+      <SingleModule module={module} /> 
+    </>
+  );
 }
 
 // This function gets called at build time
