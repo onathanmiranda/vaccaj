@@ -32,7 +32,7 @@ export default function Song({ module, song, moduleSlug, songSlugOrId, descripti
           content={description}
         />
       </Head>
-      <SingleModuleSong song={song} module={module} pathname={``} description={description} />;
+      <SingleModuleSong song={song} module={module} pathname={``} description={description} />
     </>
   );
 }
