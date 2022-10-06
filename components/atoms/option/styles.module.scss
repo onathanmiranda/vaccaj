@@ -11,10 +11,10 @@
   font-size: 1.3rem;
   align-items: center;
   justify-content: center;
-  border: 0.1rem solid color($primary, 400);
+  border: 0.1rem solid getcolor($primary, 400);
   border-right-width: 0;
   background-color: transparent;
-  color: color($primary, 400);
+  color: getcolor($primary, 400);
   padding: 0.5rem 0.8rem;
   height: 100%;
   text-align: center;
@@ -22,8 +22,8 @@
   transition: color 0.3s, background-color 0.3s;
 
   &.checked {
-    background-color: color($primary, 400);
-    color: color($neutral, 100);
+    background-color: getcolor($primary, 400);
+    color: getcolor($neutral, 100);
     cursor: initial;
     pointer-events: none;
   }
@@ -32,6 +32,7 @@
     border-top-left-radius: 999px;
     border-bottom-left-radius: 999px;
   }
+
   &:last-child {
     border-top-right-radius: 999px;
     border-bottom-right-radius: 999px;

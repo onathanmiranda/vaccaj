@@ -4,6 +4,7 @@
   "stylelint-config-prettier-scss"
 ],
  "rules": {
-   "string-quotes": "double"
+   "string-quotes": "double",
+   "selector-class-pattern": null
   }
 }

@@ -21,7 +21,7 @@
   }
 
   .guides {
-    padding: 3.4rem 2.1rem;
+    padding: 3.4rem 1.3rem;
     overflow-y: scroll;
     overflow-x: hidden;
     @media (min-width: 900px){
@@ -33,9 +33,11 @@
       margin: 0;
       text-transform: none;
     }
+
     .moduleTitle {
-      color: color($secondary, 500);
+      color: getcolor($primary, 500);
     }
+
     .instructions {
       text-transform: none;
       max-width: 72ch;
@@ -43,7 +45,7 @@
   }
 
   .lessons {
-    padding: 1.3rem 2.1rem;
+    padding: 1.3rem;
     width: 100%;
     overflow: hidden;
     @media (min-width: 900px){

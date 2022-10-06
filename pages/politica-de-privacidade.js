@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Privacy from "../components/organisms/privacy";
-import styles from "./index.module.scss";
 
 import config from "../config";
 

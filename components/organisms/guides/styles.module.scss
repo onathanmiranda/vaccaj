@@ -2,16 +2,17 @@
 
 .wrapper {
   width: 100%;
-  background: color($neutral, 800);
+  background: getcolor($neutral, 800);
   font-size: 2.1rem;
   line-height: 3.4rem;
 }
+
 .header {
   width: 100%;
   height: 4.2rem;
   display: flex;
   align-items: center;
-  background-color: color($neutral, 800);
+  background-color: getcolor($neutral, 800);
   z-index: 1;
   margin-top: 2.1rem;
 
@@ -21,9 +22,10 @@
     height: 3.4rem;
   }
 }
+
 .button {
   font-size: 3.4rem;
-  color: color($primary, 400);
+  color: getcolor($primary, 400);
   background: transparent;
   cursor: pointer;
   height: 3.4rem;
@@ -32,6 +34,7 @@
   justify-content: center;
   padding: 0;
   border: 0;
+
   .icon {
     font-size: inherit;
   }
@@ -40,7 +43,7 @@
 .sheetsWrapper {
   max-width: 100rem;
   margin: auto;
-  background-color: color($primary, 50);
+  background-color: getcolor($primary, 50);
   margin-top: 3.4rem;
 
   @media (min-width: 1024px) {
@@ -55,6 +58,7 @@
     mix-blend-mode: multiply;
   }
 }
+
 .lyricsWrapper {
   width: 100%;
   max-width: 42rem;

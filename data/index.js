@@ -155,7 +155,7 @@ export function getSkillsFromLessons(lessons, skills) {
   return skillsIds.map((id) => getItemById(id, skills));
 }
 
-export function reduceModuleInfo({ id, title, lessonsIds, slug, about }) {
+export function reduceModuleInfo({ id, title, lessonsIds, slug, about, backgroundImageUrl }) {
   const moduleLessons = lessonsIds.map((id) => getItemById(id, lessons));
   const modulesSkills = getSkillsFromLessons(moduleLessons, skills);
 
@@ -164,6 +164,7 @@ export function reduceModuleInfo({ id, title, lessonsIds, slug, about }) {
     title,
     slug,
     about,
+    backgroundImageUrl,
     skills: modulesSkills.map((skill) =>
       joinSkillsAndLessons(skill, moduleLessons)
     ),

@@ -1101,310 +1101,503 @@ const recordings = [
 const sheets = [
   {
     id: "1",
-    filePaths: ["/images/vaccaj_1a_contralto_baritono.jpg"],
+    filePaths: ["/images/vaccaj/vaccaj_1a_contralto_baritono.jpg"],
     voiceTypes: ["1", "2", "4"],
   },
-  { id: "2", filePaths: ["/images/vaccaj_1a_mezzo.jpg"], voiceTypes: ["5"] },
+  { id: "2", filePaths: ["/images/vaccaj/vaccaj_1a_mezzo.jpg"], voiceTypes: ["5"] },
   {
     id: "3",
-    filePaths: ["/images/vaccaj_1a_soprano_tenor.jpg"],
+    filePaths: ["/images/vaccaj/vaccaj_1a_soprano_tenor.jpg"],
     voiceTypes: ["3", "6"],
   },
   {
     id: "4",
-    filePaths: ["/images/vaccaj_1b_contralto_baritono.jpg"],
+    filePaths: ["/images/vaccaj/vaccaj_1b_contralto_baritono.jpg"],
     voiceTypes: ["1", "2", "4"],
   },
-  { id: "5", filePaths: ["/images/vaccaj_1b_mezzo.jpg"], voiceTypes: ["5"] },
+  { id: "5", filePaths: ["/images/vaccaj/vaccaj_1b_mezzo.jpg"], voiceTypes: ["5"] },
   {
     id: "6",
-    filePaths: ["/images/vaccaj_1b_soprano_tenor.jpg"],
+    filePaths: ["/images/vaccaj/vaccaj_1b_soprano_tenor.jpg"],
     voiceTypes: ["3", "6"],
   },
   {
     id: "7",
-    filePaths: ["/images/vaccaj_2a_contralto_baritono.jpg"],
+    filePaths: ["/images/vaccaj/vaccaj_2a_contralto_baritono.jpg"],
     voiceTypes: ["1", "2", "4"],
   },
-  { id: "8", filePaths: ["/images/vaccaj_2a_mezzo.jpg"], voiceTypes: ["5"] },
+  { id: "8", filePaths: ["/images/vaccaj/vaccaj_2a_mezzo.jpg"], voiceTypes: ["5"] },
   {
     id: "9",
-    filePaths: ["/images/vaccaj_2a_soprano_tenor.jpg"],
+    filePaths: ["/images/vaccaj/vaccaj_2a_soprano_tenor.jpg"],
     voiceTypes: ["3", "6"],
   },
   {
     id: "10",
-    filePaths: ["/images/vaccaj_2b_contralto_baritono.jpg"],
+    filePaths: ["/images/vaccaj/vaccaj_2b_contralto_baritono.jpg"],
     voiceTypes: ["1", "2", "4"],
   },
-  { id: "11", filePaths: ["/images/vaccaj_2b_mezzo.jpg"], voiceTypes: ["5"] },
+  { id: "11", filePaths: ["/images/vaccaj/vaccaj_2b_mezzo.jpg"], voiceTypes: ["5"] },
   {
     id: "12",
-    filePaths: ["/images/vaccaj_2b_soprano_tenor.jpg"],
+    filePaths: ["/images/vaccaj/vaccaj_2b_soprano_tenor.jpg"],
     voiceTypes: ["3", "6"],
   },
   {
     id: "13",
-    filePaths: ["/images/vaccaj_3_contralto_baritono.jpg"],
+    filePaths: ["/images/vaccaj/vaccaj_3_contralto_baritono.jpg"],
     voiceTypes: ["1", "2", "4"],
   },
-  { id: "14", filePaths: ["/images/vaccaj_3_mezzo.jpg"], voiceTypes: ["5"] },
+  { id: "14", filePaths: ["/images/vaccaj/vaccaj_3_mezzo.jpg"], voiceTypes: ["5"] },
   {
     id: "15",
-    filePaths: ["/images/vaccaj_3_soprano_tenor.jpg"],
+    filePaths: ["/images/vaccaj/vaccaj_3_soprano_tenor.jpg"],
     voiceTypes: ["3", "6"],
   },
   {
     id: "16",
-    filePaths: ["/images/vaccaj_4a_contralto_baritono.jpg"],
+    filePaths: ["/images/vaccaj/vaccaj_4a_contralto_baritono.jpg"],
     voiceTypes: ["1", "2", "4"],
   },
-  { id: "17", filePaths: ["/images/vaccaj_4a_mezzo.jpg"], voiceTypes: ["5"] },
+  { id: "17", filePaths: ["/images/vaccaj/vaccaj_4a_mezzo.jpg"], voiceTypes: ["5"] },
   {
     id: "18",
-    filePaths: ["/images/vaccaj_4a_soprano_tenor.jpg"],
+    filePaths: ["/images/vaccaj/vaccaj_4a_soprano_tenor.jpg"],
     voiceTypes: ["3", "6"],
   },
   {
     id: "19",
-    filePaths: ["/images/vaccaj_4b_contralto_baritono.jpg"],
+    filePaths: ["/images/vaccaj/vaccaj_4b_contralto_baritono.jpg"],
     voiceTypes: ["1", "2", "4"],
   },
-  { id: "20", filePaths: ["/images/vaccaj_4b_mezzo.jpg"], voiceTypes: ["5"] },
+  { id: "20", filePaths: ["/images/vaccaj/vaccaj_4b_mezzo.jpg"], voiceTypes: ["5"] },
   {
     id: "21",
-    filePaths: ["/images/vaccaj_4b_soprano_tenor.jpg"],
+    filePaths: ["/images/vaccaj/vaccaj_4b_soprano_tenor.jpg"],
     voiceTypes: ["3", "6"],
   },
   {
     id: "22",
     filePaths: [
-      "/images/vaccaj_5_1_contralto_baritono.jpg",
-      "/images/vaccaj_5_2_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_5_1_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_5_2_contralto_baritono.jpg",
     ],
     voiceTypes: ["1", "2", "4"],
   },
   {
     id: "23",
     filePaths: [
-      "/images/vaccaj_5_1_soprano_tenor.jpg",
-      "/images/vaccaj_5_2_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_5_1_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_5_2_soprano_tenor.jpg",
     ],
     voiceTypes: ["3", "5", "6"],
   },
   {
     id: "24",
-    filePaths: ["/images/vaccaj_6_contralto_baritono.jpg"],
+    filePaths: ["/images/vaccaj/vaccaj_6_contralto_baritono.jpg"],
     voiceTypes: ["1", "2", "4"],
   },
   {
     id: "25",
-    filePaths: ["/images/vaccaj_6_soprano_tenor.jpg"],
+    filePaths: ["/images/vaccaj/vaccaj_6_soprano_tenor.jpg"],
     voiceTypes: ["3", "5", "6"],
   },
   {
     id: "26",
-    filePaths: ["/images/vaccaj_7_contralto_baritono.jpg"],
+    filePaths: ["/images/vaccaj/vaccaj_7_contralto_baritono.jpg"],
     voiceTypes: ["1", "2", "4"],
   },
   {
     id: "27",
-    filePaths: ["/images/vaccaj_7_soprano_tenor.jpg"],
+    filePaths: ["/images/vaccaj/vaccaj_7_soprano_tenor.jpg"],
     voiceTypes: ["3", "5", "6"],
   },
   {
     id: "28",
     filePaths: [
-      "/images/vaccaj_8a_1_contralto_baritono.jpg",
-      "/images/vaccaj_8a_2_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_8a_1_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_8a_2_contralto_baritono.jpg",
     ],
     voiceTypes: ["1", "2", "4"],
   },
   {
     id: "29",
     filePaths: [
-      "/images/vaccaj_8a_1_soprano_tenor.jpg",
-      "/images/vaccaj_8a_2_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_8a_1_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_8a_2_soprano_tenor.jpg",
     ],
     voiceTypes: ["3", "5", "6"],
   },
   {
     id: "30",
     filePaths: [
-      "/images/vaccaj_8b_1_contralto_baritono.jpg",
-      "/images/vaccaj_8b_2_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_8b_1_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_8b_2_contralto_baritono.jpg",
     ],
     voiceTypes: ["1", "2", "4"],
   },
   {
     id: "31",
     filePaths: [
-      "/images/vaccaj_8b_1_soprano_tenor.jpg",
-      "/images/vaccaj_8b_2_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_8b_1_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_8b_2_soprano_tenor.jpg",
     ],
     voiceTypes: ["3", "5", "6"],
   },
   {
     id: "32",
     filePaths: [
-      "/images/vaccaj_9a_1_contralto_baritono.jpg",
-      "/images/vaccaj_9a_2_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_9a_1_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_9a_2_contralto_baritono.jpg",
     ],
     voiceTypes: ["1", "2", "4"],
   },
   {
     id: "33",
     filePaths: [
-      "/images/vaccaj_9a_1_soprano_tenor.jpg",
-      "/images/vaccaj_9a_2_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_9a_1_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_9a_2_soprano_tenor.jpg",
     ],
     voiceTypes: ["3", "5", "6"],
   },
   {
     id: "34",
     filePaths: [
-      "/images/vaccaj_9b_1_soprano_tenor.jpg",
-      "/images/vaccaj_9b_2_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_9b_1_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_9b_2_soprano_tenor.jpg",
     ],
     voiceTypes: ["3", "5", "6"],
   },
   {
     id: "35",
     filePaths: [
-      "/images/vaccaj_9b_1_contralto_baritono.jpg",
-      "/images/vaccaj_9b_2_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_9b_1_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_9b_2_contralto_baritono.jpg",
     ],
     voiceTypes: ["1", "2", "4"],
   },
   {
     id: "36",
     filePaths: [
-      "/images/vaccaj_10a_1_contralto_baritono.jpg",
-      "/images/vaccaj_10a_2_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_10a_1_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_10a_2_contralto_baritono.jpg",
     ],
     voiceTypes: ["1", "2", "4"],
   },
   {
     id: "37",
     filePaths: [
-      "/images/vaccaj_10a_1_soprano_tenor.jpg",
-      "/images/vaccaj_10a_2_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_10a_1_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_10a_2_soprano_tenor.jpg",
     ],
     voiceTypes: ["3", "5", "6"],
   },
   {
     id: "38",
     filePaths: [
-      "/images/vaccaj_10b_1_contralto_baritono.jpg",
-      "/images/vaccaj_10b_2_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_10b_1_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_10b_2_contralto_baritono.jpg",
     ],
     voiceTypes: ["1", "2", "4"],
   },
   {
     id: "39",
     filePaths: [
-      "/images/vaccaj_10b_1_soprano_tenor.jpg",
-      "/images/vaccaj_10b_2_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_10b_1_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_10b_2_soprano_tenor.jpg",
     ],
     voiceTypes: ["3", "5", "6"],
   },
   {
     id: "40",
     filePaths: [
-      "/images/vaccaj_11_1_contralto_baritono.jpg",
-      "/images/vaccaj_11_2_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_11_1_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_11_2_contralto_baritono.jpg",
     ],
     voiceTypes: ["1", "2", "4"],
   },
   {
     id: "41",
     filePaths: [
-      "/images/vaccaj_11_1_soprano_tenor.jpg",
-      "/images/vaccaj_11_2_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_11_1_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_11_2_soprano_tenor.jpg",
     ],
     voiceTypes: ["3", "5", "6"],
   },
   {
     id: "42",
     filePaths: [
-      "/images/vaccaj_12_1_contralto_baritono.jpg",
-      "/images/vaccaj_12_2_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_12_1_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_12_2_contralto_baritono.jpg",
     ],
     voiceTypes: ["1", "2", "4"],
   },
   {
     id: "43",
     filePaths: [
-      "/images/vaccaj_12_1_soprano_tenor.jpg",
-      "/images/vaccaj_12_2_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_12_1_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_12_2_soprano_tenor.jpg",
     ],
     voiceTypes: ["3", "5", "6"],
   },
   {
     id: "44",
     filePaths: [
-      "/images/vaccaj_13a_1_contralto_baritono.jpg",
-      "/images/vaccaj_13a_2_contralto_baritono.jpg",
-      "/images/vaccaj_13a_3_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_13a_1_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_13a_2_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_13a_3_contralto_baritono.jpg",
     ],
     voiceTypes: ["1", "2", "4"],
   },
   {
     id: "45",
     filePaths: [
-      "/images/vaccaj_13a_1_soprano_tenor.jpg",
-      "/images/vaccaj_13a_2_soprano_tenor.jpg",
-      "/images/vaccaj_13a_3_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_13a_1_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_13a_2_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_13a_3_soprano_tenor.jpg",
     ],
     voiceTypes: ["3", "5", "6"],
   },
   {
     id: "46",
-    filePaths: ["/images/vaccaj_13b_contralto_baritono.jpg"],
+    filePaths: ["/images/vaccaj/vaccaj_13b_contralto_baritono.jpg"],
     voiceTypes: ["1", "2", "4"],
   },
   {
     id: "47",
-    filePaths: ["/images/vaccaj_13b_soprano_tenor.jpg"],
+    filePaths: ["/images/vaccaj/vaccaj_13b_soprano_tenor.jpg"],
     voiceTypes: ["3", "5", "6"],
   },
   {
     id: "48",
     filePaths: [
-      "/images/vaccaj_14_1_contralto_baritono.jpg",
-      "/images/vaccaj_14_2_contralto_baritono.jpg",
-      "/images/vaccaj_14_3_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_14_1_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_14_2_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_14_3_contralto_baritono.jpg",
     ],
     voiceTypes: ["1", "2", "4"],
   },
   {
     id: "49",
     filePaths: [
-      "/images/vaccaj_14_1_soprano_tenor.jpg",
-      "/images/vaccaj_14_2_soprano_tenor.jpg",
-      "/images/vaccaj_14_3_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_14_1_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_14_2_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_14_3_soprano_tenor.jpg",
     ],
     voiceTypes: ["3", "5", "6"],
   },
   {
     id: "50",
     filePaths: [
-      "/images/vaccaj_15_1_contralto_baritono.jpg",
-      "/images/vaccaj_15_2_contralto_baritono.jpg",
-      "/images/vaccaj_15_3_contralto_baritono.jpg",
-      "/images/vaccaj_15_4_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_15_1_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_15_2_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_15_3_contralto_baritono.jpg",
+      "/images/vaccaj/vaccaj_15_4_contralto_baritono.jpg",
     ],
     voiceTypes: ["1", "2", "4"],
   },
   {
     id: "51",
     filePaths: [
-      "/images/vaccaj_15_1_soprano_tenor.jpg",
-      "/images/vaccaj_15_2_soprano_tenor.jpg",
-      "/images/vaccaj_15_3_soprano_tenor.jpg",
-      "/images/vaccaj_15_4_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_15_1_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_15_2_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_15_3_soprano_tenor.jpg",
+      "/images/vaccaj/vaccaj_15_4_soprano_tenor.jpg",
     ],
     voiceTypes: ["3", "5", "6"],
+  },
+  {
+    id: "52",
+    filePaths: [
+      "/images/panofka/panofka_op81_01_01.jpg",
+      "/images/panofka/panofka_op81_01_02.jpg",
+      "/images/panofka/panofka_op81_01_03.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "53",
+    filePaths: [
+      "/images/panofka/panofka_op81_02_01.jpg",
+      "/images/panofka/panofka_op81_02_02.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "54",
+    filePaths: [
+      "/images/panofka/panofka_op81_03_01.jpg",
+      "/images/panofka/panofka_op81_03_02.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "55",
+    filePaths: [
+      "/images/panofka/panofka_op81_04_01.jpg",
+      "/images/panofka/panofka_op81_04_02.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "56",
+    filePaths: [
+      "/images/panofka/panofka_op81_05_01.jpg",
+      "/images/panofka/panofka_op81_05_02.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "57",
+    filePaths: [
+      "/images/panofka/panofka_op81_06_01.jpg",
+      "/images/panofka/panofka_op81_06_02.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "58",
+    filePaths: [
+      "/images/panofka/panofka_op81_07_01.jpg",
+      "/images/panofka/panofka_op81_07_02.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "59",
+    filePaths: [
+      "/images/panofka/panofka_op81_08_01.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "60",
+    filePaths: [
+      "/images/panofka/panofka_op81_09_01.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "61",
+    filePaths: [
+      "/images/panofka/panofka_op81_10_01.jpg",
+      "/images/panofka/panofka_op81_10_02.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "62",
+    filePaths: [
+      "/images/panofka/panofka_op81_11_01.jpg",
+      "/images/panofka/panofka_op81_11_02.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "63",
+    filePaths: [
+      "/images/panofka/panofka_op81_12_01.jpg",
+      "/images/panofka/panofka_op81_12_02.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "64",
+    filePaths: [
+      "/images/panofka/panofka_op81_13_01.jpg",
+      "/images/panofka/panofka_op81_13_02.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "65",
+    filePaths: [
+      "/images/panofka/panofka_op81_14_01.jpg",
+      "/images/panofka/panofka_op81_14_02.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "66",
+    filePaths: [
+      "/images/panofka/panofka_op81_15_01.jpg",
+      "/images/panofka/panofka_op81_15_02.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "67",
+    filePaths: [
+      "/images/panofka/panofka_op81_16_01.jpg",
+      "/images/panofka/panofka_op81_16_02.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "68",
+    filePaths: [
+      "/images/panofka/panofka_op81_17_01.jpg",
+      "/images/panofka/panofka_op81_17_02.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "69",
+    filePaths: [
+      "/images/panofka/panofka_op81_18_01.jpg",
+      "/images/panofka/panofka_op81_18_02.jpg",
+      "/images/panofka/panofka_op81_18_03.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "70",
+    filePaths: [
+      "/images/panofka/panofka_op81_19_01.jpg",
+      "/images/panofka/panofka_op81_19_02.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "71",
+    filePaths: [
+      "/images/panofka/panofka_op81_20_01.jpg",
+      "/images/panofka/panofka_op81_20_02.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "72",
+    filePaths: [
+      "/images/panofka/panofka_op81_21_01.jpg",
+      "/images/panofka/panofka_op81_21_02.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "73",
+    filePaths: [
+      "/images/panofka/panofka_op81_22_01.jpg",
+      "/images/panofka/panofka_op81_22_02.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "74",
+    filePaths: [
+      "/images/panofka/panofka_op81_23_01.jpg",
+      "/images/panofka/panofka_op81_23_02.jpg",
+      "/images/panofka/panofka_op81_23_03.jpg",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "75",
+    filePaths: [
+      "/images/panofka/panofka_op81_24_01.jpg",
+      "/images/panofka/panofka_op81_24_02.jpg",
+    ],
+    voiceTypes: ["0"]
   },
 ];
 
@@ -1752,222 +1945,222 @@ const songs = [
   },
   {
     id: "32",
-    title: "Panofka Op.81 N.01",
+    title: "01 - Escalas Maiores",
     slug: "panofka-op81-n01",
     beginning: "",
     recordingIds: ["93"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["52"],
+    instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "33",
-    title: "Panofka Op.81 N.02",
+    title: "02 - Escalas Menores",
     slug: "panofka-op81-n02",
     beginning: "",
     recordingIds: ["94"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["53"],
+    instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "34",
-    title: "Panofka Op.81 N.03",
+    title: "03 - Agilidade",
     slug: "panofka-op81-n03",
     beginning: "",
     recordingIds: ["95"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["54"],
+    instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "35",
-    title: "Panofka Op.81 N.04",
+    title: "04 - Agilidade",
     slug: "panofka-op81-n04",
     beginning: "",
     recordingIds: ["96"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["55"],
+    instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "36",
-    title: "Panofka Op.81 N.05",
+    title: "05 - Tercinas",
     slug: "panofka-op81-n05",
     beginning: "",
     recordingIds: ["97"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["56"],
+    instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "37",
-    title: "Panofka Op.81 N.06",
+    title: "06 - Tercinas",
     slug: "panofka-op81-n06",
     beginning: "",
     recordingIds: ["98"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["57"],
+    instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "38",
-    title: "Panofka Op.81 N.07",
+    title: "07 - Grupos de Duas Notas Arrastadas",
     slug: "panofka-op81-n07",
     beginning: "",
     recordingIds: ["99"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["58"],
+    instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "39",
-    title: "Panofka Op.81 N.08",
+    title: "08 - Portamento",
     slug: "panofka-op81-n08",
     beginning: "",
     recordingIds: ["100"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["59"],
+    instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "40",
-    title: "Panofka Op.81 N.09",
+    title: "09 - Portamento",
     slug: "panofka-op81-n09",
     beginning: "",
     recordingIds: ["101"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["60"],
+    instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "41",
-    title: "Panofka Op.81 N.10",
+    title: "10 - Portamento",
     slug: "panofka-op81-n10",
     beginning: "",
     recordingIds: ["102"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["61"],
+    instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "42",
-    title: "Panofka Op.81 N.11",
+    title: "11 - Portamento",
     slug: "panofka-op81-n11",
     beginning: "",
     recordingIds: ["103"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["62"],
+    instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "43",
-    title: "Panofka Op.81 N.12",
+    title: "12 - Portamento",
     slug: "panofka-op81-n12",
     beginning: "",
     recordingIds: ["104"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["63"],
+    instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "44",
-    title: "Panofka Op.81 N.13",
+    title: "13 - Notas Pontuadas",
     slug: "panofka-op81-n13",
     beginning: "",
     recordingIds: ["105"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["64"],
+    instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "45",
-    title: "Panofka Op.81 N.14",
+    title: "14 - Síncope",
     slug: "panofka-op81-n14",
     beginning: "",
     recordingIds: ["106"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["65"],
+    instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "46",
-    title: "Panofka Op.81 N.15",
+    title: "15 - Legato",
     slug: "panofka-op81-n15",
     beginning: "",
     recordingIds: ["107"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["66"],
+    instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "47",
-    title: "Panofka Op.81 N.17",
+    title: "17 - Estudo Preparatório para o Vibrato",
     slug: "panofka-op81-n17",
     beginning: "",
     recordingIds: ["108"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["68"],
+    instructions: "Pratique primeiro Lento, em seguida Moderato, Allegro e Allegro molto. \n Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "48",
-    title: "Panofka Op.81 N.18",
+    title: "18 - Agilidade",
     slug: "panofka-op81-n18",
     beginning: "",
     recordingIds: ["109"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["69"],
+    instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "49",
-    title: "Panofka Op.81 N.19",
+    title: "19 - Vibratos",
     slug: "panofka-op81-n19",
     beginning: "",
     recordingIds: ["110"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["70"],
+    instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "50",
-    title: "Panofka Op.81 N.21",
+    title: "21 - Arpejos",
     slug: "panofka-op81-n21",
     beginning: "",
     recordingIds: ["111"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["72"],
+    instructions: "Pratique também em Staccato. \n Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "51",
-    title: "Panofka Op.81 N.22",
+    title: "22 - Escala Cromática",
     slug: "panofka-op81-n22",
     beginning: "",
     recordingIds: ["112"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["73"],
+    instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "52",
-    title: "Panofka Op.81 N.23",
+    title: "23 - Estudo em Cromáticas",
     slug: "panofka-op81-n23",
     beginning: "",
     recordingIds: ["113"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["74"],
+    instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "53",
-    title: "Panofka Op.81 N.24",
+    title: "24 - Intervalos",
     slug: "panofka-op81-n24",
     beginning: "",
     recordingIds: ["114"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["75"],
+    instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
@@ -2148,9 +2341,10 @@ const modules = [
     title: "Aquecimentos",
     slug: "aquecimentos",
     about: {
-      intro: "Esses são vocalizes de aquecimento, você deve realiza-los preferencialmente antes de começar a estudar os Vaccajs.",
+      intro: "",
     },
     lessonsIds: ["21", "16", "17"],
+    backgroundImageUrl: "/images/background/DALL·E 2022-10-06 13.09.49 - A synthwave style african man singing with a colored aura surrounding him, digital art.png",
   },
   {
     id: "2",
@@ -2188,7 +2382,7 @@ const modules = [
             },
             { 
               type: 'image',
-              sourceUrl: '/images/vaccaj-exercises-range.gif'
+              sourceUrl: '/images/vaccaj/vaccaj-exercises-range.gif'
             },
             {
               type: 'paragraph',
@@ -2225,6 +2419,7 @@ const modules = [
       "14",
       "15",
     ],
+    backgroundImageUrl: "/images/background/DALL·E 2022-10-06 13.23.57 - A synthwave style ginger girl singing with a colored aura surrounding him, digital art.png"
   },
   {
     id: "3",
@@ -2234,15 +2429,17 @@ const modules = [
       intro: '"Belting é uma técnica de canto usada em diversos gêneros musicais, como rock, pop, gospel, e jazz, mas especialmente conhecida pela sua adoção no teatro musical americano. Muitas vezes nos referimos ao "belting" como uma forma de estender o registro de voz de peito para uma região mais aguda, para além da região da passagem, onde normalmente se faria a mudança para a voz de cabeça.\n\n Entretanto, há um certo consenso de que um belting saudável não deve ser entendido como pura "voz de peito", e sim uma extensão dela através de uma combinação de uma ressonância mais alta com a voz mista ou "mix", expressão em inglês. No mix, a voz não soa totalmente como uma voz cabeça e nem como uma voz de peito - e sim como uma combinação das duas, porém parecendo-se mais com a voz de peito.\n\nA estética do belting corresponde a um cantar que soa como a fala, promovendo uma sensação de espontaneidade, o que corresponde - acusticamente, sonoramente - a um prolongamento da voz de peito." - Wikipedia',
     },
     lessonsIds: ["18"],
+    backgroundImageUrl: "/images/background/DALL·E 2022-10-06 13.52.31 - A synthwave style ginger Mohican girl singing with a colored aura surrounding him, digital art.png"
   },
   {
     id: "4",
     title: "Panofka",
     slug: "panofka",
     about: {
-      intro: 'Panofka (1807-1887) foi um dos grandes professores de música do século 19. Sua experiência como violinista e compositor se mostram nessas composições de vocalizes atléticas para bel canto. Op. 81 foi desenvolvido para Sopranos, Mezzo-sopranos or Tenores. Op. 85 foi desenvolvido para todos os tipos de vozes, exceto baixos.',
+      intro: 'Panofka (1807-1887) foi um dos grandes professores de música do século 19. Sua experiência como violinista e compositor se mostram nessas composições de vocalizes atléticas para bel canto. Op. 81 foi desenvolvido para Sopranos, Mezzo-sopranos ou Tenores. Op. 85 foi desenvolvido para todos os tipos de vozes, exceto baixos.',
     },
     lessonsIds: ["19", "20"],
+    backgroundImageUrl: "/images/background/DALL·E 2022-10-06 13.18.16 - A synthwave style ginger Mohican girl singing with a colored aura surrounding him, digital art.png"
   },
 ];
 

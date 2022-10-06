@@ -6,14 +6,11 @@
 
 html {
   font-size: 55.5%;
-  font-family: "Galano Grotesque Alt", "Helvetica Neue", "Helvetica",
-    "Source Sans Pro", sans-serif;
-  background-color: color($neutral, 800);
-  color: color($neutral, 200);
-  letter-spacing: 0.1rem;
+  font-family: "Galano Grotesque Alt", sans-serif;
+  background-color: getcolor($neutral, 800);
+  color: getcolor($neutral, 200);
   line-height: 1.61;
   scroll-behavior: smooth;
-  text-transform: lowercase;
 
   @media (min-width: 360px) {
     font-size: 62.5%;
@@ -22,8 +19,13 @@ html {
 
 body {
   font-size: 1.6rem;
+  font-weight: 300;
   margin: 0;
   padding: 0;
+
+  * {
+    font-weight: 300;
+  }
 }
 
 button {
@@ -44,16 +46,16 @@ button {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: color($primary, 900);
+  background: getcolor($primary, 900);
   border-radius: 99999px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: color($primary, 600);
+  background: getcolor($primary, 600);
 
   /* Handle on hover */
   &:hover {
-    background: color($primary, 700);
+    background: getcolor($primary, 700);
   }
 }

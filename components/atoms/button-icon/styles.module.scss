@@ -1,20 +1,18 @@
 @import "../../../theme";
 
-$iconColor: color($primary, 200);
+$icon-color: getcolor($primary, 200);
 
 .button {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  color: $iconColor;
+  color: $icon-color;
   border: 0;
   cursor: pointer;
   width: 3.4rem;
   height: 3.4rem;
-
   transition: transform 0.3s;
-
   transform: scale(1);
 
   &:hover {
@@ -22,12 +20,12 @@ $iconColor: color($primary, 200);
   }
 
   .icon {
-    color: $iconColor;
+    color: $icon-color;
     font-size: 4rem;
     transition: color 0.3s;
 
     &:hover {
-      color: color($primary, 100);
+      color: getcolor($primary, 100);
     }
   }
 }

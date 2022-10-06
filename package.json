@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postlint": "stylelint '**/*.scss' --fix"
   },
   "dependencies": {
     "@material/react-material-icon": "^0.15.0",

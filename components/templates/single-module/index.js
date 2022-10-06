@@ -30,7 +30,7 @@ export default function SingleModule({ module }) {
         <InstallPrompt />
         <Menu />
       </header>
-      <main className={styles.main}>
+      <main className={styles.main} style={{ backgroundImage: `url("${module.backgroundImageUrl}")`}}>
         <header className={styles.hero}>
           <h1>{module.title}</h1>
           {module.about?.intro &&

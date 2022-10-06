@@ -28,18 +28,12 @@
 }
 
 .voiceTypesOptionsWrapper {
-  background: color.change(color($primary, 900), $alpha: 0.94);
+  background: color.change(getcolor($primary, 900), $alpha: 0.94);
   width: 100%;
   overflow-x: scroll;
 
   @media (min-width: 1024px) {
     overflow: hidden;
-  }
-
-  + .voiceTypesOptionsWrapper {
-    .voiceTypesOptions {
-      padding-top: 0;
-    }
   }
 
   .voiceTypesOptions {
@@ -60,12 +54,20 @@
       flex: 0 0 auto;
     }
   }
+
+  + .voiceTypesOptionsWrapper {
+    .voiceTypesOptions {
+      padding-top: 0;
+    }
+  }
+
+  
 }
 
 .player {
   width: 100%;
-  background: color($primary, 800);
-  border-top: 0.1rem solid color($primary, 700);
+  background: getcolor($primary, 800);
+  border-top: 0.1rem solid getcolor($primary, 700);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -85,22 +87,26 @@
     padding: 0;
   }
 }
+
 .playButtonIcon {
   font-size: 5.5rem !important;
 }
+
 .hiddenButton {
   opacity: 0;
   visibility: hidden;
 }
+
 .toggleButton {
   .active {
-    color: color($secondary, 500);
+    color: getcolor($primary, 500);
 
     &:hover {
-      color: color($secondary, 300);
+      color: getcolor($primary, 300);
     }
   }
 }
+
 .playbackRateLabel {
   position: relative;
   display: flex;
@@ -112,13 +118,14 @@
     font-size: 1.2rem;
     text-align: center;
     transition: color 0.3s;
-    color: color($primary, 200);
+    color: getcolor($primary, 200);
     font-variant: small-caps;
     text-transform: lowercase;
   }
+
   .playbackRateIcon {
     font-size: 4rem;
-    color: color($primary, 200);
+    color: getcolor($primary, 200);
     transition: transform 0.3s, color 0.3s;
   }
 
@@ -137,7 +144,7 @@
       opacity: 0.001;
 
       option {
-        background: color($primary, 700);
+        background: getcolor($primary, 700);
         padding: 0.5rem;
       }
     }
@@ -146,14 +153,16 @@
   &:hover {
     .playbackRateIcon {
       transform: scale(1.05);
-      color: color($primary, 100);
+      color: getcolor($primary, 100);
     }
+
     .playbackRateLabelText {
-      color: color($primary, 100);
+      color: getcolor($primary, 100);
     }
+
     .playbackRateSelect {
       select {
-        color: color($primary, 100);
+        color: getcolor($primary, 100);
       }
     }
   }

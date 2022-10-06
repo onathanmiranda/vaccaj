@@ -3,8 +3,6 @@
 .wrapper {
   width: 100%;
   max-width: 52rem;
-  margin-left: auto;
-  margin-right: auto;
 
   .lesson {
     + .lesson {
@@ -25,15 +23,13 @@
   }
 
   .skillTitle {
-    color: color($primary, 100);
-    font-weight: 400;
+    color: getcolor($primary, 100);
     font-size: 1.6rem;
-    margin: 0 0 2.1rem 0;
+    margin: 0 0 2.1rem;
   }
 
   .lessonTitle {
     margin: 0.5rem 0;
-    font-weight: 400;
     font-size: 1.2rem;
     text-transform: none;
   }
@@ -50,11 +46,13 @@
         flex: 0 0 auto;
         margin: 0;
         width: auto;
+
         + .songCard {
           margin-left: .8rem;
         }
       }
     }
+
     .skillTitle,
     .lessonTitle {
       display: none;

@@ -5,16 +5,14 @@
 
   select {
     outline: none;
-    -webkit-appearance: none;
+    appearance: none;
     display: block;
     padding: 0.5rem;
     margin: 0;
-
     transition: border-color 0.2s;
-    border-color: color($primary, 200);
+    border-color: getcolor($primary, 200);
     border-radius: 0.4rem;
-
-    color: color($primary, 200);
+    color: getcolor($primary, 200);
     background: inherit;
     line-height: inherit;
     font-family: inherit;

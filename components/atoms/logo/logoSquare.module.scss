@@ -1,6 +1,9 @@
+@import "../../../theme";
+
 .background {
-  fill: #351e53;
+  fill: getcolor($primary, 800);
 }
+
 .logo {
-  fill: #efd6fe;
+  fill: getcolor($primary, 100);
 }
