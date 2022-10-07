@@ -11,11 +11,12 @@ $max-width: 60rem;
 
 .header {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .main {
   position: relative;
+  z-index: 1;
   padding: 2.1rem 1.3rem;
   overflow-y: scroll;
   background-position: center 20%;
@@ -112,4 +113,6 @@ $max-width: 60rem;
 .player {
   width: 100%;
   max-width: 100vw;
+  position: relative;
+  z-index: 2;
 }
