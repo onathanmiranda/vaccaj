@@ -11,8 +11,8 @@ export default function PrivacyPolicy() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Nossa política de privacidade." />
       </Head>
-      <main className={styles.main}>
-        <section className={styles.lessons}>
+      <main>
+        <section>
           <Privacy />
         </section>
       </main>
