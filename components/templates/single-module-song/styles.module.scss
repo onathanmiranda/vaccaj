@@ -21,21 +21,33 @@
   }
 
   .guides {
-    padding: 3.4rem 1.3rem;
+    padding: 0 1.3rem 3.4rem;
     overflow-y: scroll;
     overflow-x: hidden;
+
     @media (min-width: 900px){
       height: 100%;
       width: 100%;
     }
 
-    .songTitle {
-      margin: 0;
-      text-transform: none;
+    .moduleHead {      
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .moduleImage {
+        width: 5rem;
+        border-radius: 50%;
+      }
+
+      .moduleTitle {
+        color: getcolor($secondary, 400);
+      }
     }
 
-    .moduleTitle {
-      color: getcolor($primary, 500);
+    .songTitle {
+      margin: 0; 
+      text-transform: none;
     }
 
     .instructions {

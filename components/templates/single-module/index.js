@@ -10,7 +10,7 @@ import styles from "./styles.module.scss";
 export default function SingleModule({ module }) {
   const [vh, setVh] = useState();
 
-  const { skills, about } = module;
+  const { skills } = module;
 
   useEffect(() => {
     if(typeof window === "undefined") return;
@@ -30,7 +30,7 @@ export default function SingleModule({ module }) {
         <InstallPrompt />
         <Menu />
       </header>
-      <main className={styles.main} style={{ backgroundImage: `url("${module.backgroundImageUrl}")`}}>
+      <main className={`${styles.main}`} style={{ backgroundImage: `url("${module.backgroundImageUrl}")`}}>
         <header className={styles.hero}>
           <h1>{module.title}</h1>
           {module.about?.intro &&

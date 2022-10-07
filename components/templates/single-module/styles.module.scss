@@ -2,6 +2,33 @@
 
 $max-width: 60rem;
 
+@keyframes fade-in-09 {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.9;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@mixin animation($name: fade-in) {
+  animation: $name;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+}
+
+
 .grid {
   display: grid;
   overflow: hidden;
@@ -33,53 +60,56 @@ $max-width: 60rem;
     background: linear-gradient(45deg, getcolor($neutral, 900), getcolor($neutral, 800));
     opacity: 0.9;
     z-index: 0;
+    @include animation(fade-in-09);
   }
 
   * {
     position: relative;
     z-index: 1;
   }
-}
 
-.hero {
-  text-align: left;
-  max-width: 60rem;
-  margin: auto;
-
-  h1 {
-    letter-spacing: -.09em;
-    font-weight: 900;
-    text-transform: none;
-    color: getcolor($primary, 100);
-    display: inline-block;
-    font-size: 5.5rem;
+  .hero {
     text-align: left;
-    padding-right: 8px;
-    margin: 0;
-
-    @media(min-width: 1024px){
-      font-size: 8.9rem;
-    }
-  }
-
-  p {
-    font-size: 1.4rem;
-    line-height: 2;
-    text-align: left;
+    max-width: 60rem;
     margin: auto;
-    text-transform: none;
-
-    + p {
-      margin-top: 1.3rem;
+    @include animation(fade-in-09);
+  
+    h1 {
+      letter-spacing: -.09em;
+      font-weight: 900;
+      text-transform: none;
+      color: getcolor($primary, 100);
+      display: inline-block;
+      font-size: 5.5rem;
+      text-align: left;
+      padding-right: 8px;
+      margin: 0;
+  
+      @media(min-width: 1024px){
+        font-size: 8.9rem;
+      }
+    }
+  
+    p {
+      font-size: 1.4rem;
+      line-height: 2;
+      text-align: left;
+      margin: auto;
+      text-transform: none;
+  
+      + p {
+        margin-top: 1.3rem;
+      }
     }
   }
-}
 
-.lessons {
-  display: block;
-  margin: 5.5rem auto 0;
-  max-width: $max-width;
-  line-height: 1;
+  .lessons {
+    display: block;
+    margin: 5.5rem auto 0;
+    max-width: $max-width;
+    line-height: 1;
+    @include animation(fade-in-09);
+  }
 }
 
 .details {

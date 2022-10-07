@@ -10,7 +10,7 @@ import styles from "./styles.module.scss";
 
 import { usePlayerContext } from "../../../contexts/playerContext";
 
-export default function SingleModuleSong({ module, song, pathname, description }) {
+export default function SingleModuleSong({ module, song }) {
   const { skills } = module;
 
   const { setSong, playerContextState } = usePlayerContext();
@@ -56,7 +56,10 @@ export default function SingleModuleSong({ module, song, pathname, description }
         </aside>
         <section className={styles.guides}>
           <header className={styles.header}>
-            <span className={styles.moduleTitle}>{module.title}</span>
+            <div className={styles.moduleHead}>
+              <span className={styles.moduleTitle}>{module.title}</span>
+              <img className={styles.moduleImage} src={module.backgroundImageUrl} alt="" />
+            </div>
             <h1 className={styles.songTitle}>{h1}</h1>
             {song.instructions &&
               song.instructions
