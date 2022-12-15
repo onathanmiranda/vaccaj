@@ -1,0 +1,36 @@
+@import "../../../theme";
+
+.bar {
+  position: relative;
+  height: 1.2rem;
+  width: 100%;
+  max-width: 100rem;
+  border-radius: 99999px;
+  background-color: getcolor($primary, 200);
+
+  .svg {
+    position: absolute;
+    height: 2.4rem;
+    top: 0;
+    transform: translateY(-25%);
+    cursor: pointer;
+
+    circle {
+      fill: getcolor($primary, 800);
+    }
+
+    path {
+      fill: getcolor($primary, 200);
+      transition: transform .5s;
+      transform: scale(0);
+      transform-origin: center center;
+    }
+
+    &:hover, &:active {
+      path {
+        transition: transform .3s;
+        transform: scale(1);
+      }
+    }
+  }
+}

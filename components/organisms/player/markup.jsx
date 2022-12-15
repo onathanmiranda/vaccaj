@@ -1,9 +1,10 @@
-import { useRef, useMemo } from "react";
+import { useRef } from "react";
 import MaterialIcon from "@material/react-material-icon";
 
 import Option from "../../atoms/option";
 import ButtonIcon from "../../atoms/button-icon";
 import Select from "../../atoms/select";
+import ProgressBar from "../../atoms/progress-bar";
 
 import styles from "./styles.module.scss";
 
@@ -20,7 +21,8 @@ export default function Markup({
   repeatOne = false,
   speedOptions = [],
   playbackRateLabel,
-  forceShow
+  forceShow,
+  currentTimePercent = false
 }) {
   const showVoiceTypeOptions =
     voiceTypesOptions && voiceTypesOptions.length > 1;
@@ -69,44 +71,51 @@ export default function Markup({
         </div>
       }
       <div className={styles.player}>
-        <ButtonIcon
-          className={styles.hiddenButton}
-          iconName={"skip_previous"}
-        />
-        <ButtonIcon
-          iconClassName={styles.hiddenButton}
-          iconName={"repeat_one"}
-        />
-        <ButtonIcon onClick={onSkipPreviousClick} iconName={"skip_previous"} />
-        <ButtonIcon
-          onClick={onMainButtonClick}
-          iconClassName={styles.playButtonIcon}
-          iconName={playing ? "pause_circle" : "play_circle_filled"}
-        />
-        <ButtonIcon
-          className={styles.hiddenButton}
-          iconName={"skip_previous"}
-        />
-        <ButtonIcon
-          className={styles.toggleButton}
-          iconClassName={repeatOne ? styles.active : ""}
-          iconName={"repeat_one"}
-          onClick={onRepeatOneClick}
-        />
-        <label htmlFor="speed" className={styles.playbackRateLabel}>
-          <MaterialIcon className={styles.playbackRateIcon} icon={"speed"} />
-          <div className={styles.playbackRateLabelText}>
-            {playbackRateLabel}
-          </div>
-          <Select
-            name="speed"
-            options={speedOptions}
-            value={playbackRate}
-            onChange={onChangePlaybackRate}
-            className={styles.playbackRateSelect}
-            ref={playbackSpeedSelectRef}
+        <div className={styles.buttonsWrapper}>
+          <ButtonIcon
+            className={styles.hiddenButton}
+            iconName={"skip_previous"}
           />
-        </label>
+          <ButtonIcon
+            iconClassName={styles.hiddenButton}
+            iconName={"repeat_one"}
+          />
+          <ButtonIcon onClick={onSkipPreviousClick} iconName={"skip_previous"} />
+          <ButtonIcon
+            onClick={onMainButtonClick}
+            iconClassName={styles.playButtonIcon}
+            iconName={playing ? "pause_circle" : "play_circle_filled"}
+          />
+          <ButtonIcon
+            className={styles.hiddenButton}
+            iconName={"skip_previous"}
+          />
+          <ButtonIcon
+            className={styles.toggleButton}
+            iconClassName={repeatOne ? styles.active : ""}
+            iconName={"repeat_one"}
+            onClick={onRepeatOneClick}
+          />
+          <label htmlFor="speed" className={styles.playbackRateLabel}>
+            <MaterialIcon className={styles.playbackRateIcon} icon={"speed"} />
+            <div className={styles.playbackRateLabelText}>
+              {playbackRateLabel}
+            </div>
+            <Select
+              name="speed"
+              options={speedOptions}
+              value={playbackRate}
+              onChange={onChangePlaybackRate}
+              className={styles.playbackRateSelect}
+              ref={playbackSpeedSelectRef}
+            />
+          </label>
+        </div>
+        {currentTimePercent !== false && (
+          <div className={styles.progressWrapper}>
+            <ProgressBar progressPercent={currentTimePercent}/>
+          </div>
+        )}
       </div>
     </div>
   );

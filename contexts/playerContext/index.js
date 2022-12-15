@@ -18,15 +18,18 @@ const initialState = {
     playing: false,
     repeatOne: false,
     playbackRate: 1.0,
+    currentTime: 0,
+    recordingLength: 0,
   },
   recording: false,
   song: false,
   showGuides: false,
 };
 
-const PlayerContext = createContext(initialState);
 
 const preferredRecordingsKey = "preferredRecording";
+
+const PlayerContext = createContext(initialState);
 
 export default function PlayerContextProvider({ children }) {
   const state = useState(initialState);
@@ -236,6 +239,26 @@ export const usePlayerContext = () => {
     [setPlayerContextState]
   );
 
+  const updateCurrentTime = useCallback((currentTime) => {
+    setPlayerContextState((oldState) => ({
+      ...oldState,
+      player: {
+        ...oldState.player,
+        currentTime
+      }
+    }))
+  }, [setPlayerContextState]);
+
+  const setCurrentRecordingLength = useCallback((recordingLength) => {
+    setPlayerContextState((oldState) => ({
+      ...oldState,
+      player: {
+        ...oldState.player,
+        recordingLength
+      }
+    }))
+  }, [setPlayerContextState]);
+
   useEffect(() => {
     const player = playerRef.current;
 
@@ -248,14 +271,25 @@ export const usePlayerContext = () => {
         pause();
       }
     };
+
+    player.ontimeupdate = () => {
+      updateCurrentTime(player.currentTime);
+    }
+
+    player.onloadedmetadata = () => {
+      setCurrentRecordingLength(player.duration);
+    }
+
     playerContextState.player.playbackRate;
 
     player.playbackRate = playerContextState.player.playbackRate;
 
     return () => {
-      player.onEnd = null;
+      player.onended = null;
+      player.ontimeupdate = null;
+      player.onloadedmetadata = null;
     };
-  }, [playerRef, playerContextState, load, pause, play]);
+  }, [playerRef, playerContextState, load, pause, play, updateCurrentTime, setCurrentRecordingLength]);
 
   return {
     playerContextState,

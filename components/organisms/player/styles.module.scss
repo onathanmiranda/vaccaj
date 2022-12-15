@@ -68,23 +68,26 @@
   width: 100%;
   background: getcolor($primary, 800);
   border-top: 0.1rem solid getcolor($primary, 700);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 0.5rem 1.3rem;
-  position: relative;
-  z-index: 1;
-  height: 8rem;
-  text-transform: none;
 
-  @media (min-width: 500px) {
-    justify-content: center;
-    gap: 2.1rem;
-  }
+  .buttonsWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    height: 8rem;
+    text-transform: none;
 
-  button {
-    flex: 0 1 auto;
-    padding: 0;
+    @media (min-width: 500px) {
+      justify-content: center;
+      gap: 2.1rem;
+    }
+
+    button {
+      flex: 0 1 auto;
+      padding: 0;
+    }
   }
 }
 

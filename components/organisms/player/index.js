@@ -125,9 +125,14 @@ export default function Player({ className }) {
     )?.label;
   }, [player.playbackRate, speedOptions]);
 
+  const currentTimePercent = useMemo(() => {
+    if(!player.currentTime) return 0;
+    return Math.round(player.currentTime * 100 / player.recordingLength * 10) / 10
+  }, [player.currentTime, player.recordingLength]);
+
   useEffect(() => {
     if(isFront){
-      window.addEventListener('keypress', togglePlayOnKeyPress)
+      window.addEventListener('keypress', togglePlayOnKeyPress);
     }
     return () => {
       if(isFront){
@@ -153,6 +158,7 @@ export default function Player({ className }) {
           instrumentsOptions={instrumentsOptions}
           recordingId={recording.id}
           repeatOne={player.repeatOne}
+          currentTimePercent={currentTimePercent}
           speedOptions={speedOptions}
           playbackRate={player.playbackRate}
           playbackRateLabel={playbackRateLabel}
