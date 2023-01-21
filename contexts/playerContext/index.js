@@ -259,6 +259,12 @@ export const usePlayerContext = () => {
     }))
   }, [setPlayerContextState]);
 
+  const changeSongPlaybackTime = useCallback((time) => {
+    if(isNaN(time)) return;
+    const player = playerRef.current;
+    player.currentTime = time;
+  }, [playerRef]);
+
   useEffect(() => {
     const player = playerRef.current;
 
@@ -301,5 +307,6 @@ export const usePlayerContext = () => {
     clearPlayer,
     changeSongRecording,
     changePlaybackRate,
+    changeSongPlaybackTime
   };
 };
