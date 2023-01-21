@@ -14,6 +14,7 @@ export default function Player({ className }) {
     changeSongRecording,
     setRepeatOne,
     changePlaybackRate,
+    changeSongPlaybackTime,
   } = usePlayerContext();
 
   const { recording, player, song } = playerContextState;
@@ -64,6 +65,10 @@ export default function Player({ className }) {
     },
     [changePlaybackRate]
   );
+
+  const onChangePlaybackTime = useCallback((time) => {
+    changeSongPlaybackTime(time);
+  }, [changeSongPlaybackTime]);
 
   const { voiceTypesOptions, instrumentsOptions } = useMemo(() => {
     if (!song) return [];
@@ -125,11 +130,6 @@ export default function Player({ className }) {
     )?.label;
   }, [player.playbackRate, speedOptions]);
 
-  const currentTimePercent = useMemo(() => {
-    if(!player.currentTime) return 0;
-    return Math.round(player.currentTime * 100 / player.recordingLength * 10) / 10
-  }, [player.currentTime, player.recordingLength]);
-
   useEffect(() => {
     if(isFront){
       window.addEventListener('keypress', togglePlayOnKeyPress);
@@ -158,7 +158,8 @@ export default function Player({ className }) {
           instrumentsOptions={instrumentsOptions}
           recordingId={recording.id}
           repeatOne={player.repeatOne}
-          currentTimePercent={currentTimePercent}
+          currentTime={player.currentTime}
+          recordingLength={player.recordingLength}
           speedOptions={speedOptions}
           playbackRate={player.playbackRate}
           playbackRateLabel={playbackRateLabel}
@@ -166,6 +167,7 @@ export default function Player({ className }) {
           onSkipPreviousClick={onSkipPreviousClick}
           onRepeatOneClick={onRepeatOneClick}
           onChangePlaybackRate={onChangePlaybackRate}
+          onChangePlaybackTime={onChangePlaybackTime}
           forceShow={forceShow}
         />
       )}

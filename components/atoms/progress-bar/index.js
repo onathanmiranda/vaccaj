@@ -5,12 +5,32 @@ import Markup from "./markup";
 
 const isFront = typeof window !== "undefined";
 
-export default function ProgressBar({ progressPercent, onChange }) {
+const timeToPercent = (current, total) => Math.round(current * 100 / total * 10) / 10;
+const percentToTime = (currentPercent, totalTime) => currentPercent * totalTime / 100;
+
+export default function ProgressBar({ currentTime, recordingLength, onChange }) {
   const [isDragging, setIsDragging] = useState(false);
   const [xPosDelta, setXPosDelta] = useState(0);
   const [cursorX, setCursorX] = useState(0);
   const progressBar = useRef();
   const progressBarMeasurements = useRef();
+
+  const currentProgressPercent = useMemo(() => {
+    const progressPercent = timeToPercent(currentTime, recordingLength);
+    if(!isFront) return progressPercent;
+    if(!isDragging) return progressPercent;
+    if(!progressBar.current) return progressPercent;
+    
+    const { offsetWidth, leftOffset } = progressBarMeasurements.current;
+                          
+    if(xPosDelta <= leftOffset) return 0;
+    if(xPosDelta >= offsetWidth + leftOffset) return 100;
+
+    const newPosInPx = xPosDelta - leftOffset;
+    const newPos = newPosInPx * 100 / offsetWidth;
+
+    return newPos;
+  }, [currentTime, recordingLength, isDragging, xPosDelta]);
 
   const stopDraggingElement = useCallback(() => {
     if(!isFront) return;
@@ -19,36 +39,32 @@ export default function ProgressBar({ progressPercent, onChange }) {
     setXPosDelta(0);
     setCursorX(0);
     setIsDragging(false);
-  }, [setXPosDelta, setIsDragging]);
+  }, [setXPosDelta, setCursorX, setIsDragging]);
 
   const dragElement = useCallback((e) => {
     setXPosDelta(e.clientX - cursorX);
     setCursorX(e.clientX);
-  }, [setXPosDelta, setCursorX, cursorX]);
+  }, [cursorX]);
+
+  const handleClick = useCallback((e) => {
+    const { offsetWidth, leftOffset } = progressBarMeasurements.current;
+                          
+    if(e.clientX <= leftOffset) onChange(0);
+    if(e.clientX >= offsetWidth + leftOffset) onChange(percentToTime(100, recordingLength));
+
+    const newPosInPx = e.clientX - leftOffset;
+    const newPos = newPosInPx * 100 / offsetWidth;
+    onChange(percentToTime(newPos, recordingLength));
+  }, [onChange, recordingLength]);
 
   const handleMove = useCallback((e) => {
     e.preventDefault();
     setCursorX(e.clientX);
+    setXPosDelta(e.clientX);
     setIsDragging(true);
     window.document.onmouseup = stopDraggingElement;
     window.document.onmousemove = dragElement;
   }, [dragElement, stopDraggingElement, setCursorX]);
-
-  const leftPosition = useMemo(() => {
-    const progressPercentStyle = `${progressPercent}%`;
-
-    if(!isFront) return progressPercentStyle;
-    if(!isDragging) return progressPercentStyle;
-    if(!progressBar.current) return progressPercentStyle;
-    
-    const { offsetWidth, leftOffset } = progressBarMeasurements.current;
-                          
-    if(xPosDelta <= leftOffset) return `0%`;
-    if(xPosDelta >= offsetWidth + leftOffset) return `100%`;
-
-    return `${xPosDelta - leftOffset}px`;
-
-  }, [isDragging, progressPercent, xPosDelta]);
 
   useEffect(() => {
     if(!isFront) return;
@@ -64,18 +80,22 @@ export default function ProgressBar({ progressPercent, onChange }) {
     setProgressBarMeasurements();
 
     window.addEventListener('resize', setProgressBarMeasurements);
-    
-    return () => {
-      window.removeEventListener('resize', setProgressBarMeasurements);
-    }
+    return () => window.removeEventListener('resize', setProgressBarMeasurements);
   }, []);
 
+  useEffect(() => {
+    const progressPercent = timeToPercent(currentTime, recordingLength);
+    if(progressPercent === currentProgressPercent) return;
+    onChange(percentToTime(currentProgressPercent, recordingLength));
+  }, [currentProgressPercent, currentTime, onChange, recordingLength]);
+  
   return (
     <Markup
       ref={progressBar}
-      progressPercentLeftPosition={leftPosition}
-      onChange={onChange}
+      progressPercent={currentProgressPercent}
       onMouseDown={handleMove}
+      onClick={handleClick}
+      progressBarWidth={progressBar.current?.offsetWidth}
     />
   );
 }

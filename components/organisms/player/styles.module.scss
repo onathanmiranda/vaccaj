@@ -60,8 +60,6 @@
       padding-top: 0;
     }
   }
-
-  
 }
 
 .player {
@@ -88,6 +86,11 @@
       flex: 0 1 auto;
       padding: 0;
     }
+  }
+
+  .progressWrapper {
+    display: flex;
+    justify-content: center;
   }
 }
 

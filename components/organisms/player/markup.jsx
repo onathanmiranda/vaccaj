@@ -22,7 +22,9 @@ export default function Markup({
   speedOptions = [],
   playbackRateLabel,
   forceShow,
-  currentTimePercent = false
+  currentTime = false,
+  recordingLength,
+  onChangePlaybackTime,
 }) {
   const showVoiceTypeOptions =
     voiceTypesOptions && voiceTypesOptions.length > 1;
@@ -111,9 +113,9 @@ export default function Markup({
             />
           </label>
         </div>
-        {currentTimePercent !== false && (
+        {currentTime !== false && !isNaN(currentTime) && (
           <div className={styles.progressWrapper}>
-            <ProgressBar progressPercent={currentTimePercent}/>
+            <ProgressBar currentTime={currentTime} recordingLength={recordingLength} onChange={onChangePlaybackTime}/>
           </div>
         )}
       </div>
