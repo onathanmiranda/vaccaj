@@ -11,9 +11,8 @@
   &::after {
     content: "";
     position: absolute;
-    width: calc(100% - .5rem);
+    width: 100%;
     top: 50%;
-    left: .5rem;
     transform: translateY(-50%);
     height: 1.3rem;
     border-radius: 99999px;
@@ -25,7 +24,7 @@
     position: absolute;
     height: 2.1rem;
     top: 50%;
-    transform: translateY(-50%) translateX(-1.3rem);
+    transform: translateY(-50%);
     cursor: pointer;
     z-index: 1;
 
