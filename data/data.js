@@ -1923,8 +1923,8 @@ const songs = [
   },
   {
     id: "30",
-    title: "Né - Notas Repetidas",
-    slug: "ne-notas-repetidas",
+    title: "Né - Sons Repetidos",
+    slug: "ne-sons-repetidos",
     beginning: "",
     recordingIds: ["91"],
     sheetsList: null,

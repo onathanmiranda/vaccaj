@@ -28,6 +28,11 @@ module.exports = {
         destination: '/modulos/vaccaj',
         permanent: true
       },
+      {
+        source: '/modulos/belting/ne-notas-repetidas',
+        destination: '/modulos/belting/ne-sons-repetidos',
+        permanent: true
+      },
     ]
   },
 }
