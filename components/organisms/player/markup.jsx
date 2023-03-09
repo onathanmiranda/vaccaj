@@ -38,40 +38,6 @@ export default function Markup({
 
   return (
     <div className={`${styles.outerWrapper} ${forceShowClassName} ${className}`}>
-      {(showInstrumentsOptions || showVoiceTypeOptions) && 
-        <div className={styles.playerOptions}>
-          {showInstrumentsOptions && (
-            <div className={styles.voiceTypesOptionsWrapper}>
-              <div className={styles.voiceTypesOptions}>
-                {instrumentsOptions.map((option) => {
-                  return (
-                    <Option
-                      className={styles.option}
-                      key={option.value}
-                      {...option}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          )}
-          {showVoiceTypeOptions && (
-            <div className={styles.voiceTypesOptionsWrapper}>
-              <div className={styles.voiceTypesOptions}>
-                {voiceTypesOptions.map((option) => {
-                  return (
-                    <Option
-                      className={styles.option}
-                      key={option.value}
-                      {...option}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          )}
-        </div>
-      }
       <div className={styles.player}>
         <div className={styles.buttonsWrapper}>
           <ButtonIcon
@@ -119,6 +85,40 @@ export default function Markup({
           </div>
         )}
       </div>
+      {(showInstrumentsOptions || showVoiceTypeOptions) && 
+        <div className={styles.playerOptions}>
+          {showInstrumentsOptions && (
+            <div className={styles.voiceTypesOptionsWrapper}>
+              <div className={styles.voiceTypesOptions}>
+                {instrumentsOptions.map((option) => {
+                  return (
+                    <Option
+                      className={styles.option}
+                      key={option.value}
+                      {...option}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+          )}
+          {showVoiceTypeOptions && (
+            <div className={styles.voiceTypesOptionsWrapper}>
+              <div className={styles.voiceTypesOptions}>
+                {voiceTypesOptions.map((option) => {
+                  return (
+                    <Option
+                      className={styles.option}
+                      key={option.value}
+                      {...option}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </div>
+      }
     </div>
   );
 }

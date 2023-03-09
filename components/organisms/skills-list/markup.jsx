@@ -68,7 +68,7 @@ export default function LessonsList({ skills, module, horizontal }) {
     [horizontal]
   );
   return (
-    <section className={`${styles.wrapper} ${horizontalClassName}`}>
+    <nav className={`${styles.wrapper} ${horizontalClassName}`}>
       {horizontal && (
         <div className={styles.horizontalWrapper}>
           <List module={module} skills={skills} horizontal={horizontal} />
@@ -77,6 +77,6 @@ export default function LessonsList({ skills, module, horizontal }) {
       {!horizontal && (
         <List module={module} skills={skills} horizontal={horizontal} />
       )}
-    </section>
+    </nav>
   );
 }
