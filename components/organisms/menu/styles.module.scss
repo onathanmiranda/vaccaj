@@ -33,13 +33,15 @@ $active-link-color: getcolor($primary, 400);
 .link {
   text-decoration: none;
   color: $link-color;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   transition: color 0.3s;
   display: flex;
   align-items: center;
   height: 100%;
   position: relative;
   padding-bottom: .8rem;
+  letter-spacing: .2rem;
+  font-weight: 400;
 
   &::after {
     content: "";

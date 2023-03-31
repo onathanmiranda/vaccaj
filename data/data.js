@@ -1599,6 +1599,22 @@ const sheets = [
     ],
     voiceTypes: ["0"]
   },
+  {
+    id: "76",
+    filePaths: [
+      "/images/panofka/panofka_op81_16_01.webp",
+      "/images/panofka/panofka_op81_16_02.webp",
+    ],
+    voiceTypes: ["0"]
+  },
+  {
+    id: "77",
+    filePaths: [
+      "/images/panofka/panofka_op81_20_01.webp",
+      "/images/panofka/panofka_op81_20_02.webp",
+    ],
+    voiceTypes: ["0"]
+  },
 ];
 
 const songs = [
@@ -2165,22 +2181,22 @@ const songs = [
   },
   {
     id: "54",
-    title: "Panofka Op.85 N.16",
-    slug: "panofka-op85-n16",
+    title: "16 - Apogiatura, Grupeto, Turn e Mordente Invertido",
+    slug: "panofka-op81-n16",
     beginning: "",
     recordingIds: ["115"],
-    sheetsList: null,
+    sheetsList: ["76"],
     instructions: false,
     lyrics: null,
   },
   {
     id: "55",
-    title: "Panofka Op.85 N.20",
-    slug: "panofka-op85-n20",
+    title: "20 - Arpejos",
+    slug: "panofka-op81-n20",
     beginning: "",
     recordingIds: ["116"],
-    sheetsList: null,
-    instructions: false,
+    sheetsList: ["77"],
+    instructions: "Pratique também em Staccato. \n Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
@@ -2203,7 +2219,7 @@ const skills = [
   { id: "5", title: "Vocalizes Voz de Cabeça" },
   { id: "6", title: "Belting" },
   { id: "7", title: "Panofka Op.81" },
-  { id: "8", title: "Panofka Op.85" },
+  //{ id: "8", title: "Panofka Op.85" },
 ];
 
 const lessons = [
@@ -2319,14 +2335,14 @@ const lessons = [
     id: "19",
     title: "",
     skillId: "7",
-    songIds: ["32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53"],
+    songIds: ["32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "54", "47", "48", "49", "55", "50", "51", "52", "53"],
   },
-  {
+  /* {
     id: "20",
     title: "",
     skillId: "8",
-    songIds: ["54", "55"],
-  },
+    songIds: [],
+  }, */
   {
     id: "21",
     title: "Aplicação e Controle do Ar",
@@ -2341,10 +2357,10 @@ const modules = [
     title: "Aquecimentos",
     slug: "aquecimentos",
     about: {
-      intro: "",
+      intro: "Cantar pode demandar bastante fisicamente das nossas cordas vocais. É por isso que cantar, assim como qualquer outra atividade física, deve envolver aquecimento. Seja para uma apresentação, ou para iniciar os estudos, o aquecimento deve ser parte da sua rotina.\n Devemos aquecer nossa voz para mantê-la saudável, com boa sonoridade, e protegê-la de danos. É absolutamente necessário aquecer antes de cantar.",
     },
     lessonsIds: ["21", "16", "17"],
-    backgroundImageUrl: "/images/background/DALL·E 2022-10-06 13.09.49 - A synthwave style african man singing with a colored aura surrounding him, digital art.webp",
+    backgroundImageUrl: "",
   },
   {
     id: "2",
@@ -2419,7 +2435,7 @@ const modules = [
       "14",
       "15",
     ],
-    backgroundImageUrl: "/images/background/DALL·E 2022-10-06 13.23.57 - A synthwave style ginger girl singing with a colored aura surrounding him, digital art.webp"
+    backgroundImageUrl: ""
   },
   {
     id: "3",
@@ -2429,7 +2445,7 @@ const modules = [
       intro: '"Belting é uma técnica de canto usada em diversos gêneros musicais, como rock, pop, gospel, e jazz, mas especialmente conhecida pela sua adoção no teatro musical americano. Muitas vezes nos referimos ao "belting" como uma forma de estender o registro de voz de peito para uma região mais aguda, para além da região da passagem, onde normalmente se faria a mudança para a voz de cabeça.\n\n Entretanto, há um certo consenso de que um belting saudável não deve ser entendido como pura "voz de peito", e sim uma extensão dela através de uma combinação de uma ressonância mais alta com a voz mista ou "mix", expressão em inglês. No mix, a voz não soa totalmente como uma voz cabeça e nem como uma voz de peito - e sim como uma combinação das duas, porém parecendo-se mais com a voz de peito.\n\nA estética do belting corresponde a um cantar que soa como a fala, promovendo uma sensação de espontaneidade, o que corresponde - acusticamente, sonoramente - a um prolongamento da voz de peito." - Wikipedia',
     },
     lessonsIds: ["18"],
-    backgroundImageUrl: "/images/background/DALL·E 2022-10-06 13.52.31 - A synthwave style ginger Mohican girl singing with a colored aura surrounding him, digital art.webp"
+    backgroundImageUrl: ""
   },
   {
     id: "4",
@@ -2438,8 +2454,8 @@ const modules = [
     about: {
       intro: 'Panofka (1807-1887) foi um dos grandes professores de música do século 19. Sua experiência como violinista e compositor se mostram nessas composições de vocalizes atléticas para bel canto. Op. 81 foi desenvolvido para Sopranos, Mezzo-sopranos ou Tenores. Op. 85 foi desenvolvido para todos os tipos de vozes, exceto baixos.',
     },
-    lessonsIds: ["19", "20"],
-    backgroundImageUrl: "/images/background/DALL·E 2022-10-06 13.18.16 - A synthwave style ginger Mohican girl singing with a colored aura surrounding him, digital art.webp"
+    lessonsIds: ["19"],
+    backgroundImageUrl: ""
   },
 ];
 

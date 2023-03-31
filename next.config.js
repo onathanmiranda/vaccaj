@@ -33,6 +33,16 @@ module.exports = {
         destination: '/modulos/belting/ne-sons-repetidos',
         permanent: true
       },
+      {
+        source: '/modulos/panofka/panofka-op85-n16',
+        destination: '/modulos/panofka/panofka-op81-n16',
+        permanent: true
+      },
+      {
+        source: '/modulos/panofka/panofka-op85-n20',
+        destination: '/modulos/panofka/panofka-op81-n20',
+        permanent: true
+      },
     ]
   },
 }

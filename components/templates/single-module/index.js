@@ -30,7 +30,7 @@ export default function SingleModule({ module }) {
         <InstallPrompt />
         <Menu />
       </header>
-      <main className={`${styles.main}`} style={{ backgroundImage: `url("${module.backgroundImageUrl}")`}}>
+      <main className={`${styles.main}`}>
         <header className={styles.hero}>
           <h1>{module.title}</h1>
           {module.about?.intro &&
@@ -49,16 +49,6 @@ export default function SingleModule({ module }) {
             ))
           }
         </header>
-        {process.env.NEXT_PUBLIC_GOOGLE_ADSENSE && 
-          <amp-ad width="100vw" height="320"
-            type="adsense"
-            data-ad-client="ca-pub-3697640129625896"
-            data-ad-slot="8710083431"
-            data-auto-format="rspv"
-            data-full-width="">
-            <div overflow=""></div>
-          </amp-ad>
-        }
         <section className={styles.lessons}>
           <SkillsList skills={skills} module={module} />
         </section>

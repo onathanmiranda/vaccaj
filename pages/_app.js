@@ -37,12 +37,6 @@ function MyApp({ Component, pageProps }) {
           navigator.serviceWorker.register("/service-worker.js");
         }
       `}</Script>
-      {process.env.NEXT_PUBLIC_GOOGLE_ADSENSE && (
-        <>
-          <Script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`} crossorigin="anonymous"></Script>
-          <Script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></Script>
-        </>
-      )}
       {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS && (
         <>
           <Script
