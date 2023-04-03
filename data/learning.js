@@ -2357,7 +2357,7 @@ const modules = [
     title: "Aquecimentos",
     slug: "aquecimentos",
     about: {
-      intro: "Cantar pode demandar bastante fisicamente das nossas cordas vocais. É por isso que cantar, assim como qualquer outra atividade física, deve envolver aquecimento. Seja para uma apresentação, ou para iniciar os estudos, o aquecimento deve ser parte da sua rotina.\n Devemos aquecer nossa voz para mantê-la saudável, com boa sonoridade, e protegê-la de danos. É absolutamente necessário aquecer antes de cantar.",
+      intro: "Cantar demanda muito das nossas cordas vocais fisicamente. É por isso que cantar, assim como qualquer outra atividade física, deve envolver aquecimento. Seja para uma apresentação, ou para iniciar os estudos, o aquecimento deve ser parte da sua rotina.\n Devemos aquecer nossa voz para mantê-la saudável, com boa sonoridade, e protegê-la de danos. É absolutamente necessário aquecer antes de cantar.",
     },
     lessonsIds: ["21", "16", "17"],
     backgroundImageUrl: "",

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import SongCard from "../../molecules/songCard";
+import SongCard from "../../molecules/card-song";
 
 import styles from "./styles.module.scss";
 

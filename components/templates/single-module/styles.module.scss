@@ -10,18 +10,11 @@ $max-width: 60rem;
   transition: height .3s;
 }
 
-.header {
-  position: relative;
-  z-index: 2;
-}
-
 .main {
   position: relative;
   z-index: 1;
   padding: 2.1rem 1.3rem;
   overflow-y: scroll;
-  background-image: linear-gradient(#727272 1.1px, transparent 1.1px), linear-gradient(to right, #444 1.1px, #fffbdd 1.1px);
-  background-size: 2px 2px;
 
   @media (min-width: 900px){
     display: grid;
@@ -29,47 +22,12 @@ $max-width: 60rem;
     gap: 2.1rem;
   }
 
-  &::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, getcolor($neutral, 900), getcolor($neutral, 800));
-    opacity: 0.9;
-    z-index: 0;
-  }
-
   * {
     position: relative;
     z-index: 1;
   }
 
-  .hero {
-    text-align: left;
-    max-width: $max-width;
-    
-    @media (min-width: 900px){
-      padding: 0 2.1rem;
-    }
-  
-    h1 {
-      letter-spacing: -.05em;
-      color: getcolor($primary, 100);
-      display: inline-block;
-      font-size: 3.4rem;
-      text-align: left;
-      margin: 5.5rem 0 0;
-      line-height: 1;
-      font-weight: 100;
-      text-transform: lowercase;
-  
-      @media(min-width: 1024px){
-        font-size: 5.5rem;
-      }
-    }
-  
+  .aboutText {
     p {
       font-size: 1.6rem;
       line-height: 2;
@@ -82,12 +40,53 @@ $max-width: 60rem;
     }
   }
 
+  .hero {
+    text-align: left;
+    max-width: $max-width;
+    
+    @media (min-width: 900px){
+      padding: 0 2.1rem;
+    }
+
+    h1 {
+      letter-spacing: -.05em;
+      color: getcolor($neutral, 500);
+      display: inline-block;
+      font-size: 3.4rem;
+      text-align: left;
+      margin: 5.5rem 0 0;
+      line-height: 1;
+      font-weight: 100;
+      text-transform: lowercase;
+  
+      @media(min-width: 1024px){
+        font-size: 5.5rem;
+      }
+    }
+
+    .aboutText {
+      display: none;
+
+      @media (min-width: 900px) {
+        display: block;
+      }
+    }
+  }
+
   .lessons {
     display: block;
     margin: 5.5rem auto 0;
     max-width: $max-width;
     width: 100%;
     line-height: 1;
+
+    .aboutText {
+      margin-top: 5.5rem;
+      display: block;
+      @media (min-width: 900px) {
+        display: none;
+      }
+    }
   }
 }
 

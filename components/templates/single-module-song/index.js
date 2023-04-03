@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 
-import Menu from "../../organisms/menu";
-import InstallPrompt from "../../organisms/install-prompt";
 import SkillsList from "../../organisms/skills-list";
 import Guides from "../../organisms/guides";
 import Player from "../../organisms/player";
+import Navbar from "../../organisms/navbar";
 
 import styles from "./styles.module.scss";
 
@@ -42,10 +41,7 @@ export default function SingleModuleSong({ module, song }) {
 
   return (
     <div style={{ height: vh }} className={styles.grid}>
-      <header className={styles.header}>
-        <InstallPrompt />
-        <Menu />
-      </header>
+      <Navbar />
       <main className={styles.main}>
         <aside className={styles.lessons}>
           <SkillsList

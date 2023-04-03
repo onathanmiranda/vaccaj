@@ -9,9 +9,9 @@ import {
   skills,
   lessons,
   modules,
-} from "../../data/data";
+} from "../../data/learning";
 
-import reducedData from "../../data";
+import { modules as reducedData } from "../../data";
 
 export const LessonsContext = createContext();
 

@@ -4,13 +4,15 @@ import { useMemo } from "react";
 
 import SingleModuleSong from "../../../components/templates/single-module-song";
 
-import modules, {
+import data, {
   getItemById,
   getReducedSongBySlug,
   reduceSongInfo,
 } from "../../../data";
 
-import { songs } from "../../../data/data";
+const { modules } = data;
+
+import { songs } from "../../../data/learning";
 
 import config from '../../../config';
 

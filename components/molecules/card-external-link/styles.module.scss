@@ -1,0 +1,39 @@
+@import "../../../theme";
+
+.card {
+  padding: 1.3rem .8rem;
+  background-color: getcolor($secondary, 900);
+  border-radius: .5rem;
+  display: block;
+  text-decoration: none;
+  max-width: 30rem;
+
+  &:visited {
+    color: getcolor($primary, 100);
+  }
+
+  img {
+    height: 3rem;
+    width: 6rem;
+    object-fit: contain;
+    object-position: left center;
+    margin: 0 0 0 auto;
+  }
+  
+  h3 {
+    margin: 0;
+    text-transform: lowercase;
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 1.3rem;
+    line-height: 1.2;
+    text-align: left;
+    margin: .8rem 0 0;
+    text-transform: none;
+    letter-spacing: .06em;
+    font-weight: 400;
+  }
+}

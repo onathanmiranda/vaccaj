@@ -36,10 +36,10 @@
   }
 
   &.selected {
-    background-color: getcolor($neutral, 300);
+    background-color: getcolor($primary, 700);
 
     .title {
-      color: getcolor($neutral, 900);
+      color: getcolor($primary, 100);
     }
   }
 

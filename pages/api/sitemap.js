@@ -1,4 +1,6 @@
-import modules from "../../data";
+import data from "../../data";
+
+const { modules } = data;
 
 const today = new Date().toISOString().split('T')[0];
 const baseUrl = `${process.env.SITE_URL}`;
@@ -37,6 +39,11 @@ export default function handler(req, res) {
         </url>
         <url>
           <loc>${baseUrl}/politica-de-privacidade</loc>
+          <lastmod>${today}</lastmod>
+          <priority>0.1</priority>
+        </url>
+        <url>
+          <loc>${baseUrl}/ferramentas-externas</loc>
           <lastmod>${today}</lastmod>
           <priority>0.1</priority>
         </url>

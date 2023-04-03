@@ -24,11 +24,17 @@ const linksArray = [
     title: "Panofka",
     text: "panofka",
   },
+  {
+    href: "/ferramentas-externas",
+    title: "Ferramentas Externas",
+    text: "ferramentas externas",
+  },
 ];
 
 export default function Menu({ style }) {
   const router = useRouter();
   const { asPath } = router;
+
   let _links = useMemo(
     () =>
       linksArray.map((link) => {

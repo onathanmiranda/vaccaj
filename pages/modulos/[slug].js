@@ -4,7 +4,9 @@ import SingleModule from "../../components/templates/single-module";
 
 import config from "../../config";
 
-import modules from "../../data";
+import data from "../../data";
+
+const { modules } = data;
 
 export default function Module({ module, slug }) {
   return (

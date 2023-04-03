@@ -8,7 +8,9 @@ import {
   lessons,
   sheets,
   modules,
-} from "./data";
+} from "./learning";
+
+import tools from './externalTools';
 
 export function getReducedSongBySlug(songSlug) {
   const song = songs.find(({ slug }) => slug === songSlug);
@@ -175,6 +177,11 @@ export function reduceData(entrypoint, entryPointReducer) {
   return entrypoint.map(entryPointReducer);
 }
 
-const reducedData = reduceData(modules, reduceModuleInfo);
+const reducedModules = reduceData(modules, reduceModuleInfo);
 
-export default reducedData;
+const data = {
+  modules: reducedModules,
+  tools
+};
+
+export default data;
