@@ -21,13 +21,14 @@
   }
 
   .guides {
-    padding: 0 1.3rem 3.4rem;
+    padding: 3.4rem 1.3rem;
     overflow-y: scroll;
     overflow-x: hidden;
 
     @media (min-width: 900px){
       height: 100%;
       width: 100%;
+      padding: 3.4rem 3.4rem 3.4rem 1.3rem;
     }
 
     .moduleHead {      
@@ -57,13 +58,14 @@
   }
 
   .lessons {
-    padding: 1.3rem;
+    padding: 3.4rem 1.3rem 1.3rem;
     width: 100%;
     overflow: hidden;
     @media (min-width: 900px){
       height: 100%;
       overflow-x: hidden;
       overflow-y: scroll;
+      padding-left: 3.4rem;
     }
   }
 }

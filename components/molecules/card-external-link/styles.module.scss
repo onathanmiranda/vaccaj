@@ -7,9 +7,10 @@
   display: block;
   text-decoration: none;
   max-width: 30rem;
+  color: getcolor($neutral, 100);
 
   &:visited {
-    color: getcolor($primary, 100);
+    color: getcolor($neutral, 100);
   }
 
   img {

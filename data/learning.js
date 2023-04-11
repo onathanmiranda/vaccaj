@@ -27,9 +27,17 @@ const voiceTypes = [
     id: "6",
     title: "Soprano",
   },
+  {
+    id: "7",
+    title: "Soprano, Mezzo ou Tenor",
+  },
+  {
+    id: "8",
+    title: "Barítono ou Baixo",
+  },
 ];
 
-const voiceTypeOrderById = ["6", "5", "4", "3", "2", "1", "0"];
+const voiceTypeOrderById = ["7", "6", "5", "4", "3", "8", "2", "1", "0"];
 
 const speeds = [
   {
@@ -874,8 +882,8 @@ const recordings = [
   {
     id: "93",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_01.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n01_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -883,8 +891,8 @@ const recordings = [
   {
     id: "94",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_02.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n02_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -892,8 +900,8 @@ const recordings = [
   {
     id: "95",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_03.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n03_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -901,8 +909,8 @@ const recordings = [
   {
     id: "96",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_04.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n04_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -910,8 +918,8 @@ const recordings = [
   {
     id: "97",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_05.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n05_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -919,8 +927,8 @@ const recordings = [
   {
     id: "98",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_06.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n06_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -928,8 +936,8 @@ const recordings = [
   {
     id: "99",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_07.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n07_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -937,8 +945,8 @@ const recordings = [
   {
     id: "100",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_08.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n08_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -946,8 +954,8 @@ const recordings = [
   {
     id: "101",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_09.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n09_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -955,8 +963,8 @@ const recordings = [
   {
     id: "102",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_10.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n10_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -964,8 +972,8 @@ const recordings = [
   {
     id: "103",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_11.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n11_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -973,8 +981,8 @@ const recordings = [
   {
     id: "104",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_12.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n12_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -982,8 +990,8 @@ const recordings = [
   {
     id: "105",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_13.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n13_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -991,8 +999,8 @@ const recordings = [
   {
     id: "106",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_14.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n14_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -1000,8 +1008,8 @@ const recordings = [
   {
     id: "107",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_15.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n15_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -1009,8 +1017,8 @@ const recordings = [
   {
     id: "108",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_17.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n17_allegro_molto_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -1018,8 +1026,8 @@ const recordings = [
   {
     id: "109",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_18.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n18_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -1027,8 +1035,8 @@ const recordings = [
   {
     id: "110",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_19.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n19_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -1036,8 +1044,8 @@ const recordings = [
   {
     id: "111",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_21.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n21_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -1045,8 +1053,8 @@ const recordings = [
   {
     id: "112",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_22.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n22_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -1054,8 +1062,8 @@ const recordings = [
   {
     id: "113",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_23.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n23_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -1063,8 +1071,8 @@ const recordings = [
   {
     id: "114",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_81_24.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n24_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -1072,8 +1080,8 @@ const recordings = [
   {
     id: "115",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_85_16.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n16_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -1081,8 +1089,8 @@ const recordings = [
   {
     id: "116",
     type: "audio/mpeg",
-    filePath: "/recordings/panofka_op_85_20.mp3",
-    voiceType: "0",
+    filePath: "/recordings/panofka_op81_24_vocalises_n20_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -1092,6 +1100,465 @@ const recordings = [
     type: "audio/mpeg",
     filePath: "/recordings/aquecimento_diafragma_controle_do_ar.mp3",
     voiceType: "0",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "118",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n01_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "119",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n02_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "120",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n03_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "121",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n04_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "122",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n05_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "124",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n06_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "125",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n07_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "126",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n08_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "127",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n09_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "128",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n10_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "129",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n11_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "130",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n12_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "131",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n13_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "132",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n14_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "133",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n15_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "134",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n16_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "135",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n17_allegro_molto_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "136",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n17_moderato_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "137",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n18_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "138",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n19_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "139",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n20_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "140",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n21_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "141",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n22_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "142",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n23_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "143",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n24_contralto.mp3",
+    voiceType: "4",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "145",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n01_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "146",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n02_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "147",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n03_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "148",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n04_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "149",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n05_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "150",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n06_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "151",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n07_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "152",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n08_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "153",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n09_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "154",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n10_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "155",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n11_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "156",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n12_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "157",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n13_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "158",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n14_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "159",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n15_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "160",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n16_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "161",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n17_allegro_molto_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "162",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n17_moderato_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "163",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n18_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "164",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n19_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "165",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n20_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "166",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n21_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "167",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n22_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "168",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n23_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "169",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n24_baritono_baixo.mp3",
+    voiceType: "8",
+    speedId: "1",
+    accompaniment: true,
+    vocals: false,
+  },
+  {
+    id: "170",
+    type: "audio/mpeg",
+    filePath: "/recordings/panofka_op81_24_vocalises_n17_moderato_soprano_mezzo_tenor.mp3",
+    voiceType: "7",
     speedId: "1",
     accompaniment: true,
     vocals: false,
@@ -1413,7 +1880,7 @@ const sheets = [
       "/images/panofka/panofka_op81_01_02.webp",
       "/images/panofka/panofka_op81_01_03.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "53",
@@ -1421,7 +1888,7 @@ const sheets = [
       "/images/panofka/panofka_op81_02_01.webp",
       "/images/panofka/panofka_op81_02_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "54",
@@ -1429,7 +1896,7 @@ const sheets = [
       "/images/panofka/panofka_op81_03_01.webp",
       "/images/panofka/panofka_op81_03_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "55",
@@ -1437,7 +1904,7 @@ const sheets = [
       "/images/panofka/panofka_op81_04_01.webp",
       "/images/panofka/panofka_op81_04_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "56",
@@ -1445,7 +1912,7 @@ const sheets = [
       "/images/panofka/panofka_op81_05_01.webp",
       "/images/panofka/panofka_op81_05_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "57",
@@ -1453,7 +1920,7 @@ const sheets = [
       "/images/panofka/panofka_op81_06_01.webp",
       "/images/panofka/panofka_op81_06_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "58",
@@ -1461,21 +1928,21 @@ const sheets = [
       "/images/panofka/panofka_op81_07_01.webp",
       "/images/panofka/panofka_op81_07_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "59",
     filePaths: [
       "/images/panofka/panofka_op81_08_01.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "60",
     filePaths: [
       "/images/panofka/panofka_op81_09_01.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "61",
@@ -1483,7 +1950,7 @@ const sheets = [
       "/images/panofka/panofka_op81_10_01.webp",
       "/images/panofka/panofka_op81_10_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "62",
@@ -1491,7 +1958,7 @@ const sheets = [
       "/images/panofka/panofka_op81_11_01.webp",
       "/images/panofka/panofka_op81_11_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "63",
@@ -1499,7 +1966,7 @@ const sheets = [
       "/images/panofka/panofka_op81_12_01.webp",
       "/images/panofka/panofka_op81_12_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "64",
@@ -1507,7 +1974,7 @@ const sheets = [
       "/images/panofka/panofka_op81_13_01.webp",
       "/images/panofka/panofka_op81_13_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "65",
@@ -1515,7 +1982,7 @@ const sheets = [
       "/images/panofka/panofka_op81_14_01.webp",
       "/images/panofka/panofka_op81_14_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "66",
@@ -1523,7 +1990,7 @@ const sheets = [
       "/images/panofka/panofka_op81_15_01.webp",
       "/images/panofka/panofka_op81_15_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "67",
@@ -1531,7 +1998,7 @@ const sheets = [
       "/images/panofka/panofka_op81_16_01.webp",
       "/images/panofka/panofka_op81_16_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "68",
@@ -1539,7 +2006,7 @@ const sheets = [
       "/images/panofka/panofka_op81_17_01.webp",
       "/images/panofka/panofka_op81_17_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "69",
@@ -1548,7 +2015,7 @@ const sheets = [
       "/images/panofka/panofka_op81_18_02.webp",
       "/images/panofka/panofka_op81_18_03.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "70",
@@ -1556,7 +2023,7 @@ const sheets = [
       "/images/panofka/panofka_op81_19_01.webp",
       "/images/panofka/panofka_op81_19_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "71",
@@ -1564,7 +2031,7 @@ const sheets = [
       "/images/panofka/panofka_op81_20_01.webp",
       "/images/panofka/panofka_op81_20_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "72",
@@ -1572,7 +2039,7 @@ const sheets = [
       "/images/panofka/panofka_op81_21_01.webp",
       "/images/panofka/panofka_op81_21_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "73",
@@ -1580,7 +2047,7 @@ const sheets = [
       "/images/panofka/panofka_op81_22_01.webp",
       "/images/panofka/panofka_op81_22_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "74",
@@ -1589,7 +2056,7 @@ const sheets = [
       "/images/panofka/panofka_op81_23_02.webp",
       "/images/panofka/panofka_op81_23_03.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "75",
@@ -1597,7 +2064,7 @@ const sheets = [
       "/images/panofka/panofka_op81_24_01.webp",
       "/images/panofka/panofka_op81_24_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "76",
@@ -1605,7 +2072,7 @@ const sheets = [
       "/images/panofka/panofka_op81_16_01.webp",
       "/images/panofka/panofka_op81_16_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
   },
   {
     id: "77",
@@ -1613,7 +2080,14 @@ const sheets = [
       "/images/panofka/panofka_op81_20_01.webp",
       "/images/panofka/panofka_op81_20_02.webp",
     ],
-    voiceTypes: ["0"]
+    voiceTypes: ["7"]
+  },
+  {
+    id: "78",
+    filePaths: [
+      "/images/panofka/panofka_op81_n01_contralto_baritono_baixo.webp"
+    ],
+    voiceTypes: ["1", "2", "4", "8"]
   },
 ];
 
@@ -1964,8 +2438,8 @@ const songs = [
     title: "01 - Escalas Maiores",
     slug: "panofka-op81-n01",
     beginning: "",
-    recordingIds: ["93"],
-    sheetsList: ["52"],
+    recordingIds: ["93", "118", "145"],
+    sheetsList: ["52", "78"],
     instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
@@ -1974,7 +2448,7 @@ const songs = [
     title: "02 - Escalas Menores",
     slug: "panofka-op81-n02",
     beginning: "",
-    recordingIds: ["94"],
+    recordingIds: ["94", "119", "146"],
     sheetsList: ["53"],
     instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -1984,7 +2458,7 @@ const songs = [
     title: "03 - Agilidade",
     slug: "panofka-op81-n03",
     beginning: "",
-    recordingIds: ["95"],
+    recordingIds: ["95", "120", "147"],
     sheetsList: ["54"],
     instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -1994,7 +2468,7 @@ const songs = [
     title: "04 - Agilidade",
     slug: "panofka-op81-n04",
     beginning: "",
-    recordingIds: ["96"],
+    recordingIds: ["96", "121", "148"],
     sheetsList: ["55"],
     instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -2004,7 +2478,7 @@ const songs = [
     title: "05 - Tercinas",
     slug: "panofka-op81-n05",
     beginning: "",
-    recordingIds: ["97"],
+    recordingIds: ["97", "122", "149"],
     sheetsList: ["56"],
     instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -2014,7 +2488,7 @@ const songs = [
     title: "06 - Tercinas",
     slug: "panofka-op81-n06",
     beginning: "",
-    recordingIds: ["98"],
+    recordingIds: ["98", "124", "150"],
     sheetsList: ["57"],
     instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -2024,7 +2498,7 @@ const songs = [
     title: "07 - Grupos de Duas Notas Arrastadas",
     slug: "panofka-op81-n07",
     beginning: "",
-    recordingIds: ["99"],
+    recordingIds: ["99", "125", "151"],
     sheetsList: ["58"],
     instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -2034,7 +2508,7 @@ const songs = [
     title: "08 - Portamento",
     slug: "panofka-op81-n08",
     beginning: "",
-    recordingIds: ["100"],
+    recordingIds: ["100", "126", "152"],
     sheetsList: ["59"],
     instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -2044,7 +2518,7 @@ const songs = [
     title: "09 - Portamento",
     slug: "panofka-op81-n09",
     beginning: "",
-    recordingIds: ["101"],
+    recordingIds: ["101", "127", "153"],
     sheetsList: ["60"],
     instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -2054,7 +2528,7 @@ const songs = [
     title: "10 - Portamento",
     slug: "panofka-op81-n10",
     beginning: "",
-    recordingIds: ["102"],
+    recordingIds: ["102", "128", "154"],
     sheetsList: ["61"],
     instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -2064,7 +2538,7 @@ const songs = [
     title: "11 - Portamento",
     slug: "panofka-op81-n11",
     beginning: "",
-    recordingIds: ["103"],
+    recordingIds: ["103", "129", "155"],
     sheetsList: ["62"],
     instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -2074,7 +2548,7 @@ const songs = [
     title: "12 - Portamento",
     slug: "panofka-op81-n12",
     beginning: "",
-    recordingIds: ["104"],
+    recordingIds: ["104", "130", "156"],
     sheetsList: ["63"],
     instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -2084,7 +2558,7 @@ const songs = [
     title: "13 - Notas Pontuadas",
     slug: "panofka-op81-n13",
     beginning: "",
-    recordingIds: ["105"],
+    recordingIds: ["105", "131", "157"],
     sheetsList: ["64"],
     instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -2094,7 +2568,7 @@ const songs = [
     title: "14 - Síncope",
     slug: "panofka-op81-n14",
     beginning: "",
-    recordingIds: ["106"],
+    recordingIds: ["106", "132", "158"],
     sheetsList: ["65"],
     instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -2104,17 +2578,17 @@ const songs = [
     title: "15 - Legato",
     slug: "panofka-op81-n15",
     beginning: "",
-    recordingIds: ["107"],
+    recordingIds: ["107", "133", "159"],
     sheetsList: ["66"],
     instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
   },
   {
     id: "47",
-    title: "17 - Estudo Preparatório para o Vibrato",
-    slug: "panofka-op81-n17",
+    title: "17 - Estudo Preparatório para o Vibrato - Allegro Molto",
+    slug: "panofka-op81-n17-allegro-molto",
     beginning: "",
-    recordingIds: ["108"],
+    recordingIds: ["108", "135", "161"],
     sheetsList: ["68"],
     instructions: "Pratique primeiro Lento, em seguida Moderato, Allegro e Allegro molto. \n Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -2124,7 +2598,7 @@ const songs = [
     title: "18 - Agilidade",
     slug: "panofka-op81-n18",
     beginning: "",
-    recordingIds: ["109"],
+    recordingIds: ["109", "137", "163"],
     sheetsList: ["69"],
     instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -2134,7 +2608,7 @@ const songs = [
     title: "19 - Vibratos",
     slug: "panofka-op81-n19",
     beginning: "",
-    recordingIds: ["110"],
+    recordingIds: ["110", "138", "164"],
     sheetsList: ["70"],
     instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -2144,7 +2618,7 @@ const songs = [
     title: "21 - Arpejos",
     slug: "panofka-op81-n21",
     beginning: "",
-    recordingIds: ["111"],
+    recordingIds: ["111", "140", "166"],
     sheetsList: ["72"],
     instructions: "Pratique também em Staccato. \n Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -2154,7 +2628,7 @@ const songs = [
     title: "22 - Escala Cromática",
     slug: "panofka-op81-n22",
     beginning: "",
-    recordingIds: ["112"],
+    recordingIds: ["112", "141", "167"],
     sheetsList: ["73"],
     instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -2164,7 +2638,7 @@ const songs = [
     title: "23 - Estudo em Cromáticas",
     slug: "panofka-op81-n23",
     beginning: "",
-    recordingIds: ["113"],
+    recordingIds: ["113", "142", "168"],
     sheetsList: ["74"],
     instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -2174,7 +2648,7 @@ const songs = [
     title: "24 - Intervalos",
     slug: "panofka-op81-n24",
     beginning: "",
-    recordingIds: ["114"],
+    recordingIds: ["114", "143", "169"],
     sheetsList: ["75"],
     instructions: "Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -2184,7 +2658,7 @@ const songs = [
     title: "16 - Apogiatura, Grupeto, Turn e Mordente Invertido",
     slug: "panofka-op81-n16",
     beginning: "",
-    recordingIds: ["115"],
+    recordingIds: ["115", "134", "160"],
     sheetsList: ["76"],
     instructions: false,
     lyrics: null,
@@ -2194,7 +2668,7 @@ const songs = [
     title: "20 - Arpejos",
     slug: "panofka-op81-n20",
     beginning: "",
-    recordingIds: ["116"],
+    recordingIds: ["116", "139", "160"],
     sheetsList: ["77"],
     instructions: "Pratique também em Staccato. \n Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
     lyrics: null,
@@ -2209,6 +2683,16 @@ const songs = [
     instructions: "Antes de iniciar o exercício, esvazie todo o ar, empurrando a barriga para dentro. \n Em seguida, respire enchendo a barriga de ar (se você for iniciante, pode puxar o ar pela boca). \n Em seguida faça 4 staccatos soltando o ar com o som de \"sss\". Respire brevemente de novo para recuperar o ar e em seguida solte o ar em legatto durante 4 tempos com o som de \"sss\". \n Conforme o exercício avança você irá perceber que o tempo dos legattos irá aumentar de 4 em 4 tempos. Controle o fluxo da saída de ar durante os tempos legattos (evite empurrar o ar). \nO objetivo desse exercício conseguir esvaziar o ar no tempo certo, seja em 4 tempos (soltando muito ar), seja em 32 tempos (soltando pouco ar). \n Não se preocupe se no início não conseguir chegar aos 32 tempos, a prática diária o levará a isso.",
     lyrics: null,
   },
+  {
+    id: "57",
+    title: "17 - Estudo Preparatório para o Vibrato - Moderato",
+    slug: "panofka-op81-n17-moderato",
+    beginning: "",
+    recordingIds: ["170", "136", "162"],
+    sheetsList: ["68"],
+    instructions: "Pratique primeiro Lento, em seguida Moderato, Allegro e Allegro molto. \n Sopranos, Mezzo-Sopranos e Contraltos deverão cantar as melodias com a vogal \"i\". \n Tenores, Barítonos e Baixos deverão fazer cantas as melodias com a vogal \"o\".",
+    lyrics: null,
+  }
 ];
 
 const skills = [
@@ -2335,7 +2819,7 @@ const lessons = [
     id: "19",
     title: "",
     skillId: "7",
-    songIds: ["32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "54", "47", "48", "49", "55", "50", "51", "52", "53"],
+    songIds: ["32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "54", "57", "47", "48", "49", "55", "50", "51", "52", "53"],
   },
   /* {
     id: "20",
