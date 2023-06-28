@@ -7,11 +7,11 @@ $active-link-color: getcolor($primary, 400);
   width: 100%;
   display: grid;
   grid-template-columns: auto 1fr;
-  padding: 0 .8rem;
+  padding: .8rem;
   gap: 2.1rem;
 
   @media (min-width: 900px){
-    padding: 0 3.4rem;
+    padding: .8rem 3.4rem;
   }
 }
 

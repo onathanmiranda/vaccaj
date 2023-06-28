@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Privacy from "../components/organisms/privacy";
+import Navbar from "../components/organisms/navbar";
 
 import config from "../config";
 
@@ -12,6 +13,7 @@ export default function PrivacyPolicy() {
         <meta name="description" content="Nossa política de privacidade." />
       </Head>
       <main>
+        <Navbar />
         <section>
           <Privacy />
         </section>
