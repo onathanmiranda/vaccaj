@@ -22,12 +22,12 @@ export default function Song({ module, song, moduleSlug, songSlugOrId, descripti
     return module.title.toLowerCase() !== config.siteTitle.toLowerCase() ? `${module.title} | ${config.siteTitle}` : module.title
   }, [module.title]);
 
+  const title = `${song.title} | ${song.beginning ? `${song.beginning} |` : ''} ${titleSuffix}`;
+
   return (
     <>
       <Head>
-        <title>
-          {song.title} | {`${song.beginning ? `${song.beginning} |` : ''}`} {titleSuffix}
-        </title>
+        <title>{title}</title>
         <link rel="canonical" href={`https://vaccaj.app/modules/${moduleSlug}/${songSlugOrId}`} />
         <meta
           name="description"

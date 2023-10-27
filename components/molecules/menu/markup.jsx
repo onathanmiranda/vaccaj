@@ -7,10 +7,10 @@ import styles from "./styles.module.scss";
 export default function Markup({ links, style = {} }) {
   return (
     <nav className={styles.nav} style={style}>
-      <Link href="/" passHref>
-        <a className={styles.logoLink}>
-          <Logo className={styles.logo}/>
-        </a>
+      <Link href="/" passHref className={styles.logoLink}>
+
+        <Logo className={styles.logo}/>
+
       </Link>
       <div className={styles.listWrapper}>
         <ul className={styles.list}>
@@ -18,13 +18,10 @@ export default function Markup({ links, style = {} }) {
             const activeClassName = isActive ? styles.active : "";
             return (
               <li key={href}>
-                <Link href={href}>
-                  <a
-                    className={`${styles.link} ${activeClassName}`}
-                    title={title}
-                  >
-                    {text}
-                  </a>
+                <Link href={href} className={`${styles.link} ${activeClassName}`} title={title}>
+
+                  {text}
+
                 </Link>
               </li>
             );
