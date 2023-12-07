@@ -7,7 +7,6 @@ export async function generateMetadata({ params }) {
   const { title } = modulo;
   const description = modulo.about.intro.substring(0, 155);
   const url = `${configs.metadata.url}/modulos/${slug}`;
-
   return {
     title,
     description,
