@@ -1,10 +1,12 @@
+"use client"
+
 import { useCallback, useContext, useRef, useEffect } from "react";
 
 import { InstallPromptContext } from "../contexts/installPromptContext";
 
 import { getCookie, setCookie } from "../helpers/cookies";
 
-import config from "../config";
+import config from "../configs";
 
 export default function useInstallPromptContext (){
   const [state, setState] = useContext(InstallPromptContext);
@@ -52,6 +54,7 @@ export default function useInstallPromptContext (){
     showInstallBanner(); */
 
     const onBeforeInstallPrompt = (e) => {
+      
       // Impede que o mini-infobar apareça em mobile
       e.preventDefault();
       // Guarda evento para que possa ser disparado depois.
@@ -90,9 +93,7 @@ export default function useInstallPromptContext (){
   }, [showInstallBanner, hideInstallBanner]);
 
   return {
-    state,
-    showInstallBanner,
-    hideInstallBanner,
+    showButton: state,
     handleInstall,
     handleInstallClose
   };

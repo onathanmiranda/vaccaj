@@ -14,7 +14,7 @@ const { modules } = data;
 
 import { songs } from "../../../data/learning";
 
-import config from '../../../config';
+import config from '../../../app/config';
 
 export default function Song({ module, song, moduleSlug, songSlugOrId, description }) {
   
@@ -41,7 +41,7 @@ export default function Song({ module, song, moduleSlug, songSlugOrId, descripti
 
 // This function gets called at build time
 export async function getStaticProps({ params }) {
-  const module = modules.find(({ slug }) => slug === params.slug);
+  const theModule = modules.find(({ slug }) => slug === params.slug);
 
   let song = getReducedSongBySlug(params.song);
 
@@ -54,7 +54,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      module,
+      module: theModule,
       song,
       moduleSlug: params.slug,
       songSlugOrId: params.song,

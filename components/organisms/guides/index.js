@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 
 import Option from "../../atoms/option";
 
-import config from "../../../config";
+import config from "../../../app/config";
 
 import styles from "./styles.module.scss";
 

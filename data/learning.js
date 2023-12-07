@@ -2340,7 +2340,7 @@ const songs = [
     slug: null,
     beginning: "Hi Hi Hi",
     recordingIds: ["79"],
-    sheetsList: null,
+    sheetsList:[],
     instructions:
       'Fazer o exercício em "staccato": seu diafragma deverá se mover para dentro a cada "Hi", no ritmo e velocidade da música.',
     lyrics: null,
@@ -2351,7 +2351,7 @@ const songs = [
     slug: null,
     beginning: "OOO / III",
     recordingIds: ["80"],
-    sheetsList: null,
+    sheetsList:[],
     instructions:
       'Cantar a melodia em legato.\n\nSopranos, mezzo-sopranos e contraltos deverão cantar a letra "i".\nTenores, barítonos e baixos deverão cantar a letra "o".',
     lyrics: null,
@@ -2362,7 +2362,7 @@ const songs = [
     slug: null,
     beginning: "AAAOOO / IIIOOO",
     recordingIds: ["81"],
-    sheetsList: null,
+    sheetsList:[],
     instructions:
       'Faça o exercício primeiro em legato com duas vogais, e depois repita todo o exercício fazendo a primeira vogal em legato e a segunda vogal em staccato.\n\nSopranos, mezzo-sopranos e contraltos deverão fazer o execício com as letras "i" e "o".\nTenores, barítonos e baixos deverão fazer com as letras "a" e "o".',
     lyrics: null,
@@ -2373,7 +2373,7 @@ const songs = [
     slug: "hey-intervalo-curto",
     beginning: "",
     recordingIds: ["87"],
-    sheetsList: null,
+    sheetsList:[],
     instructions:
       'Esse exercício tem a intenção de trabalhar o conceito de exercitar a passagem para os registros do belting, em vez dos registros operísticos. O objetivo é fazer as notas beltadas de maneira consistente durante a subida e a descida. Deixe sua voz levemente anasalada, em uma colocação de som mais "chiaro". Isso irá permitir que você adquira a ressonância e projeção do belting, que é um som menos cheio do que o de canto clássico.',
     lyrics: null,
@@ -2384,7 +2384,7 @@ const songs = [
     slug: "hey-intervalo-longo",
     beginning: "",
     recordingIds: ["88"],
-    sheetsList: null,
+    sheetsList:[],
     instructions:
       'Igual ao exercício anterior, porém com um intervalo de uma oitava inteira. A passagem para o registro do belting deverá ser feita sem esforço. Caso haja dificuldade, experimente variar a colocação antes de tentar trocar o tom ou oitava. Esse exercício tem a intenção de trabalhar o conceito de exercitar a passagem para os registros do belting, em vez dos registros operísticos. O objetivo é fazer as notas beltadas de maneira consistente durante a subida e a descida. Deixe sua voz levemente anasalada, em uma colocação de som mais "chiaro". Isso irá permitir que você adquira a ressonância e projeção do belting, que é um som menos cheio do que o de canto clássico.',
     lyrics: null,
@@ -2395,7 +2395,7 @@ const songs = [
     slug: "yeah",
     beginning: "",
     recordingIds: ["89"],
-    sheetsList: null,
+    sheetsList:[],
     instructions:
       'Esse exercício, assim como os dois primeiros, foi projetado para trabalhar a passagem para o registro do belting com intervalos grandes. Entretanto, sem o "glissando" entre as notas para ajudar a acomodar a mudança de registro, esse exercício pode ser mais complicado. Você deve gerantir que as notas graves da subida sejam feitas de forma relaxada e o mais frontal (anasalado) possível. Dessa forma, sua voz será guiada à colocação do belting mais aguda e apropriada, a partir de onde será mais fácil fazer a descida.',
     lyrics: null,
@@ -2406,7 +2406,7 @@ const songs = [
     slug: "yeah-arpeggio",
     beginning: "",
     recordingIds: ["90"],
-    sheetsList: null,
+    sheetsList:[],
     instructions:
       'Outro exercício de belting com intervalos. Esse deve ser executado da forma mais "conversacional" possível. Basicamente, se você conseguir "falar" as notas durante o exercício, você conseguirá belta-las. O som de "yeah" irá ajudar a colocar cada nota no registro correto, já que começa com um pequeno "e" e expande para um "ah" bem claro e metálico, que é uma excelente vogal para a mecânica do belting.',
     lyrics: null,
@@ -2417,7 +2417,7 @@ const songs = [
     slug: "ne-sons-repetidos",
     beginning: "",
     recordingIds: ["91"],
-    sheetsList: null,
+    sheetsList:[],
     instructions:
       'Se você está tendo alguma dificuldade com nasalidade ou colocação frontal, que realmente cria a sonoridade do belting, esse exercício é para você. O som claro e metálico do "é" aberto coloca a voz bem à frente no palato e auxilia na correta fonação ao começar com um "n" fechado a cada nota. Mais uma vez, esse exercício deve ser feito de forma "conversacional", para o alcance da colocação adequada.',
     lyrics: null,
@@ -2428,7 +2428,7 @@ const songs = [
     slug: "aleluia",
     beginning: "",
     recordingIds: ["92"],
-    sheetsList: null,
+    sheetsList:[],
     instructions:
       'Tente atingir a mesma colocação dos exercícios anteriores com a palavra "Aleluia".',
     lyrics: null,
@@ -2679,7 +2679,7 @@ const songs = [
     slug: "exercicio-diafragma-controle-do-ar",
     beginning: "Sssss",
     recordingIds: ["117"],
-    sheetsList: null,
+    sheetsList:[],
     instructions: "Antes de iniciar o exercício, esvazie todo o ar, empurrando a barriga para dentro. \n Em seguida, respire enchendo a barriga de ar (se você for iniciante, pode puxar o ar pela boca). \n Em seguida faça 4 staccatos soltando o ar com o som de \"sss\". Respire brevemente de novo para recuperar o ar e em seguida solte o ar em legatto durante 4 tempos com o som de \"sss\". \n Conforme o exercício avança você irá perceber que o tempo dos legattos irá aumentar de 4 em 4 tempos. Controle o fluxo da saída de ar durante os tempos legattos (evite empurrar o ar). \nO objetivo desse exercício conseguir esvaziar o ar no tempo certo, seja em 4 tempos (soltando muito ar), seja em 32 tempos (soltando pouco ar). \n Não se preocupe se no início não conseguir chegar aos 32 tempos, a prática diária o levará a isso.",
     lyrics: null,
   },
@@ -2838,8 +2838,8 @@ const lessons = [
 const modules = [
   {
     id: "1",
-    title: "Aquecimentos",
-    slug: "aquecimentos",
+    title: "Vocalizes",
+    slug: "vocalizes",
     about: {
       intro: "Cantar demanda muito das nossas cordas vocais fisicamente. É por isso que cantar, assim como qualquer outra atividade física, deve envolver aquecimento. Seja para uma apresentação, ou para iniciar os estudos, o aquecimento deve ser parte da sua rotina.\n Devemos aquecer nossa voz para mantê-la saudável, com boa sonoridade, e protegê-la de danos. É absolutamente necessário aquecer antes de cantar.",
     },

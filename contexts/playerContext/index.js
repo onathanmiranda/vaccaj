@@ -11,7 +11,7 @@ import { useLocalStorageContext } from "../localStorageContext";
 
 import { getCookie } from "../../helpers/cookies";
 
-import config from "../../config";
+import config from "../../app/config";
 
 const initialState = {
   player: {
