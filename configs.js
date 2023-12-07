@@ -1,4 +1,9 @@
+const baseUrl = process.env.SITE_URL;
+
 const configs = {
+  env: {
+    baseUrl
+  },
   metadata: { 
     title: "Vaccaj",
     id: "vaccaj",
@@ -12,7 +17,7 @@ const configs = {
     type: "website",
     themeColor: "#FEFDFD",
     colorScheme: "light",
-    url: process.env.SITE_URL,
+    url: baseUrl,
   },
   cookies: {
     cookieConsentKey: "cookies-consent",
