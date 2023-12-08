@@ -2,7 +2,7 @@ import configs from "../../../configs";
 
 export async function generateMetadata({ params }) {
   const { slug } = params;
-  const [ modulo ] = await fetch(new URL(`${configs.metadata.url}/api/modulos?slug=${slug}`)).then((res) => res.json());
+  const [ modulo ] = await fetch(`/api/modulos?slug=${slug}`).then((res) => res.json());
 
   const { title } = modulo;
   const description = modulo.about.intro.substring(0, 155);
@@ -20,14 +20,14 @@ export async function generateMetadata({ params }) {
 }
 
 export async function generateStaticParams() {
-  const modules = await fetch(new URL(`${configs.metadata.url}/api/modulos`)).then((res) => res.json());
+  const modules = await fetch(`/api/modulos`).then((res) => res.json());
   return modules.map(({ slug }) => slug);
 }
 
 export default async function Page({ params }) {
-  console.log(new URL(`${configs.metadata.url}/api/modulos?slug=${slug}`))
+  
   const { slug } = params;
-  const [ modulo ] = await fetch(new URL(`${configs.metadata.url}/api/modulos?slug=${slug}`)).then((res) => res.json());
+  const [ modulo ] = await fetch(`/api/modulos?slug=${slug}`).then((res) => res.json());
   let { title, about } = modulo || {};
   const { intro } = about || {};
 

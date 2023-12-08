@@ -18,9 +18,12 @@ export default function Navbar(){
   
   return (
     <nav className="fixed flex items-center justify-center left-0 bottom-0 w-screen bg-white h-55 border-t-2 border-brand-semi-transparent">
-      {links.map(({ href, text }) => 
+      <ul>
+      {links.map(({ href, text }) => {
         <Link key={href} className={`${href === pathName ? buttonActive : button} ml-8`} href={href}>{text}</Link>
+        }
       )}
+      </ul>
     </nav>
   );
 }
