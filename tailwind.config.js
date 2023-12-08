@@ -15,7 +15,8 @@ const colors = {
     500: "#DBB6A3",
     900: "#392216",
     DEFAULT: "#DBB6A3",
-    "semi-transparent": "rgba(149, 89, 58, .16)"
+    "semi-transparent": "rgba(149, 89, 58, .16)",
+    "semi-transparent-30": "rgba(149, 89, 58, .30)"
   },
   'highlight': "#B76D48"
 }
@@ -56,8 +57,8 @@ module.exports = {
       },
       colors: colors,
       boxShadow: {
-        DEFAULT: `0 3px 6px ${colors.brand["semi-transparent"]}`,
-        inner: `inset 0 3px 6px 3px ${colors.brand["semi-transparent"]}`
+        DEFAULT: `0 3px 6px 0px ${colors.brand["semi-transparent-30"]}`,
+        inner: `inset 0 3px 6px 3px ${colors.brand["semi-transparent-30"]}`
       }
     },
   },

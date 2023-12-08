@@ -7,6 +7,7 @@ export async function generateMetadata({ params }) {
   const { title } = modulo;
   const description = modulo.about.intro.substring(0, 155);
   const url = `${configs.metadata.url}/modulos/${slug}`;
+
   return {
     title,
     description,
@@ -24,6 +25,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }) {
+  console.log(new URL(`${configs.metadata.url}/api/modulos?slug=${slug}`))
   const { slug } = params;
   const [ modulo ] = await fetch(new URL(`${configs.metadata.url}/api/modulos?slug=${slug}`)).then((res) => res.json());
   let { title, about } = modulo || {};
