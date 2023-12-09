@@ -1,7 +1,9 @@
+import ModulesController from '../data/controllers/Modules';
+
 import configs from '../configs';
 
 export default async function sitemap(){
-  const modules = await fetch(`${configs.env.baseUrl}/api/modulos`).then(res => res.json());
+  const modules = await ModulesController.getAll();
 
   const modulesSiteMapUrls = modules.map((modulo) => {
     return {
