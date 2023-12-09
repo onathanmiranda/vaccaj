@@ -1,8 +1,8 @@
-const baseUrl = process.env.SITE_URL;
+
 
 const configs = {
   env: {
-    baseUrl
+    baseUrl: process.env.NEXT_PUBLIC_API_URL
   },
   metadata: { 
     title: "Vaccaj",
@@ -17,7 +17,7 @@ const configs = {
     type: "website",
     themeColor: "#FEFDFD",
     colorScheme: "light",
-    url: baseUrl,
+    url: process.env.SITE_URL,
   },
   cookies: {
     cookieConsentKey: "cookies-consent",

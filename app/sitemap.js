@@ -5,7 +5,7 @@ export default async function sitemap(){
 
   const modulesSiteMapUrls = modules.map((modulo) => {
     return {
-      url: `${configs.env.baseUrl}/modulos/${modulo.slug}`,
+      url: `${configs.metadata.url}/modulos/${modulo.slug}`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 1
@@ -14,19 +14,19 @@ export default async function sitemap(){
 
   return [
     {
-      url: `${configs.env.baseUrl}/`,
+      url: `${configs.metadata.url}/`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 1
     },
     {
-      url: `${configs.env.baseUrl}/politica-de-privacidade`,
+      url: `${configs.metadata.url}/politica-de-privacidade`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 1
     },
     {
-      url: `${configs.env.baseUrl}/ferramentas-externas`,
+      url: `${configs.metadata.url}/ferramentas-externas`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 1

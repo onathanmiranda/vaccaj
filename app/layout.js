@@ -1,5 +1,7 @@
 import './global.scss';
 
+import ModulesController from '../data/controllers/Modules';
+
 import InstallPromptContextProvider from '../contexts/installPromptContext';
 
 import _metadata from "./_metadata";
@@ -10,13 +12,28 @@ import Navbar from '../components/organisms/navbar';
 export const metadata = _metadata;
 export const viewport = _viewport;
 
-export default function Layout({ children }){
+export default async function Layout({ children }){
+  const modulos = await ModulesController.getAll();
+  
+  const links = [
+    ...modulos.map((modulo) => {
+      return {
+        href: `/modulos/${modulo.slug}`,
+        text: modulo.title
+      }
+    }),
+    {
+      href: `/ferramentas-externas`,
+      text: "Ferramentas externas"
+    }
+  ];
+
   return (
     <InstallPromptContextProvider>
       <html lang="pt-BR">
         <body className='sans bg-white text-black text-base leading-none'>
           {children}
-          <Navbar />
+          <Navbar links={links} />
         </body>
       </html>
     </InstallPromptContextProvider>
