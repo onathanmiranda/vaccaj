@@ -8,7 +8,7 @@ import {
   lessons,
   sheets,
   modules,
-} from "./learning";
+} from './learning';
 
 import tools from './externalTools';
 

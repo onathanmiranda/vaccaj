@@ -1,6 +1,6 @@
-import './global.scss';
+import './global.css';
 
-import ModulesController from '../data/controllers/Modules';
+import data from '../data';
 
 import InstallPromptContextProvider from '../contexts/installPromptContext';
 
@@ -13,10 +13,10 @@ export const metadata = _metadata;
 export const viewport = _viewport;
 
 export default async function Layout({ children }){
-  const modulos = await ModulesController.getAll();
+  const { modules } = data;
   
   const links = [
-    ...modulos.map((modulo) => {
+    ...modules.map((modulo) => {
       return {
         href: `/modulos/${modulo.slug}`,
         text: modulo.title
