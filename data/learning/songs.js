@@ -582,7 +582,7 @@ const songs = [
   },
   {
     id: "56",
-    title: "Aplicação e Controle do Ar",
+    title: "Controle do Ar",
     slug: "exercicio-diafragma-controle-do-ar",
     beginning: "Sssss",
     recordingIds: ["117"],

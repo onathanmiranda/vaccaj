@@ -1,24 +1,20 @@
 import Modulo from '../../../components/templates/modulo';
-import data from "../../../data";
+import data, { getModuleBySlug } from "../../../data";
 import configs from "../../../configs";
 
-function getModuleBySlug(slug){
-  return  data.modules.find((module) => module.slug === slug);
-}
-
 export default function Page({ params }) {
-  const { slug } = params;
-  const modulo = getModuleBySlug(slug);
+  const { moduleSlug } = params;
+  const modulo = getModuleBySlug(moduleSlug);
   return <Modulo modulo={modulo} />
 }
 
 export async function generateMetadata({ params }) {
-  const { slug } = params;
-  const modulo = getModuleBySlug(slug);
+  const { moduleSlug } = params;
+  const modulo = getModuleBySlug(moduleSlug);
 
   const { title } = modulo;
   const description = modulo.about.intro.substring(0, 155);
-  const url = `${configs.metadata.url}/modulos/${slug}`;
+  const url = `${configs.metadata.url}/modulos/${moduleSlug}`;
 
   return {
     title,

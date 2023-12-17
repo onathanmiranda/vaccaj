@@ -10,7 +10,7 @@ export default function HomePage(){
   const { handleInstall, showButton } = useInstallPromptContext();
 
   return (
-    <div className="flex justify-center items-center h-screen pb-55">
+    <div className="flex justify-center items-center pb-55">
       <div>
         <Logo className='w-233'/>
         {showButton && <button className={`${button} mx-auto mt-34`} onClick={handleInstall}>instalar como app</button>}

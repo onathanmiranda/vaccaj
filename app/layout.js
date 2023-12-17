@@ -32,8 +32,8 @@ export default async function Layout({ children }){
     <InstallPromptContextProvider>
       <html lang="pt-BR">
         <body className='sans bg-white text-black text-base leading-none'>
-          {children}
           <Navbar links={links} />
+          {children}
         </body>
       </html>
     </InstallPromptContextProvider>

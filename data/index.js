@@ -160,8 +160,7 @@ export function getSkillsFromLessons(lessons, skills) {
 export function reduceModuleInfo({ id, title, lessonsIds, slug, about, backgroundImageUrl }) {
   const moduleLessons = lessonsIds.map((id) => getItemById(id, lessons));
   const modulesSkills = getSkillsFromLessons(moduleLessons, skills);
-
-  return {
+  const modulo = {
     id,
     title,
     slug,
@@ -171,6 +170,19 @@ export function reduceModuleInfo({ id, title, lessonsIds, slug, about, backgroun
       joinSkillsAndLessons(skill, moduleLessons)
     ),
   };
+
+  modulo.skills = modulo.skills.map((skill) => ({
+    ...skill,
+    lessons: skill.lessons.map((lesson) => ({
+      ...lesson,
+      songs: lesson.songs.map((song) => ({
+        ...song,
+        href: `/modulos/${modulo.slug}/${song.slug || song.id}`
+      }))
+    }))
+  }))
+
+  return modulo;
 }
 
 export function reduceData(entrypoint, entryPointReducer) {
@@ -183,5 +195,39 @@ const data = {
   modules: reducedModules,
   tools
 };
+
+export function getModuleBySlug(moduleSlug){
+  return reducedModules.find((module) => module.slug === moduleSlug);
+}
+
+export function getSongBySlugOrId(songSlugOrId){
+  const song = songs.find((song) => song.slug === songSlugOrId || song.id === songSlugOrId);
+  const songReducedData = reduceSongInfo(song);
+  return songReducedData;
+}
+
+export function getModuleSongs(modulo){
+  const songs = modulo.skills.reduce((acc, skill) => {
+    skill.lessons.forEach((lesson) => {
+      lesson.songs.forEach((song) => acc.push(song));
+    });
+    return acc;
+  }, []);
+  return songs;
+}
+
+export function getSongSkillAndLessonFromModulo(song, modulo){
+  const skillAndLesson = modulo.skills.reduce((acc, skill) => {
+    if(acc.skill && acc.lesson) return acc;
+    
+    skill.lessons.forEach((lesson) => {
+      const lessonHasSong = lesson.songs.find((item) => item.id === song.id);
+      if(lessonHasSong) acc = { skill, lesson };
+    });
+    return acc;
+  }, {});
+
+  return skillAndLesson;
+}
 
 export default data;

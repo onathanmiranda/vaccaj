@@ -1,55 +1,23 @@
-import { useMemo, useCallback } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import Markup from "./markup";
+import IconPlay from "../../atoms/icons/icon-play";
 
-import { usePlayerContext } from "../../../contexts/playerContext";
+import { button, buttonActive } from '../../styles';
 
-export default function SongCard({
-  song,
-  className,
-  songHref,
-  minimal = false,
-}) {
-  const { beginning, title, recordings, id } = song;
+export default function CardSong({ song }){
+  const { beginning, title, recordings, id, href } = song;
+  const pathName = usePathname();
 
-  const { setSong, playerContextState, play, pause } = usePlayerContext();
-
-  const currentSongId = playerContextState.song
-    ? playerContextState.song.id
-    : 0;
-
-  const isCurrentlySelected = useMemo(() => {
-    return currentSongId === id;
-  }, [currentSongId, id]);
-
-  const isPlaying = useMemo(() => {
-    return isCurrentlySelected && playerContextState.player.playing;
-  }, [isCurrentlySelected, playerContextState.player.playing]);
-
-  const onClick = useCallback(
-    (recording) => {
-      if (!isCurrentlySelected || !isPlaying) {
-        setSong({ recording, song });
-        play();
-        return;
-      }
-
-      pause();
-    },
-    [isCurrentlySelected, isPlaying, pause, setSong, song, play]
-  );
-
+  const isActive = pathName === href;
+  
   return (
-    <Markup
-      onClick={onClick}
-      songHref={songHref}
-      partialLyric={beginning}
-      title={title}
-      className={className}
-      recordings={recordings}
-      isSelected={isCurrentlySelected}
-      isPlaying={isPlaying}
-      minimal={minimal}
-    />
-  );
+    <Link href={href} className={`${isActive ? buttonActive : button } h-55 justify-between items-center mt-13`}>
+      <div className="truncate">
+        <div className="font-bold text-base truncate">{title}</div>
+        <div className="font-light text-sm truncate">{beginning}</div>
+      </div>
+      <IconPlay />
+    </Link>
+  )
 }

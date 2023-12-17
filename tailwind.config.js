@@ -47,13 +47,17 @@ module.exports = {
         'sans': ['Univers LT Std', 'Helvetica', ...defaultTheme.fontFamily.sans],
       },
       fontSize: {
-        sm: rem(8),
-        base: rem(13),
+        xs: rem(8),
+        sm: rem(13),
+        base: rem(16),
         xl: rem(21),
         '2xl': rem(34)
         /* '3xl': '1.953rem',
         '4xl': '2.441rem',
         '5xl': '3.052rem', */
+      },
+      fontStyle: {
+        extended: "extended"
       },
       colors: colors,
       boxShadow: {
