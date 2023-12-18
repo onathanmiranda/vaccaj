@@ -1,7 +1,8 @@
 'use client';
-import { useCallback, useMemo } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
+
 import CardSong from '../../molecules/card-song';
 
 import { button, buttonActive, textBody } from '../../../components/styles';
@@ -49,7 +50,7 @@ export default function Modulo({ modulo }){
   }, [skills, searchParams, pathname, createQueryString]);
   
   return (
-    <main className="mt-34">
+    <main className={`mt-34`}>
       {title && <h1 className="text-2xl lowercase px-21 font-normal">{title}</h1>}
 
       {skillsNavigationItems && (

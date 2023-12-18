@@ -1,23 +1,17 @@
-import Song from '../../../../components/templates/song';
-
+import Modulo from '../../../../components/templates/modulo';
+import { getModuleBySlug, getSongBySlugOrId } from "../../../../data";
 import { songs } from "../../../../data/learning";
-import { getSongBySlugOrId, getModuleBySlug, getSongSkillAndLessonFromModulo } from "../../../../data";
-import configs from "../../../../configs";
+import configs from '../../../../configs';
 
 export default function Page({ params }) {
-  const { songSlugOrId, moduleSlug } = params;
-
-  const song = getSongBySlugOrId(songSlugOrId);
+  const { moduleSlug } = params;
   const modulo = getModuleBySlug(moduleSlug);
-  const { skill, lesson } = getSongSkillAndLessonFromModulo(song, modulo);
-
-  return <Song song={song} modulo={modulo} skill={skill} lesson={lesson}/>
+  return <Modulo modulo={modulo} />
 }
 
 export async function generateMetadata({ params }) {
   const { songSlugOrId, moduleSlug } = params;
   const song = getSongBySlugOrId(songSlugOrId);
-
   const { title } = song;
   const description = song.instructions.substring(0, 155);
   const url = `${configs.metadata.url}/modulos/${moduleSlug}/${songSlugOrId}`;

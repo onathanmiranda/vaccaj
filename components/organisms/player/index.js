@@ -1,176 +1,57 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { usePlayerContext } from "../../../contexts/playerContext";
+"use client";
+import { useEffect, useState, useMemo } from "react";
+import { useParams } from 'next/navigation';
 
-import Markup from "./markup";
+import Song from '../../templates/song';
 
-const isFront = typeof window !== "undefined";
+import usePlayer from "../../../hooks/usePlayer";
+import { button, buttonActive } from '../../styles';
 
-export default function Player({ className }) {
-  const {
-    playerContextState,
-    play,
-    load,
-    pause,
-    changeSongRecording,
-    setRepeatOne,
-    changePlaybackRate,
-    changeSongPlaybackTime,
-  } = usePlayerContext();
+import { getModuleBySlug, getSongBySlugOrId, getSongSkillAndLessonFromModulo } from "../../../data";
 
-  const { recording, player, song } = playerContextState;
+export default function Player(){
+  const params = useParams();
+  const { state, setSong } = usePlayer();
+  const { song } = state || {};
+  const [ showInstructions, setShowInstructions ] = useState(false);
 
-  const [forceShow, setForceShow] = useState(true);
+  const modulo = useMemo(() => {
+    if(!params.moduleSlug) return;
+    return getModuleBySlug(params.moduleSlug);
+  }, [params]);
 
-  const onClick = useCallback(() => {
-    if(typeof document !== "undefined"){
-      document.activeElement.blur();
-    }
-    if (player.playing) return pause();
-    if (!player.playing) return play();
-  }, [pause, play, player.playing]);
-
-  const togglePlayOnKeyPress = useCallback((e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const isSpacebar = e.key == " " || e.code == "Space";
-    if(!isSpacebar) return;
-    onClick();
-  }, [onClick]);
-
-  const onSkipPreviousClick = useCallback(() => {
-    load();
-    play();
-  }, [play, load]);
-
-  const onRepeatOneClick = useCallback(
-    (e) => {
-      e.target.blur();
-      setRepeatOne(!player.repeatOne);
-    },
-    [setRepeatOne, player.repeatOne]
-  );
-
-  const handleChangingRecording = useCallback(
-    (recording) => {
-      changeSongRecording({ recording });
-      load();
-      play();
-    },
-    [changeSongRecording, load, play]
-  );
-
-  const onChangePlaybackRate = useCallback(
-    (e) => {
-      changePlaybackRate(e.target.value);
-    },
-    [changePlaybackRate]
-  );
-
-  const onChangePlaybackTime = useCallback((time) => {
-    changeSongPlaybackTime(time);
-  }, [changeSongPlaybackTime]);
-
-  const { voiceTypesOptions, instrumentsOptions } = useMemo(() => {
-    if (!song) return [];
-    if (!song.voiceTypesOptions) return [];
-
-    return {
-      voiceTypesOptions: song.voiceTypesOptions.map((option) => ({
-        label: option.voiceType.title,
-        value: option.recordings[0].id,
-        onChange: () => {
-          handleChangingRecording(option.recordings[0]);
-        },
-        name: "voicetype",
-        checked: Boolean(
-          option.recordings.find(({ id }) => id === recording.id)
-        ),
-      })),
-      instrumentsOptions: song.voiceTypesOptions.reduce((acc, curr) => {
-        const isVoiceSelected = curr.recordings.find(
-          ({ id }) => id === recording.id
-        );
-        if (!isVoiceSelected) return acc;
-
-        const options = curr.recordings.map((_recording) => {
-          return {
-            label: _recording.instrumentsOptionsTitle,
-            value: _recording.id,
-            onChange: () => {
-              handleChangingRecording(_recording);
-            },
-            name: "instruments",
-            checked: recording.id === _recording.id,
-          };
-        });
-
-        return [...acc, ...options];
-      }, []),
-    };
-  }, [song, recording, handleChangingRecording]);
-
-  const speedOptions = useMemo(() => {
-    const speeds = [0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0];
-    const labels = [
-      `${speeds[0]}x`,
-      `${speeds[1]}x`,
-      `${speeds[2]}x`,
-      "Normal",
-      `${speeds[4]}x`,
-      `${speeds[5]}x`,
-      `${speeds[6]}x`,
-      `${speeds[7]}x`,
-    ];
-    return speeds.map((speed, i) => ({ value: speed, label: labels[i] }));
-  }, []);
-
-  const playbackRateLabel = useMemo(() => {
-    return speedOptions.find(
-      (option) => `${option.value}` === `${player.playbackRate}`
-    )?.label;
-  }, [player.playbackRate, speedOptions]);
+  const { skill, lesson } = useMemo(() => {
+    if(!song || !modulo) return {};
+    return getSongSkillAndLessonFromModulo(song, modulo);
+  }, [song, modulo]) || {};
 
   useEffect(() => {
-    if(isFront){
-      window.addEventListener('keypress', togglePlayOnKeyPress);
+    if(!params.songSlugOrId) return setShowInstructions(false);
+    const songFromUrl = getSongBySlugOrId(params.songSlugOrId);
+    if(songFromUrl) {
+      setSong(songFromUrl);
+      setShowInstructions(true);
     }
-    return () => {
-      if(isFront){
-        window.removeEventListener('keypress', togglePlayOnKeyPress);
-      }
-    }
-  }, [togglePlayOnKeyPress]);
-
-  useEffect(() => {
-    if(!isFront) return;
-    setTimeout(() => setForceShow(false), 3000);
-  }, [setForceShow]);
+  }, [params, setShowInstructions, setSong]);
 
   return (
     <>
-      {recording && (
-        <Markup
-          className={className}
-          src={recording.filePath}
-          type={recording.type}
-          playing={player.playing}
-          voiceTypesOptions={voiceTypesOptions}
-          instrumentsOptions={instrumentsOptions}
-          recordingId={recording.id}
-          repeatOne={player.repeatOne}
-          currentTime={player.currentTime}
-          recordingLength={player.recordingLength}
-          speedOptions={speedOptions}
-          playbackRate={player.playbackRate}
-          playbackRateLabel={playbackRateLabel}
-          onMainButtonClick={onClick}
-          onSkipPreviousClick={onSkipPreviousClick}
-          onRepeatOneClick={onRepeatOneClick}
-          onChangePlaybackRate={onChangePlaybackRate}
-          onChangePlaybackTime={onChangePlaybackTime}
-          forceShow={forceShow}
-        />
-      )}
+      {song && 
+        <section className="w-full fixed bottom-55">
+          <div>
+            <div className="bg-gradient-vaccaj flex justify-between items-center px-21 h-55">
+              <div className="lowercase text-white">
+                {song.title && <div className="text-base">{song.title}</div>}
+                {song.beginning && <div className="text-sm">{song.beginning}</div>}
+              </div>
+              <button onClick={() => setShowInstructions((prev) => !prev)} className={`${showInstructions ? buttonActive : button}`}>instruções</button>
+            </div>
+            <div className={`transition-[height] duration-700 ${showInstructions ? "h-[calc(100svh-55px-55px-34px)]" : "h-0"} overflow-y-scroll backdrop-blur-2xl backdrop-brightness-100`}>
+              <Song song={song} modulo={modulo} skill={skill} lesson={lesson} />
+            </div>
+          </div>
+        </section>
+      }
     </>
   );
 }

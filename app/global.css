@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .bg-gradient-vaccaj {
+    background: linear-gradient(98deg, rgba(219,182,163,1) 0%, rgba(223,181,168,1) 6%, rgba(225,180,175,1) 12%, rgba(225,179,182,1) 18%, rgba(224,180,189,1) 24%, rgba(221,181,196,1) 30%, rgba(217,182,203,1) 36%, rgba(211,184,209,1) 43%, rgba(204,186,215,1) 51%, rgba(197,188,219,1) 59%, rgba(189,191,222,1) 69%, rgba(181,193,223,1) 76%, rgba(174,196,223,1) 84%, rgba(168,198,222,1) 91%, rgba(163,200,219,1) 100%);
+  }
+}

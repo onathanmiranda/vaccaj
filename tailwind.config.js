@@ -63,6 +63,9 @@ module.exports = {
       boxShadow: {
         DEFAULT: `0 3px 6px 0px ${colors.brand["semi-transparent-30"]}`,
         inner: `inset 0 3px 6px 3px ${colors.brand["semi-transparent-30"]}`
+      },
+      transitionProperty: {
+        'max-height': 'max-height'
       }
     },
   },
