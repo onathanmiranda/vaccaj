@@ -1,7 +1,7 @@
 'use client';
-import { useCallback, useEffect, useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 import CardSong from '../../molecules/card-song';
 
@@ -11,7 +11,6 @@ export default function Modulo({ modulo }){
   const { title, about, skills } = modulo;
   const { intro } = about;
 
-  const pathname = usePathname();
   const searchParams = useSearchParams();
  
   // Get a new searchParams string by merging the current
@@ -34,7 +33,7 @@ export default function Modulo({ modulo }){
         id: "0",
         text: "todos",
         isActive: !searchParams.has('skill'),
-        href: pathname
+        href: `/modulos/${modulo.slug}/`
       },
       ...skills.map(skill => {      
         const isActive = searchParams.has('skill') && searchParams.get('skill') === skill.id;
@@ -43,14 +42,14 @@ export default function Modulo({ modulo }){
           id: skill.id,
           text: skill.title,
           isActive,
-          href: isActive ? pathname : `${pathname}?${createQueryString('skill', skill.id)}`
+          href: isActive ? `/modulos/${modulo.slug}/` : `/modulos/${modulo.slug}?${createQueryString('skill', skill.id)}`
         })
       })
     ];
-  }, [skills, searchParams, pathname, createQueryString]);
+  }, [skills, modulo, searchParams, createQueryString]);
   
   return (
-    <main className={`mt-34`}>
+    <main className={`mt-34 lg:mt-144 max-w-lg mx-auto`}>
       {title && <h1 className="text-2xl lowercase px-21 font-normal">{title}</h1>}
 
       {skillsNavigationItems && (
@@ -80,11 +79,13 @@ export default function Modulo({ modulo }){
               <div className={`${index > 0 ? "mt-21" : "mt-13"}`} key={lesson.id}>
                 <h3 className="text-base lowercase font-light text-highlight">{lesson.title}</h3>
                 <ul>
-                  {lesson.songs.map((song) => (
-                    <li key={song.id}>
-                      <CardSong song={song} />
-                    </li>
-                  ))}
+                  {lesson.songs.map((song) => {
+                    return (
+                      <li key={song.id}>
+                        <CardSong song={song} />
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}

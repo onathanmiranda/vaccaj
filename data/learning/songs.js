@@ -211,7 +211,7 @@ const songs = [
   {
     id: "20",
     title: "Portamento II",
-    slug: "o placido il mare",
+    slug: "o-placido-il-mare",
     beginning: "O placido il mare",
     recordingIds: ["69", "70", "71"],
     sheetsList: ["46", "47"],
@@ -244,7 +244,7 @@ const songs = [
   {
     id: "23",
     title: "Staccato",
-    slug: null,
+    slug: 'staccato-hi-hi-hi',
     beginning: "Hi Hi Hi",
     recordingIds: ["79"],
     sheetsList:[],
@@ -255,7 +255,7 @@ const songs = [
   {
     id: "24",
     title: "Legato",
-    slug: null,
+    slug: 'legato-arpejo',
     beginning: "OOO / III",
     recordingIds: ["80"],
     sheetsList:[],
@@ -266,7 +266,7 @@ const songs = [
   {
     id: "25",
     title: "Legato & Legato + Staccato",
-    slug: null,
+    slug: 'legato-arpejo-or-staccato-arpejo',
     beginning: "AAAOOO / IIIOOO",
     recordingIds: ["81"],
     sheetsList:[],

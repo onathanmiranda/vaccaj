@@ -1,15 +1,15 @@
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 import IconPlay from "../../atoms/icons/icon-play";
 
 import { button, buttonActive } from '../../styles';
 
 export default function CardSong({ song }){
-  const { beginning, title, recordings, id, href } = song;
+  const { beginning, title, href } = song;
   const pathName = usePathname();
 
-  const isActive = pathName === href;
+  const isActive = pathName === href.split('?')[0];
   
   return (
     <Link href={href} className={`${isActive ? buttonActive : button } h-55 justify-between items-center mt-13`}>

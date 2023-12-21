@@ -94,7 +94,7 @@ export function reduceSongInfo({
     return nextAcc;
   }, []);
 
-  song.voiceTypesOptions = song.recordings
+  song.voiceTypeOptions = song.recordings
     .map((recording) => recording.voiceType)
     .map((voiceType) => {
       if (!voiceType) return null;
@@ -177,7 +177,7 @@ export function reduceModuleInfo({ id, title, lessonsIds, slug, about, backgroun
       ...lesson,
       songs: lesson.songs.map((song) => ({
         ...song,
-        href: `/modulos/${modulo.slug}/${song.slug || song.id}`
+        href: `/modulos/${modulo.slug}/${song.slug || song.id}?voiceType=${song.voiceTypeOptions[0].voiceType.id}`
       }))
     }))
   }))
@@ -196,17 +196,20 @@ const data = {
   tools
 };
 
-export function getModuleBySlug(moduleSlug){
-  return reducedModules.find((module) => module.slug === moduleSlug);
+export function getModuloBySlug(moduloSlug){
+  if(!moduloSlug) return null;
+  return reducedModules.find((module) => module.slug === moduloSlug);
 }
 
 export function getSongBySlugOrId(songSlugOrId){
+  if(!songSlugOrId) return null;
   const song = songs.find((song) => song.slug === songSlugOrId || song.id === songSlugOrId);
   const songReducedData = reduceSongInfo(song);
   return songReducedData;
 }
 
 export function getModuleSongs(modulo){
+  if(!modulo) return [];
   const songs = modulo.skills.reduce((acc, skill) => {
     skill.lessons.forEach((lesson) => {
       lesson.songs.forEach((song) => acc.push(song));
@@ -214,6 +217,11 @@ export function getModuleSongs(modulo){
     return acc;
   }, []);
   return songs;
+}
+
+export function getModuloSongBySlugOrId(songSlugOrId, modulo){
+  if(!songSlugOrId || !modulo) return null;
+  return getModuleSongs(modulo).find((song) => [song.id, song.slug].includes(songSlugOrId));
 }
 
 export function getSongSkillAndLessonFromModulo(song, modulo){

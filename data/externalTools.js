@@ -25,6 +25,15 @@ const tools = [
     image: {
       src: "https://x-minus.pro/assets/img/logo_pro.png"
     }
+  },
+  {
+    id: "4",
+    title: "Vocal Remover and Isolation",
+    description: "Separe a voz das músicas, de graça, com poderosos algorítmos de IA.",
+    href: "https://vocalremover.org/pt/",
+    image: {
+      src: "https://vocalremover.org/img/remover/player_en@2x.png"
+    }
   }
 ]
 

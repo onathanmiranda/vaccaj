@@ -8,15 +8,20 @@ function rem(n){
 
 const colors = {
   'transparent': 'rgba(0,0,0,0)',
-  'white': '#FEFDFD',
-  'black': '#392216',
+  'white': {
+    DEFAULT: '#FEFDFD',
+  },
+  'black': {
+    DEFAULT: '#392216',
+    "semi-transparent-35": "rgba(57, 34, 22, .35)"
+  },
   'brand': {
     100: "#FFFBFA",
     500: "#DBB6A3",
     900: "#392216",
     DEFAULT: "#DBB6A3",
     "semi-transparent": "rgba(149, 89, 58, .16)",
-    "semi-transparent-30": "rgba(149, 89, 58, .30)"
+    "semi-transparent-30": "rgba(149, 89, 58, .30)",
   },
   'highlight': "#B76D48"
 }
@@ -62,7 +67,9 @@ module.exports = {
       colors: colors,
       boxShadow: {
         DEFAULT: `0 3px 6px 0px ${colors.brand["semi-transparent-30"]}`,
-        inner: `inset 0 3px 6px 3px ${colors.brand["semi-transparent-30"]}`
+        dark: `0 3px 6px 0px ${colors.black["semi-transparent-35"]}`,
+        inner: `inset 0 3px 6px 3px ${colors.brand["semi-transparent-30"]}`,
+        "inner-dark": `inset 0 3px 6px 3px ${colors.black["semi-transparent-35"]}`
       },
       transitionProperty: {
         'max-height': 'max-height'
