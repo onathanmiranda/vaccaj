@@ -5,9 +5,8 @@ import data from "../../../data";
 import configs from "../../../configs";
 
 export default function Page({ params }){
-  const modulo = getModuloBySlug(params.moduloSlug);
   return (
-    <Modulo modulo={modulo} />
+    <Modulo />
   );
 }
 
@@ -29,6 +28,10 @@ export async function generateMetadata({ params }) {
       title,
       description,
       url
+    },
+    twitter: {
+      title,
+      description,
     }
   }
 }

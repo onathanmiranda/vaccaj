@@ -224,6 +224,11 @@ export function getModuloSongBySlugOrId(songSlugOrId, modulo){
   return getModuleSongs(modulo).find((song) => [song.id, song.slug].includes(songSlugOrId));
 }
 
+export function getSongVoiceTypeOptionByVoiceTypeId(song, id){
+  if(!song || !id) return null;
+  return song.voiceTypeOptions.find(({ voiceType }) => voiceType.id === id);
+}
+
 export function getSongSkillAndLessonFromModulo(song, modulo){
   const skillAndLesson = modulo.skills.reduce((acc, skill) => {
     if(acc.skill && acc.lesson) return acc;

@@ -1,24 +1,26 @@
 'use client';
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo, useContext } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
+import { PlayerContext } from "../../../contexts/playerContext";
 import CardSong from '../../molecules/card-song';
 
 import { button, buttonActive, textBody } from '../../../components/styles';
 
-export default function Modulo({ modulo }){
-  const { title, about, skills } = modulo;
-  const { intro } = about;
+export default function Modulo(){
+  const { state } = useContext(PlayerContext);
+  const { modulo } = state || {};
+  
+  const { title, about, skills } = modulo || {};
+  const { intro } = about || {};
 
   const searchParams = useSearchParams();
  
-  // Get a new searchParams string by merging the current
-  // searchParams with a provided key/value pair
   const createQueryString = useCallback(
     (name, value) => {
       const params = new URLSearchParams(searchParams)
-      params.set(name, value)
+      params.set(name, value);
  
       return params.toString();
     },
@@ -26,8 +28,9 @@ export default function Modulo({ modulo }){
   );
 
   const skillsNavigationItems = useMemo(() => {
+    if(!Array.isArray(skills)) return false;
     if(skills.length < 2) return false;
-
+    
     return [
       {
         id: "0",
@@ -67,7 +70,7 @@ export default function Modulo({ modulo }){
         </nav>
       )}
 
-      {skills.map((skill) => {
+      {skills && skills.map((skill) => {
         const render = !searchParams.has('skill') || searchParams.get('skill') === skill.id
         
         if(!render) return null;

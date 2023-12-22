@@ -1,24 +1,22 @@
 import Modulo from "../../../../components/templates/modulo";
 
-import { getModuloBySlug } from "../../../../data";
+import { getModuloBySlug, getSongBySlugOrId } from "../../../../data";
 import { songs } from "../../../../data/learning";
 import configs from "../../../../configs";
 
 export default function Page({ params }){
-  const { moduloSlug } = params;
-  const modulo = getModuloBySlug(moduloSlug);
-  
   return (
-    <Modulo modulo={modulo} />
+    <Modulo />
   );
 }
 
 export async function generateMetadata({ params }) {
   const { moduloSlug, songSlug } = params;
-  const modulo = getModuloBySlug(moduloSlug);
+  const song = getSongBySlugOrId(songSlug);
+  
 
-  const { title } = modulo;
-  const description = modulo.about.intro.substring(0, 155);
+  const { title } = song;
+  const description = song.instructions;
   const url = `${configs.metadata.url}/modulos/${moduloSlug}/${songSlug}`;
 
   return {
@@ -31,6 +29,10 @@ export async function generateMetadata({ params }) {
       title,
       description,
       url
+    },
+    twitter: {
+      title,
+      description,
     }
   }
 }

@@ -17,7 +17,7 @@ export default function SongControls(){
     <div>
       {showVoiceTypesOptions && (
         <div className="bg-white h-55 overflow-x-scroll">
-          <ul className="w-auto h-full flex items-center">
+          <ul className="w-auto h-full flex items-center lg:justify-center">
             {song.voiceTypeOptions.map((voiceTypeOption) => {
               const href = song.href.split('?')[0].concat('?', 'voiceType=', voiceTypeOption.voiceType.id)
               return (

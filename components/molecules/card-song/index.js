@@ -1,15 +1,18 @@
+import { useContext } from "react";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+
+import { PlayerContext } from "../../../contexts/playerContext";
 
 import IconPlay from "../../atoms/icons/icon-play";
 
 import { button, buttonActive } from '../../styles';
 
 export default function CardSong({ song }){
-  const { beginning, title, href } = song;
-  const pathName = usePathname();
+  const { state } = useContext(PlayerContext);
 
-  const isActive = pathName === href.split('?')[0];
+  const { beginning, title, href, id } = song;
+
+  const isActive = state?.song?.id === id;
   
   return (
     <Link href={href} className={`${isActive ? buttonActive : button } h-55 justify-between items-center mt-13`}>

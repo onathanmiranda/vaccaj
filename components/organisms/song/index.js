@@ -1,11 +1,16 @@
 'use client';
-import { useMemo } from 'react';
+import { useMemo, useContext } from 'react';
 
 import SongInstructions from '../../molecules/song-instructions';
 import SongHeader from '../../molecules/song-header';
 
-export default function Song({ song, modulo, skill, lesson }){
+import { PlayerContext } from "../../../contexts/playerContext";
+import SongSheet from '../../molecules/song-sheets';
 
+export default function Song({ skill, lesson }){
+  const { state } = useContext(PlayerContext);
+  const { modulo, song, recording } = state || {};
+  
   const { title, beginning, instructions } = song;
 
   const headerProps = useMemo(() => {
@@ -20,6 +25,7 @@ export default function Song({ song, modulo, skill, lesson }){
   return (
     <main>
       {headerProps && <SongHeader { ...headerProps } />}
+      {recording && <SongSheet sheetURLs={recording.sheets?.filePaths} />}
       {instructions && <SongInstructions instructions={instructions} />}
     </main>
   )

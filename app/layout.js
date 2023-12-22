@@ -32,7 +32,7 @@ export default async function Layout(props){
   return (
     <PlayerContextProvider>
       <html lang="pt-BR">
-        <body className='sans bg-white text-black text-base leading-none relative'>
+        <body className='sans bg-white text-black text-base leading-none relative scroll-smooth'>
           <Navbar links={links} />
           {props.children}
           <Player />
