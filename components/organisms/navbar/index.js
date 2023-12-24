@@ -10,12 +10,11 @@ import { button, buttonActive } from "../../styles";
 
 export default function Navbar({ links = [] }){
   const pathName = usePathname();
-  
   const linkObjects = useMemo(() => {
     return links.map((link) => {
       return {
         ...link,
-        isActive: pathName.includes(link.href)
+        isActive: pathName.includes(new URL(link.href).pathname)
       }
     });
   }, [pathName, links]);

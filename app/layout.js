@@ -1,6 +1,9 @@
+import { Script } from "next/script";
+ 
 import './global.css';
 
 import data from '../data';
+import configs from '../configs';
 
 import _metadata from "./_metadata";
 import _viewport from "./_viewport";
@@ -16,14 +19,14 @@ export const viewport = _viewport;
 const { modules } = data;
   
 const links = [
-  ...modules.map((modulo) => {
+  ...modules.map(({ title, href }) => {
     return {
-      href: `/modulos/${modulo.slug}`,
-      text: modulo.title
+      href,
+      text: title
     }
   }),
   {
-    href: `/ferramentas-externas`,
+    href: `${configs.metadata.url}/ferramentas-externas`,
     text: "Ferramentas externas"
   }
 ];

@@ -10,6 +10,7 @@ const colors = {
   'transparent': 'rgba(0,0,0,0)',
   'white': {
     DEFAULT: '#FEFDFD',
+    "semi-transparent": "rgba(254, 253, 253, .90)",
   },
   'black': {
     DEFAULT: '#392216',

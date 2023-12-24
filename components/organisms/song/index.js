@@ -9,7 +9,7 @@ import SongSheet from '../../molecules/song-sheets';
 
 export default function Song({ skill, lesson }){
   const { state } = useContext(PlayerContext);
-  const { modulo, song, recording } = state || {};
+  const { song, recording } = state || {};
   
   const { title, beginning, instructions } = song;
 

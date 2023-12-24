@@ -14,7 +14,7 @@ export default function SongControls(){
   const showVoiceTypesOptions = song.voiceTypeOptions.length > 1;
 
   return (  
-    <div>
+    <div className="border-t-2 border-brand-semi-transparent">
       {showVoiceTypesOptions && (
         <div className="bg-white h-55 overflow-x-scroll">
           <ul className="w-auto h-full flex items-center lg:justify-center">

@@ -1,5 +1,5 @@
 'use client';
-import { useCallback, useMemo, useContext } from "react";
+import { useContext } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
@@ -16,53 +16,24 @@ export default function Modulo(){
   const { intro } = about || {};
 
   const searchParams = useSearchParams();
- 
-  const createQueryString = useCallback(
-    (name, value) => {
-      const params = new URLSearchParams(searchParams)
-      params.set(name, value);
- 
-      return params.toString();
-    },
-    [searchParams]
-  );
-
-  const skillsNavigationItems = useMemo(() => {
-    if(!Array.isArray(skills)) return false;
-    if(skills.length < 2) return false;
-    
-    return [
-      {
-        id: "0",
-        text: "todos",
-        isActive: !searchParams.has('skill'),
-        href: `/modulos/${modulo.slug}/`
-      },
-      ...skills.map(skill => {      
-        const isActive = searchParams.has('skill') && searchParams.get('skill') === skill.id;
-        
-        return ({
-          id: skill.id,
-          text: skill.title,
-          isActive,
-          href: isActive ? `/modulos/${modulo.slug}/` : `/modulos/${modulo.slug}?${createQueryString('skill', skill.id)}`
-        })
-      })
-    ];
-  }, [skills, modulo, searchParams, createQueryString]);
+  const currentSkillId = searchParams.get('skill');
   
   return (
     <main className={`mt-34 lg:mt-144 max-w-lg mx-auto`}>
       {title && <h1 className="text-2xl lowercase px-21 font-normal">{title}</h1>}
 
-      {skillsNavigationItems && (
+      {skills && skills.length > 1 && (
         <nav className="w-full overflow-x-scroll md:overflow-visible mt-34">
-          <ul className='flex items-center md:justify-center py-8 w-auto md:w-full'>
-            {skillsNavigationItems.map((item, index) => {
-              const { text, isActive, id, href } = item;
+          <ul className='flex items-center py-8 w-auto md:w-full'>
+            <li className='ml-8'>
+              <Link href={modulo.href} className={`${!currentSkillId ? buttonActive : button}`}>todos</Link>
+            </li>
+            {skills.map((skill) => {
+              const { title, id, href } = skill;
+              const isActive = currentSkillId === id;
               return (
-                <li key={id} className={`${ index > 0 ? 'ml-8' : 'ml-21'}`}>
-                  <Link href={href} className={`${isActive ? buttonActive : button}`}>{text}</Link>
+                <li key={id} className='ml-8'>
+                  <Link href={href} className={`${isActive ? buttonActive : button}`}>{title}</Link>
                 </li>
               );
             })}
@@ -71,15 +42,13 @@ export default function Modulo(){
       )}
 
       {skills && skills.map((skill) => {
-        const render = !searchParams.has('skill') || searchParams.get('skill') === skill.id
-        
-        if(!render) return null;
-        
+        const render = !searchParams.has('skill') || currentSkillId === skill.id;
+        if(!render) return;
         return (
           <div className="mt-55 px-21" key={skill.id}>
             <h2 className="text-base lowercase">{skill.title}</h2>
             {skill.lessons.map((lesson, index) => (
-              <div className={`${index > 0 ? "mt-21" : "mt-13"}`} key={lesson.id}>
+              <div key={lesson.id} className={`${index > 0 ? "mt-21" : "mt-13"}`}>
                 <h3 className="text-base lowercase font-light text-highlight">{lesson.title}</h3>
                 <ul>
                   {lesson.songs.map((song) => {

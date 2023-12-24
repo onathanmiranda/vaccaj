@@ -12,6 +12,10 @@ import {
 
 import tools from './externalTools';
 
+import configs from '../configs';
+
+const baseUrl = configs.metadata.url || new URL(window.location).origin;
+
 export function getReducedSongBySlug(songSlug) {
   const song = songs.find(({ slug }) => slug === songSlug);
   if (song) return reduceSongInfo(song);
@@ -166,18 +170,20 @@ export function reduceModuleInfo({ id, title, lessonsIds, slug, about, backgroun
     slug,
     about,
     backgroundImageUrl,
+    href: `${baseUrl}/modulos/${slug}`,
     skills: modulesSkills.map((skill) =>
       joinSkillsAndLessons(skill, moduleLessons)
     ),
   };
-
+  
   modulo.skills = modulo.skills.map((skill) => ({
     ...skill,
+    href: `${baseUrl}/modulos/${modulo.slug}?skill=${skill.id}`,
     lessons: skill.lessons.map((lesson) => ({
       ...lesson,
       songs: lesson.songs.map((song) => ({
         ...song,
-        href: `/modulos/${modulo.slug}/${song.slug || song.id}?voiceType=${song.voiceTypeOptions[0].voiceType.id}`
+        href: `${baseUrl}/modulos/${modulo.slug}/${song.slug}?voiceType=${song.voiceTypeOptions[0].voiceType.id}&instructions`
       }))
     }))
   }))

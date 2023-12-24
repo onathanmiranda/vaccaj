@@ -1,5 +1,7 @@
 "use client";
-import { useState, useContext, useEffect } from "react";
+import { useContext, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 import SongControls from '../../molecules/song-controls';
 import Song from '../../organisms/song';
@@ -10,19 +12,24 @@ import { button, buttonActive } from '../../styles';
 
 export default function Player(){
   const { state } = useContext(PlayerContext);
-  const { modulo, song } = state || {};
+  const { song } = state || {};
   
-  const [ showInstructions, setShowInstructions ] = useState(false);
+  const searchParams = useSearchParams();
+  const showInstructions = searchParams.has("instructions");
+
+  const linkHref = useMemo(() => {
+    if(!song) return "";
+    const songURL = new URL(song.href);
+    if(showInstructions){
+      songURL.searchParams.delete('instructions')
+    } else {
+      songURL.searchParams.set('instructions', '');
+    }
+    return songURL;
+  }, [showInstructions, song]);
+  
 
   const showVoiceTypesOptions = song?.voiceTypeOptions.length > 1;
-
-  useEffect(() => {
-    setShowInstructions(true);
-  }, [song, setShowInstructions]);
-
-  useEffect(() => {
-    setShowInstructions(false);
-  }, [modulo, setShowInstructions]);
 
   return (
     <>
@@ -35,10 +42,10 @@ export default function Player(){
                   {song.title && <div className="text-base">{song.title}</div>}
                   {song.beginning && <div className="text-sm">{song.beginning}</div>}
                 </div>
-                <button onClick={() => setShowInstructions((prev) => !prev)} className={`${showInstructions ? buttonActive : button}`}>instruções</button>
+                <Link href={linkHref} className={`${showInstructions ? buttonActive : button}`}>instruções</Link>
               </div>
             </div>
-            <div className={`transition-[height] duration-700 ${showInstructions ? `${showVoiceTypesOptions ? "h-[calc(100svh-199px)]" : "h-[calc(100svh-144px)]"} ${showVoiceTypesOptions ? "lg:h-[calc(100svh-165px)]" : "lg:h-[calc(100svh-110px)]"}` : "h-0"} overflow-y-scroll backdrop-blur-2xl backdrop-brightness-100`}>
+            <div className={`transition-[height] duration-700 ${showInstructions ? `${showVoiceTypesOptions ? "h-[calc(100svh-199px)]" : "h-[calc(100svh-144px)]"} ${showVoiceTypesOptions ? "lg:h-[calc(100svh-165px)]" : "lg:h-[calc(100svh-110px)]"}` : "h-0"} overflow-y-scroll bg-white backdrop-blur-2xl backdrop-brightness-100`}>
               <Song />
             </div>
           </div>

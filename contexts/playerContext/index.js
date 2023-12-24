@@ -25,7 +25,7 @@ export default function PlayerContextProvider({ children }) {
   
   useEffect(() => {
     const currentPathState = getCurrentPathState(moduloSlug, songSlug, voiceTypeId);
-
+    
     setState((oldState) => ({
       ...oldState,
       modulo: currentPathState.modulo,
