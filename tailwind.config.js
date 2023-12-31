@@ -47,10 +47,11 @@ module.exports = {
         55: rem(55),
         89: rem(89),
         144: rem(144),
-        233: rem(233)
+        233: rem(233),
+        377: rem(377),
       },
       fontFamily: {
-        'sans': ['Univers LT Std', 'Helvetica', ...defaultTheme.fontFamily.sans],
+        'sans': ['system-ui', "Segoe UI", 'Roboto', 'Helvetica', 'Arial', 'sans-serif', "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"]
       },
       fontSize: {
         xs: rem(8),

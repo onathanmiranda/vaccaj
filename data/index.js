@@ -14,7 +14,7 @@ import tools from './externalTools';
 
 import configs from '../configs';
 
-const baseUrl = configs.metadata.url || new URL(window.location).origin;
+export const baseUrl = configs.metadata.url || new URL(window.location).origin;
 
 export function getReducedSongBySlug(songSlug) {
   const song = songs.find(({ slug }) => slug === songSlug);
@@ -214,9 +214,10 @@ export function getSongBySlugOrId(songSlugOrId){
   return songReducedData;
 }
 
-export function getModuleSongs(modulo){
+export function getModuleSongs(modulo, skillIdFilter = false){
   if(!modulo) return [];
   const songs = modulo.skills.reduce((acc, skill) => {
+    if(skillIdFilter && skill.id !== skillIdFilter) return acc;
     skill.lessons.forEach((lesson) => {
       lesson.songs.forEach((song) => acc.push(song));
     });
@@ -230,9 +231,10 @@ export function getModuloSongBySlugOrId(songSlugOrId, modulo){
   return getModuleSongs(modulo).find((song) => [song.id, song.slug].includes(songSlugOrId));
 }
 
-export function getSongVoiceTypeOptionByVoiceTypeId(song, id){
-  if(!song || !id) return null;
-  return song.voiceTypeOptions.find(({ voiceType }) => voiceType.id === id);
+export function getSongVoiceTypeOptionByVoiceTypeId(song, voiceTypeId){
+  if(!song) return null;
+  if(!voiceTypeId) return song.voiceTypeOptions[0];
+  return song.voiceTypeOptions.find(({ voiceType }) => voiceType.id === voiceTypeId);
 }
 
 export function getSongSkillAndLessonFromModulo(song, modulo){

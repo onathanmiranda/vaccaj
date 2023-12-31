@@ -19,14 +19,20 @@ export default function Player(){
 
   const linkHref = useMemo(() => {
     if(!song) return "";
+
     const songURL = new URL(song.href);
+
     if(showInstructions){
       songURL.searchParams.delete('instructions')
     } else {
       songURL.searchParams.set('instructions', '');
     }
-    return songURL;
-  }, [showInstructions, song]);
+
+    if(searchParams.has('skill'))
+      songURL.searchParams.set('skill', searchParams.get('skill'))
+
+    return songURL.toString().replace('instructions=', 'instructions');
+  }, [searchParams, showInstructions, song]);
   
 
   const showVoiceTypesOptions = song?.voiceTypeOptions.length > 1;
@@ -45,7 +51,7 @@ export default function Player(){
                 <Link href={linkHref} className={`${showInstructions ? buttonActive : button}`}>instruções</Link>
               </div>
             </div>
-            <div className={`transition-[height] duration-700 ${showInstructions ? `${showVoiceTypesOptions ? "h-[calc(100svh-199px)]" : "h-[calc(100svh-144px)]"} ${showVoiceTypesOptions ? "lg:h-[calc(100svh-165px)]" : "lg:h-[calc(100svh-110px)]"}` : "h-0"} overflow-y-scroll bg-white backdrop-blur-2xl backdrop-brightness-100`}>
+            <div className={`motion-safe:transition-[height] motion-safe:duration-700 ${showInstructions ? `${showVoiceTypesOptions ? "h-[calc(100svh-272px)]" : "h-[calc(100svh-217px)]"} ${showVoiceTypesOptions ? "lg:h-[calc(100svh-238px)]" : "lg:h-[calc(100svh-183px)]"}` : "h-0"} overflow-y-scroll bg-white backdrop-blur-2xl backdrop-brightness-100`}>
               <Song />
             </div>
           </div>

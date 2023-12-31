@@ -1,23 +1,26 @@
 "use client";
 
-import { useMemo } from 'react';
 import Link from 'next/link';
+import { useMemo, useContext } from 'react';
 import { usePathname } from 'next/navigation';
+
+import { PlayerContext } from '../../../contexts/playerContext';
 
 import Logo from '../../atoms/logo';
 
 import { button, buttonActive } from "../../styles";
 
 export default function Navbar({ links = [] }){
-  const pathName = usePathname();
+  const { state } = useContext(PlayerContext);
+
   const linkObjects = useMemo(() => {
     return links.map((link) => {
       return {
         ...link,
-        isActive: pathName.includes(new URL(link.href).pathname)
+        isActive: link.href === state?.modulo?.href
       }
     });
-  }, [pathName, links]);
+  }, [links, state]);
 
   return (
     <div className='bg-white h-34 relative lg:fixed w-full top-0 z-50 lg:h-55 lg:px-21 lg:flex lg:justify-around lg:items-center lg:border-b-2 lg:border-brand-semi-transparent'>

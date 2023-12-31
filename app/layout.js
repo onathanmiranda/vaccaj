@@ -1,5 +1,3 @@
-import { Script } from "next/script";
- 
 import './global.css';
 
 import data from '../data';
@@ -10,6 +8,7 @@ import _viewport from "./_viewport";
 
 import Navbar from '../components/organisms/navbar';
 import Player from '../components/organisms/player';
+import Body from './body';
 
 import PlayerContextProvider from "../contexts/playerContext";
 
@@ -35,11 +34,11 @@ export default async function Layout(props){
   return (
     <PlayerContextProvider>
       <html lang="pt-BR">
-        <body className='sans bg-white text-black text-base leading-none relative scroll-smooth'>
+        <Body>
           <Navbar links={links} />
           {props.children}
           <Player />
-        </body>
+        </Body>
       </html>
     </PlayerContextProvider>
   )

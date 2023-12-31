@@ -65,7 +65,7 @@ export default function Modulo(){
         )
       })}
 
-      {intro && <p className={`mt-89 mb-233 px-21 ${textBody}`}>{intro}</p>}
+      {intro && <p className={`mt-89 mb-377 px-21 ${textBody}`}>{intro}</p>}
     </main>
   )
 }
