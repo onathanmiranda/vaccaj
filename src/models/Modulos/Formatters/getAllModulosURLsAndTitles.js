@@ -1,4 +1,4 @@
-import Modulos from "../../Modulos";
+import Modulos from "../index";
 
 export default function getAllModulosURLsAndTitles(modulos) {
   return modulos.map((modulo) => ({

@@ -1,11 +1,15 @@
-import getAllModulosSlugsAndRelatedSongSlugs from "./getAllModulosSlugsAndRelatedSongSlugs";
-import getAllModulosURLsAndTitles from "./getAllModulosURLsAndTitles";
 import getAll from "./getAll";
+import getModuloBySlug from "./getModuloBySlug";
+import getAllModulosURLsAndTitles from "./getAllModulosURLsAndTitles";
+import getModuloAndRelatedDataBySlug from "./getModuloAndRelatedDataBySlug";
+import getAllModulosAndRelatedSongURLs from "./getAllModulosAndRelatedSongURLs";
 
 const Formatters = {
   getAll,
-  getAllModulosSlugsAndRelatedSongSlugs,
-  getAllModulosURLsAndTitles
+  getModuloBySlug,
+  getAllModulosURLsAndTitles,
+  getModuloAndRelatedDataBySlug,
+  getAllModulosAndRelatedSongURLs
 };
 
 export default Formatters;

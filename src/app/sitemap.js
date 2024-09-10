@@ -1,16 +1,15 @@
-import Modulos from "../models/Modulos";
-import Songs from "../models/Songs";
+import Models from "@/models";
 
 import configs from "@/configs";
 
 export default async function sitemap() {
   const allModulosAndRelatedSongSlugs =
-    await Modulos.getAllModulosSlugsAndRelatedSongSlugs();
+    await Models.Modulos.getAllModulosAndRelatedSongURLs();
 
   const modulesSiteMapUrls = allModulosAndRelatedSongSlugs.reduce(
     (acc, modulo) => {
       acc.push({
-        url: Modulos.generateModuloURL(modulo),
+        url: modulo.url,
         lastModified: new Date(),
         changeFrequency: "yearly",
         priority: 1
@@ -18,7 +17,7 @@ export default async function sitemap() {
 
       modulo.songs.forEach((song) => {
         acc.push({
-          url: Songs.generateSongURL(song, modulo),
+          url: song.url,
           lastModified: new Date(),
           changeFrequency: "yearly",
           priority: 0.9

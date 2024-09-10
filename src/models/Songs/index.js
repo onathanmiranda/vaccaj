@@ -1,19 +1,51 @@
-/* import Supabase from "../../services/Supabase";
+import Modulos from "../Modulos";
+import Formatters from "./Formatters";
 
-const table = "songs"; */
-
-import configs from "@/configs";
-
-/* async function runDatabaseQuery(query) {
-  const { data, error } = await Supabase.from(table).select(query);
-  if (error) throw error;
-  return data;
-} */
-
-const Songs = {
-  generateSongURL: (song, modulo) => {
-    return `${configs.metadata.url}/modulos/${modulo.slug}/${song.slug}`;
+class Songs {
+  static tableName = "songs";
+  static generateSongURL = (song, modulo) => {
+    return `${Modulos.generateModuloURL(modulo)}/${song.slug}`;
+  };
+  constructor(TableServiceFactory) {
+    this.TableService = TableServiceFactory(Songs.tableName);
   }
-};
+
+  getAll = async () => {
+    const Query = this.TableService.ReadQueryBuilder({ select: "*" });
+    const data = await Query.run();
+    const formattedData = Formatters.getAll(data);
+    return formattedData;
+  };
+  getSongAndRelatedDataBySlug = async (slug) => {
+    const Query = this.TableService.ReadQueryBuilder({
+      select: `
+        *,
+        songs_recordings(
+          recordings (
+            *,
+            recordings_voice_types (
+              voice_types (
+                *
+              )
+            )
+          )
+        ),
+        songs_sheets(
+          sheets (
+            sheets_voice_types (
+              voice_types (
+                *
+              )
+            )
+          )
+        )
+      `,
+      eq: [["slug", slug]]
+    });
+    const data = await Query.run();
+    const formattedData = Formatters.getSongAndRelatedDataBySlug(data);
+    return formattedData;
+  };
+}
 
 export default Songs;
