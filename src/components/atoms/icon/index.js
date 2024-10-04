@@ -10,8 +10,17 @@ const Play = ({ className }) => {
   );
 };
 
+const Pause = ({ className }) => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor">
+      <path d="M549-223v-516h186v516H549Zm-324 0v-516h186v516H225Z"/>
+    </svg>
+  )
+}
+
 const Icon = {
-  Play
+  Play,
+  Pause
 };
 
 export default Icon;

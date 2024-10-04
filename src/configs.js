@@ -1,6 +1,6 @@
 const configs = {
   env: {
-    baseUrl: process.env.NODE_ENV === "development" ? "http://localhost:3000" : process.env.NEXT_PUBLIC_API_URL
+    baseUrl: process.env.NODE_ENV === "development" ? "" : process.env.NEXT_PUBLIC_API_URL
   },
   metadata: {
     title: "Vaccaj",
@@ -25,7 +25,7 @@ const configs = {
     manifest: "/manifest.json",
     locale: "pt_BR",
     type: "website",
-    url: process.env.NODE_ENV === "development" ? "http://localhost:3000" : process.env.SITE_URL
+    url: process.env.NODE_ENV === "development" ? "" : process.env.SITE_URL
   },
   viewport: {
     themeColor: "#FEFDFD",

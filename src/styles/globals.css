@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --darkest: #030712;
-  --lightest: #f9fafb;
+  --darkest: #09090b;
+  --lightest: #fafafa;
 
   --foreground-rgb: var(--darkest);
   --background-rgb: var(--lightest);
@@ -18,8 +18,8 @@
 }
 
 body {
-  color: var(--foreground-rgb);
-  background: var(--background-rgb);
+  color: var(--lightest);
+  background: var(--darkest);
 }
 
 @layer utilities {
