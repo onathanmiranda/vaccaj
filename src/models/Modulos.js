@@ -59,6 +59,7 @@ class Modulo extends SupabaseTable {
           title,
           slug,
           about,
+          short_title,
           modules_lessons (
             lessons (
               id,
@@ -86,12 +87,14 @@ class Modulo extends SupabaseTable {
       }
 
       const [modulo] = data;
-      const { title, slug: moduloSlug, about, modules_lessons } = modulo;
+      const { title, slug: moduloSlug, about, modules_lessons, short_title } = modulo;
+      const moduloSongs = [];
 
       const formattedData = {
         title,
         slug: moduloSlug,
         about,
+        short_title,
         lessons: modules_lessons.map(({ lessons: lesson }) => ({
           id: lesson.id,
           title: lesson.title,
@@ -99,16 +102,21 @@ class Modulo extends SupabaseTable {
             id: lesson.skills.id,
             title: lesson.skills.title,
           },
-          songs: lesson.lessons_songs.map(({ songs: song }) => ({
-            id: song.id,
-            title: song.title,
-            slug: song.slug,
-            url: Songs.generateSongURL(song, modulo), // Corrected line
-            beginning: song.beginning,
-          })),
+          songs: lesson.lessons_songs.map(({ songs: song }) => {
+            const songData = {
+              id: song.id,
+              title: song.title,
+              slug: song.slug,
+              url: Songs.generateSongURL(song, modulo), // Corrected line
+              beginning: song.beginning
+            };
+            moduloSongs.push(songData);
+            return songData;
+          }),
         })),
       };
-
+      
+      formattedData.songs = moduloSongs;
       return formattedData;
     } catch (error) {
       console.error(
@@ -122,11 +130,12 @@ class Modulo extends SupabaseTable {
   async getAllModulosURLsAndTitles() {
     try {
       const data = await this.runReadQuery({
-        select: "title, slug",
+        select: "title, slug, short_title",
       });
 
       return data.map((modulo) => ({
         title: modulo.title,
+        short_title: modulo.short_title,
         url: this.generateModuloURL(modulo),
         slug: modulo.slug,
       }));

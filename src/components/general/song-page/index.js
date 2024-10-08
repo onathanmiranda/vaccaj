@@ -6,8 +6,8 @@ import { H1 } from "@/components/atoms/headings";
 import P from "@/components/atoms/p";
 import { PlayerContext } from "@/context/player";
 
-export default function SongPage({ song, modulo }) {
-  const { setModuloAndSong, state: playerState } = useContext(PlayerContext);
+export default function SongPage({ song }) {
+  const { state: playerState } = useContext(PlayerContext);
   const [imageZoomed, setImageZoomed] = useState(false);
 
   const songInstructions = useMemo(() => {
@@ -18,15 +18,9 @@ export default function SongPage({ song, modulo }) {
     setImageZoomed(oldState => !oldState);
   }, [setImageZoomed]);
 
-  useEffect(() => {
-    if(!song) return;
-    if(song?.id === playerState?.song?.id) return;
-    setModuloAndSong(song, modulo);
-  }, [song, song.id, setModuloAndSong, playerState]);
-
   return (
     <section className="pb-36 h-full overflow-y-scroll">
-      <div className="mt-8 max-w-screen-sm mx-auto mt-8 px-6 lg:px-0">
+      <div className="max-w-screen-sm mx-auto mt-4 px-6 lg:px-0">
         <H1>{song.title}</H1>
         <P>{song.beginning}</P>
       </div>

@@ -1,6 +1,8 @@
 'use client';
-import { useContext, useEffect, useMemo, useCallback, useRef } from "react";
+import { useContext, useMemo, useCallback } from "react";
 import { PlayerContext } from "@/context/player";
+import Slider from './slider';
+import Icon from "@/components/atoms/icon";
 
 function checkRecordingBooleanOptions(recordings, option) {
   let has = false;
@@ -24,10 +26,11 @@ function checkRecordingBooleanOptions(recordings, option) {
 }
 
 export default function Player(){
-  const { state, changeVoice, changeVocals } = useContext(PlayerContext);
+  const { state, changeVoice, changeVocals, play, pause, skip, changeRepeatStatus, REPEAT_ALL, NO_REPEAT, REPEAT_ONE } = useContext(PlayerContext);
 
   const voiceOptions = useMemo(() => {
-    if(!state.song) return [];
+    if(!state.song) return false;
+    if(state.song.recordings.length === 1) return false;
     const voiceTypesMap = state.song.recordings.reduce((acc, recording) => {
       recording.voice_types.forEach((voiceType) => {
         acc.set(voiceType.id, voiceType);
@@ -39,6 +42,7 @@ export default function Player(){
 
   const vocalsOption = useMemo(() => {
     if(!state.song) return false;
+    if(state.song.recordings.length === 1) return false;
     return checkRecordingBooleanOptions(state.song.recordings, 'has_vocals');
   }, [state.song]);
 
@@ -63,29 +67,63 @@ export default function Player(){
     changeVocals(hasVocals);
   }, [changeVocals]);
 
+  const handlePlayPause = useCallback(() => {
+    if(state.playing){
+      pause();
+    } else {
+      play();
+    }
+  }, [state.playing, play, pause]);
+
+  const handleSkip = useCallback((e) => {
+    skip(parseFloat(e.currentTarget.value));
+  }, [skip]);
+
   if(!state.recording) return;
 
   return (
-    <div className="border-t border-zinc-800 py-4">
+    <div className="border-t border-zinc-800">
       {vocalsOption && 
-        <div className="mb-3 px-5 w-full overflow-x-scroll lg:overflow-hidden flex lg:justify-center group">
-          <button disabled={currentRecordingHasVocals} onClick={handleVocalsChange} className={`group-hover:text-zinc-600 leading-none text-xs lowercase ${currentRecordingHasVocals ? "!text-zinc-50" : "hover:!text-zinc-300 text-zinc-800" } pr-3 bg-transparent transition-all duration-300`} value={true}>com voz</button>
-          <button disabled={!currentRecordingHasVocals} onClick={handleVocalsChange} className={`group-hover:text-zinc-600 leading-none text-xs lowercase ${!currentRecordingHasVocals ? "!text-zinc-50" : "hover:!text-zinc-300 text-zinc-800" } bg-transparent transition-all duration-300`} value={false}>sem voz</button>
+        <div className="my-2 px-5 w-full overflow-x-scroll lg:overflow-hidden flex justify-center">
+          <button disabled={currentRecordingHasVocals} onClick={handleVocalsChange} className={`leading-none text-xs lowercase hover:text-zinc-300 ${currentRecordingHasVocals ? "text-zinc-50" : "text-zinc-600" } pr-3 bg-transparent transition-all duration-300`} value={true}>com voz</button>
+          <button disabled={!currentRecordingHasVocals} onClick={handleVocalsChange} className={`leading-none text-xs lowercase hover:text-zinc-300 ${!currentRecordingHasVocals ? "text-zinc-50" : "text-zinc-600" } bg-transparent transition-all duration-300`} value={false}>sem voz</button>
         </div>
       }
-      {voiceOptions.length && 
-        <div className="mb-3 px-5 w-full overflow-x-scroll lg:overflow-hidden flex lg:justify-center group">
+      {voiceOptions && 
+        <div className="my-2 px-5 w-full overflow-x-scroll lg:overflow-hidden flex justify-center">
           {voiceOptions.map((option) => {
             const isActive = playingVoiceTypesIds.includes(option.id);
-            return <button disabled={isActive} onClick={handleVoiceChange} className={`group-hover:text-zinc-600 leading-none text-xs lowercase ${isActive ? "!text-zinc-50" : "hover:!text-zinc-300 text-zinc-800" } pr-3 bg-transparent transition-all duration-300`} key={option.id} value={option.id}>{option.title}</button>
+            return <button disabled={isActive} onClick={handleVoiceChange} className={`leading-none text-xs lowercase hover:text-zinc-300 ${isActive ? "text-zinc-50" : "text-zinc-600" } pr-3 bg-transparent transition-all duration-300`} key={option.id} value={option.id}>{option.title}</button>
           })}
         </div>
       }
-      <div className="px-5">
-        {state.recording && (
-          <p>Player</p>
-        )}
-      </div>
+      {state.recording && (
+        <div className="px-5">
+          <Slider className={'my-4'}/>
+          <div className="my-2 flex justify-center gap-5 items-center">
+            <button className="opacity-0 w-6 h-6 pointer-events-none"></button>
+            <button value="-1" onClick={handleSkip} >
+              <Icon.SkipPrevious />
+            </button>
+            <button onClick={handlePlayPause} >
+              {state.playing ? 
+                <Icon.Pause className={""} /> 
+                  : <Icon.Play className={""} />
+              }
+            </button>
+            <button value="1" onClick={handleSkip} >
+              <Icon.SkipNext />
+            </button>
+            <button onClick={changeRepeatStatus} 
+              className={`${state.repeatStatus === NO_REPEAT ? 'text-zinc-500' : 'text-zinc-50'}`}
+            >
+              {state.repeatStatus === REPEAT_ALL && <Icon.Repeat />}
+              {state.repeatStatus === NO_REPEAT && <Icon.Repeat />}
+              {state.repeatStatus === REPEAT_ONE && <Icon.RepeatOne />}
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

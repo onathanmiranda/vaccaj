@@ -1,14 +1,14 @@
 import Models from "@/models";
-import SongPage from "@/components/general/song-page";
+import ModuloSongPage from "@/components/general/modulo-song-page";
 
 const { Modulos, Songs } = Models;
 
 export default async function Layout(props) {
   const moduloSlug = props.params.modulo;
-  const songSlug = props.params.song;
+  const songSlug = props.params.song?.length ? props.params.song[0] : null;
   const modulo = await Modulos.getModulosAndRelationsBySlug(moduloSlug);
-  const song = await Songs.getSongAndRelationsBySlug(songSlug);
-  return <p>{song.title}</p>;
+  const song = songSlug ? await Songs.getSongAndRelationsBySlug(songSlug) : null;
+  return <ModuloSongPage {...props} song={song} modulo={modulo} />;
 }
 
 /* export async function generateMetadata({ params }) {
@@ -38,5 +38,12 @@ export default async function Layout(props) {
 } */
 
 export async function generateStaticParams() {
-  return await Models.Modulos.getAllModulosAndRelatedSongSlugs();
+  const modulosAndSongSlugs = await Models.Modulos.getAllModulosAndRelatedSongSlugs();
+  const params = modulosAndSongSlugs.map((item) => {
+    return {
+      ...item,
+      song: [item.song]
+    }
+  });
+  return params;
 }

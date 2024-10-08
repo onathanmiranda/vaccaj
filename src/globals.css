@@ -17,11 +17,6 @@
   }
 }
 
-body {
-  color: var(--lightest);
-  background: var(--darkest);
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;

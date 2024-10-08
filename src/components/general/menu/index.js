@@ -6,10 +6,10 @@ import { useParams } from 'next/navigation'
 export default function Menu({ className = "", modulos = [] }){
   const params = useParams();
   return (
-    <ul className={`group flex gap-8 text-sm ${className}`}>
+    <ul className={`flex gap-8 text-sm ${className}`}>
       {modulos.map((modulo) => (
-        <li key={modulo.url} className={`group-hover:text-zinc-600 ${modulo.slug === params.modulo ? "!text-zinc-50" : "hover:!text-zinc-300 text-zinc-800"} transition-colors duration-500`}>
-          <Link href={modulo.url}>{modulo.title}</Link>
+        <li key={modulo.url} className={`hover:text-zinc-300 ${modulo.slug === params.modulo ? "text-zinc-50" : "text-zinc-600"} transition-colors duration-500`}>
+          <Link href={modulo.url}>{modulo.short_title}</Link>
         </li>
       ))}
     </ul>
