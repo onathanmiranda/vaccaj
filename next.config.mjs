@@ -7,6 +7,11 @@ const nextConfig = {
         destination: '/modulos/vaccaj',
         permanent: false,
       },
+      {
+        source: '/modulos/aquecimentos',
+        destination: '/modulos/vocalizes',
+        permanent: false,
+      },
     ]
   },
 };

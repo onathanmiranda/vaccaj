@@ -11,14 +11,16 @@ export default async function Layout(props) {
   return <ModuloSongPage {...props} song={song} modulo={modulo} />;
 }
 
-/* export async function generateMetadata({ params }) {
-  const { moduloSlug } = params;
-  const modulo = getModuloBySlug(moduloSlug);
+export async function generateMetadata({ params }) {
+  const moduloSlug = params.modulo;
+  const songSlug = params.song?.length ? params.song[0] : null;
+  const modulo = await Modulos.getModulosAndRelationsBySlug(moduloSlug);
+  const song = songSlug ? await Songs.getSongAndRelationsBySlug(songSlug) : null;
 
-  const { title } = modulo;
-  const description = modulo.about.intro.substring(0, 155);
-  const url = `${configs.metadata.url}/modulos/${moduloSlug}`;
-
+  const title = song ? `${song.beginning} - ${song.title}` : modulo.title;
+  const description = song ? song.instructions : modulo.about.intro;
+  const url = song ? song.url : modulo.url;
+  
   return {
     title,
     description,
@@ -33,9 +35,10 @@ export default async function Layout(props) {
     twitter: {
       title,
       description,
+      url
     }
   }
-} */
+}
 
 export async function generateStaticParams() {
   const modulosAndSongSlugs = await Models.Modulos.getAllModulosAndRelatedSongSlugs();

@@ -95,6 +95,7 @@ class Modulo extends SupabaseTable {
         slug: moduloSlug,
         about,
         short_title,
+        url: this.generateModuloURL(modulo),
         lessons: modules_lessons.map(({ lessons: lesson }) => ({
           id: lesson.id,
           title: lesson.title,
@@ -115,7 +116,7 @@ class Modulo extends SupabaseTable {
           }),
         })),
       };
-      
+
       formattedData.songs = moduloSongs;
       return formattedData;
     } catch (error) {
