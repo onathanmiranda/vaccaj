@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { useCallback, useContext, useMemo, useState } from "react";
 
 import { H1 } from "@/components/atoms/headings";
 import P from "@/components/atoms/p";
