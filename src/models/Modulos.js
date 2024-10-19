@@ -164,7 +164,7 @@ class Modulo extends SupabaseTable {
       });
 
       return data.map((modulo) => {
-        const moduloUrl = Modulo.generateModuloURL(modulo);
+        const moduloUrl = this.generateModuloURL(modulo);
         const songs = modulo.modules_lessons.flatMap((moduloLesson) =>
           moduloLesson.lessons.lessons_songs.map((song) => ({
             url: Songs.generateSongURL(song.songs, modulo),
