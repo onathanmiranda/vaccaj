@@ -1,24 +1,24 @@
 const Play = ({ className }) => {
   return (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m400-338 222-142-222-142v284Zm79.72 222q-75.36 0-141.26-28.91-65.9-28.91-115.23-78.19-49.34-49.28-78.28-115.22Q116-404.27 116-479.83q0-75.44 28.97-141.88 28.97-66.43 78.53-116.04 49.57-49.61 115.15-77.93Q404.24-844 479.38-844q75.51 0 142.25 28.29 66.74 28.28 116.13 77.84 49.39 49.57 77.81 116.09Q844-555.26 844-479.63q0 75.63-28.29 141.03-28.28 65.39-77.83 114.99-49.55 49.6-116.05 78.61-66.5 29-142.11 29Zm.28-35q136.51 0 232.76-96.24Q809-343.49 809-480t-96.24-232.76Q616.51-809 480-809t-232.76 96.24Q151-616.51 151-480t96.24 232.76Q343.49-151 480-151Zm0-329Z"/></svg>
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m392-322 246-158-246-158v316Zm88.17 222q-78.81 0-148.21-29.91T211.23-211.1q-51.34-51.28-81.28-120.59Q100-401.01 100-479.83q0-79.07 29.97-148.69t81.35-121.13q51.38-51.5 120.59-80.92Q401.13-860 479.83-860q79.06 0 148.67 29.39 69.62 29.39 121.13 80.85 51.52 51.46 80.94 121.02Q860-559.18 860-480.09t-29.39 148.15q-29.39 69.06-80.84 120.49-51.44 51.44-120.98 81.45-69.55 30-148.62 30Z"/></svg>
   );
 };
 
 const Pause = ({ className }) => {
   return (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M394-338h35v-284h-35v284Zm137 0h35v-284h-35v284Zm-51.28 222q-75.36 0-141.26-28.91-65.9-28.91-115.23-78.19-49.34-49.28-78.28-115.22Q116-404.27 116-479.83q0-75.44 28.97-141.88 28.97-66.43 78.53-116.04 49.57-49.61 115.15-77.93Q404.24-844 479.38-844q75.51 0 142.25 28.29 66.74 28.28 116.13 77.84 49.39 49.57 77.81 116.09Q844-555.26 844-479.63q0 75.63-28.29 141.03-28.28 65.39-77.83 114.99-49.55 49.6-116.05 78.61-66.5 29-142.11 29Zm.28-35q136.51 0 232.76-96.24Q809-343.49 809-480t-96.24-232.76Q616.51-809 480-809t-232.76 96.24Q151-616.51 151-480t96.24 232.76Q343.49-151 480-151Zm0-329Z"/></svg>
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M380-330h54v-300h-54v300Zm146 0h54v-300h-54v300Zm-45.83 230q-78.81 0-148.21-29.91T211.23-211.1q-51.34-51.28-81.28-120.59Q100-401.01 100-479.83q0-79.07 29.97-148.69t81.35-121.13q51.38-51.5 120.59-80.92Q401.13-860 479.83-860q79.06 0 148.67 29.39 69.62 29.39 121.13 80.85 51.52 51.46 80.94 121.02Q860-559.18 860-480.09t-29.39 148.15q-29.39 69.06-80.84 120.49-51.44 51.44-120.98 81.45-69.55 30-148.62 30Z"/></svg>
   )
 }
 
 const SkipNext = ({ className }) => {
   return (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M660-274v-412h54v412h-54Zm-414 0v-412l310 206-310 206Zm54-206Zm0 106 158-106-158-106v212Z"/></svg>
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M660-274v-412h54v412h-54Zm-414 0v-412l310 206-310 206Z"/></svg>
   );
 }
 
 const SkipPrevious = ({ className }) => {
   return (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M246-274v-412h54v412h-54Zm468 0L404-480l310-206v412Zm-54-206Zm0 106v-212L502-480l158 106Z"/></svg>
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M246-274v-412h54v412h-54Zm468 0L404-480l310-206v412Z"/></svg>
   );
 }
 
@@ -37,13 +37,13 @@ const Logo = ({ className }) => {
 
 const Repeat = ({ className }) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M284-99 140-243l144-144 39 38-79 79h458v-163h54v217H244l79 79-39 38Zm-80-427v-217h513l-79-79 39-38 144 144-144 144-39-38 79-79H258v163h-54Z"/></svg>
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M284-99 140-243l144-144 39 38-79 79h458v-163h54v217H244l79 79-39 38Zm-80-427v-217h513l-79-79 39-38 144 144-144 144-39-38 79-79H258v163h-54Z"/></svg>
   )
 }
 
 const RepeatOne = ({ className }) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M469-367v-183h-53v-44h97v227h-44ZM284-99 140-243l144-144 39 38-79 79h458v-163h54v217H244l79 79-39 38Zm-80-427v-217h513l-79-79 39-38 144 144-144 144-39-38 79-79H258v163h-54Z"/></svg>
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M469-367v-183h-53v-44h97v227h-44ZM284-99 140-243l144-144 39 38-79 79h458v-163h54v217H244l79 79-39 38Zm-80-427v-217h513l-79-79 39-38 144 144-144 144-39-38 79-79H258v163h-54Z"/></svg>
   )
 }
 

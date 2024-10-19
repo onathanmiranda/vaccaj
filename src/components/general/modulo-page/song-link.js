@@ -22,7 +22,7 @@ export default function SongLink({ song }) {
         }
       }}
       href={song.url}
-      className={`rounded-full mt-1 inline-flex items-center hover:fill-zinc-300 transition-colors duration-500 hover:text-zinc-300 ${isSongSelected ? 'fill-zinc-50 text-zinc-50' : 'text-zinc-400 fill-zinc-400'}`}
+      className={`rounded-full mt-1 inline-flex gap-1 items-center hover:fill-zinc-300 transition-colors duration-500 hover:text-zinc-300 ${isSongSelected ? 'fill-zinc-50 text-zinc-50' : 'text-zinc-400 fill-zinc-400'}`}
     >
       {state.playing && isSongSelected ? 
         <Icon.Pause className={`h-10 w-10`} /> 

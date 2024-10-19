@@ -83,39 +83,43 @@ export default function Player(){
 
   return (
     <div className="border-t border-zinc-800">
-      {vocalsOption && 
-        <div className="my-2 px-5 w-full overflow-x-scroll lg:overflow-hidden flex justify-center">
-          <button disabled={currentRecordingHasVocals} onClick={handleVocalsChange} className={`leading-none text-xs lowercase hover:text-zinc-300 ${currentRecordingHasVocals ? "text-zinc-50" : "text-zinc-600" } pr-3 bg-transparent transition-all duration-300`} value={true}>com voz</button>
-          <button disabled={!currentRecordingHasVocals} onClick={handleVocalsChange} className={`leading-none text-xs lowercase hover:text-zinc-300 ${!currentRecordingHasVocals ? "text-zinc-50" : "text-zinc-600" } bg-transparent transition-all duration-300`} value={false}>sem voz</button>
-        </div>
-      }
-      {voiceOptions && 
-        <div className="my-2 px-5 w-full overflow-x-scroll lg:overflow-hidden flex justify-center">
-          {voiceOptions.map((option) => {
-            const isActive = playingVoiceTypesIds.includes(option.id);
-            return <button disabled={isActive} onClick={handleVoiceChange} className={`leading-none text-xs lowercase hover:text-zinc-300 ${isActive ? "text-zinc-50" : "text-zinc-600" } pr-3 bg-transparent transition-all duration-300`} key={option.id} value={option.id}>{option.title}</button>
-          })}
+      {(vocalsOption || voiceOptions) && 
+        <div className="flex flex-col gap-2 mt-3">
+          {vocalsOption && 
+            <div className="px-5 w-full overflow-x-scroll lg:overflow-hidden flex justify-center">
+              <button disabled={currentRecordingHasVocals} onClick={handleVocalsChange} className={`leading-none text-sm lowercase hover:text-zinc-300 ${currentRecordingHasVocals ? "text-zinc-50" : "text-zinc-600" } pr-3 bg-transparent transition-all duration-300`} value={true}>com voz</button>
+              <button disabled={!currentRecordingHasVocals} onClick={handleVocalsChange} className={`leading-none text-sm lowercase hover:text-zinc-300 ${!currentRecordingHasVocals ? "text-zinc-50" : "text-zinc-600" } bg-transparent transition-all duration-300`} value={false}>sem voz</button>
+            </div>
+          }
+          {voiceOptions && 
+            <div className="px-5 w-full overflow-x-scroll lg:overflow-hidden flex justify-center">
+              {voiceOptions.map((option) => {
+                const isActive = playingVoiceTypesIds.includes(option.id);
+                return <button disabled={isActive} onClick={handleVoiceChange} className={`leading-none text-sm lowercase hover:text-zinc-300 ${isActive ? "text-zinc-50" : "text-zinc-600" } pr-3 bg-transparent transition-all duration-300`} key={option.id} value={option.id}>{option.title}</button>
+              })}
+            </div>
+          }
         </div>
       }
       {state.recording && (
         <div className="px-5">
-          <Slider className={'my-4'}/>
+          <Slider className={'mt-4'}/>
           <div className="my-2 flex justify-center gap-5 items-center">
-            <button className="opacity-0 w-6 h-6 pointer-events-none"></button>
+            <button className="opacity-0 w-10 h-10 pointer-events-none"></button>
             <button value="-1" onClick={handleSkip} >
-              <Icon.SkipPrevious />
+              <Icon.SkipPrevious className={"h-10 w-10"} />
             </button>
             <button onClick={handlePlayPause} >
               {state.playing ? 
-                <Icon.Pause className={""} /> 
-                  : <Icon.Play className={""} />
+                <Icon.Pause className={"h-10 w-10"} /> 
+                  : <Icon.Play className={"h-10 w-10"} />
               }
             </button>
             <button value="1" onClick={handleSkip} >
-              <Icon.SkipNext />
+              <Icon.SkipNext className={"h-10 w-10"} />
             </button>
             <button onClick={changeRepeatStatus} 
-              className={`${state.repeatStatus === NO_REPEAT ? 'text-zinc-500' : 'text-zinc-50'}`}
+              className={`h-10 w-10 ${state.repeatStatus === NO_REPEAT ? 'text-zinc-500' : 'text-zinc-50'}`}
             >
               {state.repeatStatus === REPEAT_ALL && <Icon.Repeat />}
               {state.repeatStatus === NO_REPEAT && <Icon.Repeat />}
