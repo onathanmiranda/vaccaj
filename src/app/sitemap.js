@@ -9,7 +9,7 @@ export default async function sitemap() {
   const modulesSiteMapUrls = allModulosAndRelatedSongSlugs.reduce(
     (acc, modulo) => {
       acc.push({
-        url: modulo.url,
+        url: configs.metadata.url + modulo.url,
         lastModified: new Date(),
         changeFrequency: "yearly",
         priority: 1
@@ -17,7 +17,7 @@ export default async function sitemap() {
 
       modulo.songs.forEach((song) => {
         acc.push({
-          url: song.url,
+          url: configs.metadata.url + song.url,
           lastModified: new Date(),
           changeFrequency: "yearly",
           priority: 0.9

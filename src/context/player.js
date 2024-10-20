@@ -250,12 +250,13 @@ export default function PlayerContextProvider({ children }) {
 
   useEffect(() => {
     if(!state?.recording?.id) return;
-    audioRef.current.addEventListener('ended', onEnd);
-    audioRef.current.addEventListener('timeupdate', updateAudioPercentage);
+    const audio = audioRef.current;
+    audio.addEventListener('ended', onEnd);
+    audio.addEventListener('timeupdate', updateAudioPercentage);
     return () => {
-      if(!audioRef.current) return;
-      audioRef.current.removeEventListener('timeupdate', updateAudioPercentage);
-      audioRef.current.removeEventListener('ended', onEnd);
+      if(!audio) return;
+      audio.removeEventListener('timeupdate', updateAudioPercentage);
+      audio.removeEventListener('ended', onEnd);
     }
   }, [state.recording, onEnd, updateAudioPercentage])
 

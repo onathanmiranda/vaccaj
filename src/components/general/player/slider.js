@@ -58,7 +58,7 @@ function Slider({ className }) {
       onTouchStart={handleTouch}
     >
       <div 
-        className={`bg-zinc-800 absolute w-full h-2 group-hover:h-2 transition-[height] duration-500 relative`}
+        className={`bg-zinc-800 absolute w-full rounded-full h-2 group-hover:h-2 transition-[height] duration-500 relative`}
       >
         <button
           ref={handleRef}

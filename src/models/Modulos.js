@@ -14,7 +14,7 @@ class Modulo extends SupabaseTable {
       throw new Error("A valid 'modulo' object with a 'slug' property is required.");
     }
 
-    return `${configs.metadata.url}/modulos/${modulo.slug}`;
+    return `/modulos/${modulo.slug}`;
   }
 
   async getAll() {
