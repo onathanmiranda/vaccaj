@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 import Models from "@/models";
 import Menu from "@/components/general/menu";
 import Player from "@/components/general/player";
@@ -42,6 +44,7 @@ export default function RootLayout({ children }) {
           </div>
         </PlayerContextProvider>
       </body>
+      <GoogleAnalytics gaId="G-V8RDFC06E6" />
     </html>
   );
 }
