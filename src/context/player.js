@@ -4,11 +4,13 @@ import { useState, createContext, useCallback, useEffect, useRef } from "react";
 import { useRouter } from 'next/navigation';
 
 const [NO_REPEAT, REPEAT_ALL, REPEAT_ONE] = [-1, 0, 1];
+const audioSpeeds = [1, 1.25, 1.5, 1.75, 2, 0.5, 0.75];
 
 // Initial state for the context
 const initialState = {
   audioPercent: 0,
-  repeatStatus: REPEAT_ALL
+  repeatStatus: REPEAT_ALL,
+  playbackRate: audioSpeeds[0]
 };
 
 // Creating the context for Player state
@@ -76,6 +78,17 @@ export default function PlayerContextProvider({ children }) {
       }));
     }
   }, [state.song, state.recording]);
+
+  const changeSpeed = useCallback(() => {
+    if(!audioRef.current) return;
+    const playBackRateIndex = audioSpeeds.findIndex((value) => value === state.playbackRate);
+    const nextIndex = (playBackRateIndex + 1) % audioSpeeds.length;
+    if(!audioSpeeds[nextIndex]) throw new Error("Speed not found");
+    setState((oldState) => ({
+      ...oldState,
+      playbackRate: audioSpeeds[nextIndex]
+    }));
+  }, [state.playbackRate]);
 
   /**
    * Function to change the current recording and sheet based on a specific voice type ID
@@ -249,6 +262,11 @@ export default function PlayerContextProvider({ children }) {
   }, [state.recording, restart]);
 
   useEffect(() => {
+    if(!audioRef.current) return;
+    audioRef.current.playbackRate = state.playbackRate;
+  }, [state.playbackRate])
+
+  useEffect(() => {
     if(!state?.recording?.id) return;
     const audio = audioRef.current;
     audio.addEventListener('ended', onEnd);
@@ -274,7 +292,8 @@ export default function PlayerContextProvider({ children }) {
       REPEAT_ONE, 
       REPEAT_ALL, 
       NO_REPEAT,
-      changeRepeatStatus
+      changeRepeatStatus,
+      changeSpeed
     }}>
       {children}
       {state.recording && 

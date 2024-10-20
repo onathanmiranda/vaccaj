@@ -26,7 +26,7 @@ function checkRecordingBooleanOptions(recordings, option) {
 }
 
 export default function Player(){
-  const { state, changeVoice, changeVocals, play, pause, skip, changeRepeatStatus, REPEAT_ALL, NO_REPEAT, REPEAT_ONE } = useContext(PlayerContext);
+  const { changeSpeed, state, changeVoice, changeVocals, play, pause, skip, changeRepeatStatus, REPEAT_ALL, NO_REPEAT, REPEAT_ONE } = useContext(PlayerContext);
 
   const voiceOptions = useMemo(() => {
     if(!state.song) return false;
@@ -105,7 +105,9 @@ export default function Player(){
         <div className="px-5">
           <Slider className={'mt-4'}/>
           <div className="my-2 flex justify-center gap-5 items-center">
-            <button className="opacity-0 w-10 h-10 pointer-events-none"></button>
+            <button className={`${state.playbackRate === 1 ? 'text-zinc-500' : 'text-zinc-50'}`} onClick={changeSpeed}>
+              <Icon.Speed speed={state.playbackRate} className={"h-8 w-8"}/>
+            </button>
             <button value="-1" onClick={handleSkip} >
               <Icon.SkipPrevious className={"h-10 w-10"} />
             </button>
@@ -119,9 +121,9 @@ export default function Player(){
               <Icon.SkipNext className={"h-10 w-10"} />
             </button>
             <button onClick={changeRepeatStatus} 
-              className={`h-10 w-10 ${state.repeatStatus === NO_REPEAT ? 'text-zinc-500' : 'text-zinc-50'}`}
+              className={`${state.repeatStatus === NO_REPEAT ? 'text-zinc-500' : 'text-zinc-50'}`}
             >
-              {state.repeatStatus === REPEAT_ALL && <Icon.Repeat />}
+              {state.repeatStatus === REPEAT_ALL && <Icon.Repeat/>}
               {state.repeatStatus === NO_REPEAT && <Icon.Repeat />}
               {state.repeatStatus === REPEAT_ONE && <Icon.RepeatOne />}
             </button>

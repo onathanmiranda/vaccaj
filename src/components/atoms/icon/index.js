@@ -47,6 +47,21 @@ const RepeatOne = ({ className }) => {
   )
 }
 
+const Speed = ({ className, speed = 1 }) => {
+  return (
+    <>
+      {speed === 0.25 && <svg className={className} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M140-290v-54h54v54h-54Zm121 0v-130q0-36.73 24.64-61.36Q310.27-506 347-506h44q14 0 23-9t9-23v-46q0-14-9-23t-23-9H261v-54h130q36.73 0 61.36 24.64Q477-620.72 477-584v46q0 36.73-24.64 61.36Q427.73-452 391-452h-44q-14 0-23 9t-9 23v76h162v54H261Zm278 0 99-204-82-176h75l49 109 50-109h71l-82 174 101 206h-75l-68-134-67 134h-71Z"/></svg>}
+      {speed === 0.5 && <svg className={className} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M140-290v-54h54v54h-54Zm399 0 99-204-82-176h75l49 109 50-109h71l-82 174 101 206h-75l-68-134-67 134h-71Zm-268 0v-54h111q14 0 23-9t9-23v-44q0-14-9-23t-23-9H271v-218h197v54H325v110h57q36.73 0 61.36 24.64Q468-456.73 468-420v44q0 36.73-24.64 61.36Q418.73-290 382-290H271Z"/></svg>}
+      {speed === 0.75 && <svg className={className} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m539-290 99-204-82-176h75l49 109 50-109h71l-82 174 101 206h-75l-68-134-67 134h-71Zm-359 0v-54h54v54h-54Zm148 0 84-326H250v-54h152q25 0 44.5 12.5T466-622q0 16-4 20l-80 312h-54Z"/></svg>}
+      {speed === 1 && <svg className={className} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M246-290v-326h-82v-54h136v380h-54Zm188 0 120-202-108-178h64l76 124 76-124h62L618-492l120 202h-64l-90-150-88 150h-62Z"/></svg>}
+      {speed === 1.25 && <svg className={className} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M244-290v-54h54v54h-54Zm97 0v-130q0-36.73 24.64-61.36Q390.27-506 427-506h49q14 0 23-9t9-23v-46q0-14-9-23t-23-9H341v-54h135q36.72 0 61.36 24.64T562-584v46q0 36.73-24.64 61.36Q512.72-452 476-452h-49q-14 0-23 9t-9 23v76h167v54H341Zm-195 0v-326H74v-54h126v380h-54Zm459 0 99-204-82-176h75l49 109 50-109h71l-82 174 101 206h-75l-68-134-67 134h-71Z"/></svg>}
+      {speed === 1.5 && <svg className={className} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M244-290v-54h54v54h-54Zm-98 0v-326H74v-54h126v380h-54Zm459 0 99-204-82-176h75l49 109 50-109h71l-82 174 101 206h-75l-68-134-67 134h-71Zm-264 0v-54h135q14 0 23-9t9-23v-44q0-14-9-23t-23-9H341v-218h221v54H395v110h81q36.72 0 61.36 24.64Q562-456.73 562-420v44q0 36.73-24.64 61.36Q512.72-290 476-290H341Z"/></svg>}
+      {speed === 1.75 && <svg className={className} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M244-290v-54h54v54h-54Zm-98 0v-326H74v-54h126v380h-54Zm439 0 99-204-82-176h75l49 109 50-109h71l-82 174 101 206h-75l-68-134-67 134h-71Zm-193 0 84-326H314v-54h152q25 0 44.5 12.5T530-622q0 16-4 20l-80 312h-54Z"/></svg>}
+      {speed === 2 && <svg className={className} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M182-290v-130q0-36.73 24.64-61.36Q231.27-506 268-506h44q14 0 23-9t9-23v-46q0-14-9-23t-23-9H182v-54h130q36.73 0 61.36 24.64Q398-620.72 398-584v46q0 36.73-24.64 61.36Q348.73-452 312-452h-44q-14 0-23 9t-9 23v76h162v54H182Zm277 0 119-204-102-176h75l69 120 70-120h71L659-496l121 206h-75l-88-149-87 149h-71Z"/></svg>}
+    </>
+  )
+}
+
 const Icon = {
   Play,
   Pause,
@@ -54,7 +69,8 @@ const Icon = {
   SkipNext,
   SkipPrevious,
   Repeat,
-  RepeatOne
+  RepeatOne,
+  Speed
 };
 
 export default Icon;
