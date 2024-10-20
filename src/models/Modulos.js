@@ -1,6 +1,5 @@
 import SupabaseTable from "@/services/SupabaseTable";
 import Songs from "@/models/Songs";
-import configs from "@/configs";
 
 class Modulo extends SupabaseTable {
   static tableName = "modules";
