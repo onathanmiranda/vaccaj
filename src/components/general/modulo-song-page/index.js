@@ -17,7 +17,7 @@ export default function ModuloSongPage({ modulo, song }){
     if(!song) return;
     if(song?.id === playerState?.song?.id) return;
     setModuloAndSong(song, modulo);
-  }, [song, setModuloAndSong, playerState]);
+  }, [song, setModuloAndSong, playerState, modulo]);
 
   return (
     <div className="h-full flex flex-col">

@@ -2,7 +2,6 @@
 
 import { useState, createContext, useCallback, useEffect, useRef } from "react";
 import { useRouter } from 'next/navigation';
-import P from "@/components/atoms/p";
 
 const [NO_REPEAT, REPEAT_ALL, REPEAT_ONE] = [-1, 0, 1];
 const audioSpeeds = [1, 1.25, 1.5, 1.75, 2, 0.5, 0.75];
