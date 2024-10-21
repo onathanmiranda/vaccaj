@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
     <html lang="pt-BR">
       <body className="h-svh lowercase text-zinc-300 bg-zinc-900">
         <PlayerContextProvider>
-          <div className="grid grid-rows-[theme(spacing.12)_1fr_auto_theme(spacing.12)] lg:grid-rows-[theme(spacing.12)_1fr_auto] h-full max-h-svh">
+          <div className="grid grid-rows-[theme(spacing.12)_1fr_auto_auto] lg:grid-rows-[theme(spacing.12)_1fr_auto] h-full max-h-svh">
             <div className={`flex items-center justify-center`}>
               <nav className="flex items-center lg:justify-between px-6 max-w-screen-lg w-full">
                 <Link className={'text-zinc-50'} href="/" title="Vaccaj Homepage">

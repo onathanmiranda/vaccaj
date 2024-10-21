@@ -8,7 +8,7 @@ export default function manifest(){
     "theme_color": "#09090b",
     "display": "fullscreen",
     "scope": "/",
-    "start_url": "/vocalizes",
+    "start_url": "/modulos/vocalizes",
     "prefer_related_applications": true,
     "orientation": "portrait",
     "categories": ["education", "music", "entertainment"],
