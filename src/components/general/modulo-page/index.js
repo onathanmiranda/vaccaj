@@ -17,9 +17,9 @@ export default function ModuloPage({ modulo }) {
       </div>}
       <div className="px-6 mt-12 w-full max-w-screen-lg mx-auto">
         <H1 className="max-w-80">{modulo.title}</H1>
-        <div className="mt-6 lg:mt-10 flex flex-col lg:flex-row lg:justify-between">
+        <div className="mt-6 lg:mt-10 flex flex-col md:flex-row md:justify-between">
           <ModuloLessons lessons={modulo.lessons} className={`w-full max-w-80`} />
-          <ModuloAbout modulo={modulo} className={`mt-10 lg:mt-0 max-w-prose`} />
+          <ModuloAbout modulo={modulo} className={`mt-10 md:mt-0 max-w-prose`} />
         </div>
       </div>
     </section>

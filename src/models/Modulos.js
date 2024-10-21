@@ -215,4 +215,6 @@ class Modulo extends SupabaseTable {
   }
 }
 
-export default new Modulo();
+const ModuloInstance = new Modulo();
+
+export default ModuloInstance;

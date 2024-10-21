@@ -129,4 +129,6 @@ class Songs extends SupabaseTable {
   }
 }
 
-export default new Songs();
+const SongInstance = new Songs();
+
+export default SongInstance;

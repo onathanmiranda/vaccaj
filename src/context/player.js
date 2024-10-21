@@ -181,7 +181,7 @@ export default function PlayerContextProvider({ children }) {
         sheet
       }));
     }
-  }, [state.song, state.recording, getCurrentSongVoiceTypeRecording, getCurrentSongVoiceTypeSheet]);
+  }, [state.song, getCurrentSongVoiceTypeRecording, getCurrentSongVoiceTypeSheet]);
 
   const updateAudioTime = useCallback((percentage) => {
     if (!audioRef.current) return;
@@ -234,7 +234,7 @@ export default function PlayerContextProvider({ children }) {
     const nextSong = state.modulo.songs[nextSongIndex];
     if(!nextSong) return;
     router.push(nextSong.url);
-  }, [state.modulo, state.song]);
+  }, [state.modulo, state.song, router]);
 
   const updateAudioPercentage = useCallback(() => {
     if(!audioRef.current) return;

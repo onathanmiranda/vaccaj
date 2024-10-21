@@ -1,7 +1,6 @@
-import Models from "@/models";
+import Modulos from "@/models/Modulos";
+import Songs from "@/models/Songs";
 import ModuloSongPage from "@/components/general/modulo-song-page";
-
-const { Modulos, Songs } = Models;
 
 export default async function Layout(props) {
   const moduloSlug = props.params.modulo;
@@ -41,7 +40,7 @@ export async function generateMetadata({ params }) {
 }
 
 export async function generateStaticParams() {
-  const modulosAndSongSlugs = await Models.Modulos.getAllModulosAndRelatedSongSlugs();
+  const modulosAndSongSlugs = await Modulos.getAllModulosAndRelatedSongSlugs();
   const params = modulosAndSongSlugs.map((item) => {
     return {
       ...item,

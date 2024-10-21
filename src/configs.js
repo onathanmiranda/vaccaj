@@ -127,18 +127,8 @@ const configs = {
     }, */
   },
   viewport: {
-    themeColor: "#18181B",
+    themeColor: "#09090b",
     colorScheme: 'dark',
-  },
-  cookies: {
-    cookieConsentKey: "cookies-consent",
-    installBannerDismissKey: "install-banner-dismiss",
-    cookiesAllowedValue: "allowed",
-    cookiesNotAllowedValue: "not-allowed",
-    preferredRecordingsKey: "preferredRecording"
-  },
-  installBanner: {
-    displayDaysInterval: 30
   }
 };
 

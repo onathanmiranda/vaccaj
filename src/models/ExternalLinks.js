@@ -17,4 +17,5 @@ class ExternalLinks extends SupabaseTable {
   }
 }
 
-export default new ExternalLinks();
+const ExternalLinksInstance = new ExternalLinks();
+export default ExternalLinksInstance;

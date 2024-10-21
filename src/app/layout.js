@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { GoogleAnalytics } from '@next/third-parties/google'
 
-import Models from "@/models";
+import Modulos from "@/models/Modulos";
 import Menu from "@/components/general/menu";
 import Player from "@/components/general/player";
 
@@ -18,15 +18,16 @@ export const viewport = {
   ...configs.viewport
 };
 
-const modulos = await Models.Modulos.getAllModulosURLsAndTitles();
+const modulos = await Modulos.getAllModulosURLsAndTitles();
 
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
       <body className="h-svh lowercase text-zinc-300 bg-zinc-900">
         <PlayerContextProvider>
-          <div className="grid grid-rows-[theme(spacing.12)_1fr_auto_auto] lg:grid-rows-[theme(spacing.12)_1fr_auto] h-full max-h-svh">
-            <div className={`flex items-center justify-center`}>
+          <div className="grid grid-rows-[auto_1fr_auto_auto] lg:grid-rows-[auto_1fr_auto] h-full max-h-svh">
+            <div className={`flex flex-col items-center justify-center`}>
+              {/* <InstallPrompt /> */}
               <nav className="flex items-center lg:justify-between px-6 max-w-screen-lg w-full">
                 <Link className={'text-zinc-50'} href="/" title="Vaccaj Homepage">
                   <Icon.Logo className={'h-6 w-auto'} />

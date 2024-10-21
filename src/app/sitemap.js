@@ -1,10 +1,10 @@
-import Models from "@/models";
+import Modulos from "@/models/Modulos";
 
 import configs from "@/configs";
 
 export default async function sitemap() {
   const allModulosAndRelatedSongSlugs =
-    await Models.Modulos.getAllModulosAndRelatedSongURLs();
+    await Modulos.getAllModulosAndRelatedSongURLs();
 
   const modulesSiteMapUrls = allModulosAndRelatedSongSlugs.reduce(
     (acc, modulo) => {
