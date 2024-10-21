@@ -10,6 +10,26 @@
   --background-rgb: var(--lightest);
 }
 
+/* Hide scrollbar arrows (only visible on Windows/Linux) */
+::-webkit-scrollbar-button {
+  @apply hidden;
+}
+
+/* Style the scrollbar track */
+::-webkit-scrollbar {
+  @apply h-2 w-2 rounded-full bg-zinc-900;
+}
+
+/* Style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-zinc-700;
+}
+
+/* Optional: Add a shadow for better visibility */
+::-webkit-scrollbar-thumb:window-inactive {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: var(--lightest);

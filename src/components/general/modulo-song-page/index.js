@@ -25,12 +25,12 @@ export default function ModuloSongPage({ modulo, song }){
         <ModuloPage modulo={modulo} />
       </div>
       {playerState.song && (
-        <div className={`${hideSong ? 'h-full' : 'h-12'} overflow-hidden transition-all duration-1000`}>
-          <header onClick={() => setHideSong((oldState) => !oldState)} className='group bg-zinc-950 hover:cursor-pointer'>
-            <div className={`text-zinc-50 px-6 ${hideSong ? 'h-8' : 'h-12'} flex justify-between items-center mx-auto max-w-screen-lg transition-[height] duration-500`}>
+        <div className={`${hideSong ? 'h-full flex flex-col' : 'h-12 shrink-0'} overflow-hidden transition-all duration-1000`}>
+          <header onClick={() => setHideSong((oldState) => !oldState)} className={`group bg-zinc-950 hover:cursor-pointer ${hideSong ? 'h-8' : 'h-12'}`}>
+            <div className={`text-zinc-50 px-6 h-full flex justify-between items-center mx-auto max-w-screen-lg transition-[height] duration-500`}>
               <div>
                 {!hideSong && <h1 className="leading-none text-sm">
-                  {playerState.song.title}{(playerState.song.beginning && playerState.song.beginning !== "null") && <div className="font-thin text-xs italic">{playerState.song.beginning}</div>}
+                  {playerState.song.title}{(playerState.song.beginning && playerState.song.beginning !== "null") && <div className="leading-none font-thin text-xs italic">{playerState.song.beginning}</div>}
                 </h1>}
               </div>
               <button className="transition-colors duration-500 text-zinc-300 text-xs leading-none" >{hideSong ? "fechar instruções" : "ver instruções"}</button>

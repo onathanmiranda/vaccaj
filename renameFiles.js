@@ -23,6 +23,8 @@ function renameFilesInDirectory(directoryPath) {
         
         newFileName = newFileName.replace(/sopraano/g, 'soprano');
         newFileName = newFileName.replace(/vocalises/g, 'vocalizes');
+
+        newFileName = file.replace(/tenori/g, 'tenor');
         
         // Se o nome foi modificado, faz a renomeação
         if (newFileName !== file) {

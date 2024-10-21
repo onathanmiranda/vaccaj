@@ -86,13 +86,13 @@ export default function Player(){
       {(vocalsOption || voiceOptions) && 
         <div className="flex flex-col gap-2 mt-3">
           {vocalsOption && 
-            <div className="px-5 w-full overflow-x-scroll lg:overflow-hidden flex justify-center">
+            <div className="px-5 w-full overflow-x-scroll sm:overflow-hidden flex justify-center">
               <button disabled={currentRecordingHasVocals} onClick={handleVocalsChange} className={`leading-none text-sm lowercase hover:text-zinc-300 ${currentRecordingHasVocals ? "text-zinc-50" : "text-zinc-600" } pr-3 bg-transparent transition-all duration-300`} value={true}>com voz</button>
               <button disabled={!currentRecordingHasVocals} onClick={handleVocalsChange} className={`leading-none text-sm lowercase hover:text-zinc-300 ${!currentRecordingHasVocals ? "text-zinc-50" : "text-zinc-600" } bg-transparent transition-all duration-300`} value={false}>sem voz</button>
             </div>
           }
           {voiceOptions && 
-            <div className="px-5 w-full overflow-x-scroll lg:overflow-hidden flex justify-center">
+            <div className="px-5 w-full overflow-x-scroll sm:overflow-hidden flex justify-center">
               {voiceOptions.map((option) => {
                 const isActive = playingVoiceTypesIds.includes(option.id);
                 return <button disabled={isActive} onClick={handleVoiceChange} className={`leading-none text-sm lowercase hover:text-zinc-300 ${isActive ? "text-zinc-50" : "text-zinc-600" } pr-3 bg-transparent transition-all duration-300`} key={option.id} value={option.id}>{option.title}</button>

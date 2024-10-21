@@ -2,9 +2,11 @@
 
 import { useState, createContext, useCallback, useEffect, useRef } from "react";
 import { useRouter } from 'next/navigation';
+import P from "@/components/atoms/p";
 
 const [NO_REPEAT, REPEAT_ALL, REPEAT_ONE] = [-1, 0, 1];
 const audioSpeeds = [1, 1.25, 1.5, 1.75, 2, 0.5, 0.75];
+const PREFERRED_VOICE_TYPE_KEY = 'preferredVoiceType';
 
 // Initial state for the context
 const initialState = {
@@ -90,6 +92,66 @@ export default function PlayerContextProvider({ children }) {
     }));
   }, [state.playbackRate]);
 
+  const setDefaultVoice = useCallback(() => {
+    setState((oldState) => {
+      return {
+        ...oldState,
+        recording: oldState.song.recordings[0], // Set the first recording
+        sheet: oldState.song.sheets[0] // Set the first sheet
+      }
+    });
+  }, []);
+
+  const getCurrentSongVoiceTypeRecording = useCallback((id) => {
+      if (!state.song || !state.recording) return null;
+
+      // Define the fallback ID groups
+      const fallbackGroups = {
+          1: [2, 3],
+          2: [1, 3],
+          3: [1, 2],
+          4: [5, 6],
+          5: [4, 6],
+          6: [4, 5],
+      };
+
+      // Helper function to find a recording by a given ID
+      const findRecordingById = (voiceTypeId) => {
+          return state.song.recordings.find((recording) => {
+              return recording.voice_types.reduce((acc, voice_type) => {
+                  return (
+                      acc ||
+                      (voice_type.id === voiceTypeId &&
+                          recording.has_vocals === state.recording.has_vocals &&
+                          recording.has_instruments === state.recording.has_instruments)
+                  );
+              }, false);
+          });
+      };
+
+      // Try finding the recording with the given ID
+      let recording = findRecordingById(id);
+
+      // If not found, look for fallbacks
+      if (!recording && fallbackGroups[id]) {
+          for (let fallbackId of fallbackGroups[id]) {
+              recording = findRecordingById(fallbackId);
+              if (recording) break;
+          }
+      }
+
+      return recording;
+  }, [state.song, state.recording]);
+
+  const getCurrentSongVoiceTypeSheet = useCallback((id) => {
+    if(!state.song) return null;
+    return state.song.sheets.find((sheet) => {
+      return sheet.voice_types.reduce((acc, voice_type) => {
+        return acc || voice_type.id === id;
+      }, false);
+    });
+  }, [state.song]);
+
   /**
    * Function to change the current recording and sheet based on a specific voice type ID
    * It finds a recording and sheet that contains the selected voice type ID
@@ -98,22 +160,10 @@ export default function PlayerContextProvider({ children }) {
     if (!state.song) return;
     
     // Find a recording that has the selected voice type and matches the vocals and instruments status
-    const recording = state.song.recordings.find((recording) => {
-      return recording.voice_types.reduce((acc, voice_type) => {
-        return (acc || (
-          voice_type.id === id && (
-            recording.has_vocals === state.recording.has_vocals && recording.has_instruments === state.recording.has_instruments
-          )
-        ));
-      }, false);
-    });
+    const recording = getCurrentSongVoiceTypeRecording(id);
     
     // Find a sheet that has the selected voice type
-    const sheet = state.song.sheets.find((sheet) => {
-      return sheet.voice_types.reduce((acc, voice_type) => {
-        return acc || voice_type.id === id;
-      }, false);
-    });
+    const sheet = getCurrentSongVoiceTypeSheet(id);
 
     // Update the state with the new recording if found
     if (recording) {
@@ -121,6 +171,8 @@ export default function PlayerContextProvider({ children }) {
         ...oldState,
         recording
       }));
+
+      localStorage.setItem(PREFERRED_VOICE_TYPE_KEY, id);
     }
 
     // Update the state with the new sheet if found
@@ -130,7 +182,7 @@ export default function PlayerContextProvider({ children }) {
         sheet
       }));
     }
-  }, [state.song, state.recording]);
+  }, [state.song, state.recording, getCurrentSongVoiceTypeRecording, getCurrentSongVoiceTypeSheet]);
 
   const updateAudioTime = useCallback((percentage) => {
     if (!audioRef.current) return;
@@ -246,15 +298,20 @@ export default function PlayerContextProvider({ children }) {
    */
   useEffect(() => {
     if (!state.song) return;
+
+    const preferredVoiceType = parseInt(localStorage.getItem(PREFERRED_VOICE_TYPE_KEY));
     
-    setState((oldState) => {
-      return {
-        ...oldState,
-        recording: state.song.recordings[0], // Set the first recording
-        sheet: state.song.sheets[0] // Set the first sheet
-      }
-    });
-  }, [state.song]);
+    if(!preferredVoiceType){
+      return setDefaultVoice();
+    }
+    const preferredVoiceTypeRecording = getCurrentSongVoiceTypeRecording(preferredVoiceType);
+    
+    if(preferredVoiceTypeRecording){
+      return changeVoice(preferredVoiceType);
+    }
+
+    return setDefaultVoice();
+  }, [state.song, setDefaultVoice, getCurrentSongVoiceTypeRecording, changeVoice]);
 
   useEffect(() => {
     if(!state?.recording?.id) return;
