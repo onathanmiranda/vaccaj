@@ -180,6 +180,11 @@ export default function PlayerContextProvider({ children }) {
         ...oldState,
         sheet
       }));
+    } else {
+      setState((oldState) => ({
+        ...oldState,
+        sheet: null
+      }));
     }
   }, [state.song, getCurrentSongVoiceTypeRecording, getCurrentSongVoiceTypeSheet]);
 
@@ -229,12 +234,16 @@ export default function PlayerContextProvider({ children }) {
   const skip = useCallback((index = 1) => {
     if(!state.song) return;
     if(!state.modulo) return;
+    if(index < 0 && audioRef.current.currentTime > 1){
+      return restart();
+    }
     const currentSongIndex = state.modulo.songs.findIndex((song) => song.id === state.song.id);
     const nextSongIndex = currentSongIndex + index;
     const nextSong = state.modulo.songs[nextSongIndex];
+    if(!nextSong && index < 0) return restart();
     if(!nextSong) return;
     router.push(nextSong.url);
-  }, [state.modulo, state.song, router]);
+  }, [state.modulo, state.song, router, state.audioPercent]);
 
   const updateAudioPercentage = useCallback(() => {
     if(!audioRef.current) return;

@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
           <div className="grid grid-rows-[auto_1fr_auto_auto] lg:grid-rows-[auto_1fr_auto] h-full max-h-svh">
             <div className={`flex flex-col items-center justify-center`}>
               {/* <InstallPrompt /> */}
-              <nav className="flex items-center lg:justify-between px-6 max-w-screen-lg w-full">
+              <nav className="flex items-center lg:justify-between px-6 max-w-screen-lg w-full min-h-12">
                 <Link className={'text-zinc-50'} href="/" title="Vaccaj Homepage">
                   <Icon.Logo className={'h-6 w-auto'} />
                 </Link>
