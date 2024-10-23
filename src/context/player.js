@@ -235,12 +235,12 @@ export default function PlayerContextProvider({ children }) {
     if(!state.song) return;
     if(!state.modulo) return;
     if(index < 0 && audioRef.current.currentTime > 1){
-      return restart();
+      return updateAudioTime(0);
     }
     const currentSongIndex = state.modulo.songs.findIndex((song) => song.id === state.song.id);
     const nextSongIndex = currentSongIndex + index;
     const nextSong = state.modulo.songs[nextSongIndex];
-    if(!nextSong && index < 0) return restart();
+    if(!nextSong && index < 0) return updateAudioTime(0);
     if(!nextSong) return;
     router.push(nextSong.url);
   }, [state.modulo, state.song, router, state.audioPercent]);
