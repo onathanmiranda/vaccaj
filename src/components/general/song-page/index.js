@@ -58,7 +58,7 @@ export default function SongPage({ song, className = "" }) {
           >
             <div className="origin-center-top animate-scale-up-down">
               {playerState.sheet.image_files.map((file, index) => {
-                const lyrics = song.lyrics.replace(/\\n/g, ';');
+                const lyrics = song.lyrics ? song.lyrics.replace(/\\n/g, ';') : '';
                 const imageFilesLength = playerState.sheet.image_files.length;
                 return <img title={`${song.beginning ? `${song.beginning} | ` : ''}${song.title}${imageFilesLength ? ` - ${index + 1}` : ''}`} alt={lyrics} className={`transition-all duration-1000 max-w-none ${imageZoomed ? "w-[200vw] lg:w-full" : "w-full lg:w-[1024px]"} lg:mx-auto`} key={file.path} src={file.path} />
               })}

@@ -243,7 +243,7 @@ export default function PlayerContextProvider({ children }) {
     if(!nextSong && index < 0) return updateAudioTime(0);
     if(!nextSong) return;
     router.push(nextSong.url);
-  }, [state.modulo, state.song, router, state.audioPercent]);
+  }, [state.modulo, state.song, router, updateAudioTime]);
 
   const updateAudioPercentage = useCallback(() => {
     if(!audioRef.current) return;
