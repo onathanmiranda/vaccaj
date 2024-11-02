@@ -34,8 +34,10 @@ export default function SongPage({ song, className = "" }) {
   }, [setImageZoomed]);
 
   useEffect(() => {
-    setPrefersLyrics(localStorage.getItem(lyricPreferenceLocalStorageKey))
-  }, []);
+    if(hasLyrics){
+      setPrefersLyrics(localStorage.getItem(lyricPreferenceLocalStorageKey))
+    }
+  }, [hasLyrics]);
 
   return (
     <section className={`py-12 h-full overflow-y-scroll ${className}`}>
