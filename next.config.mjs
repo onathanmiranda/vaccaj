@@ -8,9 +8,14 @@ const nextConfig = {
         permanent: false,
       },
       {
-        source: '/modulos/aquecimentos',
-        destination: '/modulos/vocalizes',
-        permanent: false,
+        source: '/modulos/aquecimentos/:path*',
+        destination: '/modulos/vocalizes/:path*',
+        permanent: true,
+      },
+      {
+        source: '/modules/:path*',
+        destination: '/modulos/:path*',
+        permanent: true,
       },
     ]
   },
