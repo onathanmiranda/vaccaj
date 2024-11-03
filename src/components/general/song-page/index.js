@@ -43,7 +43,7 @@ export default function SongPage({ song, className = "" }) {
     <section className={`py-12 h-full overflow-y-scroll ${className}`}>
       <div className="max-w-screen-sm mx-auto px-6 lg:px-0">
         <H1>{song.title}</H1>
-        {song.beginning && song.beginning !== "null" && <P>{song.beginning}</P>}
+        {song.beginning && song.beginning !== "null" && <P className="italic">{song.beginning}</P>}
       </div>
       <div>
         {hasLyrics && playerState.sheet && 
