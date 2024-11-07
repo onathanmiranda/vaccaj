@@ -82,7 +82,7 @@ export default function SongPage({ song, className = "" }) {
                 {song.lyricsTranslation.split('\\n').map((line, i) => {
                 if(line === String()) return;
                   return <P lang="pt-BR" className={`${i > 0 ? "mt-1" : ""} normal-case italic`} key={line}>
-                    <span className="text-lg text-zinc-500">{line}</span>
+                    <span className="text-lg text-zinc-400">{line}</span>
                   </P>
                 })}
               </div>
