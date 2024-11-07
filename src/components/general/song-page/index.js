@@ -68,17 +68,29 @@ export default function SongPage({ song, className = "" }) {
           </figure>
         </>}
         {(hasLyrics && prefersLyrics) &&
-          <div className="max-w-screen-sm mx-auto mt-8 px-6 lg:px-0">
-            {song.lyrics.split('\\n').map((line, i) => {
+          <div className="max-w-screen-sm mx-auto mt-8 px-6 lg:px-0 flex flex-col sm:flex-row gap-8">
+            <div>
+              {song.lyrics.split('\\n').map((line, i) => {
               if(line === String()) return;
-              return <P className={`${i > 0 ? "mt-1" : ""} normal-case italic`} key={line}>
-                <span className="text-lg text-zinc-50">{line}</span>
-              </P>
-            })}
+                return <P lang="it" className={`${i > 0 ? "mt-1" : ""} normal-case italic`} key={line}>
+                  <span className="text-lg text-zinc-50">{line}</span>
+                </P>
+              })}
+            </div>
+            {song.lyricsTranslation && 
+              <div>
+                {song.lyricsTranslation.split('\\n').map((line, i) => {
+                if(line === String()) return;
+                  return <P lang="pt-BR" className={`${i > 0 ? "mt-1" : ""} normal-case italic`} key={line}>
+                    <span className="text-lg text-zinc-500">{line}</span>
+                  </P>
+                })}
+              </div>
+            }
           </div>
         }
       </div>
-      <div className="max-w-screen-sm mx-auto mt-8 px-6 lg:px-0">
+      <div className="max-w-screen-sm mx-auto mt-20 px-6 lg:px-0">
         {songInstructions.map((paragraph, i) => {
           if(paragraph === String()) return;
           return <P className={`${i > 0 ? "mt-4" : "mt-8"} normal-case`} key={paragraph}>{paragraph}</P>

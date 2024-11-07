@@ -43,6 +43,7 @@ class Songs extends SupabaseTable {
           beginning,
           instructions,
           lyrics,
+          lyrics_translation,
           songs_recordings (
             recordings (
               id,
@@ -87,6 +88,7 @@ class Songs extends SupabaseTable {
         beginning: song.beginning,
         instructions: song.instructions,
         lyrics: song.lyrics,
+        lyricsTranslation: song.lyrics_translation,
         recordings: song.songs_recordings.map((sr) => {
           const recording = sr.recordings;
           return {
