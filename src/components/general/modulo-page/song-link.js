@@ -22,7 +22,7 @@ export default function SongLink({ song }) {
         }
       }}
       href={song.url}
-      className={`rounded-full mt-1 inline-flex gap-1 items-center hover:fill-zinc-300 transition-colors duration-500 hover:text-zinc-300 ${isSongSelected ? 'fill-zinc-50 text-zinc-50' : 'text-zinc-400 fill-zinc-400'}`}
+      className={`rounded-full mt-1 inline-flex gap-1 items-center transition-colors duration-500 ${isSongSelected ? 'fill-purple-400 text-purple-400 hover:fill-purple-200 hover:text-purple-200 ' : 'text-zinc-400 fill-zinc-400 hover:fill-zinc-300 hover:text-zinc-300 '}`}
     >
       {state.playing && isSongSelected ? 
         <Icon.Pause className={`h-10 w-10`} /> 
@@ -31,7 +31,7 @@ export default function SongLink({ song }) {
       <div>
         <div className={`text-sm ${isSongSelected ? 'font-bold' : ''}`}>{song.title}</div>
         {(song.beginning && song.beginning !== "null") && (
-          <div className={`font-thin text-xs italic`}>
+          <div className={`font-thin text-xs italic ${isSongSelected ? 'fill-purple-200 text-purple-200 hover:fill-purple-100 hover:text-purple-100 ' : 'text-zinc-400 fill-zinc-400 hover:fill-zinc-300 hover:text-zinc-300 '} ${isSongSelected ? 'font-bold' : ''}`}>
             {song.beginning}
           </div>
         )}

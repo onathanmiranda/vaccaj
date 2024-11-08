@@ -6,11 +6,15 @@ import { useRouter } from 'next/navigation';
 const [NO_REPEAT, REPEAT_ALL, REPEAT_ONE] = [-1, 0, 1];
 const audioSpeeds = [1, 1.25, 1.5, 1.75, 2, 0.5, 0.75];
 const PREFERRED_VOICE_TYPE_KEY = 'preferredVoiceType';
+const PREFERRED_REPEAT_CONFIG_KEY = 'preferredRepeatConfig';
 
 // Initial state for the context
 const initialState = {
   audioPercent: 0,
-  repeatStatus: REPEAT_ALL,
+  repeatStatus: (() => {
+    if(typeof localStorage === 'undefined') return REPEAT_ALL;
+    return localStorage.getItem(PREFERRED_REPEAT_CONFIG_KEY) ? Number(localStorage.getItem(PREFERRED_REPEAT_CONFIG_KEY)) : REPEAT_ALL
+  })(),
   playbackRate: audioSpeeds[0]
 };
 
@@ -272,6 +276,9 @@ export default function PlayerContextProvider({ children }) {
         default:
           newRepeatStatus = oldState.repeatStatus;
       }
+
+      localStorage.setItem(PREFERRED_REPEAT_CONFIG_KEY, newRepeatStatus);
+
       return {
         ...oldState,
         repeatStatus: newRepeatStatus

@@ -105,7 +105,7 @@ export default function Player(){
         <div className="px-5">
           <Slider className={'mt-4'}/>
           <div className="my-2 flex justify-center gap-5 items-center">
-            <button className={`${state.playbackRate === 1 ? 'text-zinc-500' : 'text-zinc-50'}`} onClick={changeSpeed}>
+            <button className={`${state.playbackRate === 1 ? 'text-zinc-500' : 'text-purple-400'}`} onClick={changeSpeed}>
               <Icon.Speed speed={state.playbackRate} className={"h-8 w-8"}/>
             </button>
             <button value="-1" onClick={handleSkip} >
@@ -121,7 +121,7 @@ export default function Player(){
               <Icon.SkipNext className={"h-10 w-10"} />
             </button>
             <button onClick={changeRepeatStatus} 
-              className={`${state.repeatStatus === NO_REPEAT ? 'text-zinc-500' : 'text-zinc-50'}`}
+              className={`${state.repeatStatus === NO_REPEAT ? 'text-zinc-500' : 'text-purple-400'}`}
             >
               {state.repeatStatus === REPEAT_ALL && <Icon.Repeat/>}
               {state.repeatStatus === NO_REPEAT && <Icon.Repeat />}
