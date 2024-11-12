@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   async redirects() {
     return [
@@ -6,6 +7,11 @@ const nextConfig = {
         source: '/',
         destination: '/modulos/vaccaj',
         permanent: false,
+      },
+      {
+        source: '/modulos/vocalizes/vibracao-labial-descendente',
+        destination: '/modulos/vocalizes/vibracao-labial',
+        permanent: true,
       },
       {
         source: '/modulos/aquecimentos/:path*',
@@ -16,7 +22,7 @@ const nextConfig = {
         source: '/modules/:path*',
         destination: '/modulos/:path*',
         permanent: true,
-      },
+      }
     ]
   },
 };
