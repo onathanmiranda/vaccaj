@@ -30,7 +30,7 @@ export default function ModuloSongPage({ modulo, song }){
   }, [song, setModuloAndSong, playerState, modulo]);
 
   useEffect(() => {
-    if(!playerState.song.beginning) return;
+    if(!playerState?.song?.beginning) return;
     const intervalId = setInterval(() => {
       setTitleBeginningSwap((i) => !i);
     }, 5000);
