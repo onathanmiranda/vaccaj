@@ -47,9 +47,9 @@ export default function SongPage({ song, className = "" }) {
       </div>
       <div>
         {hasLyrics && playerState.sheet && 
-          <div className="max-w-screen-sm mx-auto px-6 lg:px-0 mt-4 flex text-sm justify-end items-center gap-4">
-            <button onClick={toggleLyrics} value="0" className={`${!prefersLyrics ? 'text-zinc-50 pointer-events-none' : 'text-zinc-600'} hover:text-zinc-300`}>partitura</button>
-            <button onClick={toggleLyrics} value="1" className={`${prefersLyrics ? 'text-zinc-50 pointer-events-none' : 'text-zinc-600'} hover:text-zinc-300`}>letra</button>
+          <div className="max-w-screen-sm mx-auto px-6 lg:px-0 mt-4 flex text-sm justify-end items-center gap-4 transition-colors duration-500">
+            <button onClick={toggleLyrics} value="0" className={`${!prefersLyrics ? 'text-purple-400 pointer-events-none' : 'text-zinc-600 hover:text-zinc-300'}`}>partitura</button>
+            <button onClick={toggleLyrics} value="1" className={`${prefersLyrics ? 'text-purple-400 pointer-events-none' : 'text-zinc-600 hover:text-zinc-300'}`}>letra</button>
           </div>
         }
         {(playerState.sheet && !prefersLyrics) && <>

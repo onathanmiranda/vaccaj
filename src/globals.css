@@ -41,4 +41,41 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .bg-gradient {
+    background: linear-gradient(
+      45deg, 
+      rgba(80, 0, 150, 1) 0%, 
+      rgba(130, 0, 200, 1) 20%, 
+      rgba(200, 0, 255, 1) 40%, 
+      rgba(160, 0, 180, 1) 60%, 
+      rgba(80, 0, 150, 1) 80%, 
+      rgba(130, 0, 200, 1) 100%
+    );
+  }
+
+  .bg-gradient-animate {
+    background-size: 300% 300%;
+    animation: circularMotion 10s linear infinite;
+    animation-play-state: running;
+  }
+
+  @keyframes circularMotion {
+    0% {
+      background-position: 50% 0%;
+    }
+    25% {
+      background-position: 100% 50%;
+    }
+    50% {
+      background-position: 50% 100%;
+    }
+    75% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 50% 0%;
+    }
+  }
 }
+

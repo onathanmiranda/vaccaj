@@ -81,21 +81,43 @@ export default function Player(){
 
   if(!state.recording) return;
 
+  const vocalOptionClassName = `leading-none text-sm lowercase pr-3 bg-transparent transition-all duration-300 hover:text-purple-200`
+
   return (
     <div className="border-t border-zinc-800">
       {(vocalsOption || voiceOptions) && 
         <div className="flex flex-col gap-2 mt-3">
           {vocalsOption && 
-            <div className="px-5 w-full overflow-x-scroll sm:overflow-hidden flex justify-center">
-              <button disabled={currentRecordingHasVocals} onClick={handleVocalsChange} className={`leading-none text-sm lowercase hover:text-zinc-300 ${currentRecordingHasVocals ? "text-zinc-50" : "text-zinc-600" } pr-3 bg-transparent transition-all duration-300`} value={true}>com voz</button>
-              <button disabled={!currentRecordingHasVocals} onClick={handleVocalsChange} className={`leading-none text-sm lowercase hover:text-zinc-300 ${!currentRecordingHasVocals ? "text-zinc-50" : "text-zinc-600" } bg-transparent transition-all duration-300`} value={false}>sem voz</button>
+            <div className="px-5 w-full overflow-x-scroll overflow-y-hidden sm:overflow-hidden flex justify-center">
+              <button 
+                disabled={currentRecordingHasVocals} 
+                onClick={handleVocalsChange} 
+                className={`
+                  ${vocalOptionClassName} 
+                  ${currentRecordingHasVocals ? "text-purple-400 pointer-events-none" : "text-zinc-600"}
+                `} 
+                value={true}
+              >
+                com voz
+              </button>
+              <button 
+                disabled={!currentRecordingHasVocals} 
+                onClick={handleVocalsChange} 
+                className={`
+                  ${vocalOptionClassName} 
+                  ${!currentRecordingHasVocals ? "text-purple-400 pointer-events-none" : "text-zinc-600"}
+                `} 
+                value={false}
+              >
+                sem voz
+              </button>
             </div>
           }
           {voiceOptions && 
-            <div className="px-5 w-full overflow-x-scroll sm:overflow-hidden flex justify-center">
+            <div className="px-5 w-full overflow-x-scroll overflow-y-hidden sm:overflow-hidden flex justify-center">
               {voiceOptions.map((option) => {
                 const isActive = playingVoiceTypesIds.includes(option.id);
-                return <button disabled={isActive} onClick={handleVoiceChange} className={`leading-none text-sm lowercase hover:text-zinc-300 ${isActive ? "text-zinc-50" : "text-zinc-600" } pr-3 bg-transparent transition-all duration-300`} key={option.id} value={option.id}>{option.title}</button>
+                return <button disabled={isActive} onClick={handleVoiceChange} className={`leading-none text-sm lowercase ${isActive ? "text-purple-400 pointer-events-none" : "text-zinc-600" } hover:text-zinc-300 pr-3 bg-transparent transition-all duration-300`} key={option.id} value={option.id}>{option.title}</button>
               })}
             </div>
           }
@@ -105,8 +127,9 @@ export default function Player(){
         <div className="px-5">
           <Slider className={'mt-4'}/>
           <div className="my-2 flex justify-center gap-5 items-center">
-            <button className={`${state.playbackRate === 1 ? 'text-zinc-500' : 'text-purple-400'}`} onClick={changeSpeed}>
+            <button className={`${state.playbackRate === 1 ? 'text-zinc-500' : 'text-purple-400'} hover:text-purple-200 transition-colors duration-500`} onClick={changeSpeed}>
               <Icon.Speed speed={state.playbackRate} className={"h-8 w-8"}/>
+
             </button>
             <button value="-1" onClick={handleSkip} >
               <Icon.SkipPrevious className={"h-10 w-10"} />
@@ -121,7 +144,7 @@ export default function Player(){
               <Icon.SkipNext className={"h-10 w-10"} />
             </button>
             <button onClick={changeRepeatStatus} 
-              className={`${state.repeatStatus === NO_REPEAT ? 'text-zinc-500' : 'text-purple-400'}`}
+              className={`${state.repeatStatus === NO_REPEAT ? 'text-zinc-500' : 'text-purple-400'} hover:text-purple-200 transition-colors duration-500`}
             >
               {state.repeatStatus === REPEAT_ALL && <Icon.Repeat/>}
               {state.repeatStatus === NO_REPEAT && <Icon.Repeat />}
