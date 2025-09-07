@@ -8,8 +8,8 @@ import { PlayerContext } from "@/context/player";
 
 const lyricPreferenceLocalStorageKey = 'prefersLyrics';
 
-export default function SongPage({ song, className = "" }) {
-  const { state: playerState } = useContext(PlayerContext);
+export default function SongPage({ song, modulo, className = "" }) {
+  const { state: playerState, setModuloAndSong } = useContext(PlayerContext);
   const [prefersLyrics, setPrefersLyrics] = useState(false);
   const [imageZoomed, setImageZoomed] = useState(false);
 
@@ -39,8 +39,12 @@ export default function SongPage({ song, className = "" }) {
     }
   }, [hasLyrics]);
 
+  useEffect(() => {
+    setModuloAndSong(song, modulo);
+  }, [setModuloAndSong, song, modulo]);
+
   return (
-    <section className={`py-12 h-full overflow-y-scroll ${className}`}>
+    <section className={`pb-12 pt-10 h-full overflow-y-scroll ${className}`}>
       <div className="max-w-screen-sm mx-auto px-6 lg:px-0">
         <H1>{song.title}</H1>
         {song.beginning && song.beginning !== "null" && <P className="italic">{song.beginning}</P>}
@@ -90,7 +94,7 @@ export default function SongPage({ song, className = "" }) {
           </div>
         }
       </div>
-      <div className="max-w-screen-sm mx-auto mt-20 px-6 lg:px-0">
+      <div className="max-w-screen-sm mx-auto px-6 lg:px-0">
         {songInstructions.map((paragraph, i) => {
           if(paragraph === String()) return;
           return <P className={`${i > 0 ? "mt-4" : "mt-8"} normal-case`} key={paragraph}>{paragraph}</P>

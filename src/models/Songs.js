@@ -29,8 +29,8 @@ class Songs extends SupabaseTable {
     }
   }
 
-  async getSongAndRelationsBySlug(slug) {
-    if (!slug || typeof slug !== "string") {
+  async getSongAggregateBySlugAndModulo(songSlug, modulo) {
+    if (!songSlug || typeof songSlug !== "string") {
       throw new Error("A valid 'slug' parameter is required.");
     }
 
@@ -72,11 +72,11 @@ class Songs extends SupabaseTable {
             )
           )
         `,
-        eq: [["slug", slug]],
+        eq: [["slug", songSlug]],
       });
 
       if (!data || data.length === 0) {
-        throw new Error(`Song with slug "${slug}" not found.`);
+        throw new Error(`Song with slug "${songSlug}" not found.`);
       }
 
       const [song] = data;
@@ -89,6 +89,7 @@ class Songs extends SupabaseTable {
         instructions: song.instructions,
         lyrics: song.lyrics,
         lyricsTranslation: song.lyrics_translation,
+        url: this.generateSongURL(song, modulo), // Placeholder modulo slug
         recordings: song.songs_recordings.map((sr) => {
           const recording = sr.recordings;
           return {

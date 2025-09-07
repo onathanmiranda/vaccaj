@@ -2,6 +2,7 @@
 import { useContext, useMemo, useCallback } from "react";
 import { PlayerContext } from "@/context/player";
 import Slider from './slider';
+import ActiveSong from "./activeSong";
 import Icon from "@/components/atoms/icon";
 
 function checkRecordingBooleanOptions(recordings, option) {
@@ -85,8 +86,9 @@ export default function Player(){
 
   return (
     <div className="border-t border-zinc-800">
+      {state.song && <ActiveSong />}
       {(vocalsOption || voiceOptions) && 
-        <div className="flex flex-col gap-2 mt-3">
+        <div className="flex flex-col gap-2 mt-4">
           {vocalsOption && 
             <div className="px-5 w-full overflow-x-scroll overflow-y-hidden sm:overflow-hidden flex justify-center">
               <button 

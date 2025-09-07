@@ -348,7 +348,7 @@ export default function PlayerContextProvider({ children }) {
       audio.removeEventListener('timeupdate', updateAudioPercentage);
       audio.removeEventListener('ended', onEnd);
     }
-  }, [state.recording, onEnd, updateAudioPercentage])
+  }, [state.recording, onEnd, updateAudioPercentage]);
 
   // Provide the state and actions (setModuloAndSong, changeVoice, changeVocals) to the rest of the app
   return (

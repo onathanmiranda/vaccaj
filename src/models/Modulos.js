@@ -47,7 +47,7 @@ class Modulo extends SupabaseTable {
     }
   }
 
-  async getModulosAndRelationsBySlug(slug) {
+  async getModuloAggregateBySlug(slug) {
     if (!slug || typeof slug !== "string") {
       throw new Error("A valid 'slug' parameter is required.");
     }
