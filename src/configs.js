@@ -26,7 +26,7 @@ const configs = {
     ],
     authors: [{
       name: authorName,
-      url: "https://www.linkedin.com/in/nathan-miranda-464973122/"
+      url: "https://www.linkedin.com/in/onathamiranda/"
     }],
     creator: authorName,
     publisher: authorName,
@@ -38,7 +38,7 @@ const configs = {
     manifest: "/manifest.json",
     locale: "pt_BR",
     type: "website",
-    url: process.env.NODE_ENV === "development" ? "" : process.env.SITE_URL,
+    url: process.env.NODE_ENV === "development" ? "http://localhost:3000" : process.env.SITE_URL,
     twitter: {
       card: 'summary_large_image',
       title: title,

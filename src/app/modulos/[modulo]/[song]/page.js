@@ -1,13 +1,49 @@
 import Modulos from "@/models/Modulos";
 import Songs from "@/models/Songs";
 import SongPage from "@/components/general/song-page";
+import Script from "next/script";
+import configs from "@/configs";
 
 export default async function Layout(props) {
   const songSlug = props.params.song;
   const moduloSlug = props.params.modulo;
   const modulo = moduloSlug ? await Modulos.getModuloAggregateBySlug(moduloSlug) : null;
   const song = songSlug ? await Songs.getSongAggregateBySlugAndModulo(songSlug, modulo) : null;
-  return <SongPage {...props} song={song} modulo={modulo} />;
+  return (
+    <>
+      <SongPage {...props} song={song} modulo={modulo} />;
+      <Script type="application/ld+json" id="audio-jsonld">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AudioObject",
+          "@id": configs.metadata.url + song.url,
+          url: configs.metadata.url + song.url,
+          name: `${song.title}${song.beginning ? ` | ${song.beginning}` : ''}`,
+          description: song.instructions,
+          contentUrl: configs.metadata.url + song.recordings[0].file_path,
+          encodingFormat: song.recordings[0].file_type,
+          // duration: song.recordings[0].duration || "PT2M30S",       // if available
+          // inLanguage: "it",                                        // adjust dynamically
+          // datePublished: song.publish_date || "2025-09-07",
+          // thumbnailUrl: song.thumbnail || "https://vaccaj.app/images/default-cover.jpg",
+          author: {
+            "@type": "Person",
+            name: "Nicola Vaccaj"
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Vaccaj App",
+            url: configs.metadata.url,
+          },
+          isPartOf: {
+            "@type": "CreativeWorkSeries",
+            name: "Vaccaj",
+            url: configs.metadata.url + modulo.url
+          }
+        })}
+      </Script>
+    </>
+  );
 }
 
 export async function generateMetadata({ params }) {
