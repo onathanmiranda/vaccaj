@@ -34,8 +34,6 @@ export default function ActiveSong(){
 
   if(!song || !modulo) return null;
 
-  console.log(song);
-
   return (
     <aside 
       className={`bg-gradient ${playerState.playing ? 'motion-safe:bg-gradient-animate' : ''} group bg-zinc-950 h-8`}>
