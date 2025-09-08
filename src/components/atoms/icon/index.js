@@ -66,6 +66,17 @@ const Cancel = ({ className }) => {
   return <svg className={className} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m334-296 146-146 146 146 38-38-146-146 146-146-38-38-146 146-146-146-38 38 146 146-146 146 38 38Zm146.17 196q-78.81 0-148.21-29.91T211.23-211.1q-51.34-51.28-81.28-120.59Q100-401.01 100-479.83q0-79.07 29.97-148.69t81.35-121.13q51.38-51.5 120.59-80.92Q401.13-860 479.83-860q79.06 0 148.67 29.39 69.62 29.39 121.13 80.85 51.52 51.46 80.94 121.02Q860-559.18 860-480.09t-29.39 148.15q-29.39 69.06-80.84 120.49-51.44 51.44-120.98 81.45-69.55 30-148.62 30Z"/></svg>
 }
 
+const Palestine = ({ className }) => {
+  return (
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 6 3" version="1.1">
+      <rect fill="#007A3D" width="6" height="3"/>
+      <rect fill="#FFF" width="6" height="2"/>
+      <rect width="6" height="1"/>
+      <path fill="#CE1126" d="M0,0l2,1.5L0,3Z"/>
+    </svg>
+  )
+}
+
 const Icon = {
   Play,
   Pause,
@@ -75,7 +86,8 @@ const Icon = {
   Repeat,
   RepeatOne,
   Speed,
-  Cancel
+  Cancel,
+  Palestine
 };
 
 export default Icon;
