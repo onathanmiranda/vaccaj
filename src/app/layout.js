@@ -1,21 +1,22 @@
-import Link from "next/link";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import Modulos from "@/models/Modulos";
+
 import Menu from "@/components/general/menu";
 import Player from "@/components/general/player";
+import Header from "@/components/general/header";
+
+import PlayerContextProvider from "@/context/player";
 
 import configs from "@/configs";
 import "@/globals.css";
-import PlayerContextProvider from "@/context/player";
-import Icon from "@/components/atoms/icon";
 
 export const metadata = {
-  ...configs.metadata
+  ...configs.metadata,
 };
 
 export const viewport = {
-  ...configs.viewport
+  ...configs.viewport,
 };
 
 const modulos = await Modulos.getAllModulosURLsAndTitles();
@@ -27,25 +28,15 @@ export default function RootLayout({ children }) {
         <PlayerContextProvider>
           <div className="grid grid-rows-[auto_1fr_auto_auto] lg:grid-rows-[auto_1fr_auto] h-full max-h-svh">
             <div className={`flex flex-col items-center justify-center`}>
-              {/* <InstallPrompt /> */}
-              <nav className="flex items-center lg:justify-between px-6 max-w-screen-lg w-full min-h-12">
-                <div className="flex items-center w-full lg:w-auto justify-between gap-4">
-                  <Link className={'text-purple-50 flex items-center justify-between md:justify-start gap-2'} href="/modulos/vocalizes" title="Vaccaj Homepage">
-                    <Icon.Logo className={'h-6 w-auto shrink-0'} />
-                  </Link>
-                  <div className="p-4 bg-zinc-800 rounded-full ml-2 h-3 text-gray-300 inline-flex items-center justify-end  gap-2">
-                    <Icon.Palestine className="inline-block w-6 h-6" />
-                    Free Palestine
-                  </div>
-                </div>
-                <Menu modulos={modulos} className={`hidden lg:flex`}/>
-              </nav>
+              <Header modulos={modulos} />
             </div>
             <main className="overflow-hidden">{children}</main>
             <aside className="overflow-hidden">
               <Player />
             </aside>
-            <div className={`border-t border-zinc-800 flex items-center justify-center lg:hidden`}>
+            <div
+              className={`border-t border-zinc-800 flex items-center justify-center lg:hidden`}
+            >
               <Menu modulos={modulos} />
             </div>
           </div>
