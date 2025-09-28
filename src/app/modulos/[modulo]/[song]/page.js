@@ -6,20 +6,24 @@ import configs from "@/configs";
 export default async function Layout(props) {
   const songSlug = props.params.song;
   const moduloSlug = props.params.modulo;
-  const modulo = moduloSlug ? await Modulos.getModuloAggregateBySlug(moduloSlug) : null;
-  const song = songSlug ? await Songs.getSongAggregateBySlugAndModulo(songSlug, modulo) : null;
+  const modulo = moduloSlug
+    ? await Modulos.getModuloAggregateBySlug(moduloSlug)
+    : null;
+  const song = songSlug
+    ? await Songs.getSongAggregateBySlugAndModulo(songSlug, modulo)
+    : null;
   return (
     <>
       <SongPage {...props} song={song} modulo={modulo} />;
-      <script 
-        type="application/ld+json" 
-        dangerouslySetInnerHTML={{ 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "AudioObject",
             "@id": configs.metadata.url + song.url,
             url: configs.metadata.url + song.url,
-            name: `${song.title}${song.beginning ? ` | ${song.beginning}` : ''}`,
+            name: `${song.title}${song.beginning ? ` | ${song.beginning}` : ""}`,
             description: song.instructions,
             contentUrl: configs.metadata.url + song.recordings[0].file_path,
             encodingFormat: song.recordings[0].file_type,
@@ -29,7 +33,7 @@ export default async function Layout(props) {
             // thumbnailUrl: song.thumbnail || "https://vaccaj.app/images/default-cover.jpg",
             author: {
               "@type": "Person",
-              name: "Nicola Vaccaj"
+              name: "Nicola Vaccaj",
             },
             publisher: {
               "@type": "Organization",
@@ -39,9 +43,9 @@ export default async function Layout(props) {
             isPartOf: {
               "@type": "CreativeWorkSeries",
               name: "Vaccaj",
-              url: configs.metadata.url + modulo.url
-            }
-          })
+              url: configs.metadata.url + modulo.url,
+            },
+          }),
         }}
       />
     </>
@@ -52,29 +56,33 @@ export async function generateMetadata({ params }) {
   const songSlug = params.song;
   const moduloSlug = params.modulo;
   const modulo = await Modulos.getModuloAggregateBySlug(moduloSlug);
-  const song = songSlug ? await Songs.getSongAggregateBySlugAndModulo(songSlug, modulo) : null;
+  const song = songSlug
+    ? await Songs.getSongAggregateBySlugAndModulo(songSlug, modulo)
+    : null;
 
-  const title = `${song.beginning} - ${song.title}`;
+  const titleSuffix =
+    modulo.slug === "vaccaj" ? "- Partitura, Tradução e Áudio" : "";
+  const title = `${song.beginning || modulo.title} - ${song.title} ${titleSuffix}`;
   const description = song.instructions;
   const url = song.url;
-  
+
   return {
     title,
     description,
     alternates: {
-      canonical: url
+      canonical: url,
     },
     openGraph: {
       title,
       description,
-      url
+      url,
     },
     twitter: {
       title,
       description,
-      url
-    }
-  }
+      url,
+    },
+  };
 }
 
 export async function generateStaticParams() {
@@ -82,8 +90,8 @@ export async function generateStaticParams() {
   const params = modulosAndSongSlugs.map((item) => {
     return {
       ...item,
-      song: item.song
-    }
+      song: item.song,
+    };
   });
   return params;
 }
