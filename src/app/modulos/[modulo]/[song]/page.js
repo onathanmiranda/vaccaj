@@ -62,8 +62,9 @@ export async function generateMetadata({ params }) {
 
   const titleSuffix =
     modulo.slug === "vaccaj" ? "- Partitura, Tradução e Áudio" : "";
-  const title = `${song.beginning || modulo.title} - ${song.title} ${titleSuffix}`;
-  const description = song.instructions;
+  const titlePrefix = modulo.slug === "vocalizes" ? `${modulo.title} -` : "";
+  const title = `${titlePrefix} ${song.beginning || modulo.title} - ${song.title} ${titleSuffix}`;
+  const description = `${song.instructions} ${song.lyrics}`;
   const url = song.url;
 
   return {
