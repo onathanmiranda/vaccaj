@@ -106,12 +106,6 @@ const configs = {
         }
       ],
     },
-    appLinks: {
-      web: {
-        url: 'https://vaccaj.app',
-        should_fallback: true,
-      }
-    },
     category: 'Music, Education, Singing Practice, Vocal Training',
     /* verification: {
       google: 'google',
